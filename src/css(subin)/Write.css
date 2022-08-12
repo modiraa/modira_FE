@@ -1,0 +1,13 @@
+.write{
+    width: 100%;
+    height: 100vh;
+    background-color: aqua;
+}
+
+.write_top{
+    width: 100%;
+    height: 75px;
+    background-color: aquamarine;
+    position: relative;
+    float: left;
+}
