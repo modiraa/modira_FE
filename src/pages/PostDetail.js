@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
+import MapgpsForDetail from "../components/MapgpsForDetail";
 
 const PostDetail = () => {
   const [count, setCount] = useState(0);
@@ -20,7 +21,11 @@ const PostDetail = () => {
       <p>Lorem ipsum dolor</p>
       <p>6월 9일 2명 참여 메뉴이름</p>
       <p>Lorem ipsum dolor</p>
-      <div>지도 GPS</div>
+      <p/>
+      <Box>
+        <MapgpsForDetail />
+      </Box>
+  
       <div>
         <p>Lorem ipsum dolor</p>
         <p>Lorem ipsum dolor</p>
@@ -31,10 +36,11 @@ const PostDetail = () => {
           <span>{count}</span>
         </div>
         <div>
-          <p>20대 여성만 신청가능한 모임입니다.</p> 
-          <p>Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Et id nam quis sodales. Eget lobortis
-          neque mi,</p>
+          <p>20대 여성만 신청가능한 모임입니다.</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et id nam
+            quis sodales. Eget lobortis neque mi,
+          </p>
         </div>
       </div>
     </Container>
@@ -49,4 +55,10 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   background-color: #e7e7e7;
+`;
+
+const Box = styled.div`
+  justify-content: center;
+ 
+width:100%;
 `;
