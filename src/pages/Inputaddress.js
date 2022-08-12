@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import DaumPostcodeEmbed from "react-daum-postcode";
 import Mapgps from "../components/Mapgps";
+import MapgpsForDetail from "../components/MapgpsForDetail";
 
 const Inputaddress = () => {
   const handleComplete = (data) => {
@@ -22,12 +23,13 @@ const Inputaddress = () => {
 
   return (
     <div>
-      {/* <DaumPostcodeEmbed
+      <DaumPostcodeEmbed
         onComplete={handleComplete}
         autoClose={false}
         theme={themeObj}
-      /> */}
+      />
        <Mapgps/>
+       <MapgpsForDetail/>
     </div>
    
   );
