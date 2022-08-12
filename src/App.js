@@ -9,34 +9,35 @@ import Post from "./pages/Post";
 import Write from "./pages/Write";
 import FirstLogin from "./pages/FirstLogin";
 import MyInfo from "./pages/MyInfo";
-import styled from"styled-components"
-import testimage from"../src/image/11.jpg"
+import styled from "styled-components";
+import testimage from "../src/image/11.jpg";
 import Enter from "./pages/Enter";
 import Inputaddress from "./pages/Inputaddress";
-
+import PostDetail from "./pages/PostDetail";
 
 function App() {
   return (
     <>
-     <Navbar/>
-    <Background>
-  <Test2>나는 없어질 애</Test2>
-    <Test1> <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/detail/:postId" element={<Detail />} />
-        <Route path="/post" element={<Post />} />
-        <Route path="/write" element={<Write />} />
-        <Route path="/myinfo" element={<MyInfo />} />
-        <Route path="/firstlogin" element={<FirstLogin />} />
-        <Route path="/enter" element={<Enter />} />
-        <Route path="/inputaddress" element={<Inputaddress />} />
-      </Routes>
-      </Test1>
-  </Background>
-   
-     
+      <Navbar />
+      <Background>
+        <Webview>나는 없어질 애</Webview>
+        <Appview>
+          {" "}
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/detail/:postId" element={<Detail />} />
+            <Route path="/post" element={<Post />} />
+            <Route path="/write" element={<Write />} />
+            <Route path="/myinfo" element={<MyInfo />} />
+            <Route path="/firstlogin" element={<FirstLogin />} />
+            <Route path="/enter" element={<Enter />} />
+            <Route path="/inputaddress" element={<Inputaddress />} />
+            <Route path="/postdetail" element={<PostDetail />} />
+          </Routes>
+        </Appview>
+      </Background>
     </>
   );
 }
@@ -44,44 +45,38 @@ function App() {
 export default App;
 
 const Background = styled.div`
-width: 100%;
-height: 100vh;
-background-image: url(${testimage});
-background-repeat: no-repeat;
-background-size:  100%;
+  width: 100%;
+  height: 100vh;
+  background-image: url(${testimage});
+  background-repeat: no-repeat;
+  background-size: 100%;
 
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-@media screen and (max-width: 900px){
- background-image: none;
- justify-content:center;
-}
-
-`
-const Test2 = styled.div`
-@media screen and (max-width: 900px){
-  display: none;
-  
-}
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @media screen and (max-width: 900px) {
+    background-image: none;
+    justify-content: center;
+  }
+`;
+const Webview = styled.div`
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
   width: 40%;
   height: 100vh;
-  background-color: blue;
+  background-color: whitesmoke;
+`;
 
-`
-
-const Test1=styled.div`
-overflow: auto;
-@media screen and (max-width: 900px){
-  width: 400px;
-  margin-right:0px;
-
-
-}
-  overflow: auto;
+const Appview = styled.div`
+  
+  @media screen and (max-width: 900px) {
+    width: 400px;
+    margin-right: 0px;
+  }
   width: 521px;
-  height: 887px;
+  height: 100vh;
   background: white;
-  margin-right:50px;
-
-`
+  margin-right: 50px;
+  overflow: auto;
+`;
