@@ -3,7 +3,7 @@ import styled from "styled-components";
 import DaumPostcodeEmbed from "react-daum-postcode";
 import Mapgps from "../components/Mapgps";
 
-const Inputaddress = () => {
+const Inputaddress = ({setJoso}) => {
   const handleComplete = (data) => {
     console.log(data);
   };
@@ -27,7 +27,7 @@ const Inputaddress = () => {
         autoClose={false}
         theme={themeObj}
       /> */}
-       <Mapgps/>
+       <Mapgps setJoso={setJoso}/>
     </div>
    
   );

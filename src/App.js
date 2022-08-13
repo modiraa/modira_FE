@@ -14,8 +14,11 @@ import testimage from"../src/image/11.jpg"
 import Inputaddress from"./pages/Inputaddress"
 import"./index.css"
 
-
 function App() {
+
+  // write에 쓸 가게 주소
+  let [joso,setJuso]=React.useState('')
+
   return (
     <>
       <Background>
@@ -28,10 +31,10 @@ function App() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/detail/:postId" element={<Detail />} />
             <Route path="/post" element={<Post />} />
-            <Route path="/write" element={<Write />} />
+            <Route path="/write" element={<Write joso={joso}/>} />
             <Route path="/myinfo" element={<MyInfo />} />
             <Route path="/firstlogin" element={<FirstLogin />} />
-            <Route path="/Inputaddress" element={<Inputaddress />} />
+            <Route path="/Inputaddress" element={<Inputaddress setJuso={setJuso}/>} />
           </Routes>
         </Test1>
       </Background>
