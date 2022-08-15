@@ -120,7 +120,7 @@ const FirstLogin = () => {
               10대
             </option>
             <option value={"20대"}>20대</option>
-            <option value={"10대"}>30대</option>
+            <option value={"30대"}>30대</option>
           </select>
         </InputBox>
         <InputBox>

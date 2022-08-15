@@ -11,7 +11,11 @@ const Inputaddress = () => {
     console.log(data);
     navigate('/FirstLogin',{state:{homesi: data.sido,homegu: data.sigungu}})
   };
+  const daum = React.useRef();
 
+  React.useEffect(()=>{
+    console.log(daum)
+  },[] )
   // var themeObj = {
   //   bgColor: "#935555", //바탕 배경색
   //   searchBgColor: "#7D4343", //검색창 배경색
@@ -29,10 +33,11 @@ const Inputaddress = () => {
       <DaumPostcodeEmbed
         onComplete={handleComplete}
         autoClose={false}
+        ref={daum}
         // theme={themeObj} 
       />
-       {/* <Mapgps/>
-       <MapgpsForDetail/> */}
+       <Mapgps/>
+       <MapgpsForDetail/>
     </div>
    
   );
