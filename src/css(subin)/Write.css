@@ -11,3 +11,10 @@
     position: relative;
     float: left;
 }
+
+.write_address{
+    width: 400px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: azure;
+}

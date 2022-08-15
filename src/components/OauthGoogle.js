@@ -11,6 +11,8 @@
 // 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
 
 const CLIENT_ID = process.env.REACT_APP_GOOGLE_KEY;
-const REDIRECT_URI =  "http://localhost:3000/";
+const REDIRECT_URI =  "http://localhost:3000/auth/google/callback";
+const response_type = "token";
+const scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
 
-export const GOOGLE_AUTH_URL = `https://accounts.google.com/o/oauth2/auth?&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile`;
+export const GOOGLE_AUTH_URL = `https://accounts.google.com/o/oauth2/auth?&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${response_type}&scope=${scope}`;
