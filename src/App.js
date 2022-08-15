@@ -26,6 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/oauth/main" element={<Main />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/detail/:postId" element={<Detail />} />
             <Route path="/post" element={<Post />} />

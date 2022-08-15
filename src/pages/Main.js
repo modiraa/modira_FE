@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Main = () => {
 
@@ -14,10 +15,18 @@ const Main = () => {
 
     // axios..?
     // React.useEffect()
+    const test=async()=>{
+
+ 
+      
+    
+    }
 
   return (
     <div className="main">
-      Main
+      여기나오냐?
+      <p/>
+      <button onClick={test}> 아 여기를 안했구나</button>
     </div>
   )
 }
