@@ -1,7 +1,12 @@
 import React,{useEffect,useRef} from 'react'
+import { useNavigate } from 'react-router-dom';
+
 
 const { kakao } = window;
 const Mapgps = () => {
+
+    const navigate = useNavigate();
+
     const refMap=useRef(null);
     const [menuSearch,setMenuSearch]=React.useState();
 
@@ -50,7 +55,7 @@ const Mapgps = () => {
                 infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
                 infowindow.open(map, marker);
                 console.log(place)// 수빈님이 이용할 수 있는 정보
-                
+                navigate('/Write',{state:{juso: place.address_name,x : place.x, y : place.y}},)
             });
         }
 

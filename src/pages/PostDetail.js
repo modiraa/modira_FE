@@ -22,9 +22,9 @@ const PostDetail = () => {
       <p>6월 9일 2명 참여 메뉴이름</p>
       <p>Lorem ipsum dolor</p>
       <p/>
-      <Box>
+      <MapBox>
         <MapgpsForDetail />
-      </Box>
+      </MapBox>
   
       <div>
         <p>Lorem ipsum dolor</p>
@@ -40,7 +40,7 @@ const PostDetail = () => {
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et id nam
             quis sodales. Eget lobortis neque mi,
-          </p>
+          </p>f
         </div>
       </div>
     </Container>
@@ -57,7 +57,7 @@ const Container = styled.div`
   background-color: #e7e7e7;
 `;
 
-const Box = styled.div`
+const MapBox = styled.div`
   justify-content: center;
  
 width:100%;
