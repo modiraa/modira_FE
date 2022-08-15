@@ -3,7 +3,11 @@ import styled from "styled-components";
 import DaumPostcodeEmbed from "react-daum-postcode";
 import Mapgps from "../components/Mapgps";
 import MapgpsForDetail from "../components/MapgpsForDetail";
+
+import MyCalendar from "../components/MyCalendar";
+
 import { useNavigate} from "react-router-dom";
+
 
 const Inputaddress = () => {
   const navigate = useNavigate();
@@ -11,6 +15,7 @@ const Inputaddress = () => {
     console.log(data);
     navigate('/FirstLogin',{state:{homesi: data.sido,homegu: data.sigungu}})
   };
+  // 검색페이지 색상수정가능
 
   // var themeObj = {
   //   bgColor: "#935555", //바탕 배경색
@@ -29,12 +34,12 @@ const Inputaddress = () => {
       <DaumPostcodeEmbed
         onComplete={handleComplete}
         autoClose={false}
-        // theme={themeObj} 
+
+        // theme={themeObj}
       />
-       {/* <Mapgps/>
-       <MapgpsForDetail/> */}
+    <MyCalendar/>
+
     </div>
-   
   );
 };
 
