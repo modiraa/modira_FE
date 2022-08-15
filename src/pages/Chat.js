@@ -5,7 +5,6 @@ import styled from "styled-components";
 import testimg from "../image/11.jpg";
 import { FiChevronLeft } from "react-icons/fi";
 import { BiExit } from "react-icons/bi";
-import { useNavigate } from "react-router";
 
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
@@ -16,7 +15,6 @@ const Chat = () => {
   const [sendMessage, setSendMessage] = React.useState("");
   const [sendNick, setSendNick] = React.useState("");
   const RefViewControll = React.useRef();
-  const navigate=useNavigate();
 
   React.useEffect(() => {
     // console.log(showMessage);
@@ -77,7 +75,6 @@ const Chat = () => {
     <div>
       <button onClick={connect}>연결!</button>
       <button onClick={disconnect}>소켓 연결 끊기!</button>
-      <button onClick={()=>navigate("/inputaddress")}>inputpage이동</button>
       <hr></hr>
       <input
         placeholder="nickname을 입력하세요"
