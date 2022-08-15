@@ -5,7 +5,6 @@ import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Chat from "./pages/Chat";
 import Detail from "./pages/Detail";
-import Post from "./pages/Post";
 import Write from "./pages/Write";
 import FirstLogin from "./pages/FirstLogin";
 import MyInfo from "./pages/MyInfo";
@@ -14,6 +13,8 @@ import testimage from "../src/image/11.jpg";
 import Enter from "./pages/Enter";
 import Inputaddress from "./pages/Inputaddress";
 import PostDetail from "./pages/PostDetail";
+import PostCard from "./components/PostCard";
+
 
 function App() {
   return (
@@ -28,13 +29,13 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/detail/:postId" element={<Detail />} />
-            <Route path="/post" element={<Post />} />
             <Route path="/write" element={<Write />} />
             <Route path="/myinfo" element={<MyInfo />} />
             <Route path="/firstlogin" element={<FirstLogin />} />
             <Route path="/enter" element={<Enter />} />
             <Route path="/inputaddress" element={<Inputaddress />} />
             <Route path="/postdetail" element={<PostDetail />} />
+            <Route path="/postcard" element={<PostCard />} />
           </Routes>
         </Appview>
       </Background>
