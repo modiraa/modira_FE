@@ -14,6 +14,8 @@ import testimage from "../src/image/11.jpg"
 import Enter from "./pages/Enter";
 import Inputaddress from "./pages/Inputaddress";
 import Kakaoredirect from "./pages/Kakaoredirect";
+import NaverRedirect from "./pages/NaverRedirect";
+import GoogleRedirect from "./pages/GoogleRedirect";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/auth/kakao/callback" element={<Kakaoredirect />} />
+            <Route path="/auth/naver/callback" element={<NaverRedirect />} />
+            <Route path="/auth/google/callback" element={<GoogleRedirect />} />
             <Route path="/login" element={<Login />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/detail/:postId" element={<Detail />} />

@@ -6,9 +6,10 @@ const NaverRedirect = () => {
     const navigate = useNavigate();
 
     let code = new URL(window.location.href).searchParams.get("code");
+    let state = new URL(window.location.href).searchParams.get("state");
 
     const test = async() =>{
-        await axios.get(`http://52.79.223.9/auth/kakao/callback?code=${code}`)
+    await axios.get(`http://52.79.223.9/auth/naver/callback?code=${code}&state=${state}`)
         .then((res) => {
             console.log(res); // 토큰이 넘어올 것임
             
@@ -25,8 +26,8 @@ const NaverRedirect = () => {
     }
 
     React.useEffect(()=>{
-        console.log(code)
-        test()
+        console.log(code, state)
+        // test()
     },[])
 
     return (
