@@ -9,34 +9,34 @@ import Post from "./pages/Post";
 import Write from "./pages/Write";
 import FirstLogin from "./pages/FirstLogin";
 import MyInfo from "./pages/MyInfo";
-import styled from"styled-components"
-import testimage from"../src/image/11.jpg"
+import styled from "styled-components"
+import testimage from "../src/image/11.jpg"
 import Enter from "./pages/Enter";
 import Inputaddress from "./pages/Inputaddress";
-
+import Kakaoredirect from "./pages/Kakaoredirect";
 
 function App() {
   return (
     <>
-     <Navbar/>
-    <Background>
-  <Test2>나는 없어질 애</Test2>
-    <Test1> <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/detail/:postId" element={<Detail />} />
-        <Route path="/post" element={<Post />} />
-        <Route path="/write" element={<Write />} />
-        <Route path="/myinfo" element={<MyInfo />} />
-        <Route path="/firstlogin" element={<FirstLogin />} />
-        <Route path="/enter" element={<Enter />} />
-        <Route path="/inputaddress" element={<Inputaddress />} />
-      </Routes>
-      </Test1>
-  </Background>
-   
-     
+      <Navbar />
+      <Background>
+        <Test2>나는 없어질 애</Test2>
+        <Test1>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/auth/kakao/callback" element={<Kakaoredirect />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/detail/:postId" element={<Detail />} />
+            <Route path="/post" element={<Post />} />
+            <Route path="/write" element={<Write />} />
+            <Route path="/myinfo" element={<MyInfo />} />
+            <Route path="/firstlogin" element={<FirstLogin />} />
+            <Route path="/enter" element={<Enter />} />
+            <Route path="/inputaddress" element={<Inputaddress />} />
+          </Routes>
+        </Test1>
+      </Background>
     </>
   );
 }
@@ -70,7 +70,7 @@ const Test2 = styled.div`
 
 `
 
-const Test1=styled.div`
+const Test1 = styled.div`
 overflow: auto;
 @media screen and (max-width: 900px){
   width: 400px;
