@@ -7,6 +7,7 @@ import MapgpsForDetail from "../components/MapgpsForDetail";
 import MyCalendar from "../components/MyCalendar";
 
 import { useNavigate} from "react-router-dom";
+import axios from "axios";
 
 
 const Inputaddress = () => {
@@ -28,6 +29,19 @@ const Inputaddress = () => {
   //   //emphTextColor: "", //강조 글자색
   //   //outlineColor: "", //테두리
   // };
+  const test=async()=>{
+    await axios.get("http://3.34.129.164/api/post/list")
+        .then((res) => {
+            console.log(res); // 토큰이 넘어올 것임
+
+            
+            // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
+            
+            }).catch((err) => {
+            console.log("소셜로그인 에러", err);
+            // navigate("/login"); // 로그인 실패하면 로그인화면으로 돌려보냄
+            })
+  }
 
   return (
     <div>
@@ -38,7 +52,9 @@ const Inputaddress = () => {
         // theme={themeObj}
       />
     <MyCalendar/>
-
+    {/* <Mapgps></Mapgps> */}
+{/* <MapgpsForDetail></MapgpsForDetail> */}
+<button onClick={test}>통신하자</button>
     </div>
   );
 };
