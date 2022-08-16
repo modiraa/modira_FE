@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Main = () => {
+
 
     // kakao/naver 인가 뽑아오기 (백엔드에 보낼 인가코드) 
     let code = new URL(window.location.href).searchParams.get("code");
@@ -14,10 +16,19 @@ const Main = () => {
 
     // axios..?
     // React.useEffect()
+    const test=async()=>{
+
+ 
+      
+    
+    }
+
 
   return (
     <div className="main">
-      Main
+      여기나오냐?
+      <p/>
+      <button > 아 여기를 안했구나</button>
     </div>
   )
 }

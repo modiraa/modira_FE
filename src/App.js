@@ -7,13 +7,15 @@ import Chat from "./pages/Chat";
 import Write from "./pages/Write";
 import FirstLogin from "./pages/FirstLogin";
 import MyInfo from "./pages/MyInfo";
-import styled from "styled-components";
-import testimage from "../src/image/11.jpg";
+import styled from "styled-components"
+import testimage from "../src/image/11.jpg"
 import Enter from "./pages/Enter";
 import Inputaddress from "./pages/Inputaddress";
+import Kakaoredirect from "./pages/Kakaoredirect";
+import NaverRedirect from "./pages/NaverRedirect";
+import GoogleRedirect from "./pages/GoogleRedirect";
 import PostDetail from "./pages/PostDetail";
 import PostCard from "./components/PostCard";
-
 
 function App() {
   return (
@@ -26,13 +28,17 @@ function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/oauth/main" element={<Main />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/write" element={<Write />} />
             <Route path="/myinfo" element={<MyInfo />} />
             <Route path="/firstlogin" element={<FirstLogin />} />
             <Route path="/enter" element={<Enter />} />
             <Route path="/inputaddress" element={<Inputaddress />} />
-            <Route path="/postdetail" element={<PostDetail />} />
+            <Route path="/auth/kakao/callback" element={<Kakaoredirect />} />
+            <Route path="/auth/naver/callback" element={<NaverRedirect />} />
+            <Route path="/auth/google/callback" element={<GoogleRedirect />} />
+            <Route path="/postdetail:postId" element={<PostDetail />} />
             <Route path="/postcard" element={<PostCard />} />
           </Routes>
         </Appview>
@@ -68,7 +74,6 @@ const Webview = styled.div`
 `;
 
 const Appview = styled.div`
-  
   @media screen and (max-width: 900px) {
     width: 400px;
     margin-right: 0px;

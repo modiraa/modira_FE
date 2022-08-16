@@ -3,7 +3,11 @@ import styled from "styled-components";
 import DaumPostcodeEmbed from "react-daum-postcode";
 import Mapgps from "../components/Mapgps";
 import MapgpsForDetail from "../components/MapgpsForDetail";
+
+import MyCalendar from "../components/MyCalendar";
+
 import { useNavigate} from "react-router-dom";
+
 
 const Inputaddress = () => {
   const navigate = useNavigate();
@@ -11,7 +15,9 @@ const Inputaddress = () => {
     console.log(data);
     navigate('/FirstLogin',{state:{homesi: data.sido,homegu: data.sigungu}})
   };
+
   const daum = React.useRef();
+
 
   React.useEffect(()=>{
     console.log(daum)
@@ -33,13 +39,15 @@ const Inputaddress = () => {
       <DaumPostcodeEmbed
         onComplete={handleComplete}
         autoClose={false}
-        ref={daum}
+       
         // theme={themeObj} 
       />
        <Mapgps/>
        <MapgpsForDetail/>
+    <MyCalendar/>
+
+
     </div>
-   
   );
 };
 
