@@ -8,6 +8,7 @@ import MyCalendar from "../components/MyCalendar";
 
 import { useNavigate} from "react-router-dom";
 import axios from "axios";
+import LowerNavbar from "../components/LowerNavbar";
 
 
 const Inputaddress = () => {
@@ -51,10 +52,11 @@ const Inputaddress = () => {
 
         // theme={themeObj}
       />
-    <MyCalendar/>
+    {/* <MyCalendar/> */}
     {/* <Mapgps></Mapgps> */}
 {/* <MapgpsForDetail></MapgpsForDetail> */}
-<button onClick={test}>통신하자</button>
+{/* <button onClick={test}>통신하자</button> */}
+<LowerNavbar/>
     </div>
   );
 };
