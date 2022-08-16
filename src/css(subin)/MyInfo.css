@@ -1,20 +1,49 @@
+
+
 .info_wrap{
     width: 100%;
-    height: 150px;
     background-color: aqua;
+    margin: 0 auto;
     float: left;
+    text-align: center;
 }
 
 .info_user_img{
-    width: 76px;
-    height: 76px;
-    margin:32px 10px 32px 0px;
-    background-color: gray;
-    border-radius: 15px;
+    width: 103px;
+    height: 103px;
+    margin: 119px auto 0 auto;
+    background-color: rgb(235, 235, 235);
+    border-radius: 20px;
     overflow: hidden;
 }
 
 .info_user_img>img{
-    width: 76px;
-    height: 76px;
+    width: 103px;
+    height: 103px;
+}
+
+.info_user_name{
+    width: 525px;
+    margin-top: 17px;
+    background-color: azure;
+}
+
+.info_user_name>h3{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.info_user_address{
+    width: 525px;
+    margin-top: 10px;
+    background-color: azure;
+}
+
+.info_user_address>.material-icons-outlined{
+    font-size: 16px;
+    float: left;
+}
+
+.info_user_address>h5{
+    font-size: 16px;
 }
