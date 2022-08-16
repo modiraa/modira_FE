@@ -20,11 +20,11 @@ import PostCard from "./components/PostCard";
 function App() {
   return (
     <>
-      <Navbar />
       <Background>
         <Webview>나는 없어질 애</Webview>
         <Appview>
           {" "}
+          <Navbar />
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/login" element={<Login />} />
