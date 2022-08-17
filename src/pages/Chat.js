@@ -5,6 +5,7 @@ import styled from "styled-components";
 import testimg from "../image/11.jpg";
 import { FiChevronLeft } from "react-icons/fi";
 import { BiExit } from "react-icons/bi";
+import "../css(subin)/chat.css";
 
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
@@ -20,11 +21,11 @@ const Chat = () => {
   React.useEffect(() => {
     // console.log(showMessage);
     //가장 최근 채팅 보여주기
-    console.log(enterChatRoom)
+    console.log(enterChatRoom);
     if (RefViewControll.current) {
       RefViewControll.current.scrollTop = RefViewControll.current.scrollHeight;
     }
-  }, [showMessage,enterChatRoom]);
+  }, [showMessage, enterChatRoom]);
   function connect() {
     var socket = new SockJS("http://13.125.116.193/ws/chat");
     stompClient = Stomp.over(socket);
@@ -38,15 +39,13 @@ const Chat = () => {
   function subscribed(greeting) {
     // console.log("여기안와?");
     const soketMessage = JSON.parse(greeting.body);
-    console.log("머야이거")
-        // console.log(soketMessage.type)
-        // enterChatRoom.push(soketMessage.message)
-        // setEnterChatRoom([...enterChatRoom])
-        // console.log(enterChatRoom)
-        showMessage.push(soketMessage);
-        setShowMessage([...showMessage]);
-     
-
+    console.log("머야이거");
+    // console.log(soketMessage.type)
+    // enterChatRoom.push(soketMessage.message)
+    // setEnterChatRoom([...enterChatRoom])
+    // console.log(enterChatRoom)
+    showMessage.push(soketMessage);
+    setShowMessage([...showMessage]);
 
     // console.log("쇼메세지", showMessage, "저장할애", soketMessage);
   }
@@ -110,17 +109,33 @@ const Chat = () => {
       <hr></hr>
 
       <hr />
-      <HeaderChatRoom>
-        <FiChevronLeft size={24} />
-        <div>방이름</div> <BiExit size={26} />
-      </HeaderChatRoom>
+      <div className="chat-header-wrap">
+        <div className="chat-header-icon" style={{ marginLeft: "28px" }}>
+          <span
+            className="material-symbols-outlined"
+            style={{ fontSize: "28px" }}
+          >
+            arrow_back_ios
+          </span>
+        </div>
+        <div className="chat-header-title">Lorem ipsum dolor...</div>{" "}
+        <div className="chat-header-icon" style={{ marginRight: "35px" }}>
+          <span class="material-icons-outlined" style={{ fontSize: "28px" }}>
+            logout
+          </span>
+        </div>
+      </div>
       <ContainerMessage ref={RefViewControll}>
         {showMessage.map((v, i, arr) => {
-          if(v.type=="ENTER"){
-            return(<div  key={i}>{v.message}</div>)
-          }else{
+          if (v.type == "ENTER") {
+            return <div key={i}>{v.message}</div>;
+          } else {
             if (sendNick !== v.sender) {
-              if (i !== 0 && arr[i - 1].sender == v.sender&& arr[i - 1].type!=="ENTER") {
+              if (
+                i !== 0 &&
+                arr[i - 1].sender == v.sender &&
+                arr[i - 1].type !== "ENTER"
+              ) {
                 return (
                   <div
                     key={i}
@@ -134,17 +149,15 @@ const Chat = () => {
                   </div>
                 );
               }
-              
+
               return (
-                
                 <WrapImgAndChat key={i}>
-                 
                   <WrapLeftChat>
                     <img
                       src={testimg}
                       style={{ height: "50px", width: "50px" }}
                     ></img>
-  
+
                     <ContainerNickAndText>
                       <div>{v.sender}</div>
                       <TextMessage>{v.message}</TextMessage>
@@ -153,7 +166,11 @@ const Chat = () => {
                 </WrapImgAndChat>
               );
             } else {
-              if (i !== 0 && arr[i - 1].sender == v.sender&&arr[i - 1].type!=="ENTER") {
+              if (
+                i !== 0 &&
+                arr[i - 1].sender == v.sender &&
+                arr[i - 1].type !== "ENTER"
+              ) {
                 return (
                   <div
                     key={i}
@@ -169,11 +186,10 @@ const Chat = () => {
                 );
               }
               return (
-                
                 <WrapImgAndChat key={i}>
                   <WrapRightChat>
                     <img src={testimg} style={{ height: "100%" }}></img>
-  
+
                     <ContainerNickAndText>
                       <div>{v.sender}</div>
                       <TextMessage>{v.message}</TextMessage>
@@ -183,30 +199,22 @@ const Chat = () => {
               );
             }
           }
-          
         })}
       </ContainerMessage>
-      <WrapChat>
-        <InputChatMessage
+      <div className="chat-input-wrap">
+        <input className="chat-input"
           placeholder="채팅입력"
           onChange={(e) => {
             setSendMessage(e.target.value);
           }}
         />
         <button onClick={sendMessageFN}>메시지보내기</button>
-      </WrapChat>
+      </div>
     </div>
   );
 };
 export default Chat;
-const HeaderChatRoom = styled.div`
-  display: flex;
-  flex-direction: row;
-  height: 75px;
-  align-items: center;
-  background-color: #e7e7e7;
-  justify-content: space-between;
-`;
+
 const TitleRoom = styled.div`
   font-size: 24px;
 `;
@@ -248,19 +256,5 @@ const TextMessage = styled.div`
   background-color: #565656;
   color: white;
 `;
-const WrapChat = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: #e7e7e7;
-  height: 96px;
-  align-items: center;
-`;
-const InputChatMessage = styled.input`
-  @media screen and (max-width: 900px) {
-    width: 90%;
-  }
-  width: 473px;
-  height: 42px;
-  border-radius: 24px;
-`;
+
+
