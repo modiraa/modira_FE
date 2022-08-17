@@ -13,7 +13,7 @@ const AgeDropdown = ({ age, setAge }) => {
       </Dropdownbtn>
       {isActive && (
         <Dropdowncontent>
-          {options.map((option) => {
+          {options.map((option) => (
             <Dropdownitem
               onClick={(e) => {
                 setAge(option);
@@ -21,8 +21,8 @@ const AgeDropdown = ({ age, setAge }) => {
               }}
             >
               {option}
-            </Dropdownitem>;
-          })}
+            </Dropdownitem>
+          ))}
         </Dropdowncontent>
       )}
     </Dropdown>
@@ -36,32 +36,31 @@ const Dropdown = styled.div`
   width: 100%;
   height: 15px;
   padding: 13px 0;
-  border-radius: 12px;
   position: relative;
 `;
 
 const Dropdownbtn = styled.div`
   padding: 15px;
+  height: 15px;
   background: #fff;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   border: 1px solid #a4a4a4;
   border-radius: 12px;
 `;
 
 const Dropdowncontent = styled.div`
-  position: absolute;
   display: flex;
   flex-direction: column;
   border-radius: 12px;
   border: 1px solid #a4a4a4;
   padding: 15px;
   margin-top: 10px;
-  width: 100%;
+  width: 91%;
 `;
 
 const Dropdownitem = styled.div`
+  background-color: white;
   padding: 10px;
   text-align: center;
   cursor: pointer;
