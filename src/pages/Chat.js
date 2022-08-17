@@ -14,16 +14,17 @@ const Chat = () => {
   const [showMessage, setShowMessage] = React.useState([]);
   const [sendMessage, setSendMessage] = React.useState("");
   const [sendNick, setSendNick] = React.useState("");
+  const [enterChatRoom, setEnterChatRoom] = React.useState([]);
   const RefViewControll = React.useRef();
 
   React.useEffect(() => {
     // console.log(showMessage);
     //가장 최근 채팅 보여주기
+    console.log(enterChatRoom)
     if (RefViewControll.current) {
       RefViewControll.current.scrollTop = RefViewControll.current.scrollHeight;
-   
     }
-  }, [showMessage]);
+  }, [showMessage,enterChatRoom]);
   function connect() {
     var socket = new SockJS("http://13.125.116.193/ws/chat");
     stompClient = Stomp.over(socket);
@@ -37,10 +38,15 @@ const Chat = () => {
   function subscribed(greeting) {
     // console.log("여기안와?");
     const soketMessage = JSON.parse(greeting.body);
+    console.log("머야이거")
+        // console.log(soketMessage.type)
+        // enterChatRoom.push(soketMessage.message)
+        // setEnterChatRoom([...enterChatRoom])
+        // console.log(enterChatRoom)
+        showMessage.push(soketMessage);
+        setShowMessage([...showMessage]);
+     
 
-    showMessage.push(soketMessage);
-
-    setShowMessage([...showMessage]);
 
     // console.log("쇼메세지", showMessage, "저장할애", soketMessage);
   }
@@ -50,9 +56,27 @@ const Chat = () => {
       stompClient.disconnect();
     }
     setIsConnected(false);
+    // console.log(stompClient !== null)
+    // setEnterChatRoom(false);
     // console.log("Disconnected");
   }
-  function sendNicknameFN() {}
+  function sendNicknameFN() {
+    try {
+      stompClient.send(
+        "/app/chat/message",
+        {},
+        JSON.stringify({
+          // message: sendMessage,
+          sender: sendNick,
+          type: "ENTER",
+          // roomId:"aa",
+        })
+      );
+    } catch (error) {
+      console.log(error);
+    }
+    setEnterChatRoom(true);
+  }
 
   function sendMessageFN() {
     try {
@@ -62,7 +86,7 @@ const Chat = () => {
         JSON.stringify({
           message: sendMessage,
           sender: sendNick,
-          // type:"aa",
+          // type:"MESSAGE",
           // roomId:"aa",
         })
       );
@@ -92,51 +116,74 @@ const Chat = () => {
       </HeaderChatRoom>
       <ContainerMessage ref={RefViewControll}>
         {showMessage.map((v, i, arr) => {
-          if (sendNick !== v.sender) {
-            if (i !== 0 && arr[i - 1].sender == v.sender) {
+          if(v.type=="ENTER"){
+            return(<div  key={i}>{v.message}</div>)
+          }else{
+            if (sendNick !== v.sender) {
+              if (i !== 0 && arr[i - 1].sender == v.sender&& arr[i - 1].type!=="ENTER") {
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      display: "flex",
+                      marginLeft: "70px",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <TextSameNick>{v.message}</TextSameNick>
+                  </div>
+                );
+              }
+              
               return (
-           <div  key={i} style={{display:"flex",marginLeft:"70px",marginTop:"10px"}}>
- <TextSameNick>{v.message}</TextSameNick>
-           </div>
+                
+                <WrapImgAndChat key={i}>
                  
-            
+                  <WrapLeftChat>
+                    <img
+                      src={testimg}
+                      style={{ height: "50px", width: "50px" }}
+                    ></img>
+  
+                    <ContainerNickAndText>
+                      <div>{v.sender}</div>
+                      <TextMessage>{v.message}</TextMessage>
+                    </ContainerNickAndText>
+                  </WrapLeftChat>
+                </WrapImgAndChat>
+              );
+            } else {
+              if (i !== 0 && arr[i - 1].sender == v.sender&&arr[i - 1].type!=="ENTER") {
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      display: "flex",
+                      marginRight: "70px",
+                      flexDirection: "row-reverse",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <TextSameNick>{v.message}</TextSameNick>
+                  </div>
+                );
+              }
+              return (
+                
+                <WrapImgAndChat key={i}>
+                  <WrapRightChat>
+                    <img src={testimg} style={{ height: "100%" }}></img>
+  
+                    <ContainerNickAndText>
+                      <div>{v.sender}</div>
+                      <TextMessage>{v.message}</TextMessage>
+                    </ContainerNickAndText>
+                  </WrapRightChat>
+                </WrapImgAndChat>
               );
             }
-            return (
-              <WrapImgAndChat key={i}>
-                <WrapLeftChat>
-                  <img src={testimg} style={{ height: "50px",width:"50px" }}></img>
-
-                  <ContainerNickAndText>
-                    <div>{v.sender}</div>
-                    <TextMessage>{v.message}</TextMessage>
-                  </ContainerNickAndText>
-                </WrapLeftChat>
-              </WrapImgAndChat>
-            );
-          } else {
-            if (i !== 0 && arr[i - 1].sender == v.sender) {
-              return (
-           <div key={i} style={{display:"flex",marginRight:"70px",flexDirection:"row-reverse",marginTop:"10px"}}>
- <TextSameNick >{v.message}</TextSameNick>
-           </div>
-                 
-            
-              );
-            }
-            return (
-              <WrapImgAndChat key={i}>
-                <WrapRightChat>
-                  <img src={testimg} style={{ height: "100%" }}></img>
-
-                  <ContainerNickAndText>
-                    <div>{v.sender}</div>
-                    <TextMessage>{v.message}</TextMessage>
-                  </ContainerNickAndText>
-                </WrapRightChat>
-              </WrapImgAndChat>
-            );
           }
+          
         })}
       </ContainerMessage>
       <WrapChat>
@@ -176,13 +223,13 @@ const WrapImgAndChat = styled.div`
 const WrapLeftChat = styled.div`
   display: flex;
   flex-direction: row !important;
-  
+
   height: 50px;
 `;
 const WrapRightChat = styled.div`
   display: flex;
   flex-direction: row-reverse !important;
-  
+
   height: 50px;
 `;
 
@@ -192,10 +239,10 @@ const ContainerNickAndText = styled.div`
   margin-left: 20px;
   margin-right: 20px;
 `;
-const TextSameNick=styled.div`
-background-color: #565656;
+const TextSameNick = styled.div`
+  background-color: #565656;
   color: white;
-  `
+`;
 
 const TextMessage = styled.div`
   background-color: #565656;

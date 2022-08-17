@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
+import AgeDropdown from "../components/AgeDropdown";
 
 const FirstLogin = () => {
   const navigate = useNavigate();
@@ -16,15 +17,14 @@ const FirstLogin = () => {
   const userProfileImage = React.useRef("");
   // 검색창에 검색어 변화
   const [nickName, setNickName] = React.useState("");
-  const [age, setAge] = React.useState("");
+  const [age, setAge] = React.useState("선택하기");
   const [gender, setGender] = React.useState("");
-  const [address, setAddress] = React.useState("");
 
   // const register = ()
 
   const PreviewProfileImg = (e) => {
     SetProfileImg(URL.createObjectURL(e.target.files[0]));
-    SetImgForServerType(e.target.files[0]);
+    SetImgForServerType(e.target.files[0]?.size > 5);
     console.log(ImgForServerType);
   };
   const ImageUpload = () => {
@@ -53,16 +53,12 @@ const FirstLogin = () => {
     formData.append("age", age);
     formData.append("gender", gender);
     formData.append("address", location.state.homesi + location.state.homegu);
-    formData.append("username","text");
+    formData.append("username", "text");
 
     await axios
-      .post(
-        "http://52.79.223.9/api/user/register",
-          formData,
-        {
-          headers: { "Content-Type": "multipart/form-data"},
-        }
-      )
+      .post("http://52.79.223.9/api/user/register", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
       .then((response) => {
         console.log("회원가입 완료", response);
         alert("가입성공");
@@ -99,8 +95,8 @@ const FirstLogin = () => {
         <ButtonImg onClick={ImageUpload}>프로필 선택</ButtonImg>
       </Box>
       <LoginBox>
+        <P>닉네임 </P>
         <InputBox>
-          <p>닉네임 </p>
           <Input
             type="text"
             name="nickName"
@@ -111,21 +107,17 @@ const FirstLogin = () => {
             }}
           ></Input>
         </InputBox>
+        <P>나이대 </P>
         <InputBox>
-          <Dropdowndown>
-            <Dropdowndownbtn onClick={(e) => setAge(!age)}>선택</Dropdowndownbtn>
-            {age && (
-              <Dropdowndowncontent>
-                <Dropdowndownitem>10대</Dropdowndownitem>
-                <Dropdowndownitem>20대</Dropdowndownitem>
-              </Dropdowndowncontent>
-            )}
-          </Dropdowndown>
+          <AgeDropdown age={age} setAge={setAge} />
         </InputBox>
+        <P>성별 </P>
         <InputBox>
-          <p>성별 </p>
           <GenderButton
-            color={gender === "여성" ? "#fff" : "#C4C4C4"}
+            onClick={() => {
+              selectGender("여성");
+            }}
+            color={gender === "여성" ? "#fff" : "#8B8B8B"}
             bg={gender === "여성" ? "#8B8B8B;" : "#fff"}
             border={gender === "여성" ? "1px solid gray" : "1px solid #C4C4C4"}
           >
@@ -135,22 +127,21 @@ const FirstLogin = () => {
             onClick={() => {
               selectGender("남성");
             }}
-            color={gender === "남성" ? "#fff" : "#C4C4C4"}
+            color={gender === "남성" ? "#fff" : "#8B8B8B"}
             bg={gender === "남성" ? "#8B8B8B;" : "#fff"}
             border={gender === "남성" ? "1px solid gray" : "1px solid #C4C4C4"}
           >
             남성
           </GenderButton>
         </InputBox>
+        <P>주소</P>
         <InputBox
           onClick={() => {
             navigate("/inputaddress");
           }}
         >
-          주소
           <Address placeholder="주소검색">
             <span>{location?.state?.homesi} </span>
-            주소검색🔍
             <span>{location?.state?.homegu} </span>
           </Address>
         </InputBox>
@@ -171,6 +162,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 100%;
   background-color: white;
 `;
 
@@ -180,7 +172,7 @@ const Box = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 25%;
+  height: 20%;
   background-color: #e7e7e7;
 `;
 
@@ -189,18 +181,22 @@ const LoginBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  margin: 30px;
   padding-top: 5%;
   background-color: white;
 `;
+const P = styled.div`
+  text-align: left;
+  font-weight: 800;
+`;
 
 const InputBox = styled.div`
-  justify-content: center;
+  justify-content: space-between;
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
-  margin: 15px;
+  margin: 10px 0;
 `;
 
 const Input = styled.input`
@@ -231,20 +227,6 @@ const ButtonSubmit = styled.button`
   cursor: auto;
 `;
 
-const ButtonImg = styled.button`
-  background-color: #b8b8b8;
-  width: 35%;
-  height: 33px;
-  border: none;
-  color: white;
-  padding: 5px 25px;
-  text-align: center;
-  font-size: 0.9rem;
-  margin-top: 25px;
-  border-radius: 35px;
-  cursor: auto;
-`;
-
 const Imgset = styled.div`
   border-radius: 50px;
   overflow: hidden;
@@ -256,6 +238,20 @@ const Img = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+`;
+
+const ButtonImg = styled.button`
+  background-color: #b8b8b8;
+  width: 35%;
+  height: 33px;
+  border: none;
+  color: white;
+  padding: 5px 25px;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  border-radius: 35px;
+  cursor: auto;
 `;
 
 const Address = styled.div`
@@ -271,51 +267,15 @@ const Address = styled.div`
 `;
 
 const GenderButton = styled.div`
-  width: 100px;
+  width: 150px;
   height: 15px;
   padding: 13px 30px;
-  text-align: center;
-  margin-right: 20px;
   font-size: 16px;
   font-weight: 500;
+  text-align: center;
   color: ${(props) => props.color};
   background-color: ${(props) => props.bg};
   border: ${(props) => props.border};
   border-radius: 12px;
   cursor: pointer;
-`;
-
-const Dropdowndown = styled.div`
-  width: 400px;
-  margin: 100px auto;
-  position: relative;
-  user-select: none;
-`;
-
-const Dropdowndownbtn = styled.button`
-  padding: 15px 20px;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #333;
-  cursor: pointer;
-`;
-
-const Dropdowndowncontent = styled.div`
-  display: flex;
-  flex-direction: column;
-  top: 110%;
-  padding: 10px;
-  left: 0;
-  width: 95%;
-`;
-
-const Dropdowndownitem = styled.div`
-  padding: 10px;
-  cursor: pointer;
-  transition: all 0.2s;
-  &:hover {
-    background:#f4f4f4;
-  }
 `;

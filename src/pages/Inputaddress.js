@@ -7,6 +7,8 @@ import MapgpsForDetail from "../components/MapgpsForDetail";
 import MyCalendar from "../components/MyCalendar";
 
 import { useNavigate} from "react-router-dom";
+import axios from "axios";
+import LowerNavbar from "../components/LowerNavbar";
 
 
 const Inputaddress = () => {
@@ -15,13 +17,8 @@ const Inputaddress = () => {
     console.log(data);
     navigate('/FirstLogin',{state:{homesi: data.sido,homegu: data.sigungu}})
   };
+  // 검색페이지 색상수정가능
 
-  const daum = React.useRef();
-
-
-  React.useEffect(()=>{
-    console.log(daum)
-  },[] )
   // var themeObj = {
   //   bgColor: "#935555", //바탕 배경색
   //   searchBgColor: "#7D4343", //검색창 배경색
@@ -33,20 +30,33 @@ const Inputaddress = () => {
   //   //emphTextColor: "", //강조 글자색
   //   //outlineColor: "", //테두리
   // };
+  const test=async()=>{
+    await axios.get("http://3.34.129.164/api/post/list")
+        .then((res) => {
+            console.log(res); // 토큰이 넘어올 것임
+
+            
+            // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
+            
+            }).catch((err) => {
+            console.log("소셜로그인 에러", err);
+            // navigate("/login"); // 로그인 실패하면 로그인화면으로 돌려보냄
+            })
+  }
 
   return (
     <div>
       <DaumPostcodeEmbed
         onComplete={handleComplete}
         autoClose={false}
-       
-        // theme={themeObj} 
+
+        // theme={themeObj}
       />
-       <Mapgps/>
-       <MapgpsForDetail/>
-    <MyCalendar/>
-
-
+    {/* <MyCalendar/> */}
+    {/* <Mapgps></Mapgps> */}
+{/* <MapgpsForDetail></MapgpsForDetail> */}
+{/* <button onClick={test}>통신하자</button> */}
+<LowerNavbar/>
     </div>
   );
 };
