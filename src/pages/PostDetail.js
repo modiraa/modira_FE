@@ -1,64 +1,115 @@
-import styled from "styled-components";
-import { useState, useEffect } from "react";
-import MapgpsForDetail from "../components/MapgpsForDetail";
+// import styled from "styled-components";
+// import { useState, useEffect } from "react";
+// import { useNavigate, useParams } from "react-router-dom";
+// import axios from "axios";
+// import MapgpsForDetail from "../components/MapgpsForDetail";
 
-const PostDetail = () => {
-  const [count, setCount] = useState(0);
+// function PostDetail() {
+//   const params = useParams();
+//   const navigate = useNavigate();
+//   const [detailData, setDetailData] = useState({});
 
-  const handleCountUpdate = () => {
-    setCount(count + 1);
-  };
+//   useEffect(() => {
+//     axios
+//       .get(`http://sparta-9kyo.shop/api/post/detail/${params.postId}`)
+//       .then((response) => {
+//         console.log(response);
+//         setDetailData({ ...response.data });
+//         console.log("api 호출 성공", params.postId);
+//       });
+//   }, [params.postId]); // [] : 안에 있는 값이 바뀌면 다시 useEffect 작동
+//   console.log(detailData);
 
-  // 렌더링 될때마다 매번 실행
-  useEffect(() => {
-    console.log("렌더링");
-  });
+//   return (
+//     <Container>
+//       <Summary>
+//         <Category>{category}</Category>
+//         <MeetTitle>{title}</MeetTitle>
+//         <MeetInfo>
+//           {date}
+//           {time}
+//           {numberOfPeople}
+//           {menu}
+//         </MeetInfo>
+//       </Summary>
+//       <div>음식점 주소</div>
+//       <Map>지도</Map>
+//       <Writer>
+//         <WriterImage>{profileImage}</WriterImage>
+//         <WriterName>{nickName}</WriterName>
+//         <WriterInfo>
+//           {gender}
+//           {age}
+//         </WriterInfo>
+//         <LikeIt>하뚜</LikeIt>
+//         <Limit>
+//           <p>20대 여성만 신청가능한 모임입니다.</p>
+//           <p>
+//             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et id nam
+//             quis sodales. Eget lobortis neque mi,
+//           </p>
+//           <ButtonSubmit>참여신청</ButtonSubmit>
+//         </Limit>
+//       </Writer>
+//     </Container>
+//   );
+// }
+// export default PostDetail;
 
-  return (
-    <Container>
-      <div>모임소개</div>
-      <p>N빵 모임(모임 카테고리)</p>
-      <p>Lorem ipsum dolor</p>
-      <p>6월 9일 2명 참여 메뉴이름</p>
-      <p>Lorem ipsum dolor</p>
-      <p/>
-      <MapBox>
-        <MapgpsForDetail />
-      </MapBox>
-  
-      <div>
-        <p>Lorem ipsum dolor</p>
-        <p>Lorem ipsum dolor</p>
-        <p>여성</p>
-        <p>20대</p>
-        <div>
-          <button onClick={handleCountUpdate}>❤</button>
-          <span>{count}</span>
-        </div>
-        <div>
-          <p>20대 여성만 신청가능한 모임입니다.</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et id nam
-            quis sodales. Eget lobortis neque mi,
-          </p>f
-        </div>
-      </div>
-    </Container>
-  );
-};
-export default PostDetail;
+// const Container = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   height: 100vh;
+//   width: 100%;
+//   background-color: #f1f1f1;
+// `;
 
-const Container = styled.div`
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  background-color: #e7e7e7;
-`;
+// const Summary = styled.div`
+//   width: 100%;
+//   height: 20%;
+//   background-color: #fff;
+// `;
 
-const MapBox = styled.div`
-  justify-content: center;
- 
-width:100%;
-`;
+// const Category = styled.div`
+//   font-size: 18px;
+// `;
+
+// const MeetTitle = styled.div`
+//   font-size: 31px;
+// `;
+
+// const MeetInfo = styled.div`
+//   font-size: 20px;
+//   color: #9a9a9a;
+// `;
+
+// const Map = styled.div`
+//   justify-content: center;
+//   width: 100%;
+// `;
+
+// const Writer = styled.div`
+//   width: 100%;
+//   height: 20%;
+//   background-color: #e7e7e7;
+// `;
+
+// const Limit = styled.div`
+//   width: 100%;
+//   height: 20%;
+//   background-color: #e7e7e7;
+// `;
+
+// const ButtonSubmit = styled.button`
+//   background-color: black;
+//   width: 70%;
+//   height: auto;
+//   border: none;
+//   color: white;
+//   padding: 12px 25px;
+//   text-align: center;
+//   font-size: 0.9rem;
+//   margin-top: 25px;
+//   border-radius: 35px;
+//   cursor: auto;
+// `;
