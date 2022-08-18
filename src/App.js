@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Main from "./pages/Main";
 import Login from "./pages/Login";
-import Navbar from "./components/Navbar";
 import Chat from "./pages/Chat";
 import Write from "./pages/Write";
 import FirstLogin from "./pages/FirstLogin";
@@ -16,22 +15,31 @@ import NaverRedirect from "./pages/NaverRedirect";
 import GoogleRedirect from "./pages/GoogleRedirect";
 import PostDetail from "./pages/PostDetail";
 import PostCard from "./components/PostCard";
+import Mapgps from "./components/Mapgps";
+import Test from "./components/Test";
+import WriteSelect from "./pages/WriteSelect";
 
 function App() {
+
+  // picker 값
+  const [controlledSwiper, setControlledSwiper] = React.useState(null);
+
   return (
     <>
       <Background>
         <Webview>나는 없어질 애</Webview>
         <Appview>
           {" "}
-          <Navbar />
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/login" element={<Login />} />
             <Route path="/oauth/main" element={<Main />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/write" element={<Write />} />
+            <Route path="/writeselect" element={<WriteSelect/>} />
             <Route path="/myinfo" element={<MyInfo />} />
+            <Route path="/mapgps" element={<Mapgps />} />
+            <Route path="/test" element={<Test setControlledSwiper={setControlledSwiper} controlledSwiper={controlledSwiper}/>} />
             <Route path="/firstlogin" element={<FirstLogin />} />
             <Route path="/enter" element={<Enter />} />
             <Route path="/inputaddress" element={<Inputaddress />} />
@@ -78,7 +86,7 @@ const Appview = styled.div`
     width: 400px;
     margin-right: 0px;
   }
-  width: 521px;
+  width: 525px;
   height: 100vh;
   background: white;
   margin-right: 50px;
