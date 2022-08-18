@@ -24,7 +24,7 @@ const FirstLogin = () => {
   const PreviewProfileImg = (e) => {
     const correctForm = /(.*?)\.(jpg|jpeg|png|gif|bmp)$/;
     if (e.target.files[0]?.size > 3 * 1024 * 1024) {
-     alert("파일 사이즈는 3MB까지만 가능합니다.");
+      alert("파일 사이즈는 3MB까지만 가능합니다.");
       return;
     } else if (!e.target?.files[0]?.name.match(correctForm)) {
       alert("이미지 파일만 가능합니다.");
@@ -75,14 +75,14 @@ const FirstLogin = () => {
     <Container>
       <Box>
         {" "}
-        <button
-          style={{ display: "left" }}
+        <div
+          style={{ display: "left", cursor: "pointer" }}
           onClick={() => {
             navigate("/inputaddress");
           }}
         >
-          뒤로가기
-        </button>
+          <span class="material-symbols-outlined">arrow_back</span>
+        </div>
         <input
           type="file"
           ref={userProfileImage}
@@ -93,7 +93,7 @@ const FirstLogin = () => {
         <Imgset>
           <Img src={ProfileImg} />
         </Imgset>
-        <ButtonImg onClick={ImageUpload}>프로필 선택</ButtonImg>
+        <ButtonImg onClick={ImageUpload}>+ 프로필 사진추가</ButtonImg>
       </Box>
       <LoginBox>
         <P>닉네임 </P>
@@ -141,16 +141,18 @@ const FirstLogin = () => {
             navigate("/inputaddress");
           }}
         >
-          <Address placeholder="주소검색">
+          <Address contenteditable="true" placeholder="주소검색">
             <span>{location?.state?.homesi} </span>
             <span>{location?.state?.homegu} </span>
           </Address>
         </InputBox>
-        <label>
+        <Check>
           <input type="checkbox" />
-          (필수) 개인정보 취급방침에 동의합니다.
-        </label>
-        <div>보기</div>
+          (필수) 개인정보 취급방침에 동의합니다.<p>보기</p>
+        <span className="material-symbols-outlined">keyboard_arrow_right</span>
+        </Check>
+        
+
         <ButtonSubmit onClick={Submit}>등록완료</ButtonSubmit>
       </LoginBox>
     </Container>
@@ -242,6 +244,8 @@ const ButtonImg = styled.button`
   cursor: auto;
 `;
 
+
+
 const Address = styled.div`
   width: 100%;
   height: 15px;
@@ -280,4 +284,9 @@ const ButtonSubmit = styled.button`
   margin-top: 25px;
   border-radius: 35px;
   cursor: auto;
+`;
+
+const Check = styled.label`
+  display: flex;
+  flex-direction: row;
 `;
