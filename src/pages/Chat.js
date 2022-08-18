@@ -96,6 +96,7 @@ const Chat = () => {
   }
   return (
     <div>
+      <div style={{position:"absolute",left:"50%",top:"50%"}}>
       <button onClick={connect}>연결!</button>
       <button onClick={disconnect}>소켓 연결 끊기!</button>
       <hr></hr>
@@ -106,9 +107,9 @@ const Chat = () => {
         }}
       ></input>
       <button onClick={sendNicknameFN}>닉네임등록</button>
-      <hr></hr>
-
-      <hr />
+      </div>
+      
+    
       <div className="chat-header-wrap">
         <div className="chat-header-icon" style={{ marginLeft: "28px" }}>
           <span
@@ -120,15 +121,15 @@ const Chat = () => {
         </div>
         <div className="chat-header-title">Lorem ipsum dolor...</div>{" "}
         <div className="chat-header-icon" style={{ marginRight: "35px" }}>
-          <span class="material-icons-outlined" style={{ fontSize: "28px" }}>
+          <span className="material-icons-outlined" style={{ fontSize: "28px" }}>
             logout
-          </span>
+          </span> 
         </div>
       </div>
-      <ContainerMessage ref={RefViewControll}>
+      <div ref={RefViewControll} className="chat-message-container">
         {showMessage.map((v, i, arr) => {
           if (v.type == "ENTER") {
-            return <div key={i}>{v.message}</div>;
+            return <div className="chat-message-enter" key={i}>{v.message}</div>;
           } else {
             if (sendNick !== v.sender) {
               if (
@@ -200,7 +201,7 @@ const Chat = () => {
             }
           }
         })}
-      </ContainerMessage>
+      </div>
       <div className="chat-input-wrap">
         <input className="chat-input"
           placeholder="채팅입력"
@@ -219,12 +220,7 @@ const TitleRoom = styled.div`
   font-size: 24px;
 `;
 
-const ContainerMessage = styled.div`
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-  height: 500px;
-`;
+
 const WrapImgAndChat = styled.div`
   width: 100%;
 `;

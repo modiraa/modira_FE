@@ -25,6 +25,26 @@ position: relative;
     transform: translate(-50%,-50%);
 
 }
+.chat-message-container{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    background-color: green;
+    height: 500px;
+    margin-top: 12px;
+  
+    padding-top: 13px;
+}
+
+.chat-message-enter{
+ 
+   text-align: center;
+   margin-top: 11px;
+
+}
+
+
+
 
 .chat-input-wrap{
     min-height: 126px;
