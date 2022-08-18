@@ -20,32 +20,36 @@ const Login = () => {
 
   return (
     <div className="login">
-      <div className="text">
-        <h1>이제 혼밥하지 마세요!</h1>
-        <h1>밥친구 찾기 플랫폼</h1>
+      <div className='login_top'>
+        <div className="login_text">
+          <h1>이제 혼밥하지 마세요!</h1>
+          <h1>밥친구 찾기 플랫폼</h1>
+        </div>
+        <div className='logo'>
+          <h1>
+            Modira
+          </h1>
+        </div>
       </div>
-      <div className='logo'>
-        <h1>
-          Modira
-        </h1>
-      </div>
-      <h3>
-        SNS 계정으로 간편 가입하기
-      </h3>
-      <div className='naver_btn'>
-        <a className="naverIdLogin" href={NAVER_AUTH_URL}>
-          네이버
-        </a>
-      </div>
-      <div className='kakao_btn'>
-        <a className="kakao" href={KAKAO_AUTH_URL}>
-          카카오
-        </a>
-      </div>
-      <div className='google_btn'>
-        <a href={GOOGLE_AUTH_URL}>
-          구글
-        </a>
+      <div className='login_bottom'>
+        <h3>
+          SNS 계정으로 간편 가입하기
+        </h3>
+        <div className='naver_btn'>
+          <a className="naverIdLogin" href={NAVER_AUTH_URL}>
+            네이버
+          </a>
+        </div>
+        <div className='kakao_btn'>
+          <a className="kakao" href={KAKAO_AUTH_URL}>
+            카카오
+          </a>
+        </div>
+        <div className='google_btn'>
+          <a href={GOOGLE_AUTH_URL}>
+            구글
+          </a>
+        </div>
       </div>
     </div>
   )

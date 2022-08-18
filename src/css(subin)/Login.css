@@ -4,20 +4,39 @@
 }
 
 .login {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
     width: 100%;
     background-color: aqua;
 }
 
-.text {
+.login_top{
+    width: 100%;
+    margin-left: 43px;
+    height: 571px;
+    background-color: #f8f8f8;
+}
+
+.login_text {
     background-color: antiquewhite;
-    width: 230px;
+    width: 100%;
+    margin-top: 281px;
+}
 
-    font-size: 12px;
-
+.login_text>h1{
+    font-size: 28px;
+    font-weight: 700;
     color: #000000;
-
 }
 
 .logo{
-    font-size: 20px;
+    width: 100%;
+    margin-top: 31px;
+}
+
+.logo>h1{
+    font-size: 60px;
+    font-weight: 700;
 }
