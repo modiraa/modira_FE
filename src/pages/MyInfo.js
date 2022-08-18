@@ -1,18 +1,34 @@
 import '../css(subin)/MyInfo.css';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const MyInfo = () => {
 
-  const [infoUserName, setInfoUserName] = useState('');
+  const params = useParams();
 
-  React.useEffect(()=>{
+  const [infoUser, setInfoUser] = useState({});
 
-  },[])
+  useEffect(() => {
+    // axios 요청하기(axios의 response)
+    axios.get(`http://3.39.23.189/api/user/info/1`)
+      .then(response => {
+        setInfoUser(response.data)
+        console.log('api 호출 성공', params.id)
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }, []) // [] : 안에 있는 값이 바뀌면 다시 useEffect 작동
+  console.log(infoUser);
 
   return (
     <div className='my_info'>
+      <Navbar />
       <div className='info_wrap'>
+        <div className='bg'></div>
         <div className='info_user_img'>
           <img src='https://cdn-icons-png.flaticon.com/512/14/14660.png?w=360'/>
         </div>
@@ -34,6 +50,9 @@ const MyInfo = () => {
           </div>
         </div>
         <div className='info_user_good'>
+          <span className="material-icons-outlined">
+            favorite_border
+          </span>
           <span>12</span>
         </div>
         <div className='info_user_update_btn'>

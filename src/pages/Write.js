@@ -1,6 +1,6 @@
 import '../css(subin)/Write.css';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from "axios";
 
@@ -82,15 +82,15 @@ const Write = () => {
   const WriteSend = async () => {
 
     // input값들 유효성 검사!!
-    // if(!writeTitle_ref.current.value){
-    //   alert('게시글 제목을 작성해주세요')
-    // }
-    // else if(!writeText_ref.current.value){
-    //   alert('게시글 내용을 작성해주세요')
-    // }
-    // else if (location.state === null) {
-    //   alert('주소를 입력해주세요')
-    // }
+    if(!writeTitle_ref.current.value){
+      alert('게시글 제목을 작성해주세요')
+    }
+    else if(!writeText_ref.current.value){
+      alert('게시글 내용을 작성해주세요')
+    }
+    else if (location.state === null) {
+      alert('주소를 입력해주세요')
+    }
     // 여기에 정보모아서 나중에 axios post로 data 보내기
     // console.log({
     //   "title" : writeTitle_ref.current.value,
@@ -178,7 +178,7 @@ const Write = () => {
           name="writeText" value={writeText} onChange={onChange} />
 
       </div>
-      <div className='write_address' onClick={() => { navigate("/Inputaddress") }}>
+      <div className='write_address' onClick={() => { navigate("/mapgps") }}>
         {/* uselocation초기값이 null 오류떠서 옵셔널 체이닝 걸었더니 해결.... */}
         <span>{(location?.state?.juso)} </span>
       </div>
