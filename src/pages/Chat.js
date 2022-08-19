@@ -6,6 +6,7 @@ import testimg from "../image/11.jpg";
 import { FiChevronLeft } from "react-icons/fi";
 import { BiExit } from "react-icons/bi";
 import "../css(subin)/chat.css";
+import MessagelList from "../components/MessagelList";
 
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
@@ -21,7 +22,7 @@ const Chat = () => {
   React.useEffect(() => {
     // console.log(showMessage);
     //가장 최근 채팅 보여주기
-    console.log(enterChatRoom);
+    // console.log(enterChatRoom);
     if (RefViewControll.current) {
       RefViewControll.current.scrollTop = RefViewControll.current.scrollHeight;
     }
@@ -39,7 +40,7 @@ const Chat = () => {
   function subscribed(greeting) {
     // console.log("여기안와?");
     const soketMessage = JSON.parse(greeting.body);
-    console.log("머야이거");
+    // console.log("머야이거");
     // console.log(soketMessage.type)
     // enterChatRoom.push(soketMessage.message)
     // setEnterChatRoom([...enterChatRoom])
@@ -95,7 +96,7 @@ const Chat = () => {
     // 채팅을 보낸다.
   }
   return (
-    <div>
+    <div className="chat-wrap">
       <div style={{position:"absolute",left:"50%",top:"50%"}}>
       <button onClick={connect}>연결!</button>
       <button onClick={disconnect}>소켓 연결 끊기!</button>
@@ -127,7 +128,8 @@ const Chat = () => {
         </div>
       </div>
       <div ref={RefViewControll} className="chat-message-container">
-        {showMessage.map((v, i, arr) => {
+        <MessagelList showMessage={showMessage} sendNick={sendNick}/>
+        {/* {showMessage.map((v, i, arr) => {
           if (v.type == "ENTER") {
             return <div className="chat-message-enter" key={i}>{v.message}</div>;
           } else {
@@ -200,7 +202,7 @@ const Chat = () => {
               );
             }
           }
-        })}
+        })} */}
       </div>
       <div className="chat-input-wrap">
         <input className="chat-input"
@@ -243,10 +245,7 @@ const ContainerNickAndText = styled.div`
   margin-left: 20px;
   margin-right: 20px;
 `;
-const TextSameNick = styled.div`
-  background-color: #565656;
-  color: white;
-`;
+
 
 const TextMessage = styled.div`
   background-color: #565656;
