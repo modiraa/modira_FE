@@ -1,63 +1,80 @@
-.write_select{
+.select_time{
+    width: 100%;
+    z-index: 1;
+    height: 100vh;
     display: flex;
     position: relative;
     flex-wrap: wrap;
     align-content: center;
-    
+    background-color: aquamarine;
 }
 
-.WriteSelect_top{
+.select_time_top{
+    z-index: 2;
+    position: absolute;
+    top: 0;
     display: flex;
     flex-direction: column;
     align-content: center;
+
     width: 100%;
     height: 332px;
     padding-top: 85px;
-    margin-left: 43px;
     box-sizing: border-box;
-    /* background-color: rgb(244, 244, 244); */
+    background-color: rgb(255, 255, 255);
 }
 
-.write_page_count>p{
+.select_time_count>p{
+    margin-left: 43px;
     font-size: 19px;
     font-weight: 400;
 }
 
-.write_top_title{
+.select_time_title{
+    margin-left: 43px;
     margin-top: 20px;
     /* background-color: aquamarine; */
 }
 
-.write_top_title>h2{
+.select_time_title>h2{
     font-size: 34px;
     font-weight: 700;
 }
 
-.write_top_value{
+.select_time_value{
     display: flex;
     margin-top: 23px;
+    margin-left: 43px;
     float: left;
     /* background-color: aquamarine; */
 }
 
-.write_top_value>h3{
+.select_time_value>h3{
     font-size: 28px;
 }
-.write_top_value>h5{
+.select_time_value>h5{
     font-size: 18px;
     margin-top: 10px;
 }
 
-.WriteSelect_bottom{
-    width: 100%;
+.select_time_bottom{
+    z-index: 2;
+    position: absolute;
+    bottom: 0%;
     display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 75px;
+    flex-direction: column;
+
+    width: 100%;
+    height: 114px;
+    /* background-color: rgb(95, 65, 65); */
 }
 
 .prev{
+    z-index: 4;
+    position: absolute;
     display: flex;
     flex-direction: row;
+    left: 0;
 
     width: 50%;
     height: 29px;
@@ -76,13 +93,16 @@
 }
 
 .next{
+    z-index: 4;
+    position: absolute;
     display: flex;
+    right: 0;
     flex-direction: row;
     justify-content: end;
 
     width: 50%;
     height: 29px;
-    /* background-color: aqua; */
+    background-color: aqua;
 }
 
 .next>.material-symbols-outlined{
@@ -96,6 +116,19 @@
     margin-top: 2px;
 }
 
+.select_time-bg{
+    width: 100%;
+    height: 144px;
+    display: flex;
+    align-items: flex-end;
+    background-color: rgb(255, 255, 255);
+}
+
 .test{
     width: 100%;
+    height: 50%;
+    padding-top: 7%;
+    box-sizing: border-box;
+    
+    background-color: aqua;
 }

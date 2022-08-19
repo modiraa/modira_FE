@@ -30,9 +30,9 @@ export default function Test({controlledSwiper,setControlledSwiper}) {
 
     return (
 
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", position:"relative" }}>
 
-            <div style={{ height: "500px", width: "400px", display: "flex"}}>
+            <div style={{ height: "500px", width: "400px", display: "flex" }}>
                 <Picker slideList={ampmleList} controlledSwiper={controlledSwiper} setControlledSwiper={setControlledSwiper} />
             </div>
 
@@ -44,7 +44,7 @@ export default function Test({controlledSwiper,setControlledSwiper}) {
                 <Picker slideList={minuteSlideList} controlledSwiper={controlledSwiper} setControlledSwiper={setControlledSwiper} />
             </div>
 
-
+            <div className="vizor"></div>
 
 
 
