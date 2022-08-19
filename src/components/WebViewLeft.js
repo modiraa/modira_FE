@@ -4,11 +4,11 @@ import styled from "styled-components";
 const WebViewLeft = () => {
   return (
     <WrapWebView>
-      <Logo>logo</Logo>
+      <Logo>LOGO</Logo>
       <Description>Lorem ipsum dolor sit amet,</Description>
       <WrapSearch>
         <SearchBox>
-<span>어떤 모임을 찾으시나요?</span><WrpaIcon><span style={{color:"white",fontSize:"37.41px"}} class="material-symbols-outlined">
+<span>어떤 모임을 찾으시나요?</span><WrpaIcon><span style={{color:"white",fontSize:"37.41px"}} className="material-symbols-outlined">
 search
 </span></WrpaIcon>
         </SearchBox>

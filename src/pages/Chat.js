@@ -2,11 +2,11 @@ import Stomp from "stompjs";
 import SockJS from "sockjs-client";
 import React from "react";
 import styled from "styled-components";
-import testimg from "../image/11.jpg";
 import { FiChevronLeft } from "react-icons/fi";
 import { BiExit } from "react-icons/bi";
 import "../css(subin)/chat.css";
 import MessagelList from "../components/MessagelList";
+import UserProfile from "./UserProfile";
 
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
@@ -28,7 +28,7 @@ const Chat = () => {
     }
   }, [showMessage, enterChatRoom]);
   function connect() {
-    var socket = new SockJS("http://13.125.116.193/ws/chat");
+    var socket = new SockJS("http://52.79.223.9/ws/chat");
     stompClient = Stomp.over(socket);
     // stompClient.debug=null;
     stompClient.connect({}, connected);
@@ -95,6 +95,8 @@ const Chat = () => {
     }
     // 채팅을 보낸다.
   }
+
+
   return (
     <div className="chat-wrap">
       <div style={{position:"absolute",left:"50%",top:"50%"}}>

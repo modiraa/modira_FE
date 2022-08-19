@@ -12,6 +12,7 @@ const LowerNavbar = () => {
         width: "525px",
         display: "flex",
         flexDirection:"row",
+        backgroundColor:"white"
       
       }}
     >

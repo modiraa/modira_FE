@@ -26,6 +26,7 @@ import SelectPayment from "./pages/SelectPayment";
 import SelectGender from "./pages/SelectGender";
 import SelectAge from "./pages/SelectAge";
 import WebViewLeft from "./components/WebViewLeft";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   // picker 값
@@ -72,6 +73,8 @@ function App() {
             <Route path="/auth/google/callback" element={<GoogleRedirect />} />
             <Route path="/postdetail:postId" element={<PostDetail />} />
             <Route path="/postcard" element={<PostCard />} />
+            <Route path="/userprofile" element={<UserProfile />} />
+
           </Routes>
         </Appview>
       </Background>
