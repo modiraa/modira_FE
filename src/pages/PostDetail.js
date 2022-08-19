@@ -1,136 +1,196 @@
 import styled from "styled-components";
-// import { useState, useEffect } from "react";
-// import { useNavigate, useParams } from "react-router-dom";
-// import axios from "axios";
-// import MapgpsForDetail from "../components/MapgpsForDetail";
+import MapgpsForDetail from "../components/MapgpsForDetail";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import LowerNavbar from "../components/Navbar";
 
 function PostDetail() {
-//   const params = useParams();
-//   const navigate = useNavigate();
-//   const [detailData, setDetailData] = useState({});
+  const [data, setData] = useState({});
+  console.log(data);
+  // const navigate = useNavigate();
+  // let location = useLocation();
+  // const params = useParams();
 
-//   useEffect(() => {
-//     axios
-//       .get(`http://sparta-9kyo.shop/api/post/detail/${params.postId}`)
-//       .then((response) => {
-//         console.log(response);
-//         setDetailData({ ...response.data });
-//         console.log("api 호출 성공", params.postId);
-//       });
-//   }, [params.postId]); // [] : 안에 있는 값이 바뀌면 다시 useEffect 작동
-//   console.log(detailData);
-
-// {
-//   category: “골든벨”,
-//   title: “여기에 제목이 들어갑니다.”,
-//   date:”6월9일”,
-//   time:”AM 9:00”,
-//   numberOfPeople: “2명 참여”,
-//   menuForImage": “음식아이콘”, 
-//   menu”:”일식”,  
-//   restaurantAddress: "서울특별시 마포구 땡땡로 00-0”,
-//   latitude(위도):” 35.8706072114037”,
-//   longitude(경도):”128.598955620405 ”,
-//   limitgender:”남성”,
-//   limitage:”20대”,
-//   writer: {  writerprofileImage:”이미지경로”,
-//                 writernickname:”케이오스”
-//                 writergender:”남성”,
-//                 writerage:”20대”,
-//               }
-// }
+  useEffect(() => {
+    axios
+      .get("http://3.34.129.164/api/post/detail/10")
+      .then((response) => {
+        setData(response.data);
+        console.log("성공", response.data);
+      })
+      .catch((error) => {
+        console.log("에러", error);
+      });
+  }, []);
 
   return (
-    <Container>
-      상세페이지
-{/* //       <Summary>
-//         <Category>{category}</Category>
-//         <MeetTitle>{title}</MeetTitle>
-//         <MeetInfo>
-//           {date}
-//           {time}
-//           {numberOfPeople}
-//           {menu}
-//         </MeetInfo>
-//       </Summary>
-//       <div>음식점 주소</div>
-//       <Map>지도</Map>
-//       <Writer>
-//         <WriterImage>{profileImage}</WriterImage>
-//         <WriterName>{nickname}</WriterName>
-//         <WriterInfo>
-//           {writergender}
-//           {writerage}
-//         </WriterInfo>
-//         <LikeIt>하뚜</LikeIt>
-//         <Limit>
-//           <p>{writergender}{writerage}만 신청가능한 모임입니다.</p>
-//           <p>
-//             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et id nam
-//             quis sodales. Eget lobortis neque mi,
-//           </p>
-//           <ButtonSubmit>참여신청</ButtonSubmit>
-//         </Limit>
-//       </Writer> */}
-    </Container>
+    <>
+      <TitleBar>
+        <Arrow className="material-symbols-outlined">arrow_back_ios</Arrow>
+        <p>모임소개</p>
+      </TitleBar>
+      <Container>
+        <InfoBox>
+          <Category>{data.category}</Category>
+          <Title>{data.title}</Title>
+          <Date>
+            <span className="material-symbols-outlined">calendar_today</span>
+            <p>{data.date}</p>
+            <span className="material-symbols-outlined">person</span>
+            <p>{data.numberOfPeople}</p>
+            <p>{data.menu}</p>
+          </Date>
+        </InfoBox>
+        <Address>
+          <span className="material-symbols-outlined">location_on</span>
+          <p>서울특별시 마포구 땡땡로</p>
+
+          <Gps>지도 Gps</Gps>
+        </Address>
+        {/* <div>{data.limitGender}</div>
+        <div>{data.limitAge}</div> */}
+        <Writer>
+          <UserImg>
+            <Img src={data.writerProfileImage} />
+          </UserImg>
+          <UserInfo>
+            <NickName>{data.writerNickname}</NickName>
+            <AgeGender>
+              <span>{data.writerGender}</span>
+              <span>{data.writerAge}</span>
+            </AgeGender>
+          </UserInfo>
+          <Heart>
+            <span className="material-symbols-outlined">favorite</span> 12
+          </Heart>
+        </Writer>
+        <Limit>
+          <h3>제한조건</h3>
+          <span className="material-symbols-outlined">task_alt</span>
+          <span>{data.limitAge}</span>
+          <span>{data.limitGender}</span>
+          <div>{data.contents}</div>
+        </Limit>
+        <ButtonSubmit>참여신청</ButtonSubmit>
+      </Container>
+    </>
   );
 }
+
 export default PostDetail;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  justify-content: center;
+  font-family: "AppleSDGothicNeoB00";
   width: 100%;
   background-color: #f1f1f1;
 `;
 
-// const Summary = styled.div`
-//   width: 100%;
-//   height: 20%;
-//   background-color: #fff;
-// `;
+const TitleBar = styled.div`
+  width: 525px;
+  height: 75px;
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  p {
+    margin-left: 166.5px;
+  }
+`;
 
-// const Category = styled.div`
-//   font-size: 18px;
-// `;
+const Arrow = styled.span`
+  display: flex;
+  margin-left: 22px;
+`;
+const Category = styled.div`
+  font-weight: 400;
+  font-size: 18px;
+`;
+const Title = styled.div`
+  font-weight: 400;
+  font-size: 31px;
+`;
+const Date = styled.span`
+  font-weight: 400;
+  font-size: 20px;
+  color: #9a9a9a;
+  flex-direction: row;
+  display: flex;
+  p {
+    margin-right: 44px;
+  }
+`;
+const InfoBox = styled.div`
+  background-color: #fff;
+  margin-top: 12px;
+  padding: 44px 0 44px 44px;
+`;
 
-// const MeetTitle = styled.div`
-//   font-size: 31px;
-// `;
+const Address = styled.div`
+  background-color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  p{
 
-// const MeetInfo = styled.div`
-//   font-size: 20px;
-//   color: #9a9a9a;
-// `;
+  }
+`;
+const Gps = styled.div`
+  width: 100%;
+  height: 184px;
+`;
+const Writer = styled.div`
+  margin-top: 34px;
+  height: 119px;
+  background-color: #f8f8f8;
+  padding: 43px 22px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const UserImg = styled.span``;
 
-// const Map = styled.div`
-//   justify-content: center;
-//   width: 100%;
-// `;
+const Img = styled.img`
+  width: 77px;
+  height: 77px;
+  border-radius: 10px;
+`;
 
-// const Writer = styled.div`
-//   width: 100%;
-//   height: 20%;
-//   background-color: #e7e7e7;
-// `;
-
-// const Limit = styled.div`
-//   width: 100%;
-//   height: 20%;
-//   background-color: #e7e7e7;
-// `;
-
-// const ButtonSubmit = styled.button`
-//   background-color: black;
-//   width: 70%;
-//   height: auto;
-//   border: none;
-//   color: white;
-//   padding: 12px 25px;
-//   text-align: center;
-//   font-size: 0.9rem;
-//   margin-top: 25px;
-//   border-radius: 35px;
-//   cursor: auto;
-// `;
+const UserInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+const NickName = styled.p`
+  font-weight: 400;
+  font-size: 20px;
+`;
+const AgeGender = styled.span`
+  font-weight: 400;
+  font-size: 16px;
+`;
+const Heart = styled.span``;
+const Limit = styled.div`
+  span {
+    display: flex;
+    flex-direction: row;
+  }
+`;
+const ButtonSubmit = styled.button`
+  background-color: black;
+  width: 445px;
+  height: 70px;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  justify-content: center;
+  font-size: 0.9rem;
+  margin: 56px 40px 85px 40px;
+  border-radius: 35px;
+  cursor: auto;
+`;

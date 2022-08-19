@@ -81,7 +81,7 @@ const FirstLogin = () => {
             navigate("/inputaddress");
           }}
         >
-          <span class="material-symbols-outlined">arrow_back</span>
+          <span className="material-symbols-outlined">arrow_back</span>
         </div>
         <input
           type="file"
@@ -141,7 +141,7 @@ const FirstLogin = () => {
             navigate("/inputaddress");
           }}
         >
-          <Address contenteditable="true" placeholder="주소검색">
+          <Address placeholder="주소 검색">
             <span>{location?.state?.homesi} </span>
             <span>{location?.state?.homegu} </span>
           </Address>
@@ -149,9 +149,10 @@ const FirstLogin = () => {
         <Check>
           <input type="checkbox" />
           (필수) 개인정보 취급방침에 동의합니다.<p>보기</p>
-        <span className="material-symbols-outlined">keyboard_arrow_right</span>
+          <span className="material-symbols-outlined">
+            keyboard_arrow_right
+          </span>
         </Check>
-        
 
         <ButtonSubmit onClick={Submit}>등록완료</ButtonSubmit>
       </LoginBox>
@@ -243,8 +244,6 @@ const ButtonImg = styled.button`
   border-radius: 35px;
   cursor: auto;
 `;
-
-
 
 const Address = styled.div`
   width: 100%;
