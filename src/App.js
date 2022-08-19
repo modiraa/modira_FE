@@ -6,8 +6,8 @@ import Chat from "./pages/Chat";
 import Write from "./pages/Write";
 import FirstLogin from "./pages/FirstLogin";
 import MyInfo from "./pages/MyInfo";
-import styled from "styled-components"
-import testimage from "../src/image/11.jpg"
+import styled from "styled-components";
+import testimage from "../src/image/11.jpg";
 import Enter from "./pages/Enter";
 import Inputaddress from "./pages/Inputaddress";
 import Kakaoredirect from "./pages/Kakaoredirect";
@@ -25,16 +25,18 @@ import SelectMenu from "./pages/SelectMenu";
 import SelectPayment from "./pages/SelectPayment";
 import SelectGender from "./pages/SelectGender";
 import SelectAge from "./pages/SelectAge";
+import WebViewLeft from "./components/WebViewLeft";
 
 function App() {
-
   // picker 값
   const [controlledSwiper, setControlledSwiper] = React.useState(null);
 
   return (
     <>
       <Background>
-        <Webview>나는 없어질 애</Webview>
+        <Webview>
+          <WebViewLeft />
+        </Webview>
         <Appview>
           {" "}
           <Routes>
@@ -44,16 +46,24 @@ function App() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/write" element={<Write />} />
             <Route path="/selecttime" element={<SelectTime />} />
-            <Route path="/selectdate" element={<SelectDate/>} />
-            <Route path="/selectgps" element={<SelectGps/>} />
-            <Route path="/selectcount" element={<SelectCount/>} />
-            <Route path="/selectmenu" element={<SelectMenu/>} />
-            <Route path="/selectpayment" element={<SelectPayment/>} />
-            <Route path="/selectgender" element={<SelectGender/>} />
-            <Route path="/selectage" element={<SelectAge/>} />
+            <Route path="/selectdate" element={<SelectDate />} />
+            <Route path="/selectgps" element={<SelectGps />} />
+            <Route path="/selectcount" element={<SelectCount />} />
+            <Route path="/selectmenu" element={<SelectMenu />} />
+            <Route path="/selectpayment" element={<SelectPayment />} />
+            <Route path="/selectgender" element={<SelectGender />} />
+            <Route path="/selectage" element={<SelectAge />} />
             <Route path="/myinfo" element={<MyInfo />} />
             <Route path="/mapgps" element={<Mapgps />} />
-            <Route path="/test" element={<Test setControlledSwiper={setControlledSwiper} controlledSwiper={controlledSwiper}/>} />
+            <Route
+              path="/test"
+              element={
+                <Test
+                  setControlledSwiper={setControlledSwiper}
+                  controlledSwiper={controlledSwiper}
+                />
+              }
+            />
             <Route path="/firstlogin" element={<FirstLogin />} />
             <Route path="/enter" element={<Enter />} />
             <Route path="/inputaddress" element={<Inputaddress />} />
@@ -73,36 +83,38 @@ export default App;
 
 const Background = styled.div`
   width: 100%;
-  height: 100vh;
-  background-image: url(${testimage});
+
+  /* background-image: url(${testimage});
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100%; */
+  background-color:#EEEEEE;
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 912px) {
     background-image: none;
     justify-content: center;
   }
 `;
 const Webview = styled.div`
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 912px) {
     display: none;
   }
   width: 40%;
   height: 100vh;
-  background-color: whitesmoke;
+  background-color:#EEEEEE;
+  padding: 98px 0px 0px 318px;
 `;
 
 const Appview = styled.div`
-  @media screen and (max-width: 900px) {
-    width: 400px;
+  @media screen and (max-width: 912px) {
+    width: 525px;
     margin-right: 0px;
   }
-  width: 525px;
+  min-width: 525px;
   height: 100vh;
   background: white;
-  margin-right: 50px;
+  margin-right: 349px;
   overflow: auto;
 `;
