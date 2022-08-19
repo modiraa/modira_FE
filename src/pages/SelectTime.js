@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Picker from '../components/Picker';
 import Test from '../components/Test';
 import '../css(subin)/SelectTime.css';
 
 const WriteSelect = () => {
 
+    const [controlledSwiper1,setControlledSwiper1] = useState('')
+    const [controlledSwiper2,setControlledSwiper2] = useState('')
+    const [controlledSwiper3,setControlledSwiper3] = useState('')
+
+    console.log("여기",controlledSwiper1)
     return (
         <div className='select_time'>
             <div className='select_time_top'>
@@ -15,12 +20,14 @@ const WriteSelect = () => {
                     <h2>모임을 원하는<br/>시간을 알려주세요</h2>
                 </div>
                 <div className='select_time_value'>
-                    <h3>오후 2시 30분</h3>
+                    <h3></h3>
                     <h5>에 만나는 모임이에요</h5>
                 </div>
             </div>
             <div className='test'>
-                <Test/>
+                <Test controlledSwiper1={controlledSwiper1} setControlledSwiper1={setControlledSwiper1}
+                controlledSwiper2={controlledSwiper2} setControlledSwiper2={setControlledSwiper2}
+                controlledSwiper3={controlledSwiper3} setControlledSwiper3={setControlledSwiper3}/>
             </div>
             
             <div className='select_time_bottom'>

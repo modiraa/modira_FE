@@ -1,18 +1,16 @@
 .select_time{
     width: 100%;
-    z-index: 1;
-    height: 100vh;
+    height: 1030px;
     display: flex;
     position: relative;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
     align-content: center;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 
 .select_time_top{
-    z-index: 2;
-    position: absolute;
-    top: 0;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -21,7 +19,7 @@
     height: 332px;
     padding-top: 85px;
     box-sizing: border-box;
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(247, 136, 136); */
 }
 
 .select_time_count>p{
@@ -58,19 +56,19 @@
 }
 
 .select_time_bottom{
-    z-index: 2;
-    position: absolute;
-    bottom: 0%;
+    position: relative;
+    bottom: 0;
     display: flex;
     flex-direction: column;
+    padding-top: 41px;
+    box-sizing: border-box;
 
     width: 100%;
-    height: 114px;
+    height: 144px;
     /* background-color: rgb(95, 65, 65); */
 }
 
 .prev{
-    z-index: 4;
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -93,7 +91,6 @@
 }
 
 .next{
-    z-index: 4;
     position: absolute;
     display: flex;
     right: 0;
@@ -102,7 +99,7 @@
 
     width: 50%;
     height: 29px;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 .next>.material-symbols-outlined{
@@ -116,19 +113,12 @@
     margin-top: 2px;
 }
 
-.select_time-bg{
-    width: 100%;
-    height: 144px;
-    display: flex;
-    align-items: flex-end;
-    background-color: rgb(255, 255, 255);
-}
-
 .test{
     width: 100%;
-    height: 50%;
-    padding-top: 7%;
+    height: 554px;
+    position: relative;
+    /* padding-top: 7%; */
     box-sizing: border-box;
     
-    background-color: aqua;
+    /* background-color: aqua; */
 }
