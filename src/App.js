@@ -17,7 +17,14 @@ import PostDetail from "./pages/PostDetail";
 import PostCard from "./components/PostCard";
 import Mapgps from "./components/Mapgps";
 import Test from "./components/Test";
-import WriteSelect from "./pages/WriteSelect";
+import SelectTime from "./pages/SelectTime";
+import SelectDate from "./pages/SelectDate";
+import SelectGps from "./pages/SelectGps";
+import SelectCount from "./pages/SelectCount";
+import SelectMenu from "./pages/SelectMenu";
+import SelectPayment from "./pages/SelectPayment";
+import SelectGender from "./pages/SelectGender";
+import SelectAge from "./pages/SelectAge";
 
 function App() {
 
@@ -36,7 +43,14 @@ function App() {
             <Route path="/oauth/main" element={<Main />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/write" element={<Write />} />
-            <Route path="/writeselect" element={<WriteSelect/>} />
+            <Route path="/selecttime" element={<SelectTime />} />
+            <Route path="/selectdate" element={<SelectDate/>} />
+            <Route path="/selectgps" element={<SelectGps/>} />
+            <Route path="/selectcount" element={<SelectCount/>} />
+            <Route path="/selectmenu" element={<SelectMenu/>} />
+            <Route path="/selectpayment" element={<SelectPayment/>} />
+            <Route path="/selectgender" element={<SelectGender/>} />
+            <Route path="/selectage" element={<SelectAge/>} />
             <Route path="/myinfo" element={<MyInfo />} />
             <Route path="/mapgps" element={<Mapgps />} />
             <Route path="/test" element={<Test setControlledSwiper={setControlledSwiper} controlledSwiper={controlledSwiper}/>} />

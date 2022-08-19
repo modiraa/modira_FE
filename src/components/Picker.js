@@ -38,7 +38,7 @@ export default function Picker({ slideList, setControlledSwiper, controlledSwipe
             >
                 {slideList?.map((v, i) => <SwiperSlide key={i}>{v}</SwiperSlide>)}
             </Swiper>
-            <div className="vizor"></div>
+            
         </div>
     );
 }
