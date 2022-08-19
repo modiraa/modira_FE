@@ -1,5 +1,4 @@
 import React from 'react';
-import Test from '../components/Test';
 import '../css(subin)/WriteSelect.css';
 
 const WriteSelect = () => {
@@ -8,17 +7,19 @@ const WriteSelect = () => {
         <div className='write_select'>
             <div className='WriteSelect_top'>
                 <div className='write_page_count'>
-                    <p>3/6</p>
+                    <p>6/6</p>
                 </div>
                 <div className='write_top_title'>
-                    <h2>모임을 원하는<br/>시간을 알려주세요</h2>
+                    <h2>모임 정산은<br/>어떻게 하고 싶은가요?</h2>
                 </div>
                 <div className='write_top_value'>
-                    <h3>오후 2시 30분</h3>
-                    <h5>에 만나는 모임이에요</h5>
+                    <h3>N빵</h3>
+                    <h5>으로 정산하는 모임이에요</h5>
                 </div>
             </div>
-            <Test/>
+            <div className='payment'>
+            </div>
+            
             <div className='WriteSelect_bottom'>
                 <div className='prev'>
                     <span className="material-symbols-outlined">
