@@ -3,10 +3,24 @@ import MapgpsForDetail from "../components/MapgpsForDetail";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import LowerNavbar from "../components/Navbar";
 
 function PostDetail() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    category: "N빵 모임 (모임 카테고리)",
+    title: "Lorem ipsum dolor",
+    date: "6월 9일 AM12:00",
+    numberOfPeople: "2명 참여",
+    menu: "일식",
+    // restaurantAddress: "서울특별시 마포구 땡땡로 00-0",
+    writerProfileImage:
+      "data:image/png;base64,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",
+    writerNickname: "Lorem ipsum dolor",
+    writerGender: "여성",
+    writerAge: "20대",
+    limitAge: "20대",
+    limitGender: "여성",
+    // contents:
+  });
   console.log(data);
   // const navigate = useNavigate();
   // let location = useLocation();
@@ -14,7 +28,7 @@ function PostDetail() {
 
   useEffect(() => {
     axios
-      .get("http://3.34.129.164/api/post/detail/10")
+      .get("http://3.34.129.164/api/post/detail")
       .then((response) => {
         setData(response.data);
         console.log("성공", response.data);
@@ -44,33 +58,38 @@ function PostDetail() {
         </InfoBox>
         <Address>
           <span className="material-symbols-outlined">location_on</span>
-          <p>서울특별시 마포구 땡땡로</p>
-
-          <Gps>지도 Gps</Gps>
+          <p>서울특별시 마포구 땡땡로 00-0</p>
         </Address>
+        <Gps>
+          <MapgpsForDetail />
+        </Gps>
         {/* <div>{data.limitGender}</div>
         <div>{data.limitAge}</div> */}
         <Writer>
-          <UserImg>
-            <Img src={data.writerProfileImage} />
-          </UserImg>
+          <Img src={data.writerProfileImage} />
           <UserInfo>
-            <NickName>{data.writerNickname}</NickName>
+            <p>{data.writerNickname}</p>
             <AgeGender>
               <span>{data.writerGender}</span>
               <span>{data.writerAge}</span>
             </AgeGender>
           </UserInfo>
           <Heart>
-            <span className="material-symbols-outlined">favorite</span> 12
+            <span className="material-symbols-outlined">favorite</span>{" "}
+            <p>12</p>
           </Heart>
         </Writer>
         <Limit>
-          <h3>제한조건</h3>
+          <p>제한조건</p>
           <span className="material-symbols-outlined">task_alt</span>
-          <span>{data.limitAge}</span>
-          <span>{data.limitGender}</span>
-          <div>{data.contents}</div>
+          <span>
+            {data.limitAge}
+            {data.limitGender}만 신청가능한 모임입니다.
+          </span>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et id nam
+            quis sodales. Eget lobortis neque mi,{" "}
+          </p>
         </Limit>
         <ButtonSubmit>참여신청</ButtonSubmit>
       </Container>
@@ -85,7 +104,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   font-family: "AppleSDGothicNeoB00";
-  width: 100%;
+  width: 525px;
   background-color: #f1f1f1;
 `;
 
@@ -114,15 +133,19 @@ const Category = styled.div`
 const Title = styled.div`
   font-weight: 400;
   font-size: 31px;
+  margin-bottom: 5px;
 `;
 const Date = styled.span`
+  display: flex;
+  align-items: center;
   font-weight: 400;
   font-size: 20px;
   color: #9a9a9a;
-  flex-direction: row;
-  display: flex;
+  span {
+    margin-right: 8px;
+  }
   p {
-    margin-right: 44px;
+    margin-right: 18px;
   }
 `;
 const InfoBox = styled.div`
@@ -131,29 +154,30 @@ const InfoBox = styled.div`
   padding: 44px 0 44px 44px;
 `;
 
-const Address = styled.div`
+const Address = styled.span`
+  display: flex;
+  flex-direction: row;
   background-color: #fff;
   font-weight: 400;
   font-size: 18px;
-  p{
-
+  padding: 0 0 19px 44px;
+  span {
+    margin-right: 8px;
   }
 `;
 const Gps = styled.div`
   width: 100%;
-  height: 184px;
+  height: 218px;
+  background-color: #fff;
 `;
 const Writer = styled.div`
-  margin-top: 34px;
   height: 119px;
   background-color: #f8f8f8;
-  padding: 43px 22px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  padding: 44px 0 44px 44px;
 `;
-const UserImg = styled.span``;
 
 const Img = styled.img`
   width: 77px;
@@ -165,20 +189,56 @@ const UserInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0 117px 0 27px;
+  p {
+    font-weight: 400;
+    font-size: 20px;
+  }
 `;
-const NickName = styled.p`
-  font-weight: 400;
-  font-size: 20px;
-`;
+
 const AgeGender = styled.span`
   font-weight: 400;
   font-size: 16px;
-`;
-const Heart = styled.span``;
-const Limit = styled.div`
+  display: flex;
+  flex-direction: row;
   span {
+    width: 83px;
+    height: 39px;
+    background: #f1f1f1;
+    border-radius: 68px;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 9px 0 0;
+  }
+`;
+const Heart = styled.span`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-weight: 400;
+    font-size: 25px;
+    margin-left: 2px;
+  }
+  span {
+    font-size: 20px;
+  }
+`;
+const Limit = styled.div`
+  position: relative;
+  background-color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 44px 0 44px 44px;
+  span {
+    margin: 0 8px 22px 0;
+  }
+  p {
+    margin-bottom:12px;
+    font-weight: 400;
+    font-size: 20px;
   }
 `;
 const ButtonSubmit = styled.button`
