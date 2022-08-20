@@ -1,38 +1,47 @@
-import React from 'react';
-import '../css(subin)/WriteSelect.css';
+import React, { useState } from 'react';
+import '../css(subin)/SelectAge.css';
+import PeopleCountPicker from '../components/PeopleCountPicker';
 
-const WriteSelect = () => {
+const SelectPeopleCount = () => {
 
+    const [controlledSwiperPeopleCount,setControlledSwiperPeopleCount] = useState('')
+
+    console.log("여기",controlledSwiperPeopleCount)
     return (
-        <div className='write_select'>
-            <div className='WriteSelect_top'>
-                <div className='write_page_count'>
-                    <p>입장조건 추가</p>
+        <div className='select_age'>
+            <div className='select_age_top'>
+                <div className='select_age_count'>
+                    <p>4/6</p>
                 </div>
-                <div className='write_top_title'>
-                    <h2>모임에 참여가능한<br/>나이대를 선택해주세요</h2>
+                <div className='select_age_title'>
+                    <h2>몇명이 참여하는<br/>모임인가요?</h2>
                 </div>
-                <div className='write_top_value'>
-                    <h3>10대~30대</h3>
-                    <h5>만 참여할 수 있는 모임이에요</h5>
+                <div className='select_age_value'>
+                    <h3>{controlledSwiperPeopleCount}</h3>
+                    <h5>이 참여하는 모임이에요</h5>
                 </div>
             </div>
             <div className='age'>
+                <PeopleCountPicker controlledSwiperPeopleCount={controlledSwiperPeopleCount} setControlledSwiperPeopleCount={setControlledSwiperPeopleCount}/>
             </div>
             
-            <div className='WriteSelect_bottom'>
-                {/* <div className='prev'>
+            <div className='select_age_bottom'>
+                <div className="select_age-bg" />
+                <div className='prev'>
                     <span className="material-symbols-outlined">
                         arrow_back_ios
                     </span>
                     <h4>이전</h4>
-                </div> */}
+                </div>
                 <div className='next'>
-                    <h4>입력</h4>
+                    <h4>다음</h4>
+                    <span className="material-symbols-outlined">
+                        arrow_forward_ios
+                    </span>
                 </div>
             </div>
         </div>
     )
 }
 
-export default WriteSelect;
+export default SelectPeopleCount;

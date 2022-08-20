@@ -6,9 +6,9 @@ import Picker from "./Picker";
 
 
 
-export default function Test({controlledSwiper1,setControlledSwiper1,controlledSwiper2,setControlledSwiper2,controlledSwiper3,setControlledSwiper3}) {
+export default function Test({controlledSwiperAmPm,setControlledSwiperAmPm,controlledSwiperHour,setControlledSwiperHour,controlledSwiperMin,setControlledSwiperMin}) {
 
-    console.log(controlledSwiper1,controlledSwiper2,controlledSwiper3)
+    console.log(controlledSwiperAmPm,controlledSwiperHour,controlledSwiperMin)
 
     const hourSlideList = Array(12).fill().map((v, i) => v = i + 1 + "시");
 
@@ -20,17 +20,17 @@ export default function Test({controlledSwiper1,setControlledSwiper1,controlledS
 
     React.useEffect(() => {
 
-        if (controlledSwiper1){
-            console.log(controlledSwiper1)
+        if (controlledSwiperAmPm){
+            console.log(controlledSwiperAmPm)
         }
-        else if(controlledSwiper2){
-        console.log(controlledSwiper2)
+        else if(controlledSwiperHour){
+        console.log(controlledSwiperHour)
         }
-        else if(controlledSwiper3){
-        console.log(controlledSwiper3)
+        else if(controlledSwiperMin){
+        console.log(controlledSwiperMin)
         }
     }
-        , [controlledSwiper1,controlledSwiper2,controlledSwiper3])
+        , [controlledSwiperAmPm,controlledSwiperHour,controlledSwiperMin])
 
 
 
@@ -39,15 +39,15 @@ export default function Test({controlledSwiper1,setControlledSwiper1,controlledS
         <div style={{ display: "flex", position: "relative", height:"100%" }}>
 
             <div style={{ height: "100%", width: "400px", display: "flex"}}>
-                <Picker slideList={ampmleList} controlledSwiper={controlledSwiper1} setControlledSwiper={setControlledSwiper1} />
+                <Picker slideList={ampmleList} controlledSwiper={controlledSwiperAmPm} setControlledSwiper={setControlledSwiperAmPm} />
             </div>
 
             <div style={{ height: "100%", width: "400px", display: "flex", }}>
-                <Picker slideList={hourSlideList} controlledSwiper={controlledSwiper2} setControlledSwiper={setControlledSwiper2} />
+                <Picker slideList={hourSlideList} controlledSwiper={controlledSwiperHour} setControlledSwiper={setControlledSwiperHour} />
             </div>
 
             <div style={{ height: "100%", width: "400px", display: "flex"}}>
-                <Picker slideList={minuteSlideList} controlledSwiper={controlledSwiper3} setControlledSwiper={setControlledSwiper3} />
+                <Picker slideList={minuteSlideList} controlledSwiper={controlledSwiperMin} setControlledSwiper={setControlledSwiperMin} />
             </div>
 
             <div className="vizor"></div>

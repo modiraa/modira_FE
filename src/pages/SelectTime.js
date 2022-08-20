@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import Picker from '../components/Picker';
 import Test from '../components/Test';
 import '../css(subin)/SelectTime.css';
 
-const WriteSelect = () => {
+const SelectTime = () => {
 
-    const [controlledSwiper1,setControlledSwiper1] = useState('')
-    const [controlledSwiper2,setControlledSwiper2] = useState('')
-    const [controlledSwiper3,setControlledSwiper3] = useState('')
+    const [controlledSwiperAmPm,setControlledSwiperAmPm] = useState('')
+    const [controlledSwiperHour,setControlledSwiperHour] = useState('')
+    const [controlledSwiperMin,setControlledSwiperMin] = useState('')
 
-    console.log("여기",controlledSwiper1)
+    console.log("여기",controlledSwiperAmPm)
     return (
         <div className='select_time'>
             <div className='select_time_top'>
@@ -20,14 +19,14 @@ const WriteSelect = () => {
                     <h2>모임을 원하는<br/>시간을 알려주세요</h2>
                 </div>
                 <div className='select_time_value'>
-                    <h3></h3>
+                    <h3>{controlledSwiperAmPm}{controlledSwiperHour}{controlledSwiperMin}</h3>
                     <h5>에 만나는 모임이에요</h5>
                 </div>
             </div>
             <div className='test'>
-                <Test controlledSwiper1={controlledSwiper1} setControlledSwiper1={setControlledSwiper1}
-                controlledSwiper2={controlledSwiper2} setControlledSwiper2={setControlledSwiper2}
-                controlledSwiper3={controlledSwiper3} setControlledSwiper3={setControlledSwiper3}/>
+                <Test controlledSwiperAmPm={controlledSwiperAmPm} setControlledSwiperAmPm={setControlledSwiperAmPm}
+                controlledSwiperHour={controlledSwiperHour} setControlledSwiperHour={setControlledSwiperHour}
+                controlledSwiperMin={controlledSwiperMin} setControlledSwiperMin={setControlledSwiperMin}/>
             </div>
             
             <div className='select_time_bottom'>
@@ -49,4 +48,4 @@ const WriteSelect = () => {
     )
 }
 
-export default WriteSelect;
+export default SelectTime;
