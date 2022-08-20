@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 const Main = () => {
 
@@ -26,7 +27,7 @@ const Main = () => {
 
   return (
     <div className="main">
-      여기나오냐?
+      <Navbar/>
       <p/>
       <button > 아 여기를 안했구나</button>
     </div>

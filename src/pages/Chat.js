@@ -7,6 +7,7 @@ import { BiExit } from "react-icons/bi";
 import "../css(subin)/chat.css";
 import MessagelList from "../components/MessagelList";
 import UserProfile from "./UserProfile";
+import MyCalendar from"../components/MyCalendar"
 
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
@@ -96,127 +97,56 @@ const Chat = () => {
     // 채팅을 보낸다.
   }
 
-
-  return (
-    <div className="chat-wrap">
-      <div style={{position:"absolute",left:"50%",top:"50%"}}>
-      <button onClick={connect}>연결!</button>
-      <button onClick={disconnect}>소켓 연결 끊기!</button>
-      <hr></hr>
-      <input
-        placeholder="nickname을 입력하세요"
-        onChange={(e) => {
-          setSendNick(e.target.value);
-        }}
-      ></input>
-      <button onClick={sendNicknameFN}>닉네임등록</button>
-      </div>
+return(
+  <UserProfile/>
+)
+  // return (
+  //   <div className="chat-wrap">
+  //     <div style={{position:"absolute",left:"50%",top:"50%"}}>
+  //     <button onClick={connect}>연결!</button>
+  //     <button onClick={disconnect}>소켓 연결 끊기!</button>
+  //     <hr></hr>
+  //     <input
+  //       placeholder="nickname을 입력하세요"
+  //       onChange={(e) => {
+  //         setSendNick(e.target.value);
+  //       }}
+  //     ></input>
+  //     <button onClick={sendNicknameFN}>닉네임등록</button>
+  //     </div>
       
     
-      <div className="chat-header-wrap">
-        <div className="chat-header-icon" style={{ marginLeft: "28px" }}>
-          <span
-            className="material-symbols-outlined"
-            style={{ fontSize: "28px" }}
-          >
-            arrow_back_ios
-          </span>
-        </div>
-        <div className="chat-header-title">Lorem ipsum dolor...</div>{" "}
-        <div className="chat-header-icon" style={{ marginRight: "35px" }}>
-          <span className="material-icons-outlined" style={{ fontSize: "28px" }}>
-            logout
-          </span> 
-        </div>
-      </div>
-      <div ref={RefViewControll} className="chat-message-container">
-        <MessagelList showMessage={showMessage} sendNick={sendNick}/>
-        {/* {showMessage.map((v, i, arr) => {
-          if (v.type == "ENTER") {
-            return <div className="chat-message-enter" key={i}>{v.message}</div>;
-          } else {
-            if (sendNick !== v.sender) {
-              if (
-                i !== 0 &&
-                arr[i - 1].sender == v.sender &&
-                arr[i - 1].type !== "ENTER"
-              ) {
-                return (
-                  <div
-                    key={i}
-                    style={{
-                      display: "flex",
-                      marginLeft: "70px",
-                      marginTop: "10px",
-                    }}
-                  >
-                    <TextSameNick>{v.message}</TextSameNick>
-                  </div>
-                );
-              }
-
-              return (
-                <WrapImgAndChat key={i}>
-                  <WrapLeftChat>
-                    <img
-                      src={testimg}
-                      style={{ height: "50px", width: "50px" }}
-                    ></img>
-
-                    <ContainerNickAndText>
-                      <div>{v.sender}</div>
-                      <TextMessage>{v.message}</TextMessage>
-                    </ContainerNickAndText>
-                  </WrapLeftChat>
-                </WrapImgAndChat>
-              );
-            } else {
-              if (
-                i !== 0 &&
-                arr[i - 1].sender == v.sender &&
-                arr[i - 1].type !== "ENTER"
-              ) {
-                return (
-                  <div
-                    key={i}
-                    style={{
-                      display: "flex",
-                      marginRight: "70px",
-                      flexDirection: "row-reverse",
-                      marginTop: "10px",
-                    }}
-                  >
-                    <TextSameNick>{v.message}</TextSameNick>
-                  </div>
-                );
-              }
-              return (
-                <WrapImgAndChat key={i}>
-                  <WrapRightChat>
-                    <img src={testimg} style={{ height: "100%" }}></img>
-
-                    <ContainerNickAndText>
-                      <div>{v.sender}</div>
-                      <TextMessage>{v.message}</TextMessage>
-                    </ContainerNickAndText>
-                  </WrapRightChat>
-                </WrapImgAndChat>
-              );
-            }
-          }
-        })} */}
-      </div>
-      <div className="chat-input-wrap">
-        <input className="chat-input"
-          placeholder="채팅입력"
-          onChange={(e) => {
-            setSendMessage(e.target.value);
-          }}
-        />
-        <button onClick={sendMessageFN}>메시지보내기</button>
-      </div>
-    </div>
-  );
+  //     <div className="chat-header-wrap">
+  //       <div className="chat-header-icon" style={{ marginLeft: "28px" }}>
+  //         <span
+  //           className="material-symbols-outlined"
+  //           style={{ fontSize: "28px" }}
+  //         >
+  //           arrow_back_ios
+  //         </span>
+  //       </div>
+  //       <div className="chat-header-title">Lorem ipsum dolor...</div>{" "}
+  //       <div className="chat-header-icon" style={{ marginRight: "35px" }}>
+  //         <span className="material-icons-outlined" style={{ fontSize: "28px" }}>
+  //           logout
+  //         </span> 
+  //       </div>
+  //     </div>
+  //     <div ref={RefViewControll} className="chat-message-container">
+  //       {/* <MessagelList showMessage={showMessage} sendNick={sendNick}/> */}
+  //       <MyCalendar/>
+  //     </div>
+  //     <div className="chat-input-wrap">
+  //       <input className="chat-input"
+  //         placeholder="채팅입력"
+  //         onChange={(e) => {
+  //           setSendMessage(e.target.value);
+  //         }}
+  //       />
+  //       <button onClick={sendMessageFN}>메시지보내기</button>
+  //     </div>
+  //   </div>
+  // );
 };
 export default Chat;
 
