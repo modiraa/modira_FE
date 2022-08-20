@@ -4,8 +4,45 @@ import "../css(subin)/chat.css";
 import "../css(subin)/UserProfile.css";
 import testimg from "../image/11.jpg";
 import styled from "styled-components";
+import axios from "axios";
 
 const UserProfile = () => {
+
+  const likePlusScore= async()=>{
+    await axios.post("http://3.39.23.189/api/likes/1",
+    JSON.stringify({
+      kakaoNickname : "user1"
+  })
+  )
+    .then((res) => {
+        console.log(res); // 토큰이 넘어올 것임
+
+        
+        // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
+        
+        }).catch((err) => {
+        console.log( err);
+        // navigate("/login"); // 로그인 실패하면 로그인화면으로 돌려보냄
+        })
+  }
+
+  const dislikePlusScore=async()=>{
+    await axios.post("http://3.39.23.189/api/hates/1",
+    JSON.stringify({
+      kakaoNickname : "user1"
+  })
+  )
+    .then((res) => {
+        console.log(res); // 토큰이 넘어올 것임
+
+        
+        // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
+        
+        }).catch((err) => {
+        console.log( err);
+        // navigate("/login"); // 로그인 실패하면 로그인화면으로 돌려보냄
+        })
+  }
   return (
     <div className="wrap">
       <div className="chat-header-wrap">
@@ -38,10 +75,10 @@ const UserProfile = () => {
         </div>
         <div className="user-wrap-like">
           <div className="user-like">
-            <div className="user-like-text">+1 좋아요</div>
+            <div className="user-like-text" onClick={likePlusScore}>+1 좋아요</div>
           </div>
           <div className="user-like">
-            <div className="user-like-text">-1 싫어요</div>
+            <div className="user-like-text" onClick={dislikePlusScore}>-1 싫어요</div>
           </div>
         </div>
       </div>
