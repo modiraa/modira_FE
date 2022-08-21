@@ -83,15 +83,20 @@ function PostDetail() {
           <p>제한조건</p>
           <span className="material-symbols-outlined">task_alt</span>
           <span>
-            {data.limitAge}
-            {data.limitGender}만 신청가능한 모임입니다.
+            <b>
+              {data.limitAge}
+              {data.limitGender}
+            </b>
+            만 신청가능한 모임입니다.
           </span>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et id nam
             quis sodales. Eget lobortis neque mi,{" "}
           </p>
         </Limit>
-        <ButtonSubmit>참여신청</ButtonSubmit>
+        <ButtonSubmit>
+          <button>참여신청</button>
+        </ButtonSubmit>
       </Container>
     </>
   );
@@ -231,26 +236,34 @@ const Limit = styled.div`
   background-color: #fff;
   font-weight: 400;
   font-size: 18px;
-  padding: 44px 0 44px 44px;
+  padding: 44px 0 0 44px;
   span {
     margin: 0 8px 22px 0;
   }
   p {
-    margin-bottom:12px;
+    margin-bottom: 12px;
     font-weight: 400;
     font-size: 20px;
   }
+  b {
+    font-weight: 400;
+    font-size: 18px;
+  }
 `;
-const ButtonSubmit = styled.button`
-  background-color: black;
-  width: 445px;
-  height: 70px;
-  border: none;
-  color: white;
-  padding: 12px 25px;
-  justify-content: center;
-  font-size: 0.9rem;
-  margin: 56px 40px 85px 40px;
-  border-radius: 35px;
-  cursor: auto;
+const ButtonSubmit = styled.div`
+  position: relative;
+  background-color: #fff;
+  button {
+    background-color: black;
+    width: 445px;
+    height: 70px;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    justify-content: center;
+    font-size: 0.9rem;
+    margin: 56px 40px 85px 40px;
+    border-radius: 35px;
+    cursor: auto;
+  }
 `;

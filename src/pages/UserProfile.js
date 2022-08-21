@@ -22,8 +22,21 @@ const UserProfile = () => {
       <div className="wrap-middle">
         <div className="user-wrap-countlike">
           <div className="arrow_box">
-            <span className="material-symbols-outlined" style={{fontSize:"20px"}}>favorite</span>
-            <span style={{fontSize:"25px",fontWeiht:"400px",marginLeft:"2px"}}>12</span>
+            <span
+              className="material-symbols-outlined"
+              style={{ fontSize: "20px" }}
+            >
+              favorite
+            </span>
+            <span
+              style={{
+                fontSize: "25px",
+                fontWeiht: "400px",
+                marginLeft: "2px",
+              }}
+            >
+              12
+            </span>
           </div>
         </div>
         <img src={testimg} className="user-img" />
@@ -54,13 +67,11 @@ const UserProfile = () => {
 
 export default UserProfile;
 
+const Wrapnev = styled.div`
+  width: 100%;
 
-const Wrapnev=styled.div`
-    width: 100%;
-  
-    @media screen and (min-height : 740px) {
-  
-   position: absolute;
+  @media screen and (min-height: 740px) {
+    position: absolute;
     bottom: 125px;
-}
-`
+  }
+`;
