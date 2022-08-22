@@ -10,7 +10,7 @@ const UserProfile = () => {
 
 
 const showProfileAX=async()=>{
-  await axios.get(`http://52.79.223.9/api/user/info/1`)
+  await axios.get(`http://52.79.223.9/api/user/info/88`)
       .then(response => {
        console.log(response)
       })
@@ -68,8 +68,8 @@ const showProfileAX=async()=>{
   }
   return (
     <div className="wrap">
-      <div className="chat-header-wrap">
-        <div className="chat-header-icon" style={{ marginLeft: "28px" }}>
+      <div className="userprofile-header-wrap">
+        <div className="userprofile-header-icon" style={{ marginLeft: "28px" }}>
           <span
             className="material-symbols-outlined"
             style={{ fontSize: "28px" }}
