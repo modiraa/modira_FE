@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import MyCalendar from '../components/MyCalendar';
 
 const Main = () => {
 
@@ -29,6 +30,7 @@ const Main = () => {
     <div className="main">
       <Navbar/>
       <p/>
+      <MyCalendar/>
       <button > 아 여기를 안했구나</button>
     </div>
   )

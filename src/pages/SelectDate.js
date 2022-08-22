@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css(subin)/WriteSelect.css';
+import MyCalendar from '../components/MyCalendar';
 
 const WriteSelect = () => {
 
@@ -18,6 +19,7 @@ const WriteSelect = () => {
                 </div>
             </div>
             <div className='date'>
+                <MyCalendar/>
             </div>
             
             <div className='WriteSelect_bottom'>
