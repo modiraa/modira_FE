@@ -21,7 +21,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className='login_top'>
-        <div>
+        <div className='login-material-symbols-outlined'>
           <span className="material-symbols-outlined">arrow_back</span>
         </div>
         <div className="login_text">
