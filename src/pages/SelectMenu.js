@@ -1,27 +1,32 @@
-import React from 'react';
-import '../css(subin)/WriteSelect.css';
+import React, { useState } from 'react';
+import '../css(subin)/SelectMenu.css';
+import MenuPicker from '../components/MenuPicker';
 
-const WriteSelect = () => {
+const SelectMenu = () => {
 
+    const [controlledSwiperMenu,setControlledSwiperMenu] = useState('')
+
+    console.log("여기",controlledSwiperMenu)
     return (
-        <div className='write_select'>
-            <div className='WriteSelect_top'>
-                <div className='write_page_count'>
+        <div className='select_menu'>
+            <div className='select_menu_top'>
+                <div className='select_menu_count'>
                     <p>5/6</p>
                 </div>
-                <div className='write_top_title'>
+                <div className='select_menu_title'>
                     <h2>함께 드실 음식은<br/>무엇인가요?</h2>
                 </div>
-                <div className='write_top_value'>
-                    <h3>일 식</h3>
+                <div className='select_menu_value'>
+                    <h3>{controlledSwiperMenu}</h3>
                     <h5>을 먹는 모임이에요</h5>
                 </div>
             </div>
             <div className='menu'>
-
+                <MenuPicker controlledSwiperMenu={controlledSwiperMenu} setControlledSwiperMenu={setControlledSwiperMenu}/>
             </div>
             
-            <div className='WriteSelect_bottom'>
+            <div className='select_menu_bottom'>
+                <div className="select_menu-bg" />
                 <div className='prev'>
                     <span className="material-symbols-outlined">
                         arrow_back_ios
@@ -39,4 +44,4 @@ const WriteSelect = () => {
     )
 }
 
-export default WriteSelect;
+export default SelectMenu;

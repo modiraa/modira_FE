@@ -24,7 +24,7 @@ export default function Picker({ slideList, setControlledSwiper, controlledSwipe
 
     return (
 
-        <div style={{ height: "100%", width: "100%", display: "flex" }}>
+        <div style={{ height: "100%", width: "100%", display: "flex", paddingTop:"80px", boxSizing:"border-box"}}>
             <Swiper
                 controller={{ control: controlledSwiper }}
                 direction={"vertical"}
@@ -36,7 +36,7 @@ export default function Picker({ slideList, setControlledSwiper, controlledSwipe
                 slideToClickedSlide={true}
                 modules={[Pagination, Mousewheel, Controller]}
             >
-                {slideList?.map((v, i) => <SwiperSlide key={i}>{v}</SwiperSlide>)}
+                {slideList.map((v, i) => <SwiperSlide key={i}>{v}</SwiperSlide>)}
             </Swiper>
             
         </div>

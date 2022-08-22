@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+
 import PostCollection from "../components/PostCollection";
 import "../css(subin)/Main.css";
 import PostCollectionStatus from "../components/PostCollectionStatus";
 import MenuIconBunch from "../components/MenuIconBunch";
 import LowerNavbar from "../components/LowerNavbar";
+
+
 
 
 const Main = () => {
@@ -75,11 +78,11 @@ const Main = () => {
         </div>
       </div>
       <div  style={{ height: "125px" }}>
-
       </div>
       <div className="main-wrap-lowernavbar">
         <LowerNavbar />
       </div>
+
     </div>
   );
 };
