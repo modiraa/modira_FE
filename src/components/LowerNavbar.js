@@ -39,7 +39,6 @@ const LowerNavbar = () => {
       <span className="material-symbols-outlined">person</span>
       <span className="symbols-text">My</span>
       </div>
-      
     </div>
   );
 };

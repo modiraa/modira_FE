@@ -8,13 +8,16 @@ const AgeDropdown = ({ age, setAge }) => {
   return (
     <Dropdown>
       <Dropdownbtn onClick={(e) => setIsActive(!isActive)}>
-        {age}
-        <span class="material-symbols-outlined">arrow_drop_down</span>
+        <span>
+          {age}
+          <span className="material-symbols-outlined">arrow_drop_down</span>
+        </span>
       </Dropdownbtn>
       {isActive && (
         <Dropdowncontent>
           {options.map((option) => (
             <Dropdownitem
+              key={option}
               onClick={(e) => {
                 setAge(option);
                 setIsActive(false);
@@ -31,22 +34,23 @@ const AgeDropdown = ({ age, setAge }) => {
 export default AgeDropdown;
 
 const Dropdown = styled.div`
-  align-items: center;
-  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 20px;
   width: 100%;
-  height: 15px;
-  padding: 13px 0;
-  position: relative;
 `;
 
 const Dropdownbtn = styled.div`
-  padding: 15px;
   height: 15px;
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
   border: 1px solid #a4a4a4;
   border-radius: 12px;
+  padding: 19px 19px 19px 29px;
+  color: #dfdfdf;
+  span {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 const Dropdowncontent = styled.div`
@@ -54,9 +58,7 @@ const Dropdowncontent = styled.div`
   flex-direction: column;
   border-radius: 12px;
   border: 1px solid #a4a4a4;
-  padding: 15px;
   margin-top: 10px;
-  width: 91%;
 `;
 
 const Dropdownitem = styled.div`
