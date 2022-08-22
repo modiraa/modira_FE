@@ -1,5 +1,10 @@
-.wrap{
- min-height: 460px;
+.useprofile-wrap{
+ min-height: 800px;
+ max-height: 1030px;
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
 }
 
 .userprofile-header-wrap{

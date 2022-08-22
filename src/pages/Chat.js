@@ -97,56 +97,53 @@ const Chat = () => {
     // 채팅을 보낸다.
   }
 
-return(
-  <UserProfile/>
-)
-  // return (
-  //   <div className="chat-wrap">
-  //     <div style={{position:"absolute",left:"50%",top:"50%"}}>
-  //     <button onClick={connect}>연결!</button>
-  //     <button onClick={disconnect}>소켓 연결 끊기!</button>
-  //     <hr></hr>
-  //     <input
-  //       placeholder="nickname을 입력하세요"
-  //       onChange={(e) => {
-  //         setSendNick(e.target.value);
-  //       }}
-  //     ></input>
-  //     <button onClick={sendNicknameFN}>닉네임등록</button>
-  //     </div>
+
+  return (
+    <div className="chat-wrap">
+      <div style={{position:"absolute",left:"50%",top:"50%"}}>
+      <button onClick={connect}>연결!</button>
+      <button onClick={disconnect}>소켓 연결 끊기!</button>
+      <hr></hr>
+      <input
+        placeholder="nickname을 입력하세요"
+        onChange={(e) => {
+          setSendNick(e.target.value);
+        }}
+      ></input>
+      <button onClick={sendNicknameFN}>닉네임등록</button>
+      </div>
       
     
-  //     <div className="chat-header-wrap">
-  //       <div className="chat-header-icon" style={{ marginLeft: "28px" }}>
-  //         <span
-  //           className="material-symbols-outlined"
-  //           style={{ fontSize: "28px" }}
-  //         >
-  //           arrow_back_ios
-  //         </span>
-  //       </div>
-  //       <div className="chat-header-title">Lorem ipsum dolor...</div>{" "}
-  //       <div className="chat-header-icon" style={{ marginRight: "35px" }}>
-  //         <span className="material-icons-outlined" style={{ fontSize: "28px" }}>
-  //           logout
-  //         </span> 
-  //       </div>
-  //     </div>
-  //     <div ref={RefViewControll} className="chat-message-container">
-  //       {/* <MessagelList showMessage={showMessage} sendNick={sendNick}/> */}
-  //       <MyCalendar/>
-  //     </div>
-  //     <div className="chat-input-wrap">
-  //       <input className="chat-input"
-  //         placeholder="채팅입력"
-  //         onChange={(e) => {
-  //           setSendMessage(e.target.value);
-  //         }}
-  //       />
-  //       <button onClick={sendMessageFN}>메시지보내기</button>
-  //     </div>
-  //   </div>
-  // );
+      <div className="chat-header-wrap">
+        <div className="chat-header-icon" style={{ marginLeft: "28px" }}>
+          <span
+            className="material-symbols-outlined"
+            style={{ fontSize: "28px" }}
+          >
+            arrow_back_ios
+          </span>
+        </div>
+        <div className="chat-header-title">Lorem ipsum dolor...</div>{" "}
+        <div className="chat-header-icon" style={{ marginRight: "35px" }}>
+          <span className="material-icons-outlined" style={{ fontSize: "28px" }}>
+            logout
+          </span> 
+        </div>
+      </div>
+      <div ref={RefViewControll} className="chat-message-container">
+        <MessagelList showMessage={showMessage} sendNick={sendNick}/>
+      </div>
+      <div className="chat-input-wrap">
+        <input className="chat-input"
+          placeholder="채팅입력"
+          onChange={(e) => {
+            setSendMessage(e.target.value);
+          }}
+        />
+        <button onClick={sendMessageFN}>메시지보내기</button>
+      </div>
+    </div>
+  );
 };
 export default Chat;
 

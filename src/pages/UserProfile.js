@@ -7,12 +7,14 @@ import styled from "styled-components";
 import axios from "axios";
 
 const UserProfile = () => {
+  const [dataProfile ,setDataProfile]=React.useState();
 
-
+  
 const showProfileAX=async()=>{
   await axios.get(`http://52.79.223.9/api/user/info/88`)
       .then(response => {
        console.log(response)
+       setDataProfile(response.data)
       })
       .catch(error => {
         console.log(error);
@@ -67,7 +69,7 @@ const showProfileAX=async()=>{
         })
   }
   return (
-    <div className="wrap">
+    <div className="useprofile-wrap">
       <div className="userprofile-header-wrap">
         <div className="userprofile-header-icon" style={{ marginLeft: "28px" }}>
           <span
@@ -83,17 +85,17 @@ const showProfileAX=async()=>{
         <div className="user-wrap-countlike">
           <div className="arrow_box">
             <span className="material-symbols-outlined" style={{fontSize:"20px"}}>favorite</span>
-            <span style={{fontSize:"25px",fontWeight:"400",marginLeft:"2px"}}>12</span>
+            <span style={{fontSize:"25px",fontWeight:"400",marginLeft:"2px"}}>{dataProfile?.score}</span>
           </div>
         </div>
-        <img src={testimg} className="user-img" />
+        <img src={dataProfile?.userProfile} className="user-img" />
         <div className="user-nick">Lorem ipsum dolor</div>
         <div className="user-wrap-sexAndage">
           <div className="user-sexAndage">
-            <div>여성</div>
+            <div>{dataProfile?.gender}</div>
           </div>
           <div className="user-sexAndage">
-            <div>20대</div>
+            <div>{dataProfile?.age}</div>
           </div>
         </div>
         <div className="user-wrap-like">
@@ -105,20 +107,12 @@ const showProfileAX=async()=>{
           </div>
         </div>
       </div>
-      <Wrapnev>
+    
         <LowerNavbar />
-      </Wrapnev>
+    
     </div>
   );
 };
 
 export default UserProfile;
 
-const Wrapnev = styled.div`
-  width: 100%;
-
-  @media screen and (min-height: 740px) {
-    position: absolute;
-    bottom: 125px;
-  }
-`;
