@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LowerNavbar from "../components/LowerNavbar";
 import "../css(subin)/chat.css";
 import "../css(subin)/UserProfile.css";
@@ -8,11 +8,32 @@ import axios from "axios";
 
 const UserProfile = () => {
 
+
+const showProfileAX=async()=>{
+  await axios.get(`http://52.79.223.9/api/user/info/1`)
+      .then(response => {
+       console.log(response)
+      })
+      .catch(error => {
+        console.log(error);
+      })
+
+}
+  useEffect(() => {
+   
+    showProfileAX(); 
+  }, [])
+
   const likePlusScore= async()=>{
-    await axios.post("http://3.39.23.189/api/likes/1",
-    JSON.stringify({
-      kakaoNickname : "user1"
-  })
+
+
+
+    
+    await axios.post("http://3.39.23.189/api/likes",JSON.stringify({userId:1},
+    { headers: {
+     Authorization:"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjExMzI1NzksInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4OTc0OTcyNCJ9.ts5bOll6CFlw6IrDQry2kBPzgA6DRYcjQESTTtV6D7oz6k_hIGNkxYbmy8ytFs1FfHoN2I3ebQRtAWMXxhVLSQ"
+     }
+   })
   )
     .then((res) => {
         console.log(res); // 토큰이 넘어올 것임
@@ -27,10 +48,12 @@ const UserProfile = () => {
   }
 
   const dislikePlusScore=async()=>{
-    await axios.post("http://3.39.23.189/api/hates/1",
-    JSON.stringify({
-      kakaoNickname : "user1"
-  })
+    await axios.post("http://3.39.23.189/api/hates",
+    JSON.stringify({userId:1}),
+    { headers: {
+      Authorization:"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjExMzI1NzksInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4OTc0OTcyNCJ9.ts5bOll6CFlw6IrDQry2kBPzgA6DRYcjQESTTtV6D7oz6k_hIGNkxYbmy8ytFs1FfHoN2I3ebQRtAWMXxhVLSQ"
+      }
+    }
   )
     .then((res) => {
         console.log(res); // 토큰이 넘어올 것임
@@ -59,21 +82,8 @@ const UserProfile = () => {
       <div className="wrap-middle">
         <div className="user-wrap-countlike">
           <div className="arrow_box">
-            <span
-              className="material-symbols-outlined"
-              style={{ fontSize: "20px" }}
-            >
-              favorite
-            </span>
-            <span
-              style={{
-                fontSize: "25px",
-                fontWeiht: "400px",
-                marginLeft: "2px",
-              }}
-            >
-              12
-            </span>
+            <span className="material-symbols-outlined" style={{fontSize:"20px"}}>favorite</span>
+            <span style={{fontSize:"25px",fontWeight:"400",marginLeft:"2px"}}>12</span>
           </div>
         </div>
         <img src={testimg} className="user-img" />

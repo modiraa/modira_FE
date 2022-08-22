@@ -30,7 +30,7 @@ import SelectPeopleCount from "./pages/SelectPeopleCount";
 function App() {
 
   return (
-    <>
+    
       <Background>
         <Webview>
           <WebViewLeft />
@@ -67,7 +67,7 @@ function App() {
           </Routes>
         </Appview>
       </Background>
-    </>
+    
   );
 }
 
@@ -75,7 +75,8 @@ export default App;
 
 const Background = styled.div`
   width: 100%;
-
+  height: 1030px;
+  
   /* background-image: url(${testimage});
   background-repeat: no-repeat;
   background-size: 100%; */
@@ -88,13 +89,14 @@ const Background = styled.div`
     background-image: none;
     justify-content: center;
   }
+ 
 `;
 const Webview = styled.div`
   @media screen and (max-width: 912px) {
     display: none;
   }
   width: 40%;
-  height: 100vh;
+  height:100%;
   background-color:#EEEEEE;
   padding: 98px 0px 0px 318px;
 `;
@@ -105,8 +107,12 @@ const Appview = styled.div`
     margin-right: 0px;
   }
   min-width: 525px;
-  height: 100vh;
+  width: 525px;
+  height: 100%;
   background: white;
   margin-right: 349px;
   overflow: auto;
+  &::-webkit-scrollbar{
+    display: none;
+  }
 `;

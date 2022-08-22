@@ -1,0 +1,9 @@
+.postcollectionstatus-wrap-postcomponents{
+    display: flex;
+    overflow: auto;
+
+    
+}
+.postcollectionstatus-wrap-postcomponents::-webkit-scrollbar{
+    display: none;
+}
