@@ -3,6 +3,7 @@ import MapgpsForDetail from "../components/MapgpsForDetail";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import LowerNavbar from "../components/LowerNavbar";
 
 function PostDetail() {
   const [data, setData] = useState({
@@ -22,21 +23,18 @@ function PostDetail() {
     // contents:
   });
   console.log(data);
-  // const navigate = useNavigate();
-  // let location = useLocation();
-  // const params = useParams();
 
-  useEffect(() => {
-    axios
-      .get("http://3.34.129.164/api/post/detail")
-      .then((response) => {
-        setData(response.data);
-        console.log("성공", response.data);
-      })
-      .catch((error) => {
-        console.log("에러", error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://3.34.129.164/api/post/detail")
+  //     .then((response) => {
+  //       setData(response.data);
+  //       console.log("성공", response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log("에러", error);
+  //     });
+  // }, []);
 
   return (
     <>
@@ -98,6 +96,7 @@ function PostDetail() {
           <button>참여신청</button>
         </ButtonSubmit>
       </Container>
+      <LowerNavbar />
     </>
   );
 }
@@ -163,7 +162,7 @@ const Address = styled.span`
   display: flex;
   flex-direction: row;
   background-color: #fff;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 18px;
   padding: 0 0 19px 44px;
   span {
@@ -246,7 +245,7 @@ const Limit = styled.div`
     font-size: 20px;
   }
   b {
-    font-weight: 400;
+    font-weight: 700;
     font-size: 18px;
   }
 `;

@@ -56,18 +56,18 @@ const FirstLogin = () => {
     formData.append("address", location.state.homesi + location.state.homegu);
     formData.append("username", "text");
 
-    await axios
-      .post("http://52.79.223.9/api/user/register", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-      .then((response) => {
-        console.log("회원가입 완료", response);
-        alert("가입성공");
-        // navigate("/login");
-      })
-      .catch((error) => {
-        console.log("에러!", error);
-      });
+    // await axios
+    //   .post("http://52.79.223.9/api/user/register", formData, {
+    //     headers: { "Content-Type": "multipart/form-data" },
+    //   })
+    //   .then((response) => {
+    //     console.log("회원가입 완료", response);
+    //     alert("가입성공");
+    //     // navigate("/login");
+    //   })
+    //   .catch((error) => {
+    //     console.log("에러!", error);
+    //   });
     // console.log({ userProfileImage, nickName, age, gender, address });
   };
 
@@ -75,14 +75,13 @@ const FirstLogin = () => {
     <Container>
       <Box>
         {" "}
-        <div
-          style={{ display: "left", cursor: "pointer" }}
+        <Arrow
           onClick={() => {
             navigate("/inputaddress");
           }}
         >
           <span className="material-symbols-outlined">arrow_back</span>
-        </div>
+        </Arrow>
         <input
           type="file"
           ref={userProfileImage}
@@ -96,7 +95,7 @@ const FirstLogin = () => {
         <ButtonImg onClick={ImageUpload}>+ 프로필 사진추가</ButtonImg>
       </Box>
       <LoginBox>
-        <P>닉네임 </P>
+        <p>닉네임 </p>
         <InputBox>
           <Input
             type="text"
@@ -108,11 +107,11 @@ const FirstLogin = () => {
             }}
           ></Input>
         </InputBox>
-        <P>나이대 </P>
+        <p>나이대 </p>
         <InputBox>
           <AgeDropdown age={age} setAge={setAge} />
         </InputBox>
-        <P>성별 </P>
+        <p>성별 </p>
         <InputBox>
           <GenderButton
             onClick={() => {
@@ -135,7 +134,7 @@ const FirstLogin = () => {
             남성
           </GenderButton>
         </InputBox>
-        <P>주소</P>
+        <p>주소</p>
         <InputBox
           onClick={() => {
             navigate("/inputaddress");
@@ -148,13 +147,17 @@ const FirstLogin = () => {
         </InputBox>
         <Check>
           <input type="checkbox" />
-          (필수) 개인정보 취급방침에 동의합니다.<p>보기</p>
-          <span className="material-symbols-outlined">
-            keyboard_arrow_right
+          <p>(필수) 개인정보 취급방침에 동의합니다.</p>
+          <span>
+            보기{" "}
+            <span className="material-symbols-outlined">
+              keyboard_arrow_right
+            </span>
           </span>
         </Check>
-
-        <ButtonSubmit onClick={Submit}>등록완료</ButtonSubmit>
+        <Button onClick={Submit}>
+          <button>등록완료</button>
+        </Button>
       </LoginBox>
     </Container>
   );
@@ -166,7 +169,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 100%;
   background-color: white;
 `;
 
@@ -176,22 +178,33 @@ const Box = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 20%;
+  height: 251px;
   background-color: #e7e7e7;
+
+  span {
+    cursor: pointer;
+    font-size: 36px;
+    display: flex;
+    flex-direction: row;
+  }
+`;
+
+const Arrow = styled.div`
+  position: relative;
+  top: 20px;
+  left: -200px;
 `;
 
 const LoginBox = styled.div`
-  justify-content: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 30px;
-  padding-top: 5%;
+  margin: 36px 43px 0 43px;
   background-color: white;
-`;
-const P = styled.div`
-  text-align: left;
-  font-weight: 800;
+  p {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
 `;
 
 const InputBox = styled.div`
@@ -200,14 +213,13 @@ const InputBox = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  margin: 10px 0;
+  margin-bottom: 29px;
 `;
 
 const Input = styled.input`
-  width: 100%;
-  height: 15px;
-  padding: 13px 30px;
-  text-align: center;
+  width: 439px;
+  height: 20px;
+  padding: 14px 29px;
   font-size: 16px;
   font-weight: 500;
   border-radius: 12px;
@@ -221,8 +233,9 @@ const Input = styled.input`
 const Imgset = styled.div`
   border-radius: 50px;
   overflow: hidden;
-  width: 80px;
-  height: 80px;
+  width: 116px;
+  height: 116px;
+  margin-bottom: 15px;
 `;
 
 const Img = styled.img`
@@ -247,7 +260,7 @@ const ButtonImg = styled.button`
 
 const Address = styled.div`
   width: 100%;
-  height: 15px;
+  height: 20px;
   padding: 13px 30px;
   text-align: center;
   font-size: 16px;
@@ -259,7 +272,7 @@ const Address = styled.div`
 
 const GenderButton = styled.div`
   width: 150px;
-  height: 15px;
+  height: 20px;
   padding: 13px 30px;
   font-size: 16px;
   font-weight: 500;
@@ -271,21 +284,43 @@ const GenderButton = styled.div`
   cursor: pointer;
 `;
 
-const ButtonSubmit = styled.button`
-  background-color: #b8b8b8;
-  width: 70%;
-  height: auto;
-  border: none;
-  color: white;
-  padding: 12px 25px;
-  text-align: center;
-  font-size: 0.9rem;
-  margin-top: 25px;
-  border-radius: 35px;
-  cursor: auto;
+const Button = styled.div`
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  button {
+    background-color: #b8b8b8;
+    width: 439px;
+    height: 70px;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 60px;
+    border-radius: 35px;
+    cursor: auto;
+  }
 `;
 
-const Check = styled.label`
+const Check = styled.span`
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  input {
+    margin-right: 15px;
+  }
+  p {
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0 37px 0 0;
+  }
+  span {
+    display: flex;
+    flex-direction: row;
+    font-weight: 500;
+    font-size: 18px;
+  }
 `;

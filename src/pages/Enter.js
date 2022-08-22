@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
+import enterimg from "../image/enter.jpg";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -23,9 +24,11 @@ const Enter = () => {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        <SwiperSlide>이미지 1</SwiperSlide>
-        <SwiperSlide>이미지 2</SwiperSlide>
-        <SwiperSlide>이미지 3</SwiperSlide>
+        <SwiperSlide>
+          <img src={enterimg} />
+        </SwiperSlide>
+        <SwiperSlide><img src={enterimg} /></SwiperSlide>
+        <SwiperSlide><img src={enterimg} /></SwiperSlide>
       </Swiper>
     </Container>
   );
@@ -35,6 +38,7 @@ export default Enter;
 
 const Container = styled.div`
   display: flex;
+  width: 525px;
   height: 100vh;
-  background-color: whitesmoke;
+  background-color: white;
 `;
