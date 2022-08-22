@@ -114,13 +114,11 @@ const showProfileAX=async()=>{
 
 export default UserProfile;
 
+const Wrapnev = styled.div`
+  width: 100%;
 
-const Wrapnev=styled.div`
-    width: 100%;
-  
-    @media screen and (min-height : 740px) {
-  
-   position: absolute;
+  @media screen and (min-height: 740px) {
+    position: absolute;
     bottom: 125px;
-}
-`
+  }
+`;

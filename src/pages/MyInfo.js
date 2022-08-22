@@ -30,11 +30,11 @@ const MyInfo = () => {
       <div className='info_wrap'>
         <div className='bg'></div>
         <div className='info_user_img'>
-          <img src='https://cdn-icons-png.flaticon.com/512/14/14660.png?w=360'/>
+          <img src='https://cdn-icons-png.flaticon.com/512/14/14660.png?w=360' />
         </div>
         <div className='info_user_name'>
           <h3>김영희</h3>
-        </div> 
+        </div>
         <div className='info_user_address'>
           <span className="material-icons-outlined">
             place
@@ -50,9 +50,11 @@ const MyInfo = () => {
           </div>
         </div>
         <div className='info_user_good'>
-          <span className="material-icons-outlined">
-            favorite_border
-          </span>
+          <div className='myinfo-material-icons-outlined'>
+            <span className="material-icons-outlined">
+              favorite_border
+            </span>
+          </div>
           <span>12</span>
         </div>
         <div className='info_user_update_btn'>
