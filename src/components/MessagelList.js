@@ -4,7 +4,7 @@ import Message from './Message'
 const MessagelList = ({showMessage,sendNick}) => {
 
     return (
-    <div>
+    <div >
         {showMessage?.map((v,i,arr)=><Message key={i} messageData={v} sendNick={sendNick} prevData={arr[i-1]}/>)}
     </div>
   )
