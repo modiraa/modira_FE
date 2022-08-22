@@ -12,7 +12,7 @@ const MyCalendar = () => {
     <CalendarContainer>
       <Calendar
         calendarType="US"
-        locale="en-GB"
+        locazle="en-GB"
         onChange={onChange}
         value={value}
       />
