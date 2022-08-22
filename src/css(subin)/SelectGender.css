@@ -1,4 +1,4 @@
-.select_time{
+.select_gender{
     width: 100%;
     height: 1030px;
     display: flex;
@@ -9,7 +9,7 @@
     /* background-color: aquamarine; */
 }
 
-.select_time_top{
+.select_gender_top{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -22,24 +22,24 @@
     /* background-color: rgb(247, 136, 136); */
 }
 
-.select_time_count>p{
+.select_gender_count>p{
     margin-left: 43px;
     font-size: 19px;
     font-weight: 400;
 }
 
-.select_time_title{
+.select_gender_title{
     margin-left: 43px;
     margin-top: 20px;
     /* background-color: aquamarine; */
 }
 
-.select_time_title>h2{
+.select_gender_title>h2{
     font-size: 34px;
     font-weight: 700;
 }
 
-.select_time_value{
+.select_gender_value{
     display: flex;
     margin-top: 23px;
     margin-left: 43px;
@@ -47,15 +47,15 @@
     /* background-color: aquamarine; */
 }
 
-.select_time_value>h3{
+.select_gender_value>h3{
     font-size: 28px;
 }
-.select_time_value>h5{
+.select_gender_value>h5{
     font-size: 18px;
     margin-top: 10px;
 }
 
-.select_time_bottom{
+.select_gender_bottom{
     position: relative;
     bottom: 0;
     display: flex;
@@ -66,28 +66,6 @@
     width: 100%;
     height: 144px;
     /* background-color: rgb(95, 65, 65); */
-}
-
-.prev{
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    left: 0;
-
-    width: 50%;
-    height: 29px;
-    /* background-color: aqua; */
-}
-
-.prev>.material-symbols-outlined{
-    margin-left: 42.69px;
-    font-size: 28px;
-}
-
-.prev>h4{
-    font-size: 20px;
-    margin-top: 2px;
-    margin-left: 11px;
 }
 
 .next{
@@ -113,7 +91,7 @@
     margin-top: 2px;
 }
 
-.test{
+.gender{
     width: 100%;
     height: 554px;
     position: relative;

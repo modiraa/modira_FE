@@ -1,10 +1,14 @@
-import React from 'react';
-import Picker from '../components/Picker';
-import Test from '../components/Test';
+import React, { useState } from 'react';
+import TimePicker from '../components/TimePicker';
 import '../css(subin)/SelectTime.css';
 
-const WriteSelect = () => {
+const SelectTime = () => {
 
+    const [controlledSwiperAmPm,setControlledSwiperAmPm] = useState('')
+    const [controlledSwiperHour,setControlledSwiperHour] = useState('')
+    const [controlledSwiperMin,setControlledSwiperMin] = useState('')
+
+    console.log("여기",controlledSwiperAmPm)
     return (
         <div className='select_time'>
             <div className='select_time_top'>
@@ -15,12 +19,14 @@ const WriteSelect = () => {
                     <h2>모임을 원하는<br/>시간을 알려주세요</h2>
                 </div>
                 <div className='select_time_value'>
-                    <h3>오후 2시 30분</h3>
+                    <h3>{controlledSwiperAmPm}{controlledSwiperHour}{controlledSwiperMin}</h3>
                     <h5>에 만나는 모임이에요</h5>
                 </div>
             </div>
             <div className='test'>
-                <Test/>
+                <TimePicker controlledSwiperAmPm={controlledSwiperAmPm} setControlledSwiperAmPm={setControlledSwiperAmPm}
+                controlledSwiperHour={controlledSwiperHour} setControlledSwiperHour={setControlledSwiperHour}
+                controlledSwiperMin={controlledSwiperMin} setControlledSwiperMin={setControlledSwiperMin}/>
             </div>
             
             <div className='select_time_bottom'>
@@ -42,4 +48,4 @@ const WriteSelect = () => {
     )
 }
 
-export default WriteSelect;
+export default SelectTime;

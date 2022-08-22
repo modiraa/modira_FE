@@ -16,21 +16,18 @@ import GoogleRedirect from "./pages/GoogleRedirect";
 import PostDetail from "./pages/PostDetail";
 import PostCard from "./components/PostCard";
 import Mapgps from "./components/Mapgps";
-import Test from "./components/Test";
 import SelectTime from "./pages/SelectTime";
 import SelectDate from "./pages/SelectDate";
 import SelectGps from "./pages/SelectGps";
-import SelectCount from "./pages/SelectCount";
 import SelectMenu from "./pages/SelectMenu";
 import SelectPayment from "./pages/SelectPayment";
 import SelectGender from "./pages/SelectGender";
 import SelectAge from "./pages/SelectAge";
 import WebViewLeft from "./components/WebViewLeft";
 import UserProfile from "./pages/UserProfile";
+import SelectPeopleCount from "./pages/SelectPeopleCount";
 
 function App() {
-  // picker 값
-  const [controlledSwiper, setControlledSwiper] = React.useState(null);
 
   return (
     <>
@@ -49,27 +46,19 @@ function App() {
             <Route path="/selecttime" element={<SelectTime />} />
             <Route path="/selectdate" element={<SelectDate />} />
             <Route path="/selectgps" element={<SelectGps />} />
-            <Route path="/selectcount" element={<SelectCount />} />
+            <Route path="/selectpeoplecount" element={<SelectPeopleCount />} />
             <Route path="/selectmenu" element={<SelectMenu />} />
             <Route path="/selectpayment" element={<SelectPayment />} />
             <Route path="/selectgender" element={<SelectGender />} />
             <Route path="/selectage" element={<SelectAge />} />
             <Route path="/myinfo" element={<MyInfo />} />
             <Route path="/mapgps" element={<Mapgps />} />
-            <Route
-              path="/test"
-              element={
-                <Test
-                  setControlledSwiper={setControlledSwiper}
-                  controlledSwiper={controlledSwiper}
-                />
-              }
-            />
+
             <Route path="/firstlogin" element={<FirstLogin />} />
             <Route path="/enter" element={<Enter />} />
             <Route path="/inputaddress" element={<Inputaddress />} />
             <Route path="/auth/kakao/callback" element={<Kakaoredirect />} />
-            <Route path="/auth/naver/callback" element={<NaverRedirect />} />
+            <Route path="/login/ouath2/code/naver" element={<NaverRedirect />} />
             <Route path="/auth/google/callback" element={<GoogleRedirect />} />
             <Route path="/postdetail:postId" element={<PostDetail />} />
             <Route path="/postcard" element={<PostCard />} />

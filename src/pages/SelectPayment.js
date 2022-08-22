@@ -1,26 +1,32 @@
-import React from 'react';
-import '../css(subin)/WriteSelect.css';
+import React, { useState } from 'react';
+import '../css(subin)/SelectPayment.css';
+import PaymentPicker from '../components/PaymentPicker';
 
-const WriteSelect = () => {
+const SelectPayment = () => {
 
+    const [controlledSwiperPayment,setControlledSwiperPayment] = useState('')
+
+    console.log("여기",controlledSwiperPayment)
     return (
-        <div className='write_select'>
-            <div className='WriteSelect_top'>
-                <div className='write_page_count'>
+        <div className='select_payment'>
+            <div className='select_payment_top'>
+                <div className='select_payment_count'>
                     <p>6/6</p>
                 </div>
-                <div className='write_top_title'>
+                <div className='select_payment_title'>
                     <h2>모임 정산은<br/>어떻게 하고 싶은가요?</h2>
                 </div>
-                <div className='write_top_value'>
-                    <h3>N빵</h3>
+                <div className='select_payment_value'>
+                    <h3>{controlledSwiperPayment}</h3>
                     <h5>으로 정산하는 모임이에요</h5>
                 </div>
             </div>
             <div className='payment'>
+                <PaymentPicker controlledSwiperPayment={controlledSwiperPayment} setControlledSwiperPayment={setControlledSwiperPayment}/>
             </div>
             
-            <div className='WriteSelect_bottom'>
+            <div className='select_payment_bottom'>
+                <div className="select_payment-bg" />
                 <div className='prev'>
                     <span className="material-symbols-outlined">
                         arrow_back_ios
@@ -38,4 +44,4 @@ const WriteSelect = () => {
     )
 }
 
-export default WriteSelect;
+export default SelectPayment;
