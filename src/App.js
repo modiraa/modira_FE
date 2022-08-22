@@ -26,6 +26,7 @@ import SelectAge from "./pages/SelectAge";
 import WebViewLeft from "./components/WebViewLeft";
 import UserProfile from "./pages/UserProfile";
 import SelectPeopleCount from "./pages/SelectPeopleCount";
+import Myroom from "./pages/Myroom";
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
             <Route path="/selectage" element={<SelectAge />} />
             <Route path="/myinfo" element={<MyInfo />} />
             <Route path="/mapgps" element={<Mapgps />} />
+            <Route path="/myroom" element={<Myroom />} />
 
             <Route path="/firstlogin" element={<FirstLogin />} />
             <Route path="/enter" element={<Enter />} />
