@@ -79,7 +79,7 @@
     /* background-color: aqua; */
 }
 
-.prev>.material-symbols-outlined{
+.payment-arrow-back-ios>.material-symbols-outlined{
     margin-left: 42.69px;
     font-size: 28px;
 }
@@ -95,15 +95,13 @@
     display: flex;
     right: 0;
     flex-direction: row;
-    justify-content: end;
 
     width: 50%;
     height: 29px;
     /* background-color: aqua; */
 }
 
-.next>.material-symbols-outlined{
-    margin-right: 42.69px;
+.payment-arrow-forward-ios>.material-symbols-outlined{
     font-size: 28px;
 }
 

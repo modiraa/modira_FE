@@ -1,4 +1,4 @@
-.select_time{
+.select-date{
     width: 100%;
     height: 1030px;
     display: flex;
@@ -9,7 +9,7 @@
     /* background-color: aquamarine; */
 }
 
-.select_time_top{
+.select-date-top{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -22,24 +22,24 @@
     /* background-color: rgb(247, 136, 136); */
 }
 
-.select_time_count>p{
+.select-date-count>p{
     margin-left: 43px;
     font-size: 19px;
     font-weight: 400;
 }
 
-.select_time_title{
+.select-date-title{
     margin-left: 43px;
     margin-top: 20px;
     /* background-color: aquamarine; */
 }
 
-.select_time_title>h2{
+.select-date-title>h2{
     font-size: 34px;
     font-weight: 700;
 }
 
-.select_time_value{
+.select-date-value{
     display: flex;
     margin-top: 23px;
     margin-left: 43px;
@@ -47,15 +47,15 @@
     /* background-color: aquamarine; */
 }
 
-.select_time_value>h3{
+.select-date-value>h3{
     font-size: 28px;
 }
-.select_time_value>h5{
+.select-date-value>h5{
     font-size: 18px;
     margin-top: 10px;
 }
 
-.select_time_bottom{
+.select-date-bottom{
     position: relative;
     bottom: 0;
     display: flex;
@@ -79,7 +79,7 @@
     /* background-color: aqua; */
 }
 
-.time-arrow-back-ios>.material-symbols-outlined{
+.menu-arrow-back-ios>.material-symbols-outlined{
     margin-left: 42.69px;
     font-size: 28px;
 }
@@ -102,7 +102,7 @@
     /* background-color: aqua; */
 }
 
-.time-arrow-forward-ios>.material-symbols-outlined{
+.date-arrow-forward-ios>.material-symbols-outlined{
     font-size: 28px;
 }
 
@@ -112,9 +112,9 @@
     margin-top: 2px;
 }
 
-.test{
+.date{
     width: 100%;
-    height: 554px;
+    height:554px;
     position: relative;
     /* padding-top: 7%; */
     box-sizing: border-box;
