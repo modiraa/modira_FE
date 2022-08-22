@@ -27,13 +27,14 @@ const showProfileAX=async()=>{
   }, [])
 
   const likePlusScore= async()=>{
+    const Auth=sessionStorage.getItem("token")
 
 
 
     
     await axios.post("http://3.39.23.189/api/likes",JSON.stringify({userId:1},
     { headers: {
-     Authorization:"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjExMzI1NzksInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4OTc0OTcyNCJ9.ts5bOll6CFlw6IrDQry2kBPzgA6DRYcjQESTTtV6D7oz6k_hIGNkxYbmy8ytFs1FfHoN2I3ebQRtAWMXxhVLSQ"
+     Authorization: Auth
      }
    })
   )
@@ -50,10 +51,12 @@ const showProfileAX=async()=>{
   }
 
   const dislikePlusScore=async()=>{
+    const Auth=sessionStorage.getItem("token")
+
     await axios.post("http://3.39.23.189/api/hates",
     JSON.stringify({userId:1}),
     { headers: {
-      Authorization:"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjExMzI1NzksInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4OTc0OTcyNCJ9.ts5bOll6CFlw6IrDQry2kBPzgA6DRYcjQESTTtV6D7oz6k_hIGNkxYbmy8ytFs1FfHoN2I3ebQRtAWMXxhVLSQ"
+     Authorization: Auth
       }
     }
   )
