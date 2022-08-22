@@ -1,47 +1,42 @@
 import React, { useState } from 'react';
 import '../css(subin)/SelectAge.css';
-import PeopleCountPicker from '../components/PeopleCountPicker';
+import AgePicker from '../components/AgePicker';
 
-const SelectPeopleCount = () => {
+const SelectAge = () => {
 
-    const [controlledSwiperPeopleCount,setControlledSwiperPeopleCount] = useState('')
+    const [controlledSwiperAgeMin,setControlledSwiperAgeMin] = useState('')
+    const [controlledSwiperTo,setControlledSwiperTo] = useState('')
+    const [controlledSwiperAgeMax,setControlledSwipeAgerMax] = useState('')
 
-    console.log("여기",controlledSwiperPeopleCount)
     return (
         <div className='select_age'>
             <div className='select_age_top'>
-                <div className='select_age_count'>
-                    <p>4/6</p>
+                <div className='write_page_count'>
+                    <p>입장조건 추가</p>
                 </div>
                 <div className='select_age_title'>
-                    <h2>몇명이 참여하는<br/>모임인가요?</h2>
+                    <h2>모임에 참여가능한<br/>나이대를 선택해주세요</h2>
                 </div>
                 <div className='select_age_value'>
-                    <h3>{controlledSwiperPeopleCount}</h3>
-                    <h5>이 참여하는 모임이에요</h5>
+                    <h3>{controlledSwiperAgeMin}~{controlledSwiperAgeMax}</h3>
+                    <h5>만 참여할 수 있는 모임이에요</h5>
                 </div>
             </div>
             <div className='age'>
-                <PeopleCountPicker controlledSwiperPeopleCount={controlledSwiperPeopleCount} setControlledSwiperPeopleCount={setControlledSwiperPeopleCount}/>
+                <AgePicker
+                controlledSwiperAgeMin={controlledSwiperAgeMin} setControlledSwiperAgeMin={setControlledSwiperAgeMin}
+                controlledSwiperTo={controlledSwiperTo} setControlledSwiperTo={setControlledSwiperTo}
+                controlledSwiperAgeMax={controlledSwiperAgeMax} setControlledSwipeAgerMax={setControlledSwipeAgerMax}
+                />
             </div>
             
             <div className='select_age_bottom'>
-                <div className="select_age-bg" />
-                <div className='prev'>
-                    <span className="material-symbols-outlined">
-                        arrow_back_ios
-                    </span>
-                    <h4>이전</h4>
-                </div>
                 <div className='next'>
-                    <h4>다음</h4>
-                    <span className="material-symbols-outlined">
-                        arrow_forward_ios
-                    </span>
+                    <h4>입 력</h4>
                 </div>
             </div>
         </div>
     )
 }
 
-export default SelectPeopleCount;
+export default SelectAge;

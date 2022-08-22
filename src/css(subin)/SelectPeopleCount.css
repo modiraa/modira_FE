@@ -1,4 +1,4 @@
-.select_age{
+.select_people_count{
     width: 100%;
     height: 1030px;
     display: flex;
@@ -9,7 +9,7 @@
     /* background-color: aquamarine; */
 }
 
-.select_age_top{
+.select_people_count_top{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -22,24 +22,24 @@
     /* background-color: rgb(247, 136, 136); */
 }
 
-.write_page_count>p{
+.select_people_count_count>p{
     margin-left: 43px;
     font-size: 19px;
     font-weight: 400;
 }
 
-.select_age_title{
+.select_people_count_title{
     margin-left: 43px;
     margin-top: 20px;
     /* background-color: aquamarine; */
 }
 
-.select_age_title>h2{
+.select_people_count_title>h2{
     font-size: 34px;
     font-weight: 700;
 }
 
-.select_age_value{
+.select_people_count_value{
     display: flex;
     margin-top: 23px;
     margin-left: 43px;
@@ -47,15 +47,15 @@
     /* background-color: aquamarine; */
 }
 
-.select_age_value>h3{
+.select_people_count_value>h3{
     font-size: 28px;
 }
-.select_age_value>h5{
+.select_people_count_value>h5{
     font-size: 18px;
     margin-top: 10px;
 }
 
-.select_age_bottom{
+.select_people_count_bottom{
     position: relative;
     bottom: 0;
     display: flex;
@@ -68,15 +68,36 @@
     /* background-color: rgb(95, 65, 65); */
 }
 
+.prev{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    left: 0;
+
+    width: 50%;
+    height: 29px;
+    /* background-color: aqua; */
+}
+
+.prev>.material-symbols-outlined{
+    margin-left: 42.69px;
+    font-size: 28px;
+}
+
+.prev>h4{
+    font-size: 20px;
+    margin-top: 2px;
+    margin-left: 11px;
+}
+
 .next{
     position: absolute;
     display: flex;
     right: 0;
     flex-direction: row;
     justify-content: end;
-    padding-right: 43px;
 
-    width: 100%;
+    width: 50%;
     height: 29px;
     /* background-color: aqua; */
 }
@@ -92,7 +113,7 @@
     margin-top: 2px;
 }
 
-.age{
+.people_count{
     width: 100%;
     height: 554px;
     position: relative;

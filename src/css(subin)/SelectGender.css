@@ -1,4 +1,4 @@
-.select_age{
+.select_gender{
     width: 100%;
     height: 1030px;
     display: flex;
@@ -9,7 +9,7 @@
     /* background-color: aquamarine; */
 }
 
-.select_age_top{
+.select_gender_top{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -22,24 +22,24 @@
     /* background-color: rgb(247, 136, 136); */
 }
 
-.write_page_count>p{
+.select_gender_count>p{
     margin-left: 43px;
     font-size: 19px;
     font-weight: 400;
 }
 
-.select_age_title{
+.select_gender_title{
     margin-left: 43px;
     margin-top: 20px;
     /* background-color: aquamarine; */
 }
 
-.select_age_title>h2{
+.select_gender_title>h2{
     font-size: 34px;
     font-weight: 700;
 }
 
-.select_age_value{
+.select_gender_value{
     display: flex;
     margin-top: 23px;
     margin-left: 43px;
@@ -47,15 +47,15 @@
     /* background-color: aquamarine; */
 }
 
-.select_age_value>h3{
+.select_gender_value>h3{
     font-size: 28px;
 }
-.select_age_value>h5{
+.select_gender_value>h5{
     font-size: 18px;
     margin-top: 10px;
 }
 
-.select_age_bottom{
+.select_gender_bottom{
     position: relative;
     bottom: 0;
     display: flex;
@@ -74,9 +74,8 @@
     right: 0;
     flex-direction: row;
     justify-content: end;
-    padding-right: 43px;
 
-    width: 100%;
+    width: 50%;
     height: 29px;
     /* background-color: aqua; */
 }
@@ -92,7 +91,7 @@
     margin-top: 2px;
 }
 
-.age{
+.gender{
     width: 100%;
     height: 554px;
     position: relative;

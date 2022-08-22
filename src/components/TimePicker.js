@@ -6,7 +6,7 @@ import Picker from "./Picker";
 
 
 
-export default function Test({controlledSwiperAmPm,setControlledSwiperAmPm,controlledSwiperHour,setControlledSwiperHour,controlledSwiperMin,setControlledSwiperMin}) {
+export default function TimePicker({controlledSwiperAmPm,setControlledSwiperAmPm,controlledSwiperHour,setControlledSwiperHour,controlledSwiperMin,setControlledSwiperMin}) {
 
     console.log(controlledSwiperAmPm,controlledSwiperHour,controlledSwiperMin)
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Test from '../components/Test';
+import TimePicker from '../components/TimePicker';
 import '../css(subin)/SelectTime.css';
 
 const SelectTime = () => {
@@ -24,7 +24,7 @@ const SelectTime = () => {
                 </div>
             </div>
             <div className='test'>
-                <Test controlledSwiperAmPm={controlledSwiperAmPm} setControlledSwiperAmPm={setControlledSwiperAmPm}
+                <TimePicker controlledSwiperAmPm={controlledSwiperAmPm} setControlledSwiperAmPm={setControlledSwiperAmPm}
                 controlledSwiperHour={controlledSwiperHour} setControlledSwiperHour={setControlledSwiperHour}
                 controlledSwiperMin={controlledSwiperMin} setControlledSwiperMin={setControlledSwiperMin}/>
             </div>
