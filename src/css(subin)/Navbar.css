@@ -23,6 +23,11 @@
 
     /* background-color: aquamarine; */
 }
+.info-header-address-text{
+    font-weight: 400;
+font-size: 16px;
+line-height: 23px;
+}
 .info_header_address_plus{
     width: 28px;
     height: 28px;
@@ -34,6 +39,7 @@
   
     justify-content: end;
     align-items: center;
+   
 
 
 }
@@ -52,13 +58,21 @@
 .info_header_search>.material-icons-outlined{
     font-size: 17px;
 }
+.location-trianle{
+    position: relative;
+
+
+}
 .triangle{
+    position: absolute;
     width: 0px;
     height: 0px;
     border-bottom: 15px solid transparent;
     border-top: 15px solid transparent;
-    border-left: 15px solid black;
+    border-left: 15px solid #4A4A4A;
     border-right: 15px solid transparent;
+    left: -24px;
+    top: -3px;
 
 
 }

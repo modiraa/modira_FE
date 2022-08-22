@@ -5,9 +5,9 @@ const Navbar = () => {
   return (
     <div className="info_header">
       <div className="info_header_address">
-        <span>서울시 논현동</span>
+        <span className="info-header-address-text">서울시 논현동</span>
         <div className="info_header_address_plus">
-          <div><div className="triangle"></div></div>
+          <div className="location-trianle"><div className="triangle"></div></div>
           
         </div>
       </div>

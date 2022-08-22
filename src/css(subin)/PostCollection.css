@@ -1,0 +1,9 @@
+.postcollection-wrap-postcomponents{
+    display: flex;
+    overflow: auto;
+
+    
+}
+.postcollection-wrap-postcomponents::-webkit-scrollbar{
+    display: none;
+}

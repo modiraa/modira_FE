@@ -1,0 +1,57 @@
+.wrap-main {
+  display: flex;
+  flex-direction: column;
+  width: 525px;
+  position: relative;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+}
+.wrap-main::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.main-explain {
+  height: 181px;
+
+  background-image: url("https://www.missioninfra.net/img/noimg/noimg_4x3.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.main-explain-button {
+  width: 197px;
+  height: 40px;
+
+  background: #525252;
+  border-radius: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 23px;
+}
+.main-explain-button > div {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+
+  color: #ffffff;
+}
+
+.main-minibanner{
+  width: 100%;
+  height: 137px;
+  background: #9B9B9B;
+  margin-top: 35px;
+
+}
+.main-wrap-lowernavbar{
+  position: absolute;
+  bottom: 0;
+}
