@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css(subin)/SelectDate.css';
 import MyCalendar from '../components/MyCalendar';
 
 const SelectDate = () => {
+
+    const [selectDate,setSelectDate]=useState('')
+    console.log(selectDate);
 
     return (
         <div className='select-date'>
@@ -14,12 +17,12 @@ const SelectDate = () => {
                     <h2>모임을 원하는<br/>날짜를 알려주세요</h2>
                 </div>
                 <div className='select-date-value'>
-                    <h3>2022/02/21</h3>
+                    <h3>{}</h3>
                     <h5>에 만나는 모임이에요</h5>
                 </div>
             </div>
             <div className='date'>
-                <MyCalendar/>
+                <MyCalendar selectDate={selectDate} setSelectDate={setSelectDate}/>
             </div>
             <div className='select-date-bottom'>
                 <div className='next'>

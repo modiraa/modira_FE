@@ -3,10 +3,11 @@ import Calendar from "react-calendar";
 import styled from "styled-components";
 import "../css(subin)/Calendar.css";
 
-const MyCalendar = () => {
+const MyCalendar = ({selectDate,setSelectDate}) => {
   const [value, onChange] = React.useState(new Date());
   React.useEffect(() => {
     console.log(value);
+    setSelectDate(value);
   }, [value]);
   return (
     <CalendarContainer>
