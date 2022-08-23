@@ -1,13 +1,410 @@
 .write{
     width: 100%;
-    height: 100vh;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 .write_top{
     width: 100%;
     height: 75px;
-    background-color: aquamarine;
     position: relative;
+}
+
+.write-close-btn{
+    width: 100px;
+    height: 75px;
     float: left;
 }
+
+.write-close-btn>.material-icons{
+    font-size: 50px;
+    margin-top: 11px;
+    margin-left: 43px;
+}
+
+.write_top_title{
+    width: 325px;
+    height: 75px;
+
+    text-align: center;
+    float: left;
+}
+
+.write_top_title>h1{
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.send_btn{
+    width: 100px;
+    height: 75px;
+    float: left;
+}
+
+.send_btn>h1{
+    font-size: 20px;
+    font-weight: 400;
+
+    margin-top: 23px;
+    margin-left: 17px;
+}
+
+.write-center{
+    width: 100%;
+    height: 611px;
+    background-color: rgb(225, 225, 225);
+    padding-top: 33px;
+    box-sizing: border-box;
+}
+
+.write-select{
+    width: 437px;
+    height: 554px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    overflow: hidden;
+
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+.write_title>input{
+    width: 413px;
+    height: 60px;
+    border: none;
+    background-color: transparent;
+    font-size: 19px;
+    padding-left: 5px;
+    box-sizing: border-box;
+
+    border-bottom: 1px solid rgb(183, 183, 183);
+}
+
+.write_text>textarea{ 
+    width: 413px;
+    height: 178px;
+    border: none;
+    border-bottom: 1px solid rgb(183, 183, 183);
+    resize: none;
+    /* 줄바꿈 공백 연속공백이 보존되면서 크기에 따라 자동줄바꿈이 일어난다. */
+    white-space: pre-wrap;
+    background-color: transparent;
+    font-size: 19px;
+
+    padding-left: 5px;
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+
+.write_address{
+    margin: 39px auto 0 auto;
+
+    width: 397px;
+    height: 26px;
+    border-radius: 10px;
+}
+
+.write-address-title{
+    width: 80px;
+    float: left;
+}
+
+.write-address-title>h3{
+    font-size: 20px;
+    text-align: left;
+    float: left;
+}
+
+.write-address-title>.material-icons-outlined{
+    text-align: left;
+    color: rgb(196, 196, 196);
+}
+
+.write-address-text{
+    width: 273px;
+    text-align: right;
+    float: right;
+    margin-top: 3px;
+}
+
+.write-address-text>span{
+    font-size: 19px;
+    font-weight: 400;
+    text-align: right;
+}
+
+.write_date{
+    margin: 25px auto 0 auto;
+
+    width: 397px;
+    height: 26px;
+    border-radius: 10px;
+}
+
+.write-date-title{
+    width: 80px;
+    float: left;
+}
+
+.write-date-title>h3{
+    font-size: 20px;
+    text-align: left;
+    float: left;
+}
+
+.write-date-title>.material-icons-outlined{
+    text-align: left;
+    color: rgb(196, 196, 196);
+}
+
+.write-date-text{
+    width: 273px;
+    text-align: right;
+    float: right;
+    margin-top: 3px;
+}
+
+.write-date-text>span{
+    font-size: 19px;
+    font-weight: 400;
+    text-align: right;
+}
+
+.write_people_count{
+    margin: 25px auto 0 auto;
+
+    width: 397px;
+    height: 26px;
+    border-radius: 10px;
+}
+
+.write-people-count-title{
+    width: 100px;
+    float: left;
+    /* background-color: aqua; */
+}
+
+.write-people-count-title>h3{
+    font-size: 20px;
+    text-align: left;
+    float: left;
+}
+
+.write-people-count-title>.material-icons-outlined{
+    text-align: left;
+    margin-left: 6px;
+    color: rgb(196, 196, 196);
+}
+
+.write-people-count-text{
+    width: 273px;
+    text-align: right;
+    float: right;
+    margin-top: 3px;
+    /* background-color: aqua; */
+}
+
+.write-people-count-text>span{
+    font-size: 19px;
+    font-weight: 400;
+    text-align: right;
+    /* background-color: aqua; */
+}
+
+.write_menu{
+    margin: 25px auto 0 auto;
+
+    width: 397px;
+    height: 26px;
+    border-radius: 10px;
+}
+
+.write-menu-title{
+    width: 80px;
+    float: left;
+    /* background-color: aqua; */
+}
+
+.write-menu-title>h3{
+    font-size: 20px;
+    text-align: left;
+    float: left;
+}
+
+.write-menu-title>.material-icons-outlined{
+    text-align: left;
+    color: rgb(196, 196, 196);
+}
+
+.write-menu-text{
+    width: 273px;
+    text-align: right;
+    float: right;
+    margin-top: 3px;
+}
+
+.write-menu-text>span{
+    font-size: 19px;
+    font-weight: 400;
+    text-align: right;
+}
+
+.write_payment{
+    margin: 25px auto 0 auto;
+
+    width: 397px;
+    height: 26px;
+    border-radius: 10px;
+}
+
+.write-payment-title{
+    width: 100px;
+    float: left;
+    /* background-color: aqua; */
+}
+
+.write-payment-title>h3{
+    font-size: 20px;
+    text-align: left;
+    float: left;
+}
+
+.write-payment-title>.material-icons-outlined{
+    text-align: left;
+    margin-left: 6px;
+    color: rgb(196, 196, 196);
+}
+
+.write-payment-text{
+    width: 273px;
+    text-align: right;
+    float: right;
+    margin-top: 3px;
+}
+
+.write-payment-text>span{
+    font-size: 19px;
+    font-weight: 400;
+    text-align: right;
+}
+
+.write_bottom{
+    width: 100%;
+    height: 344px;
+}
+
+.write_condition {
+    width: 437px;
+    height: 344px;
+
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+.write_condition_title{
+    width: 100%;
+    text-align: left;
+}
+
+.write_condition_title>h3{
+    font-size: 23px;
+    font-weight: 700;
+
+    margin-top: 20px;
+}
+
+.write_gender{
+    width: 100%;
+    height: 52px;
+    border: 2px solid #D6D6D6;
+    border-radius: 12px;
+
+    margin-top: 9px;
+}
+
+.write_gender>input{
+    float: left;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+    margin-top: 16px;
+    margin-left: 16px;
+
+}
+
+.write_gender>h3{
+    float: left;
+    font-size: 20px;
+    font-weight: 700;
+
+    margin-top: 14px;
+    margin-left: 16px;
+}
+
+.gender_btn{
+    font-size: 19px;
+    font-weight: 500;
+    text-align: right;
+
+    margin-top: 14px;
+    margin-right: 16px;
+}
+
+.write_age{
+    width: 100%;
+    height: 52px;
+    border: 2px solid #D6D6D6;
+    border-radius: 12px;
+
+    margin-top: 9px;
+}
+
+.write_age>input{
+    float: left;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+    margin-top: 16px;
+    margin-left: 16px;
+
+}
+
+.write_age>h3{
+    float: left;
+    font-size: 20px;
+    font-weight: 700;
+
+    margin-top: 14px;
+    margin-left: 16px;
+}
+
+.age_btn{
+    font-size: 19px;
+    font-weight: 500;
+    text-align: right;
+
+    margin-top: 14px;
+    margin-right: 16px;
+}
+
+.write_send_btn{
+    width: 445px;
+    height: 70px;
+
+    margin-top: 53px;
+}
+
+.write_send_btn>button{
+    width: 445px;
+    height: 70px;
+    border: none;
+    border-radius: 35px;
+    background-color: black;
+
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+}
+

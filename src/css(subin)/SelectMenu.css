@@ -1,0 +1,123 @@
+.select_menu{
+    width: 100%;
+    height: 1030px;
+    display: flex;
+    position: relative;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    align-content: center;
+    /* background-color: aquamarine; */
+}
+
+.select_menu_top{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    width: 100%;
+    height: 332px;
+    padding-top: 85px;
+    box-sizing: border-box;
+    /* background-color: rgb(247, 136, 136); */
+}
+
+.select_menu_count>p{
+    margin-left: 43px;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.select_menu_title{
+    margin-left: 43px;
+    margin-top: 20px;
+    /* background-color: aquamarine; */
+}
+
+.select_menu_title>h2{
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.select_menu_value{
+    display: flex;
+    margin-top: 23px;
+    margin-left: 43px;
+    float: left;
+    /* background-color: aquamarine; */
+}
+
+.select_menu_value>h3{
+    font-size: 28px;
+}
+.select_menu_value>h5{
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.select_menu_bottom{
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 41px;
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 144px;
+    /* background-color: rgb(95, 65, 65); */
+}
+
+.prev{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    left: 0;
+
+    width: 50%;
+    height: 29px;
+    /* background-color: aqua; */
+}
+
+.menu-arrow-back-ios>.material-symbols-outlined{
+    margin-left: 42.69px;
+    font-size: 28px;
+}
+
+.prev>h4{
+    font-size: 20px;
+    margin-top: 2px;
+    margin-left: 11px;
+}
+
+.next{
+    position: absolute;
+    display: flex;
+    right: 0;
+    flex-direction: row;
+    justify-content: end;
+
+    width: 50%;
+    height: 29px;
+    /* background-color: aqua; */
+}
+
+.menu-arrow-forward-ios>.material-symbols-outlined{
+    font-size: 28px;
+}
+
+.next>h4{
+    margin-right: 11px;
+    font-size: 20px;
+    margin-top: 2px;
+}
+
+.menu{
+    width: 100%;
+    height: 554px;
+    position: relative;
+    /* padding-top: 7%; */
+    box-sizing: border-box;
+    
+    /* background-color: aqua; */
+}

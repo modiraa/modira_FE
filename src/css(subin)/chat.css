@@ -1,0 +1,134 @@
+.chat-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:100vh;
+    max-height: 1030px;
+}
+.chat-header-wrap{
+ display: flex;
+position: relative;
+  flex-direction: row;
+  height: 75px;
+  align-items: center;
+  background-color: #e7e7e7;
+  justify-content: space-between;
+}
+.chat-header-icon{
+    width:44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.chat-header-title{
+    font-size: 22px;
+    font-weight: bold;
+    position:absolute;
+
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+
+}
+.chat-message-container{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    /* background-color: green; */
+    height: calc(100vh - 75px - 125px);
+    margin-top: 12px;
+    min-height: 200px;
+    padding-top: 13px;
+ 
+}
+.chat-message-container::-webkit-scrollbar{
+    display: none;
+}
+
+.chat-message-enter{
+   width: 100%;
+   text-align: center;
+   margin-top: 11px;
+   font-size: 19px;
+
+}
+.chat-message-enter-nick{
+   
+    font-weight: bold;
+    text-decoration: underline;
+
+}
+
+.chat-message-content{
+    background-color: #565656;
+    color: white;
+}
+.chat-message-nick{
+    margin-left: 23px;
+    margin-right: 23px;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.chat-message-wrap-text{
+    height: 34px;
+    background-color: #565656;
+    margin-left: 23px;
+    margin-right: 23px;
+    margin-top: 9px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 7px;
+    word-break: break-all;
+}
+
+.chat-message-text{
+
+    font-size: 20px;
+    color: #FFFFFF;
+    
+  
+}
+.chat-message-wrap-serial-text{
+    min-height: 34px;
+    background-color: #565656;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 7px;
+    margin-left: 114px;
+    margin-right: 114px;
+}
+
+
+
+
+.chat-input-wrap{
+    min-height: 126px;
+    max-height: 210px;
+    width: 525px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e7e7e7;
+
+
+}
+
+.chat-input{
+    margin-top: 14px;
+    width:445px;
+    height: 55px;
+    border-radius: 33px;
+    padding-left:34px;
+}

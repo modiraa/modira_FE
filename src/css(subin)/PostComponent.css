@@ -1,0 +1,94 @@
+.wrap-postcomponent {
+  width: 250px;
+  height: 328px;
+  margin-bottom: 19px;
+}
+.postcomponent-backimg {
+  width: 100%;
+  height: 237px;
+  border-radius: 12px;
+  background-position: center;
+  background-image: url("https://www.missioninfra.net/img/noimg/noimg_4x3.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+}
+.postcomponent-resraint{
+  width: 73px;
+  height: 28px;
+  
+  background: #787373;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+
+.postcomponent-resraint-text{
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+.postcomponent-status {
+  margin-top: 23px;
+  width: 61px;
+  height: 19px;
+
+  /* font-family: "Inter"; */
+  /* font-style: normal; */
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+.postcomponent-title {
+  margin-top: 5px;
+
+  height: 24px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #000000;
+}
+.wrap-postcomponent-dayAndperson{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 18px;
+    margin-top: 2px;
+   
+}
+
+.postcomponent-day{
+width: 51px;
+height: 18px;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+color: #9A9A9A;
+margin-left: 3px;
+margin-right: 21px;
+}
+.postcomponent-person{
+ 
+    
+    /* font-family: 'Inter';
+    font-style: normal; */
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    
+    color: #9A9A9A;
+   
+    }

@@ -1,0 +1,23 @@
+.posttitle-wrap{
+    width: 100%;
+    height: 31px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.posttitle-status{
+
+font-weight: 700;
+font-size: 26px;
+line-height: 31px;
+
+}
+
+.posttitle-viewmore{
+    font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+margin-right: 28px;
+}
