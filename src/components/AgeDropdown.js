@@ -34,37 +34,44 @@ const AgeDropdown = ({ age, setAge }) => {
 export default AgeDropdown;
 
 const Dropdown = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 439px;
+  font-family: "AppleSDGothicNeoM00";
   font-size: 20px;
-  width: 100%;
+  display: block;
+  height: 100%;
 `;
 
 const Dropdownbtn = styled.div`
+  display: block;
   height: 15px;
   border: 1px solid #a4a4a4;
   border-radius: 12px;
-  padding: 19px 19px 19px 29px;
-  color: #dfdfdf;
-  span {
+  padding: 19px 10px 19px 29px;
+  color: #a4a4a4;
+  span,
+  p {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 100%;
   }
 `;
 
 const Dropdowncontent = styled.div`
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
   border-radius: 12px;
   border: 1px solid #a4a4a4;
   margin-top: 10px;
+  height: 100%;
 `;
 
 const Dropdownitem = styled.div`
-  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
   text-align: center;
+  color: #a4a4a4;
   cursor: pointer;
   transition: all 0.2s;
   &:hover {

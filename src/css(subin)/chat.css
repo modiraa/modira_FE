@@ -85,16 +85,18 @@ position: relative;
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 7px;
+    word-break: break-all;
 }
 
 .chat-message-text{
 
     font-size: 20px;
     color: #FFFFFF;
+    
   
 }
 .chat-message-wrap-serial-text{
-    height: 34px;
+    min-height: 34px;
     background-color: #565656;
     margin-top: 5px;
     padding-top: 5px;
@@ -128,4 +130,5 @@ position: relative;
     width:445px;
     height: 55px;
     border-radius: 33px;
+    padding-left:34px;
 }

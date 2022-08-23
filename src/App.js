@@ -26,50 +26,48 @@ import SelectAge from "./pages/SelectAge";
 import WebViewLeft from "./components/WebViewLeft";
 import UserProfile from "./pages/UserProfile";
 import SelectPeopleCount from "./pages/SelectPeopleCount";
-import MorePost from"./pages/MorePost"
+import MorePost from "./pages/MorePost";
+import MyRoom from "./pages/Myroom";
 
 function App() {
-
   return (
-    
-      <Background>
-        <Webview>
-          <WebViewLeft />
-        </Webview>
-        <Appview>
-          {" "}
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/oauth/main" element={<Main />} />
-            <Route path="/chat" element={<Chat />} />
-            <Route path="/write" element={<Write />} />
-            <Route path="/selecttime" element={<SelectTime />} />
-            <Route path="/selectdate" element={<SelectDate />} />
-            <Route path="/selectgps" element={<SelectGps />} />
-            <Route path="/selectpeoplecount" element={<SelectPeopleCount />} />
-            <Route path="/selectmenu" element={<SelectMenu />} />
-            <Route path="/selectpayment" element={<SelectPayment />} />
-            <Route path="/selectgender" element={<SelectGender />} />
-            <Route path="/selectage" element={<SelectAge />} />
-            <Route path="/myinfo" element={<MyInfo />} />
-            <Route path="/mapgps" element={<Mapgps />} />
-            <Route path="/morepost" element={<MorePost />} />
+    <Background>
+      <Webview>
+        <WebViewLeft />
+      </Webview>
+      <Appview>
+        {" "}
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/oauth/main" element={<Main />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/write" element={<Write />} />
+          <Route path="/selecttime" element={<SelectTime />} />
+          <Route path="/selectdate" element={<SelectDate />} />
+          <Route path="/selectgps" element={<SelectGps />} />
+          <Route path="/selectpeoplecount" element={<SelectPeopleCount />} />
+          <Route path="/selectmenu" element={<SelectMenu />} />
+          <Route path="/selectpayment" element={<SelectPayment />} />
+          <Route path="/selectgender" element={<SelectGender />} />
+          <Route path="/selectage" element={<SelectAge />} />
+          <Route path="/myinfo" element={<MyInfo />} />
+          <Route path="/mapgps" element={<Mapgps />} />
+          <Route path="/morepost" element={<MorePost />} />
 
-            <Route path="/firstlogin" element={<FirstLogin />} />
-            <Route path="/enter" element={<Enter />} />
-            <Route path="/inputaddress" element={<Inputaddress />} />
-            <Route path="/auth/kakao/callback" element={<Kakaoredirect />} />
-            <Route path="/login/ouath2/code/naver" element={<NaverRedirect />} />
-            <Route path="/auth/google/callback" element={<GoogleRedirect />} />
-            <Route path="/postdetail:postId" element={<PostDetail />} />
-            <Route path="/postcard" element={<PostCard />} />
-            <Route path="/userprofile" element={<UserProfile />} />
-
-          </Routes>
-        </Appview>
-      </Background>
-    
+          <Route path="/firstlogin" element={<FirstLogin />} />
+          <Route path="/enter" element={<Enter />} />
+          <Route path="/inputaddress" element={<Inputaddress />} />
+          <Route path="/auth/kakao/callback" element={<Kakaoredirect />} />
+          <Route path="/login/ouath2/code/naver" element={<NaverRedirect />} />
+          <Route path="/auth/google/callback" element={<GoogleRedirect />} />
+          <Route path="/postdetail:postId" element={<PostDetail />} />
+          <Route path="/postcard" element={<PostCard />} />
+          <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/myroom" element={<MyRoom />} />
+        </Routes>
+      </Appview>
+    </Background>
   );
 }
 
@@ -78,11 +76,11 @@ export default App;
 const Background = styled.div`
   width: 100%;
   height: 1030px;
-  
+
   /* background-image: url(${testimage});
   background-repeat: no-repeat;
   background-size: 100%; */
-  background-color:#EEEEEE;
+  background-color: #eeeeee;
 
   display: flex;
   flex-direction: row;
@@ -91,15 +89,14 @@ const Background = styled.div`
     background-image: none;
     justify-content: center;
   }
- 
 `;
 const Webview = styled.div`
   @media screen and (max-width: 912px) {
     display: none;
   }
   width: 40%;
-  height:100%;
-  background-color:#EEEEEE;
+  height: 100%;
+  background-color: #eeeeee;
   padding: 98px 0px 0px 318px;
 `;
 
@@ -114,7 +111,7 @@ const Appview = styled.div`
   background: white;
   margin-right: 349px;
   overflow: auto;
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     display: none;
   }
 `;

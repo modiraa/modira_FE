@@ -6,40 +6,55 @@ import { useState, useEffect } from "react";
 import LowerNavbar from "../components/LowerNavbar";
 
 function PostDetail() {
+  const navigate = useNavigate();
+  let { postId } = useParams();
+  console.log("여기확인", postId);
+
   const [data, setData] = useState({
     category: "N빵 모임 (모임 카테고리)",
     title: "Lorem ipsum dolor",
     date: "6월 9일 AM12:00",
     numberOfPeople: "2명 참여",
     menu: "일식",
-    // restaurantAddress: "서울특별시 마포구 땡땡로 00-0",
+    restaurantAddress: "서울특별시 마포구 땡땡로 00-0",
+    latitude: "35.8706072114037",
+    longitude: "128.598955620405",
     writerProfileImage:
       "data:image/png;base64,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",
     writerNickname: "Lorem ipsum dolor",
     writerGender: "여성",
     writerAge: "20대",
-    limitAge: "20대",
+    writerScore: "12",
     limitGender: "여성",
-    // contents:
+    limitAge: "20대",
+    writerscore: "12",
+    contents:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et id nam quis sodales. Eget lobortis neque mi,",
   });
-  console.log(data);
 
-  // useEffect(() => {
-  //   axios
-  //     .get("http://3.34.129.164/api/post/detail")
-  //     .then((response) => {
-  //       setData(response.data);
-  //       console.log("성공", response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log("에러", error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get("http://3.34.129.164/api/post/detail/5")
+      .then((response) => {
+        setData(response.data);
+        console.log("성공", response.data);
+      })
+      .catch((error) => {
+        console.log("에러", error);
+      });
+  }, []);
 
   return (
     <>
       <TitleBar>
-        <Arrow className="material-symbols-outlined">arrow_back_ios</Arrow>
+        <Arrow
+          onClick={() => {
+            navigate("/");
+          }}
+          className="material-symbols-outlined"
+        >
+          arrow_back_ios
+        </Arrow>
         <p>모임소개</p>
       </TitleBar>
       <Container>
@@ -51,18 +66,20 @@ function PostDetail() {
             <p>{data.date}</p>
             <span className="material-symbols-outlined">person</span>
             <p>{data.numberOfPeople}</p>
+            <span className="material-symbols-outlined">ramen_dining</span>
             <p>{data.menu}</p>
           </Date>
         </InfoBox>
         <Address>
           <span className="material-symbols-outlined">location_on</span>
-          <p>서울특별시 마포구 땡땡로 00-0</p>
+          <p>{data.restaurantAddress}</p>
         </Address>
         <Gps>
-          <MapgpsForDetail />
+          <MapgpsForDetail
+            latitude={data.latitude}
+            longitude={data.longitude}
+          />
         </Gps>
-        {/* <div>{data.limitGender}</div>
-        <div>{data.limitAge}</div> */}
         <Writer>
           <Img src={data.writerProfileImage} />
           <UserInfo>
@@ -74,23 +91,22 @@ function PostDetail() {
           </UserInfo>
           <Heart>
             <span className="material-symbols-outlined">favorite</span>{" "}
-            <p>12</p>
+            <p>{data.writerScore}</p>
           </Heart>
         </Writer>
         <Limit>
           <p>제한조건</p>
-          <span className="material-symbols-outlined">task_alt</span>
-          <span>
-            <b>
-              {data.limitAge}
-              {data.limitGender}
-            </b>
-            만 신청가능한 모임입니다.
-          </span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et id nam
-            quis sodales. Eget lobortis neque mi,{" "}
-          </p>
+          <div>
+            <span className="material-symbols-outlined">task_alt</span>
+            <span>
+              <b>
+                {data.limitAge}
+                {data.limitGender}
+              </b>
+              만 신청가능한 모임입니다.
+            </span>
+          </div>
+          <p>{data.contents}</p>
         </Limit>
         <ButtonSubmit>
           <button>참여신청</button>
@@ -248,6 +264,10 @@ const Limit = styled.div`
     font-weight: 700;
     font-size: 18px;
   }
+  div {
+    display: flex;
+    align-items: center;
+  }
 `;
 const ButtonSubmit = styled.div`
   position: relative;
@@ -260,7 +280,7 @@ const ButtonSubmit = styled.div`
     color: white;
     padding: 12px 25px;
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: 20px;
     margin: 56px 40px 85px 40px;
     border-radius: 35px;
     cursor: auto;

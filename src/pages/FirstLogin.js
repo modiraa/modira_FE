@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import axios from "axios";
+// import { useSelector } from 'react-redux'
 import { useNavigate, useLocation } from "react-router-dom";
 import AgeDropdown from "../components/AgeDropdown";
 
 const FirstLogin = () => {
+
   const navigate = useNavigate();
   let location = useLocation();
   //이미지 업로드
@@ -77,7 +79,7 @@ const FirstLogin = () => {
         {" "}
         <Arrow
           onClick={() => {
-            navigate("/inputaddress");
+            navigate("/");
           }}
         >
           <span className="material-symbols-outlined">arrow_back</span>
@@ -117,8 +119,8 @@ const FirstLogin = () => {
             onClick={() => {
               selectGender("여성");
             }}
-            color={gender === "여성" ? "#fff" : "#8B8B8B"}
-            bg={gender === "여성" ? "#8B8B8B;" : "#fff"}
+            color={gender === "여성" ? "#fff" : "#A4A4A4"}
+            bg={gender === "여성" ? "#A4A4A4;" : "#fff"}
             border={gender === "여성" ? "1px solid gray" : "1px solid #C4C4C4"}
           >
             여성
@@ -127,8 +129,8 @@ const FirstLogin = () => {
             onClick={() => {
               selectGender("남성");
             }}
-            color={gender === "남성" ? "#fff" : "#8B8B8B"}
-            bg={gender === "남성" ? "#8B8B8B;" : "#fff"}
+            color={gender === "남성" ? "#fff" : "#A4A4A4"}
+            bg={gender === "남성" ? "#A4A4A4;" : "#fff"}
             border={gender === "남성" ? "1px solid gray" : "1px solid #C4C4C4"}
           >
             남성
@@ -140,7 +142,7 @@ const FirstLogin = () => {
             navigate("/inputaddress");
           }}
         >
-          <Address placeholder="주소 검색">
+          <Address contenteditable="false">주소검색
             <span>{location?.state?.homesi} </span>
             <span>{location?.state?.homegu} </span>
           </Address>
@@ -148,12 +150,12 @@ const FirstLogin = () => {
         <Check>
           <input type="checkbox" />
           <p>(필수) 개인정보 취급방침에 동의합니다.</p>
-          <span>
-            보기{" "}
+          <div>
+            <span>보기 </span>
             <span className="material-symbols-outlined">
               keyboard_arrow_right
             </span>
-          </span>
+          </div>
         </Check>
         <Button onClick={Submit}>
           <button>등록완료</button>
@@ -168,8 +170,8 @@ export default FirstLogin;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  background-color: white;
+  width: 525px;
+  background-color: #fff;
 `;
 
 const Box = styled.div`
@@ -179,6 +181,7 @@ const Box = styled.div`
   align-items: center;
   width: 100%;
   height: 251px;
+  margin-top: 43px;
   background-color: #e7e7e7;
 
   span {
@@ -208,20 +211,19 @@ const LoginBox = styled.div`
 `;
 
 const InputBox = styled.div`
-  justify-content: space-between;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
+  justify-content: space-between;
+  width: 439px;
+  height: 100%;
   margin-bottom: 29px;
 `;
 
 const Input = styled.input`
-  width: 439px;
-  height: 20px;
+  width: 100%;
   padding: 14px 29px;
-  font-size: 16px;
-  font-weight: 500;
+  font-family: "AppleSDGothicNeoM00";
+  color: #dfdfdf;
+  font-size: 20px;
   border-radius: 12px;
   border: 1px solid #a4a4a4;
   cursor: pointer;
@@ -244,39 +246,49 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
-const ButtonImg = styled.button`
-  background-color: #b8b8b8;
-  width: 35%;
-  height: 33px;
+const ButtonImg = styled.div`
+  background-color: #525252;
+  width: 197px;
+  height: 40px;
   border: none;
   color: white;
   padding: 5px 25px;
   text-align: center;
-  font-size: 0.9rem;
-  margin-top: 8px;
-  border-radius: 35px;
-  cursor: auto;
-`;
-
-const Address = styled.div`
-  width: 100%;
-  height: 20px;
-  padding: 13px 30px;
-  text-align: center;
-  font-size: 16px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
   font-weight: 500;
-  border: 1px solid #a4a4a4;
-  border-radius: 12px;
+  font-size: 18px;
+  margin: 8px 0 31px 0;
+  border-radius: 35px;
   cursor: pointer;
 `;
 
+const Address = styled.div`
+  display: flex;
+  align-items: center;
+  padding-left: 29px;
+  width: 100%;
+  height: 54px;
+  font-family: "AppleSDGothicNeoM00";
+  color: #a4a4a4;
+  font-size: 20px;
+  border-radius: 12px;
+  border: 1px solid #a4a4a4;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+`;
+
 const GenderButton = styled.div`
-  width: 150px;
-  height: 20px;
-  padding: 13px 30px;
-  font-size: 16px;
-  font-weight: 500;
-  text-align: center;
+  width: 213px;
+  height: 54px;
+  font-family: "AppleSDGothicNeoM00";
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: ${(props) => props.color};
   background-color: ${(props) => props.bg};
   border: ${(props) => props.border};
@@ -292,7 +304,7 @@ const Button = styled.div`
   width: 100%;
 
   button {
-    background-color: #b8b8b8;
+    background-color: #222222;
     width: 439px;
     height: 70px;
     border: none;
@@ -309,18 +321,25 @@ const Button = styled.div`
 const Check = styled.span`
   display: flex;
   align-items: center;
+  font-family: "Inter";
   input {
     margin-right: 15px;
+    width: 19px;
+    height: 19px;
   }
   p {
     font-weight: 500;
     font-size: 18px;
-    margin: 0 37px 0 0;
+    margin: 0 29px 0 0;
   }
   span {
     display: flex;
     flex-direction: row;
     font-weight: 500;
     font-size: 18px;
+  }
+  div {
+    display: flex;
+    align-items: center;
   }
 `;
