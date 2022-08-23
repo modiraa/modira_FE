@@ -25,13 +25,13 @@ const LowerNavbar = () => {
 
       <div className="wrap-symbols-text" onClick={() => navigate("/chat")}>
         <div className="lowernavbar-location-symbol">
-          <span class="material-symbols-outlined">sms</span>
+          <span className="material-symbols-outlined">sms</span>
         </div>
         <span className="symbols-text">채 팅</span>
       </div>
       <div className="wrap-symbols-text" onClick={() => navigate("/write")}>
         <div className="lowernavbar-location-symbol">
-          <span class="material-symbols-outlined">add_location</span>
+          <span className="material-symbols-outlined">add_location</span>
         </div>
         <div>
           <span className="symbols-text">글 작성</span>
@@ -40,14 +40,14 @@ const LowerNavbar = () => {
 
       <div className="wrap-symbols-text"  onClick={() => navigate("/write")}>
         <div className="lowernavbar-location-symbol">
-          <span class="material-symbols-outlined">calendar_today</span>
+          <span className="material-symbols-outlined">calendar_today</span>
         </div>
         <span className="symbols-text">내 모임</span>
       </div>
 
       <div className="wrap-symbols-text" onClick={() => navigate("/myinfo")}>
         <div className="lowernavbar-location-symbol">
-          <span class="material-symbols-outlined">person</span>
+          <span className="material-symbols-outlined">person</span>
         </div>
         <span className="symbols-text">마이페이지</span>
       </div>
