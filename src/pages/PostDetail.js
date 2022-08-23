@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import LowerNavbar from "../components/LowerNavbar";
 
 function PostDetail() {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     category: "N빵 모임 (모임 카테고리)",
     title: "Lorem ipsum dolor",
@@ -51,6 +52,7 @@ function PostDetail() {
             <p>{data.date}</p>
             <span className="material-symbols-outlined">person</span>
             <p>{data.numberOfPeople}</p>
+            <span className="material-symbols-outlined">ramen_dining</span>
             <p>{data.menu}</p>
           </Date>
         </InfoBox>
@@ -79,14 +81,16 @@ function PostDetail() {
         </Writer>
         <Limit>
           <p>제한조건</p>
-          <span className="material-symbols-outlined">task_alt</span>
-          <span>
-            <b>
-              {data.limitAge}
-              {data.limitGender}
-            </b>
-            만 신청가능한 모임입니다.
-          </span>
+          <div>
+            <span className="material-symbols-outlined">task_alt</span>
+            <span>
+              <b>
+                {data.limitAge}
+                {data.limitGender}
+              </b>
+              만 신청가능한 모임입니다.
+            </span>
+          </div>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et id nam
             quis sodales. Eget lobortis neque mi,{" "}
@@ -248,6 +252,10 @@ const Limit = styled.div`
     font-weight: 700;
     font-size: 18px;
   }
+  div {
+    display: flex;
+    align-items: center;
+  }
 `;
 const ButtonSubmit = styled.div`
   position: relative;
@@ -260,7 +268,7 @@ const ButtonSubmit = styled.div`
     color: white;
     padding: 12px 25px;
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: 20px;
     margin: 56px 40px 85px 40px;
     border-radius: 35px;
     cursor: auto;
