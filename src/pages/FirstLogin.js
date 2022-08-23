@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import axios from "axios";
+// import { useSelector } from 'react-redux'
 import { useNavigate, useLocation } from "react-router-dom";
 import AgeDropdown from "../components/AgeDropdown";
 
 const FirstLogin = () => {
+
   const navigate = useNavigate();
   let location = useLocation();
   //이미지 업로드
@@ -140,7 +142,7 @@ const FirstLogin = () => {
             navigate("/inputaddress");
           }}
         >
-          <Address placeholder="주소 검색">
+          <Address contenteditable="false">주소검색
             <span>{location?.state?.homesi} </span>
             <span>{location?.state?.homegu} </span>
           </Address>
@@ -259,7 +261,7 @@ const ButtonImg = styled.div`
   font-size: 18px;
   margin: 8px 0 31px 0;
   border-radius: 35px;
-  cursor: auto;
+  cursor: pointer;
 `;
 
 const Address = styled.div`
@@ -269,7 +271,7 @@ const Address = styled.div`
   width: 100%;
   height: 54px;
   font-family: "AppleSDGothicNeoM00";
-  color: #dfdfdf;
+  color: #a4a4a4;
   font-size: 20px;
   border-radius: 12px;
   border: 1px solid #a4a4a4;

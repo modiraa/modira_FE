@@ -37,7 +37,6 @@ const Dropdown = styled.div`
   width: 439px;
   font-family: "AppleSDGothicNeoM00";
   font-size: 20px;
-
   display: block;
   height: 100%;
 `;
@@ -48,7 +47,7 @@ const Dropdownbtn = styled.div`
   border: 1px solid #a4a4a4;
   border-radius: 12px;
   padding: 19px 10px 19px 29px;
-  color: #dfdfdf;
+  color: #a4a4a4;
   span,
   p {
     display: flex;
