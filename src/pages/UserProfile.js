@@ -11,13 +11,13 @@ const UserProfile = () => {
 
   
 const showProfileAX=async()=>{
-  await axios.get(`http://52.79.223.9/api/user/info/88`)
+  await axios.get(`http://52.79.223.9/api/user/info/89`)
       .then(response => {
        console.log(response)
        setDataProfile(response.data)
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.response);
       })
 
 }
@@ -32,16 +32,16 @@ const showProfileAX=async()=>{
 
 
     
-    await axios.post("http://3.39.23.189/api/likes",JSON.stringify({userId:1},
+    await axios.post("http://52.79.223.9/api/likes",{userId:89},
     { headers: {
-     Authorization: Auth
-     }
-   })
+      Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjExNjMxMTIsInVzZXJuYW1lIjoiNlNhcS1XWmpQVzZZZkU4WjRCRUZvODVLTjBBVHFBTlVQc25RUkVGRWVaOCJ9.h3jv-SL19FeSeckFn6uM35106wFAsPA_gnTUQfM-dmSsFwlEuBM69oMv1gQpnM2G0U-AKoRGz32TK4t_5KFblw"
+    }
+   }
   )
     .then((res) => {
         console.log(res); // 토큰이 넘어올 것임
 
-        
+        window.location.reload()
         // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
         
         }).catch((err) => {
@@ -53,21 +53,19 @@ const showProfileAX=async()=>{
   const dislikePlusScore=async()=>{
     const Auth=sessionStorage.getItem("token")
 
-    await axios.post("http://3.39.23.189/api/hates",
-    JSON.stringify({userId:1}),
+    await axios.post("http://52.79.223.9/api/hates",{userId:89},
     { headers: {
-     Authorization: Auth
-      }
-    }
+     Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjExNjMxMTIsInVzZXJuYW1lIjoiNlNhcS1XWmpQVzZZZkU4WjRCRUZvODVLTjBBVHFBTlVQc25RUkVGRWVaOCJ9.h3jv-SL19FeSeckFn6uM35106wFAsPA_gnTUQfM-dmSsFwlEuBM69oMv1gQpnM2G0U-AKoRGz32TK4t_5KFblw"
+     }
+   }
   )
     .then((res) => {
         console.log(res); // 토큰이 넘어올 것임
-
-        
+        window.location.reload()
         // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
         
         }).catch((err) => {
-        console.log( err);
+        console.log( err.response);
         // navigate("/login"); // 로그인 실패하면 로그인화면으로 돌려보냄
         })
   }

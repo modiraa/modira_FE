@@ -8,6 +8,7 @@ import "../css(subin)/chat.css";
 import MessagelList from "../components/MessagelList";
 import UserProfile from "./UserProfile";
 import MyCalendar from"../components/MyCalendar"
+import MessageInput from "../components/MessageInput";
 
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
@@ -21,13 +22,14 @@ const Chat = () => {
   const RefViewControll = React.useRef();
 
   React.useEffect(() => {
+    console.log(sendMessage)
     // console.log(showMessage);
     //가장 최근 채팅 보여주기
     // console.log(enterChatRoom);
     if (RefViewControll.current) {
       RefViewControll.current.scrollTop = RefViewControll.current.scrollHeight;
     }
-  }, [showMessage, enterChatRoom]);
+  }, [showMessage, enterChatRoom,sendMessage]);
   function connect() {
     var socket = new SockJS("http://52.79.223.9/ws/chat");
     stompClient = Stomp.over(socket);
@@ -41,6 +43,7 @@ const Chat = () => {
   function subscribed(greeting) {
     // console.log("여기안와?");
     const soketMessage = JSON.parse(greeting.body);
+    // console.log(soketMessage)
     // console.log("머야이거");
     // console.log(soketMessage.type)
     // enterChatRoom.push(soketMessage.message)
@@ -134,13 +137,7 @@ const Chat = () => {
         <MessagelList showMessage={showMessage} sendNick={sendNick}/>
       </div>
       <div className="chat-input-wrap">
-        <input className="chat-input"
-          placeholder="채팅입력"
-          onChange={(e) => {
-            setSendMessage(e.target.value);
-          }}
-        />
-        <button onClick={sendMessageFN}>메시지보내기</button>
+       <MessageInput sendMessageFN={sendMessageFN} setSendMessage={setSendMessage} sendMessage={sendMessage}/>
       </div>
     </div>
   );
