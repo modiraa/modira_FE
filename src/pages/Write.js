@@ -82,10 +82,10 @@ const Write = () => {
   const WriteSend = async () => {
 
     // input값들 유효성 검사!!
-    if(!writeTitle_ref.current.value){
+    if (!writeTitle_ref.current.value) {
       alert('게시글 제목을 작성해주세요')
     }
-    else if(!writeText_ref.current.value){
+    else if (!writeText_ref.current.value) {
       alert('게시글 내용을 작성해주세요')
     }
     else if (location.state === null) {
@@ -104,152 +104,190 @@ const Write = () => {
     // })
 
     // axios 연결 (JSON.stringify())
-  //   await axios.post("http://3.34.129.164/api/post",
-  //     JSON.stringify({
-  //       "category": "n빵",
-  //       "title": "안녕하세요",
-  //       "contents": "왜안되죵..??",
-  //       "date": "2022-08-15",
-  //       "address": "대구",
-  //       "numberOfPeople": Number(3),
-  //       "menu": "일식",
-  //       // "gender" : isGenderAction,
-  //       "gender": "남성",
-  //       "age": "40대"
-  //     }),
-  //     {
-  //       headers: {"Content-Type": `application/json`},
-  //     }
-  //   )
-  //     .then(response => {
-  //       console.log(response)
-  //       alert('보내기 성공!')
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error)
-  //     })
-  // }
+    //   await axios.post("http://3.34.129.164/api/post",
+    //     JSON.stringify({
+    //       "category": "n빵",
+    //       "title": "안녕하세요",
+    //       "contents": "왜안되죵..??",
+    //       "date": "2022-08-15",
+    //       "address": "대구",
+    //       "numberOfPeople": Number(3),
+    //       "menu": "일식",
+    //       // "gender" : isGenderAction,
+    //       "gender": "남성",
+    //       "age": "40대"
+    //     }),
+    //     {
+    //       headers: {"Content-Type": `application/json`},
+    //     }
+    //   )
+    //     .then(response => {
+    //       console.log(response)
+    //       alert('보내기 성공!')
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error)
+    //     })
+    // }
     // axios 연결 (JSON.stringify())
     await axios.post("http://3.34.129.164/api/post",
-    JSON.stringify({
-      "category" : selectMeetingType,
-      "title" : writeTitle_ref.current.value,
-      "contents" : writeText_ref.current.value,
-      "date" : "2022-08-15",
-      "address" : location.state.juso,
-      "numberOfPeople" : Number(selectCount),
-      "menu" : selectMenu,
-      // "gender" : isGenderAction,
-      "gender" : "남성",
-      "age" : selectAge
-    }),
-        {
-          headers: {"Content-Type": `application/json`},
-        }
+      JSON.stringify({
+        "category": selectMeetingType,
+        "title": writeTitle_ref.current.value,
+        "contents": writeText_ref.current.value,
+        "date": "2022-08-15",
+        "address": location.state.juso,
+        "numberOfPeople": Number(selectCount),
+        "menu": selectMenu,
+        // "gender" : isGenderAction,
+        "gender": "남성",
+        "age": selectAge
+      }),
+      {
+        headers: { "Content-Type": `application/json` },
+      }
     )
-    .then(response => {
-      console.log(response)
-      alert('보내기 성공!')
-    })
-    .catch(function(error){
-      console.log(error)
-    })
+      .then(response => {
+        console.log(response)
+        alert('보내기 성공!')
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 
   return (
     <div className='write'>
       <div className='write_top'>
-        <div className='close_btn'>
-          <button>x</button>
+        <div className='write-close-btn'>
+          <span className="material-icons">
+            close
+          </span>
         </div>
-        <div className='write_title'>
-          <h1>모임모집 글쓰기</h1>
+        <div className='write_top_title'>
+          <h1>게시글 작성</h1>
         </div>
         <div className='send_btn'>
-          <a href=''>완료</a>
+          <h1>완료</h1>
         </div>
       </div>
-      <div className='write_text'>
 
-        <input type="text" placeholder='글 제목' ref={writeTitle_ref}
-          name="writeTitle" value={writeTitle} onChange={onChange} />
+      <div className='write-center'>
+        <div className='write-select'>
+          <div className='write_title'>
+            <input type="text" placeholder='글 제목' ref={writeTitle_ref}
+              name="writeTitle" value={writeTitle} onChange={onChange} />
+          </div>
+          <div className='write_text'>
+            <textarea type="text" placeholder='게시글 내용을 작성해주세요.' ref={writeText_ref}
+              name="writeText" value={writeText} onChange={onChange} />
+          </div>
+          <div>
+          <div className='write_address'>
+            <div className='write-address-title'>
+              <h3>장 소</h3>
+              <span className="material-icons-outlined">
+                place
+              </span>
+            </div>
+            <div className='write-address-text'>
+              {/* uselocation초기값이 null 오류떠서 옵셔널 체이닝 걸었더니 해결.... */}
+              {/* <span>{(location?.state?.juso)} </span> */}
+              <span>서울특별시 마포구 땡땡로 00-0</span>
+            </div>
+          </div>
 
-        <input type="text" placeholder='게시글 내용을 작성해주세요.' ref={writeText_ref}
-          name="writeText" value={writeText} onChange={onChange} />
+          <div className='write_date'>
+            <div className='write-date-title'>
+              <h3>일 정</h3>
+                <span className="material-icons-outlined">
+                  calendar_month
+                </span>
+            </div>
+            <div className='write-date-text'>
+              {/* uselocation초기값이 null 오류떠서 옵셔널 체이닝 걸었더니 해결.... */}
+              {/* <span>{(location?.state?.juso)} </span> */}
+              <span>2020/01/12</span>
+            </div>
+          </div>
 
+          <div className='write_people_count'>
+            <div className='write-people-count-title'>
+              <h3>참여인원</h3>
+                <span className="material-icons-outlined">
+                  perm_identity
+                </span>
+            </div>
+            <div className='write-people-count-text'>
+              {/* uselocation초기값이 null 오류떠서 옵셔널 체이닝 걸었더니 해결.... */}
+              {/* <span>{(location?.state?.juso)} </span> */}
+              <span>2 명</span>
+            </div>
+          </div>
+
+          <div className='write_menu'>
+            <div className='write-menu-title'>
+              <h3>메 뉴</h3>
+                <span className="material-icons-outlined">
+                  ramen_dining
+                </span>
+            </div>
+            <div className='write-menu-text'>
+              {/* uselocation초기값이 null 오류떠서 옵셔널 체이닝 걸었더니 해결.... */}
+              {/* <span>{(location?.state?.juso)} </span> */}
+              <span>중식</span>
+            </div>
+          </div>
+
+          <div className='write_payment'>
+            <div className='write-payment-title'>
+              <h3>모임유형</h3>
+              {/* <span className="material-icons-outlined">
+                place
+              </span> */}
+            </div>
+            <div className='write-payment-text'>
+              {/* uselocation초기값이 null 오류떠서 옵셔널 체이닝 걸었더니 해결.... */}
+              {/* <span>{(location?.state?.juso)} </span> */}
+              <span>N빵 모임</span>
+            </div>
+          </div>
+          </div>
+          
+
+        </div>
       </div>
-      <div className='write_address' onClick={() => { navigate("/mapgps") }}>
-        {/* uselocation초기값이 null 오류떠서 옵셔널 체이닝 걸었더니 해결.... */}
-        <span>{(location?.state?.juso)} </span>
-      </div>
-      <div className='write_select'>
-        <div className='write_date'>
-          <h3>일 정</h3>
-          <select>
-            <option>2022.8.10</option>
-          </select>
-        </div>
-        <div className='write_date'>
-          <h3>참여인원</h3>
-          <select onChange={e => { setSelectCount(e.target.value) }}>
-            <option value={3}>3명</option>
-            <option value={4}>4명</option>
-            <option value={5}>5명</option>
-            <option value={6}>6명</option>
-            <option value={7}>7명</option>
-            <option value={8}>8명</option>
-          </select>
-        </div>
-        <div className='write_menu'>
-          <h3>메 뉴</h3>
-          <select onChange={e => { setSelectMenu(e.target.value) }}>
-            <option value={'한식'}>한식</option>
-            <option value={'양식'}>양식</option>
-            <option value={'중식'}>중식</option>
-            <option value={'일식'}>일식</option>
-            <option value={'기타'}>기타</option>
-          </select>
-        </div>
-        <div className='write_meeting_type'>
-          <h3>모임유형</h3>
-          <select onChange={e => { setSelectMeetingType(e.target.value) }}>
-            <option value={'N빵'}>N빵</option>
-            <option value={'골든벨'}>골든벨</option>
-          </select>
-        </div>
-      </div>
-      <div className='write_condition'>
-        <h3>입장 조건 설정</h3>
-        <div className='write_gender'>
-          <input type="checkbox"
-            checked={isGenderAction}
-            onChange={genderChange}
-          ></input>
-          <h3>성 별</h3>
-          <div className='gender_btn'>
-            여성
+
+      <div className='write_bottom'>
+        <div className='write_condition'>
+          <div className='write_condition_title'> 
+            <h3>입장 조건 설정</h3>
+          </div>
+          <div className='write_gender'>
+            <input type="checkbox"
+              checked={isGenderAction}
+              onChange={genderChange}
+            ></input>
+            <h3>성 별</h3>
+            <div className='gender_btn'>
+              모두가능
+            </div>
+          </div>
+
+          <div className='write_age'>
+            <input type="checkbox"
+              checked={isAgeAction}
+              onChange={ageChange}
+            />
+            <h3>나 이</h3>
+            <div className='age_btn'>
+              10대~20대
+            </div>
+          </div>
+          <div className='write_send_btn'>
+            <button onClick={WriteSend}>등록완료</button>
           </div>
         </div>
-        <div className='write_age'>
-          <input type="checkbox"
-            checked={isAgeAction}
-            onChange={ageChange}
-          />
-          <h3>나 이</h3>
-          <div className='age_btn'>
-            <select onChange={e => { setSelectAge(e.target.value) }}>
-              <option value={'20대'}>20대</option>
-              <option value={'30대'}>30대</option>
-              <option value={'40대'}>40대</option>
-              <option value={'50대'}>50대</option>
-              <option value={'60대'}>60대</option>
-              <option value={'70대'}>70대</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div className='write_send_btn'>
-        <button onClick={WriteSend}>등록완료</button>
       </div>
     </div>
   )
