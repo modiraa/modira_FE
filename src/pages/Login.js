@@ -1,9 +1,8 @@
 import '../css(subin)/Login.css';
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { KAKAO_AUTH_URL } from "../components/OauthKakao";
 import { NAVER_AUTH_URL } from "../components/OauthNaver";
-import { GOOGLE_AUTH_URL } from "../components/OauthGoogle";
 
 // kakao 로그인 참고 : https://data-jj.tistory.com/53
 // naver 로그인 참고 : https://velog.io/@sssssssssy/%EB%84%A4%EC%9D%B4%EB%B2%84%EB%A1%9C%EA%B7%B8%EC%9D%B8
