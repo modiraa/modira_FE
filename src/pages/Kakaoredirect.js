@@ -1,9 +1,15 @@
 import axios from 'axios';
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {userLogin} from '../redux/moduls/UserName';
 
-const Kakaoredirect = () => {
+const Kakaoredirect = ({setUserName,userName}) => {
     const navigate = useNavigate();
+
+    console.log(userName);
+
+    let dispatch = useDispatch();
 
     let code = new URL(window.location.href).searchParams.get("code");
 
@@ -14,14 +20,20 @@ const Kakaoredirect = () => {
             
             const ACCESS_TOKEN = "Bearer"+" "+res.headers.authorization;
             
-            console.log("token", ACCESS_TOKEN);    //예시로 로컬에 저장함    
+            console.log("token", ACCESS_TOKEN); 
             
             sessionStorage.setItem("token",ACCESS_TOKEN)
-            // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
+
+            if(res.data.id===null){
+                navigate("/firstlogin",{ state: { username: res.data.username} }); // 로그인 실패하면 로그인화면으로 돌려보냄
+            }
+            else{
+                navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
+                // dispatch(userLogin(res.data.username))
+            }
             
             }).catch((err) => {
             console.log("소셜로그인 에러", err);
-            // navigate("/login"); // 로그인 실패하면 로그인화면으로 돌려보냄
             })
     }
 
