@@ -27,18 +27,22 @@ const SelectPeopleCount = () => {
             
             <div className='select_people_count_bottom'>
                 <div className='prev'>
-                    <span className="material-symbols-outlined">
-                        arrow_back_ios
-                    </span>
-                    <h4>이전</h4>
+                        <div className='people-arrow-back-ios'>
+                            <span className="material-symbols-outlined">
+                                arrow_back_ios
+                            </span>
+                        </div>
+                        <h4>이전</h4>
+                    </div>
+                    <div className='next'>
+                        <h4>다음</h4>
+                        <div className='people-arrow-forward-ios'>
+                            <span className="material-symbols-outlined">
+                                arrow_forward_ios
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <div className='next'>
-                    <h4>다음</h4>
-                    <span className="material-symbols-outlined">
-                        arrow_forward_ios
-                    </span>
-                </div>
-            </div>
         </div>
     )
 }

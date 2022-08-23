@@ -1,6 +1,30 @@
-.wrap{
- min-height: 460px;
+.useprofile-wrap{
+ min-height: 800px;
+ max-height: 1030px;
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
 }
+
+.userprofile-header-wrap{
+  display: flex;
+ position: relative;
+   flex-direction: row;
+   height: 75px;
+   align-items: center;
+   background-color: #e7e7e7;
+   justify-content: space-between;
+ }
+ .userprofile-header-icon{
+     width:44px;
+     height: 44px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     
+ }
+
 .wrap-middle {
   display: flex;
   flex-direction: column;

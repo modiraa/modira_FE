@@ -9,7 +9,7 @@ const Message = ({ messageData, sendNick, prevData }) => {
   const isSmaeSender =
     prevData?.type !== "ENTER" && prevData?.sender == messageData.sender;
 
-  console.log(messageData.sender, sendNick, isMyMessage, "여기확인");
+  console.log(messageData.message.split("\n").length>1, messageData.type == null, isMyMessage, "여기확인");
 
   //첫 입장
   if (messageData.type == "ENTER") {
@@ -21,7 +21,7 @@ const Message = ({ messageData, sendNick, prevData }) => {
     );
   }
   // 메시지 연속x
-  if (messageData.typ == null && !isSmaeSender)
+  if (messageData.type == null && !isSmaeSender)
     return (
       <WrapImgAndText isMyMessage={isMyMessage}>
         <img src={testimg} style={{ height: "48px", width: "48px",borderRadius:"8px" }}></img>
@@ -32,14 +32,31 @@ const Message = ({ messageData, sendNick, prevData }) => {
          
          
           <div className="chat-message-wrap-text">
-            <div className="chat-message-text">{messageData.message}</div>
+            <div className="chat-message-text" >{messageData.message}</div>
           </div>
         </div>
       </WrapImgAndText>
     );
+    if(messageData.message.split("\n").length>1&&messageData.type == null && isSmaeSender){
+      console.log("여기")
+      return (
+<SameMessage isMyMessage={isMyMessage}>
+        <div className="chat-message-wrap-serial-text">
+        <div className="chat-message-text">
+          {messageData.message.split("\n").map((v,i)=>{
+            return (<div>{v}<br/></div>)
+          }
+          
+          )}
+         </div>
+        </div>
+      </SameMessage>
+
+      )
+    }
 
   // 메시지 연속
-  if (messageData.typ == null && isSmaeSender)
+  if (messageData.type == null && isSmaeSender)
     return (
       <SameMessage isMyMessage={isMyMessage}>
         <div className="chat-message-wrap-serial-text">
@@ -47,6 +64,8 @@ const Message = ({ messageData, sendNick, prevData }) => {
         </div>
       </SameMessage>
     );
+    // enter가 있다면?
+  
 };
 
 export default Message;

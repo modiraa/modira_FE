@@ -1,43 +1,55 @@
 import React from "react";
 import "../css(subin)/LowerNavbar.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const LowerNavbar = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
-    <div
-      style={{
-        height: "125px",
-        width: "525px",
-        display: "flex",
-        flexDirection:"row",
-        backgroundColor:"white"
-      
-      }}
-    >
-     
-     
-     
-      
-      <div className="wrap-symbols-text" style={{width:"37px",height:"59px",marginLeft:"57px",marginTop:"24px"} } onClick={()=>navigate("/")}>
-      <span className="material-symbols-outlined">home</span>
-      <span className="symbols-text" style={{marginTop:"3px"}}>Home</span>
+    <div className="wrap-lowernavbar">
+      <div
+        className="wrap-symbols-text"
+        style={{ marginLeft: "24px" }}
+        onClick={() => navigate("/")}
+      >
+        <div className="lowernavbar-location-symbol">
+          <span className="material-symbols-outlined">home</span>
+        </div>
+
+        <div>
+          <span className="symbols-text" style={{ marginTop: "3px" }}>
+            홈
+          </span>
+        </div>
       </div>
 
-      <div className="wrap-symbols-text"  style={{width:"29px",height:"48px",marginLeft:"97px",marginTop:"35px"}} onClick={()=>navigate("/chat")}>
-      <span className="material-symbols-outlined">forum</span>
-      <span className="symbols-text">Chat</span>
+      <div className="wrap-symbols-text" onClick={() => navigate("/chat")}>
+        <div className="lowernavbar-location-symbol">
+          <span class="material-symbols-outlined">sms</span>
+        </div>
+        <span className="symbols-text">채 팅</span>
+      </div>
+      <div className="wrap-symbols-text" onClick={() => navigate("/write")}>
+        <div className="lowernavbar-location-symbol">
+          <span class="material-symbols-outlined">add_location</span>
+        </div>
+        <div>
+          <span className="symbols-text">글 작성</span>
+        </div>
       </div>
 
-      <div className="wrap-symbols-text" style={{width:"25px",height:"50px",marginLeft:"97px",marginTop:"33px"}} >
-      <span className="material-icons-outlined"style={{  fontSize: "25px",}}>calendar_today</span>
-      <span className="symbols-text">List</span>
+      <div className="wrap-symbols-text"  onClick={() => navigate("/write")}>
+        <div className="lowernavbar-location-symbol">
+          <span class="material-symbols-outlined">calendar_today</span>
+        </div>
+        <span className="symbols-text">내 모임</span>
       </div>
 
-      <div className="wrap-symbols-text" style={{width:"25px",height:"50px",marginLeft:"98px",marginTop:"35px"}} onClick={()=>navigate("/myinfo")}>
-      <span className="material-symbols-outlined">person</span>
-      <span className="symbols-text">My</span>
+      <div className="wrap-symbols-text" onClick={() => navigate("/myinfo")}>
+        <div className="lowernavbar-location-symbol">
+          <span class="material-symbols-outlined">person</span>
+        </div>
+        <span className="symbols-text">마이페이지</span>
       </div>
     </div>
   );

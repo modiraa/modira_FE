@@ -1,7 +1,7 @@
 .wrap-main {
   display: flex;
   flex-direction: column;
-  width: 525px;
+  width:100%;
   position: relative;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -53,5 +53,7 @@
 }
 .main-wrap-lowernavbar{
   position: absolute;
-  bottom: 0;
+  
+  top: calc(1030px - 125px);
+ 
 }

@@ -12,10 +12,11 @@ const Kakaoredirect = () => {
         .then((res) => {
             console.log(res); // 토큰이 넘어올 것임
             
-            const ACCESS_TOKEN = res.data.accessToken;
+            const ACCESS_TOKEN = "Bearer"+" "+res.headers.authorization;
             
             console.log("token", ACCESS_TOKEN);    //예시로 로컬에 저장함    
             
+            sessionStorage.setItem("token",ACCESS_TOKEN)
             // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
             
             }).catch((err) => {
