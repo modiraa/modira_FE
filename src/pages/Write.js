@@ -38,18 +38,25 @@ const Write = () => {
 
   const onChange = e => {
     const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
-    const data = {
+    const dataTitleAndContent = {
       ...boardArray, // 기존의 inputValue 객체를 복사한 뒤
       [name]: value // name 키를 가진 값을 value 로 설정
     }
-    setBoardArray((prev)=>{return(data)})
-    dispatch(selectWrite({ writeTitle: boardArray }))
+    setBoardArray(dataTitleAndContent)
+    dispatch(selectWrite({ [name]: value } ))
     console.log(boardArray)
+    console.log(name)
   }
 
   useEffect(()=>{
-    
-  },[boardArray])
+    if(storeSelect.writeTitle!==''){
+      setBoardArray({...boardArray,writeTitle:storeSelect.writeTitle})
+    }
+    if(storeSelect.writeText!==''){
+      setBoardArray({...boardArray,writeText:storeSelect.writeText})
+    }
+  },[])
+
 
   // 성별 체크박스 상태관리
   const genderChange = () => { // 입장조건 성별
