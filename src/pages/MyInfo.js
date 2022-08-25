@@ -4,15 +4,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import {useSelector} from 'react-redux';
 
 const MyInfo = () => {
 
   const params = useParams();
-
-  const usernames = useSelector((state) => state);
-
-  console.log(usernames)
 
   const [infoUser, setInfoUser] = useState({});
 
