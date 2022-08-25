@@ -40,7 +40,7 @@ sendMessageFN()
 
   return (
     <div>
-<textarea className="chat-input"
+<input className="chat-input"
     placeholder="채팅입력"
     onChange={(e) => {
       setSendMessage(e.target.value);
