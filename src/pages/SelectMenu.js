@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
 import '../css(subin)/SelectMenu.css';
 import MenuPicker from '../components/MenuPicker';
+import { useDispatch,useSelector } from "react-redux";
+import { selectWrite } from '../redux/moduls/SelectWrite';
+import { useNavigate } from 'react-router-dom';
 
 const SelectMenu = () => {
 
-    const [controlledSwiperMenu,setControlledSwiperMenu] = useState('')
+    const [controlledSwiperMenu,setControlledSwiperMenu] = useState('한식')
 
     console.log("여기",controlledSwiperMenu)
+
+    const dispatch = useDispatch();
+
+    const navigate = useNavigate();
+
+    const storeSelect = useSelector((state)=>state)
+
+    const clickMenu = () => {
+        dispatch(selectWrite({menu:controlledSwiperMenu}))
+        navigate("/selectpayment")
+    }
+
     return (
         <div className='select_menu'>
+            <button onClick={()=>{console.log(storeSelect)}}>스토어확인</button>
             <div className='select_menu_top'>
                 <div className='select_menu_count'>
                     <p>5/6</p>
@@ -26,7 +42,7 @@ const SelectMenu = () => {
             </div>
             
             <div className='select_menu_bottom'>
-                <div className='prev'>
+                <div className='prev' onClick={()=>{navigate(-1)}}>
                         <div className='menu-arrow-back-ios'>
                             <span className="material-symbols-outlined">
                                 arrow_back_ios
@@ -34,7 +50,7 @@ const SelectMenu = () => {
                         </div>
                         <h4>이전</h4>
                     </div>
-                    <div className='next'>
+                    <div className='next' onClick={clickMenu}>
                         <h4>다음</h4>
                         <div className='menu-arrow-forward-ios'>
                             <span className="material-symbols-outlined">

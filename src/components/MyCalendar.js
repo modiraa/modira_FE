@@ -6,8 +6,11 @@ import "../css(subin)/Calendar.css";
 const MyCalendar = ({selectDate,setSelectDate}) => {
   const [value, onChange] = React.useState(new Date());
   React.useEffect(() => {
-    console.log(value);
-    setSelectDate(value);
+    let year = value.getFullYear();
+    let month = value.getMonth()+1;
+    let date = value.getDate();
+    let fullDate = `${year}/${month}/${date}`;
+    setSelectDate(fullDate);
   }, [value]);
   return (
     <CalendarContainer>

@@ -1,16 +1,32 @@
 import React, { useState } from 'react';
 import TimePicker from '../components/TimePicker';
 import '../css(subin)/SelectTime.css';
+import { useDispatch,useSelector } from "react-redux";
+import { selectWrite } from '../redux/moduls/SelectWrite';
+import { useNavigate } from 'react-router-dom';
 
 const SelectTime = () => {
 
-    const [controlledSwiperAmPm,setControlledSwiperAmPm] = useState('')
-    const [controlledSwiperHour,setControlledSwiperHour] = useState('')
-    const [controlledSwiperMin,setControlledSwiperMin] = useState('')
+    const [controlledSwiperAmPm,setControlledSwiperAmPm] = useState('오전')
+    const [controlledSwiperHour,setControlledSwiperHour] = useState('1시')
+    const [controlledSwiperMin,setControlledSwiperMin] = useState('0분')
+
+    const dispatch = useDispatch();
+
+    const navigate = useNavigate();
+
+    const storeSelect = useSelector((state)=>state)
+
+    const clickTime = () => {
+        dispatch(selectWrite({time:controlledSwiperAmPm+controlledSwiperHour+controlledSwiperMin}))
+        navigate("/selectgps")
+    }
 
     console.log("여기",controlledSwiperAmPm)
+
     return (
         <div className='select_time'>
+            <button onClick={()=>{console.log(storeSelect)}}>스토어확인</button>
             <div className='select_time_top'>
                 <div className='select_time_count'>
                     <p>3/6</p>
@@ -30,7 +46,7 @@ const SelectTime = () => {
             </div>
             
             <div className='select_time_bottom'>
-                <div className='prev'>
+                <div className='prev' onClick={()=>{navigate(-1)}}>
                         <div className='time-arrow-back-ios'>
                             <span className="material-symbols-outlined">
                                 arrow_back_ios
@@ -38,7 +54,7 @@ const SelectTime = () => {
                         </div>
                         <h4>이전</h4>
                     </div>
-                    <div className='next'>
+                    <div className='next' onClick={clickTime}>
                         <h4>다음</h4>
                         <div className='time-arrow-forward-ios'>
                             <span className="material-symbols-outlined">

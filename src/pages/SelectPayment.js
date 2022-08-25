@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
 import '../css(subin)/SelectPayment.css';
 import PaymentPicker from '../components/PaymentPicker';
+import { useDispatch,useSelector } from "react-redux";
+import { selectWrite } from '../redux/moduls/SelectWrite';
+import { useNavigate } from 'react-router-dom';
 
 const SelectPayment = () => {
 
-    const [controlledSwiperPayment,setControlledSwiperPayment] = useState('')
+    const [controlledSwiperPayment,setControlledSwiperPayment] = useState('내가 쏜다! 골든벨!')
 
     console.log("여기",controlledSwiperPayment)
+
+    const dispatch = useDispatch();
+
+    const navigate = useNavigate();
+
+    const storeSelect = useSelector((state)=>state)
+
+    const clickPayment = () => {
+        dispatch(selectWrite({category:controlledSwiperPayment}))
+        navigate("/write")
+    }
+
     return (
         <div className='select_payment'>
+            <button onClick={()=>{console.log(storeSelect)}}>스토어확인</button>
             <div className='select_payment_top'>
                 <div className='select_payment_count'>
                     <p>6/6</p>
@@ -26,7 +42,7 @@ const SelectPayment = () => {
             </div>
             
             <div className='select_payment_bottom'>
-                <div className='prev'>
+                <div className='prev' onClick={()=>{navigate(-1)}}>
                     <div className='payment-arrow-back-ios'>
                         <span className="material-symbols-outlined">
                             arrow_back_ios
@@ -34,7 +50,7 @@ const SelectPayment = () => {
                     </div>
                     <h4>이전</h4>
                 </div>
-                <div className='next'>
+                <div className='next' onClick={clickPayment}>
                     <h4>다음</h4>
                     <div className='payment-arrow-forward-ios'>
                         <span className="material-symbols-outlined">

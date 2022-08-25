@@ -1,10 +1,37 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import LowerNavbar from "../components/LowerNavbar";
 import Navbar from "../components/Navbar";
 
 const Myroom = () => {
   const navigate = useNavigate();
+
+  const [room, setRoom] = useState({
+    postingId: "id",
+    title: "제목",
+    menuForImage: "치킨",
+    date: "날짜",
+    category: "골든벨",
+    numberOfPeople: "인원 수",
+    menu: "음식 메뉴",
+    content: "내용",
+  });
+  console.log("여기확인",room);
+  useEffect(() => {
+    axios
+      .get("http://3.39.23.189/api/myposts")
+      .then((response) => {
+        setRoom(response.room);
+        console.log("성공", response.room);
+      })
+      .catch((error) => {
+        console.log("에러", error);
+      });
+  }, []);
+
+
   return (
     <>
       <Navbar />
@@ -19,8 +46,16 @@ const Myroom = () => {
             onClick={() => {
               navigate("/postdetail:10");
             }}
-          ></Post>
-          <div>Lorem ipsum dolor</div>
+          >
+            <p>{room.postingId}</p>
+            <img src={room.menuForImage}/>
+            <p>{room.date}</p>
+            <p>{room.category}</p>
+            <p>{room.numberOfPeople}</p>
+            <p>{room.menu}</p>
+            <p>{room.content}</p>
+          </Post>
+          <div>{room.title}</div>
         </CreateRoom>
         <BorderLine />
         <CreateRoom>
@@ -76,7 +111,7 @@ const CreateRoom = styled.div`
 const BorderLine = styled.div`
   width: 100%;
   height: 12px;
-  background: #F7F7F7;;
+  background: #f7f7f7; ;
 `;
 
 const Post = styled.div`
@@ -84,5 +119,7 @@ const Post = styled.div`
   height: 167px;
   background-color: #e2e2e2;
   border-radius: 12px;
-  margin:0;
+  margin: 0;
+  p{ font-size:18px;
+  margin:0;}
 `;
