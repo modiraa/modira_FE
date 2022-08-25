@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
+
+import ReactModal from 'react-modal';
+
+
 import { Provider } from 'react-redux';
 import Store from './redux/store';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+ReactModal.setAppElement(document.getElementById('root'));
 root.render(
   <Provider store={Store}>
   <BrowserRouter>

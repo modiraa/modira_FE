@@ -6,8 +6,9 @@ import "../css(subin)/postcolloctionstatus.css";
 const PostCollectionStatus = ({ titleCollection, postStatus }) => {
   const scrollRef = React.useRef(null);
   const [isDrag, setIsDrag] = React.useState(false);
+  const [isDragStart, setIsDragStart] = React.useState(false);
   const [startX, setStartX] = React.useState();
-  console.log(postStatus);
+  // console.log(postStatus);
 
   const onDragStart = (e) => {
     e.preventDefault();
@@ -42,7 +43,7 @@ const PostCollectionStatus = ({ titleCollection, postStatus }) => {
         >
           {postStatus?.map((v, i) => (
             <div key={i} style={{ marginRight: "50px" }}>
-              <PostComponentStatus poststatus={v}/>
+              <PostComponentStatus poststatus={v} isDrag={isDrag}/>
             </div>
           ))}
         </div>

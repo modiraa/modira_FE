@@ -1,10 +1,31 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../css(subin)/PostComponent.css";
-const PostComponent = ({postAll}) => {
-  console.log(postAll)
+const PostComponent = ({postAll,isDrag}) => {
+  const navigate=useNavigate();
+  const refClick=React.useRef();
+  // onClick={()=>navigate(`/postdetail${postAll.postId}`)}
+
+  // console.log(postAll)
+  function eventHandler(event) {
+    console.log(event.type,"머가되지?")
+    navigate(`/postdetail${postAll.postId}`)
+  }
+  React.useEffect(()=>{
+    
+    
+     
+      refClick.current.addEventListener('click',eventHandler )
+   
+
+    return()=>{
+      refClick.current?.removeEventListener('click',eventHandler)
+    }
+    
+  },[isDrag])
   if(postAll){
     return (
-      <div className="wrap-postcomponent">
+      <div className="wrap-postcomponent" ref={refClick}>
         <div className="postcomponent-backimg">
           <div style={{ marginTop: "10px", marginLeft: "10px" }}>
             <div className="postcomponent-resraint">
