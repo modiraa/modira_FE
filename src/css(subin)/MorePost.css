@@ -1,0 +1,54 @@
+.more-post{
+    width: 100%;
+}
+
+.more-post-title{
+    width: 100%;
+    background-color: aqua;
+}
+
+.more-post-title>h3{
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 34px;
+    margin-left: 24px;
+}
+
+.more-post-Contents{
+    width: 100%;
+    background-color: azure;
+}
+
+.more-post-card{
+    width: 229.5px;
+    background-color: gray;
+}
+
+.card-img{
+    width: 229.5px;
+    height: 194.5px;
+    border-radius: 8px;
+    background-color: rgb(240, 240, 240);
+}
+
+.card-cartegory{
+    width: 100%;
+    background-color: aqua;
+    margin-top: 20px;
+}
+
+.card-cartegory>p{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.card-title{
+    width: 100%;
+    background-color: aqua;
+    margin-top: 10px;
+}
+
+.card-title>p{
+    font-size: 21px;
+    font-weight: 700;
+}
