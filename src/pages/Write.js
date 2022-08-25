@@ -35,30 +35,38 @@ const Write = () => {
   const writeText_ref = React.useRef(null);
 
   const { writeTitle, writeText } = boardArray; // 비구조화 할당을 통해 e.target의 value값 추출
-
+useEffect(()=>{
+console.log(boardArray,"유즈effect")
+console.log(storeSelect)
+},[boardArray])
   
   useEffect(()=>{
     console.log("storage값 확인",storeSelect.writeText,storeSelect)
-if(storeSelect.writeText!==""){
-  console.log("여기옴?")
-  setBoardArray({...boardArray,writetext:storeSelect.writeText})
+if(storeSelect.writeText!==""||storeSelect.writeTitle!==""){
+  
+  setBoardArray({...boardArray,writeText:storeSelect.writeText,writeTitle:storeSelect.writeTitle})
+  console.log("여기옴?",{...boardArray,writeText:storeSelect.writeText,writeTitle:storeSelect.writeTitle})
 }
+
 
 },[])
   const onChange = e => {
     const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
-    const data = {
+    const dataTitleAndContent = {
       ...boardArray, // 기존의 inputValue 객체를 복사한 뒤
       [name]: value // name 키를 가진 값을 value 로 설정
     }
-    setBoardArray((prev)=>{return(data)})
-    dispatch(selectWrite({ [name]: value }))
+
+    setBoardArray(dataTitleAndContent)
+    dispatch(selectWrite({ [name]: value } ))
+
     console.log(boardArray)
+    console.log(name)
   }
 
-  useEffect(()=>{
-    console.log(boardArray)
-  },[boardArray])
+  
+
+
 
   // 성별 체크박스 상태관리
   const genderChange = () => { // 입장조건 성별
