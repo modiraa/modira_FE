@@ -10,6 +10,8 @@ import UserProfile from "./UserProfile";
 import MyCalendar from"../components/MyCalendar"
 import MessageInput from "../components/MessageInput";
 import MyModal from "../components/MyModal";
+import axios from "axios";
+
 
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
@@ -21,7 +23,9 @@ const Chat = () => {
   const [sendNick, setSendNick] = React.useState("");
   const [enterChatRoom, setEnterChatRoom] = React.useState([]);
   const [modalIsopen,setmodalIsopen]=React.useState(false);
+  const [chatRoom,setChatRoom]=React.useState("");
   const RefViewControll = React.useRef();
+
 
   React.useEffect(() => {
     console.log(sendMessage)
@@ -110,6 +114,17 @@ const Chat = () => {
     }
     // 채팅을 보낸다.
   }
+  const makeChatRoom=async()=>{
+    // console.log(chatRoom)
+    await axios
+    .post(`http://3.39.23.189/chat/room`,JSON.stringify({name:chatRoom}))
+    .then((response) => {
+      console.log("성공", response);
+    })
+    .catch((error) => {
+      console.log("에러", error);
+    });
+  }
 
 
   return (
@@ -118,7 +133,11 @@ const Chat = () => {
       <button onClick={connect}>연결!</button>
       <button onClick={disconnect}>소켓 연결 끊기!</button>
       <button onClick={modalHandler}>모달클릭</button>
+      <button onClick={makeChatRoom}>채팅방생성</button>
       <hr></hr>
+      <input  placeholder="chaatroom을 입력하세요" onChange={(e) => {
+          setChatRoom(e.target.value);
+        }}></input>
       <input
         placeholder="nickname을 입력하세요"
         onChange={(e) => {
