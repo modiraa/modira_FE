@@ -3,6 +3,8 @@
 const WRITE = 'select/WRITE';
 
 const initialState = {
+    writeTitle: '',
+    writeText: '',
     date: '',
     time: '',
     address: '',
