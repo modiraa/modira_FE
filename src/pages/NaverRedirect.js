@@ -1,9 +1,13 @@
 import axios from 'axios';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {userLogin} from '../redux/moduls/UserName';
 
 const NaverRedirect = () => {
     const navigate = useNavigate();
+
+    let dispatch = useDispatch();
 
     let code = new URL(window.location.href).searchParams.get("code");
     let state = new URL(window.location.href).searchParams.get("state");
@@ -13,11 +17,19 @@ const NaverRedirect = () => {
             .then((res) => {
                 console.log(res); // 토큰이 넘어올 것임
 
-                const ACCESS_TOKEN = res.data.accessToken;
+                const ACCESS_TOKEN = "Bearer"+" "+res.data.accessToken;
 
-                console.log("token", ACCESS_TOKEN);    //예시로 로컬에 저장함    
+                console.log("token", ACCESS_TOKEN);
 
-                // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
+                sessionStorage.setItem("token",ACCESS_TOKEN)
+
+                if(res.data.id===null){
+                    navigate("/firstlogin",{ state: { username: res.data.username} });
+                }
+                else{
+                    navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
+                    dispatch(userLogin(res.data.username))
+                }
 
             }).catch((err) => {
                 console.log("소셜로그인 에러", err);
