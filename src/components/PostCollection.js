@@ -7,16 +7,19 @@ const PostCollection = ({postAll}) => {
   const scrollRef = React.useRef(null);
   const [isDrag, setIsDrag] = React.useState(false);
   const [startX, setStartX] = React.useState();
+  
   // console.log(postAll)
 
   const onDragStart = (e) => {
     e.preventDefault();
-    setIsDrag(true);
+    setIsDrag(()=>true);
     setStartX(e.pageX + scrollRef.current.scrollLeft);
   };
 
-  const onDragEnd = () => {
-    setIsDrag(false);
+  const onDragEnd = (e) => {
+    e.preventDefault();
+  
+    setIsDrag(()=>false);
   };
 
   const onDragMove = (e) => {
@@ -35,25 +38,25 @@ if(postAll){
        
         ref={scrollRef}
         onMouseDown={onDragStart}
-        onMouseMove={onDragMove}
+        onMouseMove={isDrag?onDragMove:null}
         onMouseUp={onDragEnd}
         onMouseLeave={onDragEnd}
       >
         <div style={{ marginRight: "27px" }}>
-          <PostComponent postAll={postAll[0]}/>
-          <PostComponent  postAll={postAll[1]}/>
+          <PostComponent postAll={postAll[0]} isDrag={isDrag}/>
+          <PostComponent  postAll={postAll[1]} isDrag={isDrag}/>
         </div>
         <div style={{ marginRight: "27px" }}>
-          <PostComponent  postAll={postAll[2]}/>
-          <PostComponent postAll={postAll[3]}/>
+          <PostComponent  postAll={postAll[2]} isDrag={isDrag}/>
+          <PostComponent postAll={postAll[3]} isDrag={isDrag}/>
         </div>
         <div style={{ marginRight: "27px" }}>
-          <PostComponent  postAll={postAll[4]}/>
-          <PostComponent  postAll={postAll[5]}/>
+          <PostComponent  postAll={postAll[4]} isDrag={isDrag}/>
+          <PostComponent  postAll={postAll[5]} isDrag={isDrag}/>
         </div>
         <div style={{ marginRight: "27px" }}>
-          <PostComponent  postAll={postAll[6]}/>
-          <PostComponent  postAll={postAll[7]}/>
+          <PostComponent  postAll={postAll[6]} isDrag={isDrag}/>
+          <PostComponent  postAll={postAll[7]} isDrag={isDrag}/>
         </div>
       </div>
     </div>

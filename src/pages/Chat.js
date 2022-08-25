@@ -9,6 +9,7 @@ import MessagelList from "../components/MessagelList";
 import UserProfile from "./UserProfile";
 import MyCalendar from"../components/MyCalendar"
 import MessageInput from "../components/MessageInput";
+import MyModal from "../components/MyModal";
 
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
@@ -19,6 +20,7 @@ const Chat = () => {
   const [sendMessage, setSendMessage] = React.useState("");
   const [sendNick, setSendNick] = React.useState("");
   const [enterChatRoom, setEnterChatRoom] = React.useState([]);
+  const [modalIsopen,setmodalIsopen]=React.useState(false);
   const RefViewControll = React.useRef();
 
   React.useEffect(() => {
@@ -30,6 +32,15 @@ const Chat = () => {
       RefViewControll.current.scrollTop = RefViewControll.current.scrollHeight;
     }
   }, [showMessage, enterChatRoom,sendMessage]);
+
+  const modalHandler=()=>{
+    setmodalIsopen(true);
+  }
+  const handleClickCancel = () => {
+    setmodalIsopen(false)
+  };
+
+  
   function connect() {
     var socket = new SockJS("http://52.79.223.9/ws/chat");
     stompClient = Stomp.over(socket);
@@ -106,6 +117,7 @@ const Chat = () => {
       <div style={{position:"absolute",left:"50%",top:"50%"}}>
       <button onClick={connect}>연결!</button>
       <button onClick={disconnect}>소켓 연결 끊기!</button>
+      <button onClick={modalHandler}>모달클릭</button>
       <hr></hr>
       <input
         placeholder="nickname을 입력하세요"
@@ -139,6 +151,7 @@ const Chat = () => {
       <div className="chat-input-wrap">
        <MessageInput sendMessageFN={sendMessageFN} setSendMessage={setSendMessage} sendMessage={sendMessage}/>
       </div>
+      <MyModal isOpen={modalIsopen} handleClickCancel={handleClickCancel}/>
     </div>
   );
 };
