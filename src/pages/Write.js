@@ -14,7 +14,7 @@ const Write = () => {
 
   const storeSelect = useSelector((state)=>state.SelectWrite)
 
-  console.log(storeSelect)
+
 
   // 성별 체크박스 상태관리
   let [isGenderAction, setIsGenderAction] = useState(false);
@@ -36,6 +36,15 @@ const Write = () => {
 
   const { writeTitle, writeText } = boardArray; // 비구조화 할당을 통해 e.target의 value값 추출
 
+  
+  useEffect(()=>{
+    console.log("storage값 확인",storeSelect.writeText,storeSelect)
+if(storeSelect.writeText!==""){
+  console.log("여기옴?")
+  setBoardArray({...boardArray,writetext:storeSelect.writeText})
+}
+
+},[])
   const onChange = e => {
     const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
     const data = {
@@ -43,12 +52,12 @@ const Write = () => {
       [name]: value // name 키를 가진 값을 value 로 설정
     }
     setBoardArray((prev)=>{return(data)})
-    dispatch(selectWrite({ writeTitle: boardArray }))
+    dispatch(selectWrite({ [name]: value }))
     console.log(boardArray)
   }
 
   useEffect(()=>{
-    
+    console.log(boardArray)
   },[boardArray])
 
   // 성별 체크박스 상태관리
@@ -61,7 +70,7 @@ const Write = () => {
       setIsGenderAction(!isGenderAction)
     )
   }
-  console.log(isGenderAction);
+  // console.log(isGenderAction);
 
   // 입장조건 나이 체크박스 상태관리
   const ageChange = () => { // 입장조건 나이
@@ -73,7 +82,7 @@ const Write = () => {
       setIsAgeAction(!isAgeAction)
     )
   }
-  console.log(isAgeAction);
+  // console.log(isAgeAction);
 
   const clickSelect = () => {
     navigate("/selectdate")
