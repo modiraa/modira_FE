@@ -23,7 +23,8 @@ const Chat = () => {
   const [sendNick, setSendNick] = React.useState("");
   const [enterChatRoom, setEnterChatRoom] = React.useState([]);
   const [modalIsopen,setmodalIsopen]=React.useState(false);
-  const [chatRoom,setChatRoom]=React.useState("");
+  const [postId,setPostId]=React.useState("");
+  const [chatRoomId,setChatRoomId]=React.useState("");
   const RefViewControll = React.useRef();
 
 
@@ -46,14 +47,14 @@ const Chat = () => {
 
   
   function connect() {
-    var socket = new SockJS("http://52.79.223.9/ws/chat");
+    var socket = new SockJS("http://3.39.23.189/ws-stomp");
     stompClient = Stomp.over(socket);
     // stompClient.debug=null;
     stompClient.connect({}, connected);
   }
   function connected() {
     setIsConnected(true);
-    stompClient.subscribe("/topic", subscribed);
+    stompClient.subscribe(`/sub/chat/room/${chatRoomId}`, subscribed);
   }
   function subscribed(greeting) {
     // console.log("여기안와?");
@@ -82,7 +83,7 @@ const Chat = () => {
   function sendNicknameFN() {
     try {
       stompClient.send(
-        "/app/chat/message",
+        "/pub/chat/message",
         {},
         JSON.stringify({
           // message: sendMessage,
@@ -100,13 +101,13 @@ const Chat = () => {
   function sendMessageFN() {
     try {
       stompClient.send(
-        "/app/chat/message",
+        "/pub/chat/message",
         {},
         JSON.stringify({
           message: sendMessage,
           sender: sendNick,
-          // type:"MESSAGE",
-          // roomId:"aa",
+          type:"TALK",
+          roomId:chatRoomId,
         })
       );
     } catch (error) {
@@ -117,9 +118,11 @@ const Chat = () => {
   const makeChatRoom=async()=>{
     // console.log(chatRoom)
     await axios
-    .post(`http://3.39.23.189/chat/room`,JSON.stringify({name:chatRoom}))
+    .post(`http://3.39.23.189/chat/room`,JSON.stringify({name:postId}))
     .then((response) => {
       console.log("성공", response);
+      setChatRoomId(response.data.roomId)
+      console.log(response.data.roomId)
     })
     .catch((error) => {
       console.log("에러", error);
@@ -136,7 +139,7 @@ const Chat = () => {
       <button onClick={makeChatRoom}>채팅방생성</button>
       <hr></hr>
       <input  placeholder="chaatroom을 입력하세요" onChange={(e) => {
-          setChatRoom(e.target.value);
+          setPostId(e.target.value);
         }}></input>
       <input
         placeholder="nickname을 입력하세요"
