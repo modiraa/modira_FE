@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
 import '../css(subin)/SelectPeopleCount.css';
 import PeopleCountPicker from '../components/PeopleCountPicker';
+import { useDispatch,useSelector } from "react-redux";
+import { selectWrite } from '../redux/moduls/SelectWrite';
+import { useNavigate } from 'react-router-dom';
 
 const SelectPeopleCount = () => {
 
-    const [controlledSwiperPeopleCount,setControlledSwiperPeopleCount] = useState('')
+    const [controlledSwiperPeopleCount,setControlledSwiperPeopleCount] = useState('3명')
 
     console.log("여기",controlledSwiperPeopleCount)
+
+    const dispatch = useDispatch();
+
+    const navigate = useNavigate();
+
+    const storeSelect = useSelector((state)=>state)
+
+    const clickPeopleCount = () => {
+        dispatch(selectWrite({numberOfPeople:controlledSwiperPeopleCount}))
+        navigate("/selectmenu")
+    }
+
     return (
         <div className='select_people_count'>
+            <button onClick={()=>{console.log(storeSelect)}}>스토어확인</button>
             <div className='select_people_count_top'>
                 <div className='select_people_count_count'>
                     <p>4/6</p>
@@ -26,7 +42,7 @@ const SelectPeopleCount = () => {
             </div>
             
             <div className='select_people_count_bottom'>
-                <div className='prev'>
+                <div className='prev' onClick={()=>{navigate(-1)}}>
                         <div className='people-arrow-back-ios'>
                             <span className="material-symbols-outlined">
                                 arrow_back_ios
@@ -34,7 +50,7 @@ const SelectPeopleCount = () => {
                         </div>
                         <h4>이전</h4>
                     </div>
-                    <div className='next'>
+                    <div className='next' onClick={clickPeopleCount}>
                         <h4>다음</h4>
                         <div className='people-arrow-forward-ios'>
                             <span className="material-symbols-outlined">

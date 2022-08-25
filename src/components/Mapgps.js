@@ -1,10 +1,14 @@
 import React, { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { selectWrite } from '../redux/moduls/SelectWrite';
 
 const { kakao } = window;
 const Mapgps = ({setMenuSearch,menuSearch}) => {
 
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     const refMap = useRef(null);
 
@@ -53,8 +57,9 @@ const Mapgps = ({setMenuSearch,menuSearch}) => {
                 infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
                 infowindow.open(map, marker);
                 console.log(place)// 수빈님이 이용할 수 있는 정보
-                // navigate('/Write', { state: { juso: place.address_name, x: place.x, y: place.y } })
-                setMenuSearch(place.address_name)
+                // setMenuSearch(place.address_name)
+                dispatch(selectWrite({address:place.address_name,latitude:place.x,longitude:place.y}))
+                navigate('/selectpeoplecount')
             });
         }
     }, [menuSearch]);
