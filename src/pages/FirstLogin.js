@@ -1,12 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import axios from "axios";
-// import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import AgeDropdown from "../components/AgeDropdown";
+import { loginUserinfo } from "../redux/moduls/UserInfo";
 
 const FirstLogin = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const storeSelect = useSelector((state) => state.UserInfo);
 
   //카카오 토큰 서버에 받아서 넘기기
   let location = useLocation();
@@ -50,6 +53,19 @@ const FirstLogin = () => {
   const selectGender = (gender) => {
     setGender(gender);
   };
+
+  useEffect(() => {
+    console.log(nickName, "유즈effect");
+    console.log(storeSelect);
+  }, [nickName]);
+  console.log(storeSelect?.nickName);
+  useEffect(() => {
+    console.log("storage값 확인", storeSelect?.nickName, storeSelect);
+    if (storeSelect?.nickName !== "") {
+      setNickName(storeSelect?.nickName);
+      console.log("여기옴?",storeSelect );
+    }
+  }, [storeSelect]);
 
   const Submit = async () => {
     console.log(username, "카카오 아이디");
@@ -111,6 +127,7 @@ const FirstLogin = () => {
             value={nickName}
             onChange={(e) => {
               setNickName(e.target.value);
+              dispatch(loginUserinfo({ nickName: nickName }));
             }}
           ></Input>
         </InputBox>
@@ -194,8 +211,8 @@ const Box = styled.div`
   height: 251px;
   margin-top: 43px;
   background-color: #e7e7e7;
-  input{
-    display:none;
+  input {
+    display: none;
   }
 
   span {
@@ -236,7 +253,7 @@ const Input = styled.input`
   width: 100%;
   padding: 14px 29px;
   font-family: "AppleSDGothicNeoM00";
-  color: #A4A4A4;
+  color: #a4a4a4;
   font-size: 20px;
   border-radius: 12px;
   border: 1px solid #a4a4a4;
