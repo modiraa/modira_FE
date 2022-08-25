@@ -9,12 +9,12 @@ import Navbar from "../components/Navbar";
 const Myroom = () => {
   const navigate = useNavigate();
 
-  const [data, setData] = useState({
+  const [data, setData] = useState([{
     postId: "id",
     title: "Lorem ipsum dolor",
     menuForImage: "치킨이미지",
     menu: "치킨",
-  });
+  }]);
   console.log("여기확인", data);
 
   const getPost = async () => {
@@ -26,8 +26,8 @@ const Myroom = () => {
         },
       })
       .then((response) => {
-        setData(response.data[0]);
-        console.log("데이터 나와랏", response.data[0]);
+        setData(response.data);
+        console.log("데이터 나와랏", response.data);
       })
       .catch((error) => {
         console.log("에러", error);
@@ -58,7 +58,7 @@ const Myroom = () => {
             </div>
             <img src={data.menuForImage} />
           </Post>
-          <div>{data.title}</div>
+          <div>[{data.title}]</div>
         </CreateRoom>
         <BorderLine />
         <CreateRoom>
@@ -70,7 +70,7 @@ const Myroom = () => {
           >
             <img src={data.menuForImage} />
           </Post>
-          <div>{data.title}</div>
+          <div>[{data.title}]</div>
         </CreateRoom>
       </Container>
       <LowerNavbar />
