@@ -1,4 +1,4 @@
-import Stomp from "stompjs";
+import Stomp,{connect} from "stompjs";
 import SockJS from "sockjs-client";
 import React from "react";
 import styled from "styled-components";
@@ -11,6 +11,7 @@ import MyCalendar from"../components/MyCalendar"
 import MessageInput from "../components/MessageInput";
 import MyModal from "../components/MyModal";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
@@ -26,13 +27,18 @@ const Chat = () => {
   const [postId,setPostId]=React.useState("");
   const [chatRoomId,setChatRoomId]=React.useState("");
   const RefViewControll = React.useRef();
+ const navigate=useNavigate();
 
+ React.useEffect(()=>{
+  var socket = new SockJS("http://52.79.223.9/ws/chat");
+  stompClient = Stomp.over(socket);
+  // stompClient.debug=null;
+  stompClient.connect({}, connected);
 
+ },[])
   React.useEffect(() => {
     console.log(sendMessage)
-    // console.log(showMessage);
     //가장 최근 채팅 보여주기
-    // console.log(enterChatRoom);
     if (RefViewControll.current) {
       RefViewControll.current.scrollTop = RefViewControll.current.scrollHeight;
     }
@@ -45,30 +51,15 @@ const Chat = () => {
     setmodalIsopen(false)
   };
 
-  
-  function connect() {
-    var socket = new SockJS("http://3.39.23.189/ws-stomp");
-    stompClient = Stomp.over(socket);
-    // stompClient.debug=null;
-    stompClient.connect({}, connected);
-  }
+
   function connected() {
     setIsConnected(true);
-    stompClient.subscribe(`/sub/chat/room/${chatRoomId}`, subscribed);
+    stompClient.subscribe(`/topic`, subscribed);
   }
   function subscribed(greeting) {
-    // console.log("여기안와?");
     const soketMessage = JSON.parse(greeting.body);
-    // console.log(soketMessage)
-    // console.log("머야이거");
-    // console.log(soketMessage.type)
-    // enterChatRoom.push(soketMessage.message)
-    // setEnterChatRoom([...enterChatRoom])
-    // console.log(enterChatRoom)
     showMessage.push(soketMessage);
     setShowMessage([...showMessage]);
-
-    // console.log("쇼메세지", showMessage, "저장할애", soketMessage);
   }
 
   function disconnect() {
@@ -83,7 +74,7 @@ const Chat = () => {
   function sendNicknameFN() {
     try {
       stompClient.send(
-        "/pub/chat/message",
+        "/app/chat/message",
         {},
         JSON.stringify({
           // message: sendMessage,
@@ -101,13 +92,13 @@ const Chat = () => {
   function sendMessageFN() {
     try {
       stompClient.send(
-        "/pub/chat/message",
+        "/app/chat/message",
         {},
         JSON.stringify({
           message: sendMessage,
           sender: sendNick,
-          type:"TALK",
-          roomId:chatRoomId,
+          // type:"TALK",
+          // roomId:chatRoomId,
         })
       );
     } catch (error) {
@@ -116,7 +107,6 @@ const Chat = () => {
     // 채팅을 보낸다.
   }
   const makeChatRoom=async()=>{
-    // console.log(chatRoom)
     await axios
     .post(`http://3.39.23.189/chat/room`,JSON.stringify({name:postId}))
     .then((response) => {
@@ -135,7 +125,6 @@ const Chat = () => {
       <div style={{position:"absolute",left:"50%",top:"50%"}}>
       <button onClick={connect}>연결!</button>
       <button onClick={disconnect}>소켓 연결 끊기!</button>
-      <button onClick={modalHandler}>모달클릭</button>
       <button onClick={makeChatRoom}>채팅방생성</button>
       <hr></hr>
       <input  placeholder="chaatroom을 입력하세요" onChange={(e) => {
@@ -152,7 +141,7 @@ const Chat = () => {
       
     
       <div className="chat-header-wrap">
-        <div className="chat-header-icon" style={{ marginLeft: "28px" }}>
+        <div className="chat-header-icon" style={{ marginLeft: "28px" }} onClick={()=>{navigate("/")}}>
           <span
             className="material-symbols-outlined"
             style={{ fontSize: "28px" }}
@@ -161,7 +150,7 @@ const Chat = () => {
           </span>
         </div>
         <div className="chat-header-title">Lorem ipsum dolor...</div>{" "}
-        <div className="chat-header-icon" style={{ marginRight: "35px" }}>
+        <div className="chat-header-icon" style={{ marginRight: "35px" }} onClick={modalHandler}>
           <span className="material-icons-outlined" style={{ fontSize: "28px" }}>
             logout
           </span> 
@@ -178,39 +167,5 @@ const Chat = () => {
   );
 };
 export default Chat;
-
-const TitleRoom = styled.div`
-  font-size: 24px;
-`;
-
-
-const WrapImgAndChat = styled.div`
-  width: 100%;
-`;
-const WrapLeftChat = styled.div`
-  display: flex;
-  flex-direction: row !important;
-
-  height: 50px;
-`;
-const WrapRightChat = styled.div`
-  display: flex;
-  flex-direction: row-reverse !important;
-
-  height: 50px;
-`;
-
-const ContainerNickAndText = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-  margin-right: 20px;
-`;
-
-
-const TextMessage = styled.div`
-  background-color: #565656;
-  color: white;
-`;
 
 
