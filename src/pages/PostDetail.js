@@ -7,8 +7,7 @@ import LowerNavbar from "../components/LowerNavbar";
 
 function PostDetail() {
   const navigate = useNavigate();
-  let { postId } = useParams();
-  console.log("여기확인", postId);
+  const params = useParams();
 
   const [data, setData] = useState({
     category: "N빵 모임 (모임 카테고리)",
@@ -35,10 +34,10 @@ function PostDetail() {
 
   useEffect(() => {
     axios
-      .get("http://3.34.129.164/api/post/detail/{postId}")
+      .get(`http://3.34.129.164/api/post/detail/${params.postId}`)
       .then((response) => {
         setData(response.data);
-        console.log("성공", response.data);
+        console.log("성공", params.postId);
       })
       .catch((error) => {
         console.log("에러", error);
@@ -63,15 +62,24 @@ function PostDetail() {
           <Category>{data.category}</Category>
           <Title>{data.title}</Title>
           <Date>
-            <span className="material-symbols-outlined">calendar_today</span>
-            <span>
+            <div>
+              <span className="material-symbols-outlined">calendar_today</span>{" "}
               <span>{data.date}</span>
               <span>{data.time}</span>
-            </span>
-            <span className="material-symbols-outlined">person</span>
-            <p>{data.numberOfPeople}명 참여</p>
-            <span className="material-symbols-outlined">ramen_dining</span>
-            <p>{data.menu}</p>
+            </div>
+            <div>
+              <div>
+                <span className="material-symbols-outlined">person</span>{" "}
+                <span>{data.numberOfPeople}명 참여</span>
+              </div>
+              <div>
+                {" "}
+                <span className="material-symbols-outlined">
+                  ramen_dining
+                </span>{" "}
+                <span>{data.menu}</span>
+              </div>
+            </div>
           </Date>
         </InfoBox>
         <Address>
@@ -162,19 +170,27 @@ const Category = styled.div`
 const Title = styled.div`
   font-weight: 400;
   font-size: 31px;
-  margin-bottom: 5px;
+  margin-top: 5px;
 `;
 const Date = styled.span`
   display: flex;
-  align-items: center;
+  flex-direction: column;
   font-weight: 400;
   font-size: 20px;
   color: #9a9a9a;
-  span {
-    margin-right: 8px;
+  margin-top: 10px;
+  div {
+    /* margin-right: 8px; */
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
   }
   p {
     margin-right: 18px;
+  }
+  span{
+    margin-right: 3px;
   }
 `;
 const InfoBox = styled.div`
@@ -220,7 +236,7 @@ const UserInfo = styled.div`
   justify-content: center;
   margin: 0 117px 0 27px;
   p {
-    font-weight: 400;
+    font-weight: 600;
     font-size: 20px;
   }
 `;
@@ -230,6 +246,7 @@ const AgeGender = styled.span`
   font-size: 16px;
   display: flex;
   flex-direction: row;
+  margin-top: 5px;
   span {
     width: 83px;
     height: 39px;
