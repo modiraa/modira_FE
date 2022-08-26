@@ -2,6 +2,7 @@ import React from "react";
 import "../css(subin)/chat.css";
 import testimg from "../image/11.jpg";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Message = ({ messageData, sendNick, prevData }) => {
   //   console.log(messageData, messageData.type==null);
@@ -10,6 +11,7 @@ const Message = ({ messageData, sendNick, prevData }) => {
     prevData?.type !== "ENTER" && prevData?.sender == messageData.sender;
 
   console.log(messageData.message.split("\n").length>1, messageData.type == null, isMyMessage, "여기확인");
+  const navigate=useNavigate();
 
   //첫 입장
   if (messageData.type == "ENTER") {
@@ -24,7 +26,7 @@ const Message = ({ messageData, sendNick, prevData }) => {
   if (messageData.type == null && !isSmaeSender)
     return (
       <WrapImgAndText isMyMessage={isMyMessage}>
-        <img src={testimg} style={{ height: "48px", width: "48px",borderRadius:"8px" }}></img>
+        <img src={testimg} style={{ height: "48px", width: "48px",borderRadius:"8px" }}  onClick={()=>{navigate("/userprofile")}}></img>
 
         <div>
          

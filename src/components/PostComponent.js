@@ -5,8 +5,7 @@ const PostComponent = ({postAll,isDrag}) => {
   const navigate=useNavigate();
   const refClick=React.useRef();
   // onClick={()=>navigate(`/postdetail${postAll.postId}`)}
-
-  // console.log(postAll)
+  console.log(postAll)
   function eventHandler(event) {
     console.log(event.type,"머가되지?")
     navigate(`/postdetail${postAll.postId}`)
@@ -23,10 +22,14 @@ const PostComponent = ({postAll,isDrag}) => {
     }
     
   },[isDrag])
+  var sectionStyle = {
+
+    backgroundImage: "url(" +  postAll.menuForImage  + ")"
+  };
   if(postAll){
     return (
       <div className="wrap-postcomponent" ref={refClick}>
-        <div className="postcomponent-backimg">
+        <div className="postcomponent-backimg"style={sectionStyle}>
           <div style={{ marginTop: "10px", marginLeft: "10px" }}>
             <div className="postcomponent-resraint">
               <span className="postcomponent-resraint-text">#20 대</span>
@@ -45,14 +48,14 @@ const PostComponent = ({postAll,isDrag}) => {
           >
             calendar_today
           </span>
-          <div className="postcomponent-day">6월 9일</div>
+          <div className="postcomponent-day">{postAll.date}</div>
           <span
             className="material-icons-outlined"
             style={{ fontSize: "9px", color: "#9A9A9A" }}
           >
             person_outline
           </span>
-          <div className="postcomponent-person">{postAll.numberOfPeople}명 참여</div>
+          <div className="postcomponent-person">{postAll.numberOfParticipant}명 참여</div>
         </div>
       </div>
     );
