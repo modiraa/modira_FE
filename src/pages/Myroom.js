@@ -17,7 +17,7 @@ const Myroom = () => {
 
   const getPost = async () => {
     await axios
-      .get("http://3.39.23.189/api/myposts", {
+      .get("http://3.34.129.164/api/myposts", {
         headers: {
           Authorization:
             "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjE0MzU4ODMsInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4OTc0OTcyNCJ9.VWam7rKmlsWlLFCYSblyZ_0W0qId0HVXtoIVE9-_IhX91rX0Gbwv7d65Uudo5sqqAL1ntCVpQha_lAP6evi5JA",

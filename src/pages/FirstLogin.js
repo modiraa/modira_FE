@@ -116,7 +116,7 @@ const FirstLogin = () => {
     formData.append("username", storeSelect.username);
 
     await axios
-      .post("http://52.79.223.9/api/user/register", formData, {
+      .post("http://3.34.129.164/api/user/register", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((response) => {
