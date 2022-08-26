@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 
 const Myroom = () => {
   const navigate = useNavigate();
+
   const [data, setData] = useState({
     postId: "id",
     title: "Lorem ipsum dolor",
@@ -16,11 +17,13 @@ const Myroom = () => {
   console.log("여기확인", data);
 
   const getPost = async () => {
+    const ACCESS_TOKEN = sessionStorage.getItem("token");
+    console.log(ACCESS_TOKEN);
+
     await axios
       .get("http://3.34.129.164/api/myposts", {
         headers: {
-          Authorization:
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjE0MzU4ODMsInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4OTc0OTcyNCJ9.VWam7rKmlsWlLFCYSblyZ_0W0qId0HVXtoIVE9-_IhX91rX0Gbwv7d65Uudo5sqqAL1ntCVpQha_lAP6evi5JA",
+          Authorization: ACCESS_TOKEN
         },
       })
       .then((response) => {

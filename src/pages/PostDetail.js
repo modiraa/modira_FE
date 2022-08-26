@@ -124,7 +124,7 @@ function PostDetail() {
           {/* {location.state?.homesi ? (
             <button>참여신청</button>
             ) : ( */}
-          <button>마감완료</button>
+          <button>참여신청</button>
           {/* )} */}
         </ButtonSubmit>
       </Container>
