@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,7 +10,7 @@ const FirstLogin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const storeSelect = useSelector((state) => state.UserInfo);
-
+  
   //카카오 토큰 서버에 받아서 넘기기
   let location = useLocation();
   const username = location.state?.username;
@@ -54,18 +54,45 @@ const FirstLogin = () => {
     setGender(gender);
   };
 
-  useEffect(() => {
-    console.log(nickName, "유즈effect");
-    console.log(storeSelect);
-  }, [nickName]);
-  console.log(storeSelect?.nickName);
+  // useEffect(() => {
+  //   console.log("storage값 확인", storeSelect?.userProfileImage, storeSelect);
+  //   if (storeSelect?.userProfileImage !== "") {
+  //     userProfileImage(storeSelect?.userProfileImage);
+  //     console.log("여기옴?", storeSelect);
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log("storage값 확인", storeSelect?.ImgForServerType, storeSelect);
+  //   if (storeSelect?.ImgForServerType !== "") {
+  //     SetImgForServerType(storeSelect?.ImgForServerType);
+  //     console.log("여기옴?", storeSelect);
+  //   }
+  // }, []);
+
   useEffect(() => {
     console.log("storage값 확인", storeSelect?.nickName, storeSelect);
     if (storeSelect?.nickName !== "") {
       setNickName(storeSelect?.nickName);
-      console.log("여기옴?",storeSelect );
+      console.log("여기옴?", storeSelect);
     }
-  }, [storeSelect]);
+  }, []);
+
+  useEffect(() => {
+    console.log("storage값 확인", storeSelect?.age, storeSelect);
+    if (storeSelect?.age !== "") {
+      setAge(storeSelect?.age);
+      console.log("여기옴?", storeSelect);
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log("storage값 확인", storeSelect?.gender, storeSelect);
+    if (storeSelect?.gender !== "") {
+      setGender(storeSelect?.gender);
+      console.log("여기옴?", storeSelect);
+    }
+  }, []);
 
   const Submit = async () => {
     console.log(username, "카카오 아이디");
@@ -75,25 +102,24 @@ const FirstLogin = () => {
     formData.append("nickname", nickName);
     formData.append("age", age);
     formData.append("gender", gender);
-    formData.append("address", location.state.homesi + location.state.homegu);
+    formData.append("address", location.state?.homesi + location.state?.homegu);
     formData.append("username", username);
 
-    useEffect(() => {
-      axios
-        .post("http://52.79.223.9/api/user/register", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        })
-        .then((response) => {
-          console.log("회원가입 완료", response);
-          alert("가입성공");
-          // navigate("/login");
-        })
-        .catch((error) => {
-          console.log("에러!", error);
-        });
-    }, []);
-    console.log({ username, userProfileImage, nickName, age, gender, address });
+    await axios
+      .post("http://52.79.223.9/api/user/register", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+    
+      })
+      .then((response) => {
+        console.log("회원가입 완료", response);
+        alert("가입성공");
+        // navigate("/");
+      })
+      .catch((error) => {
+        console.log("에러!", error);
+      });
   };
+  console.log({ username, userProfileImage, nickName, age, gender, address });
 
   return (
     <Container>
@@ -127,7 +153,6 @@ const FirstLogin = () => {
             value={nickName}
             onChange={(e) => {
               setNickName(e.target.value);
-              dispatch(loginUserinfo({ nickName: nickName }));
             }}
           ></Input>
         </InputBox>
@@ -161,6 +186,14 @@ const FirstLogin = () => {
         <p>주소</p>
         <InputBox
           onClick={() => {
+            dispatch(
+              loginUserinfo({
+                nickName: nickName,
+                age: age,
+                gender: gender,
+                // userProfileImage: ImgForServerType,
+              })
+            );
             navigate("/inputaddress");
           }}
         >

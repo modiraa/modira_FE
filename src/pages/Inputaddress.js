@@ -18,7 +18,6 @@ const Inputaddress = () => {
     navigate("/FirstLogin", {
       state: { homesi: data.sido, homegu: data.sigungu },
     });
-    dispatch(loginUserinfo({ address: data }));
   };
   // 검색페이지 색상수정가능
 
