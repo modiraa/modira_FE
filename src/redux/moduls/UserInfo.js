@@ -7,6 +7,7 @@ const initialState = {
   age: "",
   gender: "",
   address: "",
+  username:"",
 };
 
 // Action Creators(액션 생성 함수 만들어주는 곳)

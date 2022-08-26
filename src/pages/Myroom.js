@@ -5,10 +5,8 @@ import { useState, useEffect } from "react";
 import LowerNavbar from "../components/LowerNavbar";
 import Navbar from "../components/Navbar";
 
-
 const Myroom = () => {
   const navigate = useNavigate();
-
   const [data, setData] = useState({
     postId: "id",
     title: "Lorem ipsum dolor",
@@ -54,7 +52,7 @@ const Myroom = () => {
           >
             <div>
               <span className="material-symbols-outlined">delete</span>
-              <p>게시물 삭제</p>
+              <span>게시물 삭제</span>
             </div>
             <img src={data.menuForImage} />
           </Post>
@@ -126,6 +124,7 @@ const Post = styled.div`
   border-radius: 12px;
   margin: 0;
   overflow: hidden;
+  cursor: pointer;
 
   img {
     width: 100%;
@@ -141,9 +140,9 @@ const Post = styled.div`
   }
   p {
     margin-left: 4px;
-    font-size: 18px;
   }
   span {
     margin: 0;
+    font-size: 17px;
   }
 `;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import MapgpsForDetail from "../components/MapgpsForDetail";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import LowerNavbar from "../components/LowerNavbar";
@@ -13,8 +13,9 @@ function PostDetail() {
   const [data, setData] = useState({
     category: "N빵 모임 (모임 카테고리)",
     title: "Lorem ipsum dolor",
-    date: "6월 9일 AM12:00",
-    numberOfPeople: "2명 참여",
+    date: "6월 9일",
+    time: "AM12:00",
+    numberOfPeople: "2",
     menu: "일식",
     restaurantAddress: "서울특별시 마포구 땡땡로 00-0",
     latitude: "35.8706072114037",
@@ -63,9 +64,12 @@ function PostDetail() {
           <Title>{data.title}</Title>
           <Date>
             <span className="material-symbols-outlined">calendar_today</span>
-            <p>{data.date}</p>
+            <span>
+              <span>{data.date}</span>
+              <span>{data.time}</span>
+            </span>
             <span className="material-symbols-outlined">person</span>
-            <p>{data.numberOfPeople}</p>
+            <p>{data.numberOfPeople}명 참여</p>
             <span className="material-symbols-outlined">ramen_dining</span>
             <p>{data.menu}</p>
           </Date>
@@ -109,13 +113,12 @@ function PostDetail() {
           <p>{data.contents}</p>
         </Limit>
         <ButtonSubmit>
-           {/* {location.state?.homesi ? (
+          {/* {location.state?.homesi ? (
             <button>참여신청</button>
             ) : ( */}
-              <button>마감완료</button>
-            {/* )} */}
+          <button>마감완료</button>
+          {/* )} */}
         </ButtonSubmit>
-       
       </Container>
       <LowerNavbar />
     </>
@@ -150,6 +153,7 @@ const TitleBar = styled.div`
 const Arrow = styled.span`
   display: flex;
   margin-left: 22px;
+  cursor: pointer;
 `;
 const Category = styled.div`
   font-weight: 400;
@@ -288,6 +292,6 @@ const ButtonSubmit = styled.div`
     font-size: 20px;
     margin: 56px 40px 85px 40px;
     border-radius: 35px;
-    cursor: auto;
+    cursor: pointer;
   }
 `;
