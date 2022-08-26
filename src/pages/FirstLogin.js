@@ -10,7 +10,7 @@ const FirstLogin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const storeSelect = useSelector((state) => state.UserInfo);
-  
+
   //카카오 토큰 서버에 받아서 넘기기
   let location = useLocation();
   const username = location.state?.username;
@@ -94,6 +94,14 @@ const FirstLogin = () => {
     }
   }, []);
 
+  useEffect(() => {
+    console.log("storage값 확인", storeSelect?.address, storeSelect);
+    if (storeSelect?.address !== "") {
+      setGender(storeSelect?.address);
+      console.log("여기옴?", storeSelect);
+    }
+  }, []);
+
   const Submit = async () => {
     console.log(username, "카카오 아이디");
 
@@ -108,7 +116,6 @@ const FirstLogin = () => {
     await axios
       .post("http://52.79.223.9/api/user/register", formData, {
         headers: { "Content-Type": "multipart/form-data" },
-    
       })
       .then((response) => {
         console.log("회원가입 완료", response);
