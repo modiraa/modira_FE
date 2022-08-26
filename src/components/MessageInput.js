@@ -48,7 +48,7 @@ sendMessageFN()
     ref={refInput}
   
   />
-  <button onClick={sendMessageFN}>메시지보내기</button>
+  {/* <button onClick={sendMessageFN}>메시지보내기</button> */}
     </div>
     
   )

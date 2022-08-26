@@ -8,10 +8,11 @@ import axios from "axios";
 
 const UserProfile = () => {
   const [dataProfile ,setDataProfile]=React.useState();
+  const Auth=sessionStorage.getItem("token")
 
   
 const showProfileAX=async()=>{
-  await axios.get(`http://3.39.23.189/api/user/info/9`)
+  await axios.get(`http://3.34.197.6/api/user/info/9`)
       .then(response => {
        console.log(response)
        setDataProfile(response.data)
@@ -32,9 +33,9 @@ const showProfileAX=async()=>{
 
 
     
-    await axios.post("http://3.39.23.189/api/likes",{userId:9},
+    await axios.post("http://3.34.197.6/api/likes",{userId:9},
     { headers: {
-      Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjEzNDEyMTksInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4OTc0OTcyNCJ9.Nj6OrVEm3z_uFcm2HlIT9m1USURbXpYljXU7NGlWid99PHjiVIlVFJbJ3V3uRoAi0I6gNrABjyDQrpqMzl7nuw"
+      Authorization: Auth
     }
    }
   )
@@ -45,7 +46,8 @@ const showProfileAX=async()=>{
         // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
         
         }).catch((err) => {
-        console.log( err);
+        console.log( err.response.data);
+        alert(err.response.data)
         // navigate("/login"); // 로그인 실패하면 로그인화면으로 돌려보냄
         })
   }
@@ -53,9 +55,9 @@ const showProfileAX=async()=>{
   const dislikePlusScore=async()=>{
     const Auth=sessionStorage.getItem("token")
 
-    await axios.post("http://3.39.23.189/api/hates",{userId:9},
+    await axios.post("http://3.34.197.6/api/hates",{userId:9},
     { headers: {
-     Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjEzNDE5MDksInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4OTc0OTcyNCJ9.cFLvfeW7BPKFUQGe7U_nDUWDQSm-1ZwNSaD-j6sEvH4til-FYyit2Lq_DJb_RsCpe2NnG_VlzDXaHnPfxtKZ2w"
+     Authorization: Auth
      }
    }
   )

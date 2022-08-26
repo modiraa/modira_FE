@@ -2,12 +2,14 @@
 import React from "react";
 import "../css(subin)/Navbar.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpenSearch, setIsOpenSearch] = React.useState(false);
   const refSearch=React.useRef();
   const [test,setTest]=React.useState("");
-
+const islogin=sessionStorage.getItem("token")
+const navigate=useNavigate();
   const searchAddressAX=async()=>{
     
     await axios
@@ -24,6 +26,15 @@ const Navbar = () => {
   const showSearchBar = () => {
     setIsOpenSearch(true);
   };
+  if(!islogin){
+    return(
+      <div className="info_header">
+      <div style={{width:"408px",height:"44px",}}>
+<div className="navbar-login-button" onClick={()=>{navigate("/login")}}><div>로그인</div></div>
+      </div>
+    </div>
+    )
+  }
   if (isOpenSearch) {
     return <div className="info_header">
       <div style={{width:"408px",height:"44px",}}>
