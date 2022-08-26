@@ -2,12 +2,9 @@ import '../css(subin)/MyInfo.css';
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
 const MyInfo = () => {
-
-  const params = useParams();
 
   const [infoUser, setInfoUser] = useState({});
 
@@ -16,17 +13,16 @@ const MyInfo = () => {
     const ACCESS_TOKEN = sessionStorage.getItem("token")
     console.log(ACCESS_TOKEN)
     // axios 요청하기(axios의 response)
-    axios.get(`http://3.34.129.164/api/user/info/${params.id}`,
+    axios.get("http://3.34.129.164/api/user/info",
       {
         headers:
         {
-          "Content-Type": `application/json`,
           "Authorization": ACCESS_TOKEN
         },
       })
       .then(response => {
         setInfoUser(response.data)
-        console.log('api 호출 성공', params.id)
+        console.log('api 호출 성공')
       })
       .catch(error => {
         console.log(error);
@@ -40,7 +36,7 @@ const MyInfo = () => {
       <div className='info_wrap'>
         <div className='bg'></div>
         <div className='info_user_img'>
-          <img src='https://cdn-icons-png.flaticon.com/512/14/14660.png?w=360' />
+          <img src={infoUser.userProfile}/>
         </div>
         <div className='info_user_name'>
           <h3>{infoUser.nickname}</h3>
@@ -49,14 +45,14 @@ const MyInfo = () => {
           <span className="material-icons-outlined">
             place
           </span>
-          <h5>서울시 논현동 000로 00-00</h5>
+          <h5>{infoUser.address}</h5>
         </div>
         <div className='info_user_genderAge'>
           <div className='info_user_gender'>
-            <h3>여성</h3>
+            <h3>{infoUser.gender}</h3>
           </div>
           <div className='info_user_age'>
-            <h3>20대</h3>
+            <h3>{infoUser.age}</h3>
           </div>
         </div>
         <div className='info_user_good'>
@@ -65,7 +61,7 @@ const MyInfo = () => {
               favorite_border
             </span>
           </div>
-          <span>12</span>
+          <span>{infoUser.score}</span>
         </div>
         <div className='info_user_update_btn'>
           <button>프로필 수정</button>
