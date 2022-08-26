@@ -60,19 +60,19 @@ const FirstLogin = () => {
     formData.append("address", location.state.homesi + location.state.homegu);
     formData.append("username", "text");
 
-    // await axios
-    //   .post("http://52.79.223.9/api/user/register", formData, {
-    //     headers: { "Content-Type": "multipart/form-data" },
-    //   })
-    //   .then((response) => {
-    //     console.log("회원가입 완료", response);
-    //     alert("가입성공");
-    //     // navigate("/login");
-    //   })
-    //   .catch((error) => {
-    //     console.log("에러!", error);
-    //   });
-    // console.log({ userProfileImage, nickName, age, gender, address });
+    await axios
+      .post("http://52.79.223.9/api/user/register", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+      .then((response) => {
+        console.log("회원가입 완료", response);
+        alert("가입성공");
+        // navigate("/login");
+      })
+      .catch((error) => {
+        console.log("에러!", error);
+      });
+    console.log({ userProfileImage, nickName, age, gender, address });
   };
 
   return (
