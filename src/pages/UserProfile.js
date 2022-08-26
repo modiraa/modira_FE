@@ -12,7 +12,9 @@ const UserProfile = () => {
 
   
 const showProfileAX=async()=>{
-  await axios.get(`http://3.34.197.6/api/user/info/9`)
+  await axios.get(`http://3.34.129.164/api/user/info/9`,
+
+  )
       .then(response => {
        console.log(response)
        setDataProfile(response.data)
@@ -33,7 +35,7 @@ const showProfileAX=async()=>{
 
 
     
-    await axios.post("http://3.34.197.6/api/likes",{userId:9},
+    await axios.post("http://3.34.129.164/api/likes",{userId:9},
     { headers: {
       Authorization: Auth
     }
@@ -55,7 +57,7 @@ const showProfileAX=async()=>{
   const dislikePlusScore=async()=>{
     const Auth=sessionStorage.getItem("token")
 
-    await axios.post("http://3.34.197.6/api/hates",{userId:9},
+    await axios.post("http://3.34.129.164/api/hates",{userId:9},
     { headers: {
      Authorization: Auth
      }
