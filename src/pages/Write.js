@@ -60,7 +60,7 @@ const Write = () => {
     const ACCESS_TOKEN = sessionStorage.getItem("token")
     console.log(ACCESS_TOKEN)
 
-    await axios.post("http://52.79.223.9/api/post",
+    await axios.post("http://3.34.129.164/api/post",
       JSON.stringify({
         "category": storeSelect.category,
         "title": storeSelect.writeTitle,
@@ -86,7 +86,7 @@ const Write = () => {
       .then(response => {
         console.log(response)
         alert('게시글작성이 업로드 되었습니다')
-        navigate('/main')
+        navigate('/')
       })
       .catch(function (error) {
         console.log(error)

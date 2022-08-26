@@ -10,6 +10,8 @@ const FirstLogin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const storeSelect = useSelector((state) => state.UserInfo);
+
+  console.log(storeSelect)
   
   //카카오 토큰 서버에 받아서 넘기기
   let location = useLocation();
@@ -103,7 +105,7 @@ const FirstLogin = () => {
     formData.append("age", age);
     formData.append("gender", gender);
     formData.append("address", location.state?.homesi + location.state?.homegu);
-    formData.append("username", username);
+    formData.append("username", storeSelect.username);
 
     await axios
       .post("http://52.79.223.9/api/user/register", formData, {
@@ -113,13 +115,13 @@ const FirstLogin = () => {
       .then((response) => {
         console.log("회원가입 완료", response);
         alert("가입성공");
-        // navigate("/");
+        navigate("/login");
       })
       .catch((error) => {
         console.log("에러!", error);
       });
   };
-  console.log({ username, userProfileImage, nickName, age, gender, address });
+  // console.log({ username, userProfileImage, nickName, age, gender, address });
 
   return (
     <Container>
