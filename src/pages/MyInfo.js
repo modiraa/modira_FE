@@ -12,8 +12,18 @@ const MyInfo = () => {
   const [infoUser, setInfoUser] = useState({});
 
   useEffect(() => {
+
+    const ACCESS_TOKEN = sessionStorage.getItem("token")
+    console.log(ACCESS_TOKEN)
     // axios 요청하기(axios의 response)
-    axios.get(`http://3.39.23.189/api/user/info/1`)
+    axios.get(`http://3.34.129.164/api/user/info/${params.id}`,
+      {
+        headers:
+        {
+          "Content-Type": `application/json`,
+          "Authorization": ACCESS_TOKEN
+        },
+      })
       .then(response => {
         setInfoUser(response.data)
         console.log('api 호출 성공', params.id)
@@ -33,7 +43,7 @@ const MyInfo = () => {
           <img src='https://cdn-icons-png.flaticon.com/512/14/14660.png?w=360' />
         </div>
         <div className='info_user_name'>
-          <h3>김영희</h3>
+          <h3>{infoUser.nickname}</h3>
         </div>
         <div className='info_user_address'>
           <span className="material-icons-outlined">

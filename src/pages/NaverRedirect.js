@@ -24,7 +24,7 @@ const NaverRedirect = () => {
                 sessionStorage.setItem("token",ACCESS_TOKEN)
 
                 if(res.data.id===null){
-                    navigate("/firstlogin",{ state: { username: res.data.username} });
+                    // navigate("/firstlogin",{ state: { username: res.data.username} });
                 }
                 else{
                     navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
