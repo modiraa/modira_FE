@@ -8,10 +8,11 @@ import axios from "axios";
 
 const UserProfile = () => {
   const [dataProfile ,setDataProfile]=React.useState();
+  const Auth=sessionStorage.getItem("token")
 
   
 const showProfileAX=async()=>{
-  await axios.get(`http://3.34.197.6/api/user/info/11`)
+  await axios.get(`http://3.34.197.6/api/user/info/9`)
       .then(response => {
        console.log(response)
        setDataProfile(response.data)
@@ -32,9 +33,9 @@ const showProfileAX=async()=>{
 
 
     
-    await axios.post("http://3.34.197.6/api/likes",{userId:11},
+    await axios.post("http://3.34.197.6/api/likes",{userId:9},
     { headers: {
-      Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjE2MjczMzYsInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4OTc0OTcyNCJ9.qnVNI94Y4zMUgF-mNmt660hDIV1T0I9JXQQasJ1qzzlfXLaFRF9l8nS60h42qk1FABlo9C2C-4JABStTbjQn8g"
+      Authorization: Auth
     }
    }
   )
@@ -54,9 +55,9 @@ const showProfileAX=async()=>{
   const dislikePlusScore=async()=>{
     const Auth=sessionStorage.getItem("token")
 
-    await axios.post("http://3.34.197.6/api/hates",{userId:11},
+    await axios.post("http://3.34.197.6/api/hates",{userId:9},
     { headers: {
-     Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjE2MjczMzYsInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4OTc0OTcyNCJ9.qnVNI94Y4zMUgF-mNmt660hDIV1T0I9JXQQasJ1qzzlfXLaFRF9l8nS60h42qk1FABlo9C2C-4JABStTbjQn8g"
+     Authorization: Auth
      }
    }
   )
