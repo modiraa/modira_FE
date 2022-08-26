@@ -57,6 +57,9 @@ const Write = () => {
       alert('주소를 입력해주세요')
     }
 
+    const ACCESS_TOKEN = sessionStorage.getItem("token")
+    console.log(ACCESS_TOKEN)
+
     await axios.post("http://3.34.129.164/api/post",
       JSON.stringify({
         "category": storeSelect.category,
@@ -73,12 +76,17 @@ const Write = () => {
         "age": storeSelect.age
       }),
       {
-        headers: { "Content-Type": `application/json` },
+        headers:
+        {
+          "Content-Type": `application/json`,
+          "Authorization": ACCESS_TOKEN
+        },
       }
     )
       .then(response => {
         console.log(response)
         alert('게시글작성이 업로드 되었습니다')
+        navigate('/')
       })
       .catch(function (error) {
         console.log(error)

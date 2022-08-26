@@ -35,7 +35,7 @@ function PostDetail() {
 
   useEffect(() => {
     axios
-      .get("http://3.34.129.164/api/post/detail/`${postId}`")
+      .get("http://3.34.129.164/api/post/detail/postId")
       .then((response) => {
         setData(response.data);
         console.log("성공", response.data);

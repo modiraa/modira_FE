@@ -18,7 +18,7 @@ const SelectTime = () => {
     const storeSelect = useSelector((state)=>state)
 
     const clickTime = () => {
-        dispatch(selectWrite({time:controlledSwiperAmPm+controlledSwiperHour+controlledSwiperMin}))
+        dispatch(selectWrite({time:controlledSwiperAmPm+" "+controlledSwiperHour+" "+controlledSwiperMin}))
         navigate("/selectgps")
     }
 
