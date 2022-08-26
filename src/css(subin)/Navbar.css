@@ -7,6 +7,16 @@
     justify-content: space-between;
     align-items: center;
 }
+.navbar-login-button{
+    width:86px;
+    height: 44px;
+    margin-left: 43px;
+    background: #F4F4F4;
+border-radius: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
 
 .info_header_address{
     width: 152px;

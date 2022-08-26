@@ -122,14 +122,13 @@ const Chat = () => {
 
   return (
     <div className="chat-wrap">
-      <div style={{position:"absolute",left:"50%",top:"50%"}}>
-      <button onClick={connect}>연결!</button>
-      <button onClick={disconnect}>소켓 연결 끊기!</button>
-      <button onClick={makeChatRoom}>채팅방생성</button>
-      <hr></hr>
-      <input  placeholder="chaatroom을 입력하세요" onChange={(e) => {
+      <div style={{position:"absolute",right:"349px",top:"70px"}}>
+      {/* <button onClick={disconnect}>소켓 연결 끊기!</button> */}
+      {/* <button onClick={makeChatRoom}>채팅방생성</button> */}
+      {/* <hr></hr> */}
+      {/* <input  placeholder="chaatroom을 입력하세요" onChange={(e) => {
           setPostId(e.target.value);
-        }}></input>
+        }}></input> */}
       <input
         placeholder="nickname을 입력하세요"
         onChange={(e) => {

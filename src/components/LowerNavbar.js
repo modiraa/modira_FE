@@ -38,7 +38,7 @@ const LowerNavbar = () => {
         </div>
       </div>
 
-      <div className="wrap-symbols-text"  onClick={() => navigate("/write")}>
+      <div className="wrap-symbols-text"  onClick={() => navigate("/myroom")}>
         <div className="lowernavbar-location-symbol">
           <span className="material-symbols-outlined">calendar_today</span>
         </div>
