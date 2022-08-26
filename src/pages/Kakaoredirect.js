@@ -15,7 +15,7 @@ const Kakaoredirect = ({setUserName,userName}) => {
     let code = new URL(window.location.href).searchParams.get("code");
 
     const test = async() =>{
-        await axios.get(`http://52.79.223.9/auth/kakao/callback?code=${code}`)
+        await axios.get(`http://3.34.129.164/auth/kakao/callback?code=${code}`)
         .then((res) => {
             console.log(res); // 토큰이 넘어올 것임
             
