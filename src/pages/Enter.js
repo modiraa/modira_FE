@@ -7,7 +7,6 @@ import enterimg from "../image/enter.jpg";
 
 import "../css(subin)/Swiper.css";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
-import Navbar from "../components/Navbar";
 
 const Enter = () => {
   return (
@@ -43,9 +42,11 @@ const Container = styled.div`
   width: 525px;
   height: 100vh;
   background-color: white;
-  span{
-    position: absolute;
-    
+  span {
+    display: flex;
+    justify-content: end;
+    height: 44px;
+  
+    margin-left: 43px;
   }
 `;
-
