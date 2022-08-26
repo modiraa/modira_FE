@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {userLogin} from '../redux/moduls/UserName';
 import {loginUserinfo} from '../redux/moduls/UserInfo';
+import { isCompositeComponent } from 'react-dom/test-utils';
 
 const Kakaoredirect = ({setUserName,userName}) => {
     const navigate = useNavigate();
@@ -13,6 +14,7 @@ const Kakaoredirect = ({setUserName,userName}) => {
     let dispatch = useDispatch();
 
     let code = new URL(window.location.href).searchParams.get("code");
+    console.log(`http://52.79.223.9/auth/kakao/callback?code=${code}`)
 
     const test = async() =>{
         await axios.get(`http://52.79.223.9/auth/kakao/callback?code=${code}`)
