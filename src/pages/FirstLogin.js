@@ -11,8 +11,8 @@ const FirstLogin = () => {
   const dispatch = useDispatch();
   const storeSelect = useSelector((state) => state.UserInfo);
 
-  console.log(storeSelect)
-  
+  console.log(storeSelect);
+
   //카카오 토큰 서버에 받아서 넘기기
   let location = useLocation();
   const username = location.state?.username;
@@ -112,7 +112,10 @@ const FirstLogin = () => {
     formData.append("nickname", nickName);
     formData.append("age", age);
     formData.append("gender", gender);
-    formData.append("address", location.state?.homesi + location.state?.homegu);
+    formData.append(
+      "address",
+      location.state?.homesi + " " + location.state?.homegu
+    );
     formData.append("username", storeSelect.username);
 
     await axios
