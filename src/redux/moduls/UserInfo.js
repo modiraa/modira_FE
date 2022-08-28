@@ -37,31 +37,3 @@ export default function reducer(state = initialState, action = {}) {
       return state;
   }
 }
-
-// 1.case를 8개 만드는 상황이 나올수도 있다.
-// 2..case를 1개로 만들어야한다.
-// 3. 1월만 보내지말고, 1월의 key값도 같이 보내세요~
-// 4. console 많이 찍어세요~
-
-// 초기값:{
-// date: 1월
-// time: 1시
-// gender:
-// location:
-
-// }
-
-// dispatch({date:1월})
-// dispatch(1시)
-
-// reducer(state,payload)
-
-// case {datatype:COLLECTWRITEDATA}:
-
-// return({...state,date:payload.date})
-
-// side effects, only as applicable
-// e.g. thunks, epics, etc
-// export function getWidget () {
-//   return dispatch => get('/widget').then(widget => dispatch(updateWidget(widget)))
-// }

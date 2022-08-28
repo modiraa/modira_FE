@@ -6,7 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import AgeDropdown from "../components/AgeDropdown";
 import { loginUserinfo } from "../redux/moduls/UserInfo";
 
-const FirstLogin = () => {
+const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const storeUserInfo = useSelector((state) => state.UserInfo);
@@ -29,9 +29,7 @@ const FirstLogin = () => {
   const [nickName, setNickName] = React.useState("");
   const [age, setAge] = React.useState("선택하기");
   const [gender, setGender] = React.useState("");
-  const [address, setAddress] = React.useState(homesi);
-
-  // const register = ()
+  const [address, setAddress] = React.useState("");
 
   const PreviewProfileImg = (e) => {
     const correctForm = /(.*?)\.(jpg|jpeg|png|gif|bmp)$/;
@@ -56,16 +54,12 @@ const FirstLogin = () => {
     setGender(gender);
   };
 
-  // useEffect(() => {
-  //   console.log("storage값 확인", storeUserInfo?.userProfileImage, storeUserInfo);
-  //   if (storeUserInfo?.userProfileImage !== "") {
-  //     userProfileImage(storeUserInfo?.userProfileImage);
-  //     console.log("여기옴?", storeUserInfo);
-  //   }
-  // }, []);
-
   useEffect(() => {
-    console.log("storage값 확인", storeUserInfo?.userProfileImage, storeUserInfo);
+    console.log(
+      "storage값 확인",
+      storeUserInfo?.userProfileImage,
+      storeUserInfo
+    );
     if (storeUserInfo?.userProfileImage !== "") {
       setUserProfileImage(storeUserInfo?.userProfileImage);
       console.log("여기옴?", storeUserInfo);
@@ -104,7 +98,12 @@ const FirstLogin = () => {
     }
   }, []);
 
-  const Submit = async () => {
+  const Submit = async (e) => {
+    e.preventDefault();
+    if ([userProfileImage, nickName, age, gender, address].includes("")) {
+      alert("빈 칸을 모두 입력하세요");
+      return;
+    }
     console.log(username, "카카오 아이디");
 
     const formData = new FormData();
@@ -112,24 +111,22 @@ const FirstLogin = () => {
     formData.append("nickname", nickName);
     formData.append("age", age);
     formData.append("gender", gender);
-    formData.append(
-      "address", address
-    );
+    formData.append("address", address);
     formData.append("username", storeUserInfo.username);
-    await axios
-      .post("http://3.34.129.164/api/user/register", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-      .then((response) => {
-        console.log("회원가입 완료", response);
-        alert("가입성공");
-        navigate("/login");
-      })
-      .catch((error) => {
-        console.log("에러!", error);
-      });
+    // await axios
+    //   .post("http://3.34.129.164/api/user/register", formData, {
+    //     headers: { "Content-Type": "multipart/form-data" },
+    //   })
+    //   .then((response) => {
+    //     console.log("회원가입 완료", response);
+    //     alert("가입성공");
+    //     navigate("/login");
+    //   })
+    //   .catch((error) => {
+    //     console.log("에러!", error);
+    //   });
   };
-  // console.log({ username, userProfileImage, nickName, age, gender, address });
+  console.log({ username, userProfileImage, nickName, age, gender, address });
 
   return (
     <Container>
@@ -208,15 +205,7 @@ const FirstLogin = () => {
             navigate("/inputaddress");
           }}
         >
-          <Address>
-            {address ? (
-              <span>
-                <span>{address} </span>
-              </span>
-            ) : (
-              "주소검색"
-            )}
-          </Address>
+          <Address>{address ? <span>{address} </span> : "주소검색"}</Address>
         </InputBox>
         <Check>
           <input type="checkbox" />
@@ -236,7 +225,7 @@ const FirstLogin = () => {
   );
 };
 
-export default FirstLogin;
+export default Register;
 
 const Container = styled.div`
   display: flex;

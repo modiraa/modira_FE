@@ -28,7 +28,7 @@ const Kakaoredirect = ({setUserName,userName}) => {
             sessionStorage.setItem("token",ACCESS_TOKEN)
 
             if(res.data.id===null){
-                navigate("/firstlogin","/myroom",{ state: { username: res.data.username} });
+                navigate("/register","/myroom",{ state: { username: res.data.username} });
                 dispatch(loginUserinfo({username:res.data.username}))
             }
             else{
