@@ -17,7 +17,8 @@ const FirstLogin = () => {
   let location = useLocation();
   const username = location.state?.username;
   const homesi = `${location.state?.homesi} ${location.state?.homegu}`;
-  console.log(homesi, "유저확인");
+  console.log(homesi, "유저확인"); 
+  
 
   //이미지 업로드
   const [ProfileImg, SetProfileImg] = React.useState(
