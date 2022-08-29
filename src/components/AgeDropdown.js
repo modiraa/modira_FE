@@ -9,7 +9,7 @@ const AgeDropdown = ({ age, setAge }) => {
     <Dropdown>
       <Dropdownbtn onClick={(e) => setIsActive(!isActive)}>
         <span>
-          {age}
+          {age} 
           <span className="material-symbols-outlined">arrow_drop_down</span>
         </span>
       </Dropdownbtn>
@@ -39,30 +39,32 @@ const Dropdown = styled.div`
   font-size: 20px;
   display: block;
   height: 100%;
+  
 `;
 
 const Dropdownbtn = styled.div`
   display: block;
   height: 15px;
-  border: 1px solid #a4a4a4;
+  border: none;
   border-radius: 12px;
   padding: 19px 10px 19px 29px;
-  color: #a4a4a4;
+background-color: #fff;
   span,
   p {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    color: #BBB8CF;
   }
 `;
 
 const Dropdowncontent = styled.div`
   overflow: hidden;
   border-radius: 12px;
-  border: 1px solid #a4a4a4;
   margin-top: 10px;
   height: 100%;
+  background-color: #fff;
 `;
 
 const Dropdownitem = styled.div`
@@ -71,11 +73,11 @@ const Dropdownitem = styled.div`
   align-items: center;
   padding: 10px;
   text-align: center;
-  color: #a4a4a4;
+  color: #140D41;
   cursor: pointer;
   transition: all 0.2s;
   &:hover {
-    background: #a4a4a4;
-    color: #fff;
+    background: #DFDCFF;
+    color: #140D41;
   }
 `;
