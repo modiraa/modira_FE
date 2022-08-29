@@ -101,7 +101,7 @@ const Register = () => {
   const Submit = async (e) => {
     e.preventDefault();
     if ([userProfileImage, nickName, age, gender, address].includes("")) {
-      alert("빈 칸을 모두 입력하세요");
+      alert("모든 사항을 기입해주세요");
       return;
     }
     console.log(username, "카카오 아이디");
@@ -113,18 +113,18 @@ const Register = () => {
     formData.append("gender", gender);
     formData.append("address", address);
     formData.append("username", storeUserInfo.username);
-    // await axios
-    //   .post("http://3.34.129.164/api/user/register", formData, {
-    //     headers: { "Content-Type": "multipart/form-data" },
-    //   })
-    //   .then((response) => {
-    //     console.log("회원가입 완료", response);
-    //     alert("가입성공");
-    //     navigate("/login");
-    //   })
-    //   .catch((error) => {
-    //     console.log("에러!", error);
-    //   });
+    await axios
+      .post("http://3.34.129.164/api/user/register", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+      .then((response) => {
+        console.log("회원가입 완료", response);
+        alert("가입성공");
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log("에러!", error);
+      });
   };
   console.log({ username, userProfileImage, nickName, age, gender, address });
 
@@ -173,9 +173,8 @@ const Register = () => {
             onClick={() => {
               selectGender("여성");
             }}
-            color={gender === "여성" ? "#fff" : "#A4A4A4"}
-            bg={gender === "여성" ? "#A4A4A4;" : "#fff"}
-            border={gender === "여성" ? "1px solid gray" : "1px solid #C4C4C4"}
+            color={gender === "여성" ? "#140D41" : "#BBB8CF"}
+            bg={gender === "여성" ? "#DFDCFF;" : "#fff"}
           >
             여성
           </GenderButton>
@@ -183,9 +182,8 @@ const Register = () => {
             onClick={() => {
               selectGender("남성");
             }}
-            color={gender === "남성" ? "#fff" : "#A4A4A4"}
-            bg={gender === "남성" ? "#A4A4A4;" : "#fff"}
-            border={gender === "남성" ? "1px solid gray" : "1px solid #C4C4C4"}
+            color={gender === "남성" ? "#140D41" : "#BBB8CF"}
+            bg={gender === "남성" ? "#DFDCFF;" : "#fff"}
           >
             남성
           </GenderButton>
@@ -205,7 +203,8 @@ const Register = () => {
             navigate("/inputaddress");
           }}
         >
-          <Address>{address ? <span>{address} </span> : "주소검색"}</Address>
+          <Address>{address ? (
+          <span> {address} </span>) : ( "주소검색")}</Address>
         </InputBox>
         <Check>
           <input type="checkbox" />
@@ -242,7 +241,6 @@ const Box = styled.div`
   width: 100%;
   height: 251px;
   margin-top: 43px;
-  background-color: #e7e7e7;
   input {
     display: none;
   }
@@ -264,8 +262,8 @@ const Arrow = styled.div`
 const LoginBox = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 36px 43px 0 43px;
-  background-color: white;
+  padding: 36px 43px;
+  background-color: #fcfaff;
   p {
     font-weight: 600;
     font-size: 20px;
@@ -288,7 +286,7 @@ const Input = styled.input`
   color: #a4a4a4;
   font-size: 20px;
   border-radius: 12px;
-  border: 1px solid #a4a4a4;
+  border: none;
   cursor: pointer;
   &:focus {
     outline: none;
@@ -310,11 +308,10 @@ const Img = styled.img`
 `;
 
 const ButtonImg = styled.div`
-  background-color: #525252;
   width: 197px;
   height: 40px;
-  border: none;
-  color: white;
+  border: 2px solid #eeeafc;
+  color: #bfb8da;
   padding: 5px 25px;
   text-align: center;
   justify-content: center;
