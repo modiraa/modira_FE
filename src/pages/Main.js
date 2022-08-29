@@ -83,7 +83,7 @@ const Main = () => {
       </div>
       
       <div className="main-wrap-lowernavbar">
-        <LowerNavbar />
+        <LowerNavbar locationIndicator={"main"} />
       </div>
     </div>
   );

@@ -23,14 +23,14 @@ const PostComponentStatus = ({poststatus}) => {
       <div className="wrap-postcomponentstatus-dayAndperson">
         <span
           className="material-icons-outlined"
-          style={{ fontSize: "12px", color: "#9A9A9A" }}
+          style={{ fontSize: "14px", color: "#9A9A9A" }}
         >
           calendar_today
         </span>
         <div className="postcomponentstatus-day">{poststatus.date}</div>
         <span
           className="material-icons-outlined"
-          style={{ fontSize: "12px", color: "#9A9A9A" }}
+          style={{ fontSize: "14px", color: "#9A9A9A" }}
         >
           person_outline
         </span>

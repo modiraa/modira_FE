@@ -6,42 +6,58 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpenSearch, setIsOpenSearch] = React.useState(false);
-  const refSearch=React.useRef();
-  const [test,setTest]=React.useState("");
-const islogin=sessionStorage.getItem("token")
-const navigate=useNavigate();
-  const searchAddressAX=async()=>{
-    
+  const refSearch = React.useRef();
+  const [test, setTest] = React.useState("");
+  const islogin = sessionStorage.getItem("token");
+  const navigate = useNavigate();
+  const searchAddressAX = async () => {
     await axios
-    .get(`http://3.34.129.164/api/search/post?keyword=${test}&address=대구`)
-    .then((response) => {
-      console.log("성공", response);
-    })
-    .catch((error) => {
-      console.log("에러", error);
-    });
-  }
-
+      .get(`http://3.34.129.164/api/search/post?keyword=${test}`)
+      .then((response) => {
+        console.log("성공", response);
+      })
+      .catch((error) => {
+        console.log("에러", error);
+      });
+  };
 
   const showSearchBar = () => {
     setIsOpenSearch(true);
   };
-  if(!islogin){
-    return(
+  if (!islogin) {
+    return (
       <div className="info_header">
-      <div style={{width:"408px",height:"44px",}}>
-<div className="navbar-login-button" onClick={()=>{navigate("/login")}}><div>로그인</div></div>
+        <div style={{ width: "408px", height: "44px" }}>
+          <div
+            className="navbar-login-button"
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            <div>로그인</div>
+          </div>
+        </div>
       </div>
-    </div>
-    )
+    );
   }
   if (isOpenSearch) {
-    return <div className="info_header">
-      <div style={{width:"408px",height:"44px",}}>
-<input onChange={()=>{setTest(refSearch.current.value)}} ref={refSearch}></input>
-<button onClick={searchAddressAX}>제출</button>
+    return (
+      <div className="wrap-navbar-searchbar">
+        <input
+          className="navbar-searchbar-input"
+          onChange={() => {
+            setTest(refSearch.current.value);
+          }}
+          ref={refSearch}
+          placeholder="어떤 모임을 찾으시나요?"
+        ></input>
+        <div className="navbar-searchbar-location-icon">
+          <div onClick={searchAddressAX}>
+            <span className="material-symbols-outlined">search</span>
+          </div>
+        </div>
       </div>
-    </div>;
+    );
   } else {
     return (
       <div className="info_header">
