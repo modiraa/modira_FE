@@ -5,20 +5,24 @@ const PostComponent = ({postAll,isDrag}) => {
   const navigate=useNavigate();
   const refClick=React.useRef();
   // onClick={()=>navigate(`/postdetail${postAll.postId}`)}
-  console.log(postAll)
+  // console.log(postAll)
   function eventHandler(event) {
     console.log(event.type,"머가되지?")
     navigate(`/postdetail${postAll.postId}`)
   }
   React.useEffect(()=>{
-    
+    if(isDrag){
+      console.log("클릭안되게 해야하는부분")
+    }else{
+      console.log("클릭되게 해야하는부분")
+    }
     
      
-      refClick.current.addEventListener('click',eventHandler )
+      // refClick.current.addEventListener('click',eventHandler )
    
 
     return()=>{
-      refClick.current?.removeEventListener('click',eventHandler)
+      // refClick.current?.removeEventListener('click',eventHandler)
     }
     
   },[isDrag])
@@ -44,14 +48,14 @@ const PostComponent = ({postAll,isDrag}) => {
         <div className="wrap-postcomponent-dayAndperson">
           <span
             className="material-icons-outlined"
-            style={{ fontSize: "9px", color: "#9A9A9A" }}
+            style={{ fontSize: "14px", color: "#9A9A9A" }}
           >
             calendar_today
           </span>
           <div className="postcomponent-day">{postAll.date}</div>
           <span
             className="material-icons-outlined"
-            style={{ fontSize: "9px", color: "#9A9A9A" }}
+            style={{ fontSize: "14px", color: "#9A9A9A" }}
           >
             person_outline
           </span>
