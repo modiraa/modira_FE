@@ -33,7 +33,7 @@ const Kakaoredirect = ({setUserName,userName}) => {
             }
             else{
                 navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
-                // dispatch(userLogin(res.data.username))
+                dispatch(userLogin(res.data.username))
             }
             
             }).catch((err) => {
