@@ -30,7 +30,7 @@ const Chat = () => {
  const navigate=useNavigate();
 
  React.useEffect(()=>{
-  var socket = new SockJS("http://52.79.223.9/ws/chat");
+  var socket = new SockJS("http://52.79.223.9/ws-stomp");
   stompClient = Stomp.over(socket);
   // stompClient.debug=null;
   stompClient.connect({}, connected);

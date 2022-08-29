@@ -74,7 +74,7 @@ function App() {
 export default App;
 
 const Background = styled.div`
-  width: 100%;
+  max-width:1920px;
   height: 1030px;
 
   /* background-image: url(${testimage});
@@ -84,24 +84,25 @@ const Background = styled.div`
 
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  @media screen and (max-width: 912px) {
+  justify-content: center;
+  @media screen and (max-width: 1182px) {
     background-image: none;
     justify-content: center;
   }
 `;
 const Webview = styled.div`
-  @media screen and (max-width: 912px) {
+  @media screen and (max-width: 1182px) {
     display: none;
   }
   width: 40%;
   height: 100%;
   background-color: #eeeeee;
-  padding: 98px 0px 0px 318px;
+  padding: 98px 0px 0px 0px;
+  margin-right: 13.188em;
 `;
 
 const Appview = styled.div`
-  @media screen and (max-width: 912px) {
+  @media screen and (max-width: 1182px) {
     width: 525px;
     margin-right: 0px;
   }
@@ -109,7 +110,6 @@ const Appview = styled.div`
   width: 525px;
   height: 100%;
   background: white;
-  margin-right: 349px;
   overflow: auto;
   &::-webkit-scrollbar {
     display: none;

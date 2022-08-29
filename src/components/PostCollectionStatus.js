@@ -3,7 +3,7 @@ import MainPostTItle from "./MainPostTItle";
 import PostComponentStatus from "./PostComponentStatus";
 import "../css(subin)/postcolloctionstatus.css";
 
-const PostCollectionStatus = ({ titleCollection, postStatus }) => {
+const PostCollectionStatus = ({ titleCollection, postStatus,morepostType }) => {
   const scrollRef = React.useRef(null);
   const [isDrag, setIsDrag] = React.useState(false);
   const [isDragStart, setIsDragStart] = React.useState(false);
@@ -30,7 +30,7 @@ const PostCollectionStatus = ({ titleCollection, postStatus }) => {
     <div style={{ marginLeft: "24px" }}>
       <div style={{ width: "100%" }}>
         <div style={{ marginBottom: "21px" }}>
-          <MainPostTItle titleCollection={titleCollection} />
+          <MainPostTItle titleCollection={titleCollection} morepostType={morepostType}/>
         </div>
 
         <div
