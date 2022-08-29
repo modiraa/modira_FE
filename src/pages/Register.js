@@ -6,7 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import AgeDropdown from "../components/AgeDropdown";
 import { loginUserinfo } from "../redux/moduls/UserInfo";
 
-const FirstLogin = () => {
+const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const storeUserInfo = useSelector((state) => state.UserInfo);
@@ -17,7 +17,7 @@ const FirstLogin = () => {
   let location = useLocation();
   const username = location.state?.username;
   const homesi = `${location.state?.homesi} ${location.state?.homegu}`;
-  console.log(homesi, "주소확인");
+  console.log(homesi, "유저확인");
 
   //이미지 업로드
   const [ProfileImg, SetProfileImg] = React.useState(
@@ -30,8 +30,6 @@ const FirstLogin = () => {
   const [age, setAge] = React.useState("선택하기");
   const [gender, setGender] = React.useState("");
   const [address, setAddress] = React.useState("");
-
-  // const register = ()
 
   const PreviewProfileImg = (e) => {
     const correctForm = /(.*?)\.(jpg|jpeg|png|gif|bmp)$/;
@@ -100,7 +98,12 @@ const FirstLogin = () => {
     }
   }, []);
 
-  const Submit = async () => {
+  const Submit = async (e) => {
+    e.preventDefault();
+    if ([userProfileImage, nickName, age, gender, address].includes("")) {
+      alert("모든 사항을 기입해주세요");
+      return;
+    }
     console.log(username, "카카오 아이디");
 
     const formData = new FormData();
@@ -123,7 +126,7 @@ const FirstLogin = () => {
         console.log("에러!", error);
       });
   };
-  // console.log({ username, userProfileImage, nickName, age, gender, address });
+  console.log({ username, userProfileImage, nickName, age, gender, address });
 
   return (
     <Container>
@@ -170,7 +173,7 @@ const FirstLogin = () => {
             onClick={() => {
               selectGender("여성");
             }}
-            color={gender === "여성" ? "#fff" : "#DFDCFF"}
+            color={gender === "여성" ? "#140D41" : "#BBB8CF"}
             bg={gender === "여성" ? "#DFDCFF;" : "#fff"}
           >
             여성
@@ -179,7 +182,7 @@ const FirstLogin = () => {
             onClick={() => {
               selectGender("남성");
             }}
-            color={gender === "남성" ? "#fff" : "#DFDCFF"}
+            color={gender === "남성" ? "#140D41" : "#BBB8CF"}
             bg={gender === "남성" ? "#DFDCFF;" : "#fff"}
           >
             남성
@@ -200,15 +203,8 @@ const FirstLogin = () => {
             navigate("/inputaddress");
           }}
         >
-          <Address>
-            {homesi ? (
-              <span>
-                <span>{homesi} </span>
-              </span>
-            ) : (
-              "주소검색"
-            )}
-          </Address>
+          <Address>{address ? (
+          <span> {address} </span>) : ( "주소검색")}</Address>
         </InputBox>
         <Check>
           <input type="checkbox" />
@@ -228,7 +224,7 @@ const FirstLogin = () => {
   );
 };
 
-export default FirstLogin;
+export default Register;
 
 const Container = styled.div`
   display: flex;
@@ -338,7 +334,7 @@ const Address = styled.div`
   color: #a4a4a4;
   font-size: 20px;
   border-radius: 12px;
-  background-color:#fff;
+  border: 1px solid #a4a4a4;
   cursor: pointer;
   &:focus {
     outline: none;
@@ -355,7 +351,7 @@ const GenderButton = styled.div`
   align-items: center;
   color: ${(props) => props.color};
   background-color: ${(props) => props.bg};
-
+  border: ${(props) => props.border};
   border-radius: 12px;
   cursor: pointer;
 `;
