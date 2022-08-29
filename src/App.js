@@ -4,7 +4,7 @@ import Main from "./pages/Main";
 import Login from "./pages/Login";
 import Chat from "./pages/Chat";
 import Write from "./pages/Write";
-import FirstLogin from "./pages/FirstLogin";
+import Register from "./pages/Register";
 import MyInfo from "./pages/MyInfo";
 import styled from "styled-components";
 import testimage from "../src/image/11.jpg";
@@ -55,7 +55,7 @@ function App() {
           <Route path="/mapgps" element={<Mapgps />} />
           <Route path="/morepost" element={<MorePost />} />
 
-          <Route path="/firstlogin" element={<FirstLogin />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/enter" element={<Enter />} />
           <Route path="/inputaddress" element={<Inputaddress />} />
           <Route path="/auth/kakao/callback" element={<Kakaoredirect />} />

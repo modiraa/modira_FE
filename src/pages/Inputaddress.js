@@ -15,7 +15,7 @@ const Inputaddress = () => {
   const navigate = useNavigate();
   const handleComplete = (data) => {
     console.log(data);
-    navigate("/FirstLogin", {
+    navigate("/Register", {
       state: { homesi: data.sido, homegu: data.sigungu },
     });
   };

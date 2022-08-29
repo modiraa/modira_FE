@@ -6,7 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import AgeDropdown from "../components/AgeDropdown";
 import { loginUserinfo } from "../redux/moduls/UserInfo";
 
-const FirstLogin = () => {
+const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const storeUserInfo = useSelector((state) => state.UserInfo);
@@ -30,9 +30,7 @@ const FirstLogin = () => {
   const [nickName, setNickName] = React.useState("");
   const [age, setAge] = React.useState("선택하기");
   const [gender, setGender] = React.useState("");
-  const [address, setAddress] = React.useState(homesi);
-
-  // const register = ()
+  const [address, setAddress] = React.useState("");
 
   const PreviewProfileImg = (e) => {
     const correctForm = /(.*?)\.(jpg|jpeg|png|gif|bmp)$/;
@@ -57,16 +55,12 @@ const FirstLogin = () => {
     setGender(gender);
   };
 
-  // useEffect(() => {
-  //   console.log("storage값 확인", storeUserInfo?.userProfileImage, storeUserInfo);
-  //   if (storeUserInfo?.userProfileImage !== "") {
-  //     userProfileImage(storeUserInfo?.userProfileImage);
-  //     console.log("여기옴?", storeUserInfo);
-  //   }
-  // }, []);
-
   useEffect(() => {
-    console.log("storage값 확인", storeUserInfo?.userProfileImage, storeUserInfo);
+    console.log(
+      "storage값 확인",
+      storeUserInfo?.userProfileImage,
+      storeUserInfo
+    );
     if (storeUserInfo?.userProfileImage !== "") {
       setUserProfileImage(storeUserInfo?.userProfileImage);
       console.log("여기옴?", storeUserInfo);
@@ -105,7 +99,12 @@ const FirstLogin = () => {
     }
   }, []);
 
-  const Submit = async () => {
+  const Submit = async (e) => {
+    e.preventDefault();
+    if ([userProfileImage, nickName, age, gender, address].includes("")) {
+      alert("모든 사항을 기입해주세요");
+      return;
+    }
     console.log(username, "카카오 아이디");
 
     const formData = new FormData();
@@ -113,9 +112,7 @@ const FirstLogin = () => {
     formData.append("nickname", nickName);
     formData.append("age", age);
     formData.append("gender", gender);
-    formData.append(
-      "address", address
-    );
+    formData.append("address", address);
     formData.append("username", storeUserInfo.username);
     await axios
       .post("http://3.34.129.164/api/user/register", formData, {
@@ -130,7 +127,7 @@ const FirstLogin = () => {
         console.log("에러!", error);
       });
   };
-  // console.log({ username, userProfileImage, nickName, age, gender, address });
+  console.log({ username, userProfileImage, nickName, age, gender, address });
 
   return (
     <Container>
@@ -177,9 +174,8 @@ const FirstLogin = () => {
             onClick={() => {
               selectGender("여성");
             }}
-            color={gender === "여성" ? "#fff" : "#A4A4A4"}
-            bg={gender === "여성" ? "#A4A4A4;" : "#fff"}
-            border={gender === "여성" ? "1px solid gray" : "1px solid #C4C4C4"}
+            color={gender === "여성" ? "#140D41" : "#BBB8CF"}
+            bg={gender === "여성" ? "#DFDCFF;" : "#fff"}
           >
             여성
           </GenderButton>
@@ -187,9 +183,8 @@ const FirstLogin = () => {
             onClick={() => {
               selectGender("남성");
             }}
-            color={gender === "남성" ? "#fff" : "#A4A4A4"}
-            bg={gender === "남성" ? "#A4A4A4;" : "#fff"}
-            border={gender === "남성" ? "1px solid gray" : "1px solid #C4C4C4"}
+            color={gender === "남성" ? "#140D41" : "#BBB8CF"}
+            bg={gender === "남성" ? "#DFDCFF;" : "#fff"}
           >
             남성
           </GenderButton>
@@ -209,15 +204,8 @@ const FirstLogin = () => {
             navigate("/inputaddress");
           }}
         >
-          <Address>
-            {address ? (
-              <span>
-                <span>{address} </span>
-              </span>
-            ) : (
-              "주소검색"
-            )}
-          </Address>
+          <Address>{address ? (
+          <span> {address} </span>) : ( "주소검색")}</Address>
         </InputBox>
         <Check>
           <input type="checkbox" />
@@ -237,7 +225,7 @@ const FirstLogin = () => {
   );
 };
 
-export default FirstLogin;
+export default Register;
 
 const Container = styled.div`
   display: flex;
@@ -254,7 +242,6 @@ const Box = styled.div`
   width: 100%;
   height: 251px;
   margin-top: 43px;
-  background-color: #e7e7e7;
   input {
     display: none;
   }
@@ -276,8 +263,8 @@ const Arrow = styled.div`
 const LoginBox = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 36px 43px 0 43px;
-  background-color: white;
+  padding: 36px 43px;
+  background-color: #fcfaff;
   p {
     font-weight: 600;
     font-size: 20px;
@@ -300,7 +287,7 @@ const Input = styled.input`
   color: #a4a4a4;
   font-size: 20px;
   border-radius: 12px;
-  border: 1px solid #a4a4a4;
+  border: none;
   cursor: pointer;
   &:focus {
     outline: none;
@@ -322,11 +309,10 @@ const Img = styled.img`
 `;
 
 const ButtonImg = styled.div`
-  background-color: #525252;
   width: 197px;
   height: 40px;
-  border: none;
-  color: white;
+  border: 2px solid #eeeafc;
+  color: #bfb8da;
   padding: 5px 25px;
   text-align: center;
   justify-content: center;

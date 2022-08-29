@@ -121,11 +121,9 @@ function PostDetail() {
           <p>{data.contents}</p>
         </Limit>
         <ButtonSubmit>
-          {/* {location.state?.homesi ? (
-            <button>참여신청</button>
-            ) : ( */}
           <button>참여신청</button>
-          {/* )} */}
+          {/* fullOfPeople? (<button>마감완료</button>) : (<button>참여신청</button>
+          ) */}
         </ButtonSubmit>
       </Container>
       <LowerNavbar />
@@ -189,7 +187,7 @@ const Date = styled.span`
   p {
     margin-right: 18px;
   }
-  span{
+  span {
     margin-right: 3px;
   }
 `;
