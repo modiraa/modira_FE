@@ -59,6 +59,7 @@ const Main = () => {
           <PostCollectionStatus
             titleCollection={"공짜밥! 골든벨 모임"}
             postStatus={postGoldenBell}
+            morepostType={"골든벨"}
           />
         </div>
         <div
@@ -77,6 +78,7 @@ const Main = () => {
           <PostCollectionStatus
             titleCollection={"무조건 N빵 모임"}
             postStatus={postDutchPay}
+            morepostType={"n빵"}
           />
         </div>
         <div style={{ height: "125px" }}></div>

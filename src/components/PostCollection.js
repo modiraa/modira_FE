@@ -31,7 +31,7 @@ if(postAll){
   return (
     <div style={{ width: "100%" }}>
       <div style={{ marginBottom: "20px" }}>
-        <MainPostTItle titleCollection={"최근생성모임"} />
+        <MainPostTItle titleCollection={"최근생성모임"} morepostType={"최근생성모임"}/>
       </div>
 
       <div className="postcollection-wrap-postcomponents"

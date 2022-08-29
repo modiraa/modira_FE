@@ -2,7 +2,7 @@
 import React from "react";
 import "../css(subin)/Navbar.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpenSearch, setIsOpenSearch] = React.useState(false);
@@ -10,7 +10,10 @@ const Navbar = () => {
   const [test, setTest] = React.useState("");
   const islogin = sessionStorage.getItem("token");
   const navigate = useNavigate();
+ 
+
   const searchAddressAX = async () => {
+
     await axios
       .get(`http://3.34.129.164/api/search/post?keyword=${test}`)
       .then((response) => {
@@ -64,7 +67,7 @@ const Navbar = () => {
         <div className="info_header_address">
           <span className="info-header-address-text">서울시 논현동</span>
           <div className="info_header_address_plus">
-            <div className="location-trianle">
+            <div className="location-trianle" onClick={()=>navigate("/inputaddress",{state:"mainaddress"})}>
               <div className="triangle"></div>
             </div>
           </div>
