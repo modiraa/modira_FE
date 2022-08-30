@@ -1,14 +1,33 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../css(subin)/PostComponentStatus.css";
 
 const PostComponentStatus = ({poststatus}) => {
+  const refClick=React.useRef();
+const navigate=useNavigate();
+  function eventHandler(event) {
+    console.log(event.type,"머가되지?")
+    navigate(`/postdetail${poststatus.postId}`)
+  }
+  React.useEffect(()=>{
+    
+   
+    refClick.current.addEventListener('click',eventHandler )
+
+   return()=>{
+     refClick.current?.removeEventListener('click',eventHandler)
+   }
+   
+ },[])
   var sectionStyle = {
 
     backgroundImage: "url(" +  poststatus.menuForImage  + ")"
   };
+
+
   // console.log(poststatus)
   return (
-    <div className="wrap-postcomponentstatus">
+    <div className="wrap-postcomponentstatus" ref={refClick}>
       <div className="postcomponentstatus-backimg" style={sectionStyle}>
         <div style={{ marginTop: "14px", marginLeft: "15px" }}>
           <div className="postcomponentstatus-resraint">

@@ -1,70 +1,46 @@
 import React from "react";
 import MainPostTItle from "../components/MainPostTItle";
 import PostComponent from "./PostComponent";
-import"../css(subin)/PostCollection.css"
+import "../css(subin)/PostCollection.css";
+import ScrollContainer from "react-indiana-drag-scroll";
+import ReactDOM from "react-dom";
 
-const PostCollection = ({postAll}) => {
-  const scrollRef = React.useRef(null);
-  const [isDrag, setIsDrag] = React.useState(false);
-  const [startX, setStartX] = React.useState();
-  
-  // console.log(postAll)
+const PostCollection = ({ postAll }) => {
 
-  const onDragStart = (e) => {
-    e.preventDefault();
-    setIsDrag(()=>true);
-    setStartX(e.pageX + scrollRef.current.scrollLeft);
-  };
 
-  const onDragEnd = (e) => {
-    e.preventDefault();
-  
-    setIsDrag(()=>false);
-  };
 
-  const onDragMove = (e) => {
-    if (isDrag) {
-      scrollRef.current.scrollLeft = startX - e.pageX;
-    }
-  };
-if(postAll){
-  return (
-    <div style={{ width: "100%" }}>
-      <div style={{ marginBottom: "20px" }}>
-        <MainPostTItle titleCollection={"최근생성모임"} morepostType={"최근생성모임"}/>
+
+  if (postAll) {
+    return (
+      <div style={{ width: "100%" }}>
+        <div style={{ marginBottom: "20px" }}>
+          <MainPostTItle titleCollection={"최근생성모임"} />
+        </div>
+        <ScrollContainer className="scroll-container" horizontal={true} >
+          <div className="postcollection-wrap-postcomponents">
+            <div style={{ marginRight: "27px" }}>
+              <PostComponent postAll={postAll[0]}  />
+              <PostComponent postAll={postAll[1]}  />
+            </div>
+            <div style={{ marginRight: "27px" }}>
+              <PostComponent postAll={postAll[2]} />
+              <PostComponent postAll={postAll[3]}  />
+            </div>
+            <div style={{ marginRight: "27px" }}>
+              <PostComponent postAll={postAll[4]} />
+              <PostComponent postAll={postAll[5]}  />
+            </div>
+            <div style={{ marginRight: "27px" }}>
+              <PostComponent postAll={postAll[6]}  />
+              <PostComponent postAll={postAll[7]}  />
+            </div>
+          </div>
+        </ScrollContainer>
       </div>
-
-      <div className="postcollection-wrap-postcomponents"
-       
-        ref={scrollRef}
-        onMouseDown={onDragStart}
-        onMouseMove={isDrag?onDragMove:null}
-        onMouseUp={onDragEnd}
-        onMouseLeave={onDragEnd}
-      >
-        <div style={{ marginRight: "27px" }}>
-          <PostComponent postAll={postAll[0]} isDrag={isDrag}/>
-          <PostComponent  postAll={postAll[1]} isDrag={isDrag}/>
-        </div>
-        <div style={{ marginRight: "27px" }}>
-          <PostComponent  postAll={postAll[2]} isDrag={isDrag}/>
-          <PostComponent postAll={postAll[3]} isDrag={isDrag}/>
-        </div>
-        <div style={{ marginRight: "27px" }}>
-          <PostComponent  postAll={postAll[4]} isDrag={isDrag}/>
-          <PostComponent  postAll={postAll[5]} isDrag={isDrag}/>
-        </div>
-        <div style={{ marginRight: "27px" }}>
-          <PostComponent  postAll={postAll[6]} isDrag={isDrag}/>
-          <PostComponent  postAll={postAll[7]} isDrag={isDrag}/>
-        </div>
-      </div>
-    </div>
-  );
-}else{
-  return null;
-}
- 
+    );
+  } else {
+    return null;
+  }
 };
 
 export default PostCollection;

@@ -2,51 +2,31 @@ import React from "react";
 import MainPostTItle from "./MainPostTItle";
 import PostComponentStatus from "./PostComponentStatus";
 import "../css(subin)/postcolloctionstatus.css";
+import ScrollContainer from "react-indiana-drag-scroll";
 
-const PostCollectionStatus = ({ titleCollection, postStatus,morepostType }) => {
-  const scrollRef = React.useRef(null);
-  const [isDrag, setIsDrag] = React.useState(false);
-  const [isDragStart, setIsDragStart] = React.useState(false);
-  const [startX, setStartX] = React.useState();
-  // console.log(postStatus);
-
-  const onDragStart = (e) => {
-    e.preventDefault();
-    setIsDrag(true);
-    setStartX(e.pageX + scrollRef.current.scrollLeft);
-  };
-
-  const onDragEnd = () => {
-    setIsDrag(false);
-  };
-
-  const onDragMove = (e) => {
-    if (isDrag) {
-      scrollRef.current.scrollLeft = startX - e.pageX;
-    }
-  };
-
+const PostCollectionStatus = ({
+  titleCollection,
+  postStatus,
+  morepostType,
+}) => {
   return (
     <div style={{ marginLeft: "24px" }}>
       <div style={{ width: "100%" }}>
         <div style={{ marginBottom: "21px" }}>
-          <MainPostTItle titleCollection={titleCollection} morepostType={morepostType}/>
+          <MainPostTItle
+            titleCollection={titleCollection}
+            morepostType={morepostType}
+          />
         </div>
-
-        <div
-          className="postcollectionstatus-wrap-postcomponents"
-          ref={scrollRef}
-          onMouseDown={onDragStart}
-          onMouseMove={onDragMove}
-          onMouseUp={onDragEnd}
-          onMouseLeave={onDragEnd}
-        >
-          {postStatus?.map((v, i) => (
-            <div key={i} style={{ marginRight: "50px" }}>
-              <PostComponentStatus poststatus={v} isDrag={isDrag}/>
-            </div>
-          ))}
-        </div>
+        <ScrollContainer className="scroll-container" horizontal={true}>
+          <div className="postcollectionstatus-wrap-postcomponents">
+            {postStatus?.map((v, i) => (
+              <div key={i} style={{ marginRight: "50px" }}>
+                <PostComponentStatus poststatus={v} />
+              </div>
+            ))}
+          </div>
+        </ScrollContainer>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 .postcollection-wrap-postcomponents{
     display: flex;
-    overflow: auto;
+    /* overflow: auto; */
 
     
 }
