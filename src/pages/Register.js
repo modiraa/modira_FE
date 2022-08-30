@@ -18,8 +18,7 @@ const Register = () => {
   const username = location.state?.username;
   //지도 api 주소 값 가져오기
   const homesi = `${location.state?.homesi} ${location.state?.homegu}`;
-  console.log(homesi, "주소확인"); 
-  
+  console.log(homesi, "주소확인");
 
   //이미지 업로드
   const [ProfileImg, SetProfileImg] = React.useState(
@@ -56,16 +55,8 @@ const Register = () => {
     setGender(gender);
   };
 
+
   useEffect(() => {
-    console.log(
-      
-      "storage값 확인",
-     
-      storeUserInfo?.userProfileImage,
-     
-      storeUserInfo
-    
-    );
     if (storeUserInfo?.userProfileImage !== "") {
       setUserProfileImage(storeUserInfo?.userProfileImage);
       console.log("여기옴?", storeUserInfo);
@@ -105,7 +96,6 @@ const Register = () => {
   }, []);
 
   const Submit = async (e) => {
-  
     e.preventDefault(e);
     if ([userProfileImage, nickName, age, gender, address].includes("")) {
       alert("모든 사항을 기입해주세요");
@@ -210,8 +200,7 @@ const Register = () => {
             navigate("/inputaddress");
           }}
         >
-          <Address>{homesi ? (
-          <span> {homesi} </span>) : ( "주소검색")}</Address>
+          <Address>{homesi ? <span> {homesi} </span> : "주소검색"}</Address>
         </InputBox>
         <Check>
           <input type="checkbox" />
@@ -298,7 +287,6 @@ const Input = styled.input`
   cursor: pointer;
   &:focus {
     outline: none;
-
   }
 `;
 
