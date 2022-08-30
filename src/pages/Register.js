@@ -104,13 +104,13 @@ const Register = () => {
     }
   }, []);
 
-  const Submit = async (ee) => {
+  const Submit = async (e) => {
     e.preventDefault();
     if ([userProfileImage, nickName, age, gender, address].includes("")) {
       alert("모든 사항을 기입해주세요");
       return;
     }
-    e.preventDefault();
+    e.preventDefault(e);
     if ([userProfileImage, nickName, age, gender, address].includes("")) {
       alert("모든 사항을 기입해주세요");
       return;
