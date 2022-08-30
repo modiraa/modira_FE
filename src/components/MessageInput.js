@@ -10,6 +10,7 @@ const MessageInput = ({setSendMessage,sendMessageFN,sendMessage}) => {
     const sendmMessegeByEnter=()=>{
 console.log("실행됨!")
 sendMessageFN()
+refInput.current.value=""
     }
    
     React.useEffect(() => {
