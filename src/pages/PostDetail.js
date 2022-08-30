@@ -12,15 +12,15 @@ function PostDetail() {
   const [data, setData] = useState({
     category: "N빵 모임 (모임 카테고리)",
     title: "Lorem ipsum dolor",
-    date: "6월 9일",
-    time: "AM12:00",
+    date: "2022 / 6 /9",
+    time: "오후 12시 00분",
     numberOfPeople: "2",
     menu: "일식",
     restaurantAddress: "서울특별시 마포구 땡땡로 00-0",
     latitude: "35.8706072114037",
     longitude: "128.598955620405",
     writerProfileImage:
-      "data:image/png;base64,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",
+      "data:image/png;base64,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",
     writerNickname: "Lorem ipsum dolor",
     writerGender: "여성",
     writerAge: "20대",
@@ -63,7 +63,7 @@ function PostDetail() {
           <Title>{data.title}</Title>
           <Date>
             <div>
-              <span className="material-symbols-outlined">calendar_today</span>{" "}
+              <span className="material-symbols-outlined">calendar_today</span>
               <span>{data.date}</span>
               <span>{data.time}</span>
             </div>
@@ -107,7 +107,7 @@ function PostDetail() {
           </Heart>
         </Writer>
         <Limit>
-          <p>제한조건</p>
+          <LimiitTitle>제한조건</LimiitTitle>
           <div>
             <span className="material-symbols-outlined">task_alt</span>
             <span>
@@ -168,7 +168,6 @@ const Category = styled.div`
 const Title = styled.div`
   font-weight: 400;
   font-size: 31px;
-  margin-top: 5px;
 `;
 const Date = styled.span`
   display: flex;
@@ -176,7 +175,7 @@ const Date = styled.span`
   font-weight: 400;
   font-size: 20px;
   color: #9a9a9a;
-  margin-top: 10px;
+  margin-top: 12px;
   div {
     /* margin-right: 8px; */
     margin-bottom: 4px;
@@ -188,13 +187,13 @@ const Date = styled.span`
     margin-right: 18px;
   }
   span {
-    margin-right: 3px;
+    margin-right: 18px;
   }
 `;
 const InfoBox = styled.div`
   background-color: #fff;
   margin-top: 12px;
-  padding: 44px 0 44px 44px;
+  padding: 44px 0 21px 44px;
 `;
 
 const Address = styled.span`
@@ -214,7 +213,7 @@ const Gps = styled.div`
   background-color: #fff;
 `;
 const Writer = styled.div`
-  height: 119px;
+  height: 118px;
   background-color: #f8f8f8;
   box-sizing: border-box;
   display: flex;
@@ -256,18 +255,17 @@ const AgeGender = styled.span`
     margin: 5px 9px 0 0;
   }
 `;
-const Heart = styled.span`
-  position: relative;
+const Heart = styled.div`
+  flex-direction: row;
   display: flex;
-  justify-content: center;
   align-items: center;
   p {
-    font-weight: 400;
-    font-size: 25px;
+    font-size: 23px;
     margin-left: 2px;
   }
   span {
     font-size: 20px;
+    margin-right: 8px;
   }
 `;
 const Limit = styled.div`
@@ -285,7 +283,7 @@ const Limit = styled.div`
     font-size: 20px;
   }
   b {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 18px;
   }
   div {
@@ -293,6 +291,13 @@ const Limit = styled.div`
     align-items: center;
   }
 `;
+
+const LimiitTitle = styled.div`
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 20px;
+`;
+
 const ButtonSubmit = styled.div`
   position: relative;
   background-color: #fff;

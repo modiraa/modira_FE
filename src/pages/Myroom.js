@@ -16,27 +16,27 @@ const Myroom = () => {
   });
   console.log("여기확인", data);
 
-  const getPost = async () => {
-    const ACCESS_TOKEN = sessionStorage.getItem("token");
-    console.log(ACCESS_TOKEN);
+  // const getPost = async () => {
+  //   const ACCESS_TOKEN = sessionStorage.getItem("token");
+  //   console.log(ACCESS_TOKEN);
 
-    await axios
-      .get("http://3.34.129.164/api/myposts", {
-        headers: {
-          Authorization: ACCESS_TOKEN
-        },
-      })
-      .then((response) => {
-        setData(response.data[0]);
-        console.log("데이터 나와랏", response.data[0]);
-      })
-      .catch((error) => {
-        console.log("에러", error);
-      });
-  };
-  useEffect(() => {
-    getPost();
-  }, []);
+  //   await axios
+  //     .get("http://3.34.129.164/api/myposts", {
+  //       headers: {
+  //         Authorization: ACCESS_TOKEN,
+  //       },
+  //     })
+  //     .then((response) => {
+  //       setData(response.data[0]);
+  //       console.log("데이터 나와랏", response.data[0]);
+  //     })
+  //     .catch((error) => {
+  //       console.log("에러", error);
+  //     });
+  // };
+  // useEffect(() => {
+  //   getPost();
+  // }, []);
 
   return (
     <>
@@ -55,11 +55,11 @@ const Myroom = () => {
           >
             <div>
               <span className="material-symbols-outlined">delete</span>
-              <span>게시물 삭제</span>
+              <p>게시물 삭제</p>
             </div>
-            <img src={data.menuForImage} />
+           
           </Post>
-          <div>{data.title}</div>
+          <Title>{data.title}</Title>
         </CreateRoom>
         <BorderLine />
         <CreateRoom>
@@ -69,12 +69,25 @@ const Myroom = () => {
               navigate("/postdetail:postId");
             }}
           >
-            <img src={data.menuForImage} />
+            <div>
+              {data.menuForImage ? (
+                <span>{data.menuForImage} </span>
+              ) : (
+                <div>
+                  <div>
+                    <span className="material-symbols-outlined">add</span>
+                  </div>
+                  <div> 모임 만들러 가기</div>
+                </div>
+              )}{" "}
+            </div>
           </Post>
-          <div>{data.title}</div>
+          <Title>{data.title}</Title>
         </CreateRoom>
       </Container>
-      <LowerNavbar />
+      <div className="main-wrap-lowernavbar">
+        <LowerNavbar locationIndicator={"myroom"} />
+      </div>
     </>
   );
 };
@@ -90,6 +103,10 @@ const Container = styled.div`
   margin-bottom: 12px;
 `;
 
+const Title = styled.div`
+  margin: 9px 0 38px 0;
+`;
+
 const Minibanner = styled.div`
   width: 100%;
   height: 126px;
@@ -103,13 +120,12 @@ const Minibanner = styled.div`
 `;
 
 const CreateRoom = styled.div`
-  margin: 29px 43px 0 43px;
+  margin: 29px 43px 20px 43px;
   p {
     margin-bottom: 19px;
     font-size: 26px;
   }
   div {
-    margin: 9px 0 24px 0;
     font-size: 23px;
   }
 `;
@@ -123,9 +139,9 @@ const BorderLine = styled.div`
 const Post = styled.div`
   width: 439px;
   height: 167px;
-  background-color: #e2e2e2;
+  background-color: #d9d9d9;
   border-radius: 12px;
-  margin: 0;
+  border: none;
   overflow: hidden;
   cursor: pointer;
 
@@ -135,17 +151,18 @@ const Post = styled.div`
     object-fit: cover;
   }
   div {
-    display: flex;
     position: absolute;
     margin-left: 300px;
-    justify-content: center;
-    align-items: center;
+    margin-top: 14px;
+    display: flex;
+    flex-direction: row;
   }
   p {
     margin-left: 4px;
+    font-size: 17px;
   }
   span {
     margin: 0;
-    font-size: 17px;
+    font-size: 24px;
   }
 `;
