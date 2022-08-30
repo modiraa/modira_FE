@@ -56,6 +56,7 @@ const Chat = () => {
     setIsConnected(true);
     stompClient.subscribe(`/topic`, subscribed);
   }
+  //
   function subscribed(greeting) {
     const soketMessage = JSON.parse(greeting.body);
     showMessage.push(soketMessage);

@@ -15,9 +15,9 @@ const Inputaddress = () => {
   const navigate = useNavigate();
   const handleComplete = (data) => {
     console.log(data);
-    // navigate("/FirstLogin", {
-    //   state: { homesi: data.sido, homegu: data.sigungu },
-    // });
+    navigate("/Register", {
+      state: { homesi: data.sido, homegu: data.sigungu },
+    });
   };
   // 검색페이지 색상수정가능
 

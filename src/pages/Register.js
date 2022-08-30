@@ -16,8 +16,10 @@ const Register = () => {
   //카카오 토큰 서버에 받아서 넘기기
   let location = useLocation();
   const username = location.state?.username;
+  //지도 api 주소 값 가져오기
   const homesi = `${location.state?.homesi} ${location.state?.homegu}`;
-  console.log(homesi, "유저확인");
+  console.log(homesi, "주소확인"); 
+  
 
   //이미지 업로드
   const [ProfileImg, SetProfileImg] = React.useState(
@@ -43,7 +45,7 @@ const Register = () => {
 
     SetProfileImg(URL.createObjectURL(e.target.files[0]));
     setUserProfileImage(e.target.files[0]);
-    console.log(" 확인", URL.createObjectURL(e.target.files[0]));
+    console.log(" 이미지확인", URL.createObjectURL(e.target.files[0]));
   };
   const ImageUpload = () => {
     userProfileImageRef.current.click();
@@ -203,8 +205,8 @@ const Register = () => {
             navigate("/inputaddress");
           }}
         >
-          <Address>{address ? (
-          <span> {address} </span>) : ( "주소검색")}</Address>
+          <Address>{homesi ? (
+          <span> {homesi} </span>) : ( "주소검색")}</Address>
         </InputBox>
         <Check>
           <input type="checkbox" />
@@ -287,9 +289,11 @@ const Input = styled.input`
   font-size: 20px;
   border-radius: 12px;
   border: none;
+  background-color: #fff;
   cursor: pointer;
   &:focus {
     outline: none;
+
   }
 `;
 
@@ -332,9 +336,9 @@ const Address = styled.div`
   height: 54px;
   font-family: "AppleSDGothicNeoM00";
   color: #a4a4a4;
+  background-color: #fff;
   font-size: 20px;
   border-radius: 12px;
-  border: 1px solid #a4a4a4;
   cursor: pointer;
   &:focus {
     outline: none;

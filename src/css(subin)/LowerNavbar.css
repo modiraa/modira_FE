@@ -1,53 +1,54 @@
 .material-symbols-outlined {
-    font-size: 25px;
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
-  }
-  .material-incons-outlined {
-    font-size: 25px;
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
-  }
-  .wrap-lowernavbar{
-    display: flex;
-    flex-direction: row;
-    background-color: white;
- 
-    width: 525px;
-    height: 125px;
-    
-  }
-
-.wrap-symbols-text{
-    width: 93px;
-    height: 78px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   margin-top: 14px;
-  
-    /* margin-top: 24px; */
+  font-size: 25px;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
-.lowernavbar-location-symbol{
-  margin-top: 21px;
+.material-incons-outlined {
+  font-size: 25px;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+.wrap-lowernavbar {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+
+  width: 525px;
+  height: 125px;
+}
+
+.wrap-symbols-text {
+  width: 93px;
+  height: 78px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 14px;
+
+  /* margin-top: 24px; */
+}
+.lowernavbar-location-symbol {
+  margin-top: 10px;
   margin-bottom: 3px;
 }
+.lowernavbar-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 5px;
+}
+.lowernavbar-indicator-circle {
+  width: 5px;
+  height: 5px;
+  background: #7767ec;
+  border-radius: 5px;
+  margin-bottom: 6px;
+}
+.symbols-text {
+  height: 20px;
 
-.symbols-text{
- 
-height: 20px;
-
-font-family: 'AppleSDGothicNeoB00';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 20px;
-
+  font-family: "AppleSDGothicNeoB00";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
 }

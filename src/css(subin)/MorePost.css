@@ -2,9 +2,15 @@
     width: 100%;
 }
 
+.more-post-top-line{
+    width: 100%;
+    height: 12px;
+    background-color: rgb(247, 247, 247);
+}
+
 .more-post-title{
     width: 100%;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 .more-post-title>h3{
@@ -15,13 +21,22 @@
 }
 
 .more-post-Contents{
-    width: 100%;
-    background-color: azure;
+    width: 477px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 38px;
+    /* background-color: rgb(132, 164, 164); */
 }
 
 .more-post-card{
-    width: 229.5px;
-    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    width: 229.7px;
+    float: left;
+    margin-bottom: 54px;
+    /* background-color: rgb(202, 162, 162); */
 }
 
 .card-img{
@@ -31,10 +46,32 @@
     background-color: rgb(240, 240, 240);
 }
 
+.more-post-hashtag{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.more-post-resraint{
+    width: 73px;
+    height: 28px;
+    border-radius: 7px;
+    background-color: #787373;
+    margin-bottom: 7px;
+    text-align: center;
+    padding-top: 3px;
+    box-sizing: border-box;
+}
+
+.more-post-resraint-text{
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+
 .card-cartegory{
     width: 100%;
-    background-color: aqua;
-    margin-top: 20px;
+    /* background-color: aqua; */
+    margin-top: 17px;
 }
 
 .card-cartegory>p{
@@ -44,11 +81,53 @@
 
 .card-title{
     width: 100%;
-    background-color: aqua;
-    margin-top: 10px;
+    /* background-color: aqua; */
+    margin-top: 5px;
 }
 
 .card-title>p{
     font-size: 21px;
     font-weight: 700;
+}
+
+.card-date-count{
+    width: 100%;
+    margin-top: 5px;
+}
+
+.card-date{
+    display: inline-block;
+    margin-right: 16px;
+}
+
+.card-date>p{
+    font-size: 17px;
+    font-weight: 400;
+    float: left;
+}
+
+.card-date>.material-icons-outlined{
+    font-size: 17px;
+    font-weight: 400;
+    float: left;
+    margin-right: 9px;
+    margin-top: 2px;
+}
+
+.card-people-count{
+    display: inline-block;
+}
+
+.card-people-count>p{
+    font-size: 17px;
+    font-weight: 400;
+    float: left;
+}
+
+.card-people-count>.material-icons-outlined{
+    font-size: 19px;
+    font-weight: 400;
+    float: left;
+    margin-right: 9px;
+    margin-top: 1px;
 }

@@ -1,70 +1,49 @@
 import React from "react";
 import styled from "styled-components";
+import axios from "axios";
+import "../css(subin)/webviewleft.css";
 
 const WebViewLeft = () => {
+  const refInputSearch = React.useRef();
+  const searchAddressAX = async () => {
+    const keyword = refInputSearch.current.value;
+    await axios
+      .get(`http://3.34.129.164/api/search/post?keyword=${keyword}`)
+      .then((response) => {
+        console.log("성공", response);
+      })
+      .catch((error) => {
+        console.log("에러", error);
+      });
+  };
   return (
-    <WrapWebView>
-      <Logo>LOGO</Logo>
-      <Description>Lorem ipsum dolor sit amet,</Description>
-      <WrapSearch>
-        <SearchBox>
-<span>어떤 모임을 찾으시나요?</span><WrpaIcon><span style={{color:"white",fontSize:"37.41px"}} className="material-symbols-outlined">
-search
-</span></WrpaIcon>
-        </SearchBox>
-      </WrapSearch>
-    </WrapWebView>
+    <div className="wrap-webview">
+      <div className="webview-logo">LOGO</div>
+      <div className="webview-description">
+        이제 혼밥하지 마세요!
+        <br />
+        <div>밥친구 찾기 플렛폼 modira</div>
+      </div>
+      <div className="wrap-webview-search">
+        <div className="wrap-webview-search-inputAndicon">
+          <input
+            className="webview-search"
+            placeholder="어떤 모임을 찾으시나요?"
+            ref={refInputSearch}
+          ></input>
+          <div className="webview-wrap-icon">
+            <span
+              onClick={searchAddressAX}
+              style={{ color: "white", fontSize: "37.41px" }}
+              className="material-symbols-outlined"
+            >
+              search
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
 export default WebViewLeft;
-
-const WrapWebView = styled.div`
-  width: 521px;
-  height: 579px;
-  /* background-color: green; */
-`;
-
-const Logo = styled.div`
-  width: 95px;
-  height: 40px;
-  font-weight: bold;
-  font-size: 33px;
-`;
-const Description = styled.div`
-  width: 425px;
-  height: 150px;
-  font-size: 62px;
-  margin-top: 215px;
-`;
-const WrapSearch = styled.div`
-  width: 521px;
-  height: 83px;
-  margin-top: 91px;
-  background-color: white;
-`;
-const SearchBox=styled.div`
- box-sizing: border-box; 
-border: 4px solid #000000;
-border-radius: 71px;
-width: 100%;
-height: 100%;
-padding: 22px 0px 23px 44px;
-font-size: 31px;
-color: #BCBCBC;
-line-height: 37.52px;
-font-weight: 500;
-position: relative;
-`
-const WrpaIcon=styled.div`
-position: absolute;
-height: 83px;
-width: 83px;
-background-color: #000000;
-border-radius: 50%;
-right: -4px;
-bottom:-4px;
-display: flex;
-justify-content: center;
-align-items: center;
-`
