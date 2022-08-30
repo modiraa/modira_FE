@@ -5,7 +5,7 @@ import "../css(subin)/PostCollection.css";
 import ScrollContainer from "react-indiana-drag-scroll";
 import ReactDOM from "react-dom";
 
-const PostCollection = ({ postAll }) => {
+const PostCollection = ({ postAll, }) => {
 
 
 
@@ -14,7 +14,7 @@ const PostCollection = ({ postAll }) => {
     return (
       <div style={{ width: "100%" }}>
         <div style={{ marginBottom: "20px" }}>
-          <MainPostTItle titleCollection={"최근생성모임"} />
+          <MainPostTItle titleCollection={"최근생성모임"} morepostType={"최근생성모임"}/>
         </div>
         <ScrollContainer className="scroll-container" horizontal={true} >
           <div className="postcollection-wrap-postcomponents">
