@@ -30,19 +30,20 @@ const Chat = () => {
  const navigate=useNavigate();
 
  React.useEffect(()=>{
-  var socket = new SockJS("http://52.79.223.9/ws/chat");
+  var socket = new SockJS("http://52.79.223.9/ws-stomp");
   stompClient = Stomp.over(socket);
   // stompClient.debug=null;
   stompClient.connect({}, connected);
 
  },[])
   React.useEffect(() => {
-    console.log(sendMessage)
+    console.log(showMessage)
+  
     //가장 최근 채팅 보여주기
     if (RefViewControll.current) {
       RefViewControll.current.scrollTop = RefViewControll.current.scrollHeight;
     }
-  }, [showMessage, enterChatRoom,sendMessage]);
+  }, [showMessage, enterChatRoom,sendMessage,chatRoomId]);
 
   const modalHandler=()=>{
     setmodalIsopen(true);
@@ -54,10 +55,15 @@ const Chat = () => {
 
   function connected() {
     setIsConnected(true);
-    stompClient.subscribe(`/topic`, subscribed);
+    console.log(chatRoomId)
+    if(chatRoomId){
+      stompClient.subscribe(`/sub/chat/room/93c90c09-d882-4dcb-aa77-507478dbb8eb`, subscribed);
+    }
+    
   }
   //
   function subscribed(greeting) {
+    console.log("여기올텐데")
     const soketMessage = JSON.parse(greeting.body);
     showMessage.push(soketMessage);
     setShowMessage([...showMessage]);
@@ -74,14 +80,15 @@ const Chat = () => {
   }
   function sendNicknameFN() {
     try {
+      console.log(chatRoomId)
       stompClient.send(
-        "/app/chat/message",
+        "/pub/chat/message",
         {},
         JSON.stringify({
           // message: sendMessage,
           sender: sendNick,
           type: "ENTER",
-          // roomId:"aa",
+          roomId:"93c90c09-d882-4dcb-aa77-507478dbb8eb",
         })
       );
     } catch (error) {
@@ -93,13 +100,13 @@ const Chat = () => {
   function sendMessageFN() {
     try {
       stompClient.send(
-        "/app/chat/message",
+        "/pub/chat/message",
         {},
         JSON.stringify({
           message: sendMessage,
           sender: sendNick,
-          // type:"TALK",
-          // roomId:chatRoomId,
+          type:"TALK",
+          roomId:"93c90c09-d882-4dcb-aa77-507478dbb8eb",
         })
       );
     } catch (error) {
@@ -108,12 +115,16 @@ const Chat = () => {
     // 채팅을 보낸다.
   }
   const makeChatRoom=async()=>{
+    const params = new URLSearchParams();
+    params.append('name', '11');
+
     await axios
-    .post(`http://3.39.23.189/chat/room`,JSON.stringify({name:postId}))
+    .post(`http://52.79.223.9/chat/room`,params)
     .then((response) => {
       console.log("성공", response);
       setChatRoomId(response.data.roomId)
       console.log(response.data.roomId)
+      console.log(chatRoomId)
     })
     .catch((error) => {
       console.log("에러", error);
@@ -125,7 +136,7 @@ const Chat = () => {
     <div className="chat-wrap">
       <div style={{position:"absolute",right:"349px",top:"70px"}}>
       {/* <button onClick={disconnect}>소켓 연결 끊기!</button> */}
-      {/* <button onClick={makeChatRoom}>채팅방생성</button> */}
+      <button onClick={makeChatRoom}>채팅방생성</button>
       {/* <hr></hr> */}
       {/* <input  placeholder="chaatroom을 입력하세요" onChange={(e) => {
           setPostId(e.target.value);

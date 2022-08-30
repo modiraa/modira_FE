@@ -10,7 +10,7 @@ const Message = ({ messageData, sendNick, prevData }) => {
   const isSmaeSender =
     prevData?.type !== "ENTER" && prevData?.sender == messageData.sender;
 
-  console.log(messageData.message.split("\n").length>1, messageData.type == null, isMyMessage, "여기확인");
+  console.log(messageData.type == "TALK" && !isSmaeSender,messageData);
   const navigate=useNavigate();
 
   //첫 입장
@@ -22,8 +22,10 @@ const Message = ({ messageData, sendNick, prevData }) => {
       </div>
     );
   }
+
   // 메시지 연속x
-  if (messageData.type == null && !isSmaeSender)
+  if (messageData.type == "TALK" && !isSmaeSender){
+    console.log("같은 사람 연속 x")
     return (
       <WrapImgAndText isMyMessage={isMyMessage}>
         <img src={testimg} style={{ height: "48px", width: "48px",borderRadius:"8px" }}  onClick={()=>{navigate("/userprofile")}}></img>
@@ -38,27 +40,11 @@ const Message = ({ messageData, sendNick, prevData }) => {
           </div>
         </div>
       </WrapImgAndText>
-    );
-    if(messageData.message.split("\n").length>1&&messageData.type == null && isSmaeSender){
-      console.log("여기")
-      return (
-<SameMessage isMyMessage={isMyMessage}>
-        <div className="chat-message-wrap-serial-text">
-        <div className="chat-message-text">
-          {messageData.message.split("\n").map((v,i)=>{
-            return (<div>{v}<br/></div>)
-          }
-          
-          )}
-         </div>
-        </div>
-      </SameMessage>
-
-      )
-    }
-
+    )
+  }
+  
   // 메시지 연속
-  if (messageData.type == null && isSmaeSender)
+  if (messageData.type == "TALK" && isSmaeSender)
     return (
       <SameMessage isMyMessage={isMyMessage}>
         <div className="chat-message-wrap-serial-text">
@@ -79,6 +65,7 @@ const WrapImgAndText = styled.div`
   margin-left: 43px;
   margin-right: 43px;
   margin-top: 44px;
+  
  
 `;
 const ChatMessageNick=styled.div`
@@ -88,6 +75,8 @@ const ChatMessageNick=styled.div`
     font-weight: 500;
     text-align: ${({ isMyMessage }) =>
     isMyMessage ? `right` : "left"};
+    background: linear-gradient(90deg, #8962E9 0%, #7767EC 100%);
+border-radius: 7px;
 
 `
 

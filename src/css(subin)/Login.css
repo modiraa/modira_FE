@@ -68,15 +68,16 @@
 
 .login_btns{
     display: flex;
+    background-color: aqua;
     flex-direction: row;
     margin-top: 22px;
 }
 
 .naver_btn{
-    width: 75px;
-    height: 75px;
+    width: 439px;
+    height: 70px;
     background-color: rgb(57, 194, 57);
-    border-radius: 50px;
+    border-radius: 8px;
     text-align: center;
     padding-top: 8%;
     box-sizing: border-box;
@@ -84,6 +85,7 @@
 }
 
 .naver_btn>a{
+    background-color: aqua;
     font-size: 35px;
     text-decoration: none;
     color: white;
@@ -92,10 +94,10 @@
 }
 
 .kakao_btn{
-    width: 75px;
-    height: 75px;
+    width: 439px;
+    height: 70px;
     background-color: rgb(255, 217, 0);
-    border-radius: 50px;
+    border-radius: 8px;
     text-align: center;
     padding-top: 12%;
     box-sizing: border-box;
