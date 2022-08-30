@@ -38,14 +38,14 @@ const Login = () => {
           SNS 계정으로 간편 가입하기
         </h3>
         <div className='login_btns'>
-          <div className='naver_btn'>
-            <a className="naverIdLogin" href={NAVER_AUTH_URL}>
-              N
-            </a>
-          </div>
           <div className='kakao_btn'>
             <a className="kakao" href={KAKAO_AUTH_URL}>
-              kakao
+              카카오톡으로 시작하기
+            </a>
+          </div>
+          <div className='naver_btn'>
+            <a className="naverIdLogin" href={NAVER_AUTH_URL}>
+              N 네이버로 시작하기
             </a>
           </div>
           {/* <div className='google_btn'>
