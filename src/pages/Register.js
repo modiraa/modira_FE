@@ -97,19 +97,15 @@ const Register = () => {
   }, []);
 
   useEffect(() => {
-    console.log("storage값 확인", storeUserInfo?.address, storeUserInfo);
-    if (storeUserInfo?.address !== "") {
-      setAddress(storeUserInfo?.address);
+    console.log("storage값 확인", storeUserInfo?.homesi, storeUserInfo);
+    if (storeUserInfo?.homesi !== "") {
+      setAddress(storeUserInfo?.homesi);
       console.log("여기옴?", storeUserInfo);
     }
   }, []);
 
   const Submit = async (e) => {
-    e.preventDefault();
-    if ([userProfileImage, nickName, age, gender, address].includes("")) {
-      alert("모든 사항을 기입해주세요");
-      return;
-    }
+  
     e.preventDefault(e);
     if ([userProfileImage, nickName, age, gender, address].includes("")) {
       alert("모든 사항을 기입해주세요");
@@ -122,7 +118,7 @@ const Register = () => {
     formData.append("nickname", nickName);
     formData.append("age", age);
     formData.append("gender", gender);
-    formData.append("address", address);
+    formData.append("address", homesi);
     formData.append("username", storeUserInfo.username);
     await axios
       .post("http://3.34.129.164/api/user/register", formData, {
