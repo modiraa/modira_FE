@@ -58,9 +58,13 @@ const Register = () => {
 
   useEffect(() => {
     console.log(
+      
       "storage값 확인",
+     
       storeUserInfo?.userProfileImage,
+     
       storeUserInfo
+    
     );
     if (storeUserInfo?.userProfileImage !== "") {
       setUserProfileImage(storeUserInfo?.userProfileImage);
@@ -100,7 +104,12 @@ const Register = () => {
     }
   }, []);
 
-  const Submit = async (e) => {
+  const Submit = async (ee) => {
+    e.preventDefault();
+    if ([userProfileImage, nickName, age, gender, address].includes("")) {
+      alert("모든 사항을 기입해주세요");
+      return;
+    }
     e.preventDefault();
     if ([userProfileImage, nickName, age, gender, address].includes("")) {
       alert("모든 사항을 기입해주세요");
