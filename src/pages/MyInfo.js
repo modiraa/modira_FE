@@ -3,6 +3,7 @@ import '../css(subin)/MyInfo.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
+import LowerNavbar from '../components/LowerNavbar';
 
 const MyInfo = () => {
 
@@ -66,6 +67,7 @@ const MyInfo = () => {
         <div className='info_user_update_btn'>
           <button>프로필 수정</button>
         </div>
+        <LowerNavbar locationIndicator={"myinfo"} />
       </div>
     </div>
   )

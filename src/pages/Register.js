@@ -205,12 +205,6 @@ const Register = () => {
         <Check>
           <input type="checkbox" />
           <p>(필수) 개인정보 취급방침에 동의합니다.</p>
-          <div>
-            <span>보기 </span>
-            <span className="material-symbols-outlined">
-              keyboard_arrow_right
-            </span>
-          </div>
         </Check>
         <Button onClick={Submit}>
           <button>등록완료</button>

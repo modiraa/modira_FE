@@ -121,7 +121,13 @@ function PostDetail() {
           <p>{data.contents}</p>
         </Limit>
         <ButtonSubmit>
-          <button>참여신청</button>
+          <button
+            onClick={() => {
+              navigate("/chat");
+            }}
+          >
+            참여신청
+          </button>
           {/* fullOfPeople? (<button>마감완료</button>) : (<button>참여신청</button>
           ) */}
         </ButtonSubmit>

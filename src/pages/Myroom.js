@@ -16,27 +16,27 @@ const Myroom = () => {
   });
   console.log("여기확인", data);
 
-  // const getPost = async () => {
-  //   const ACCESS_TOKEN = sessionStorage.getItem("token");
-  //   console.log(ACCESS_TOKEN);
+  const getPost = async () => {
+    const ACCESS_TOKEN = sessionStorage.getItem("token");
+    console.log(ACCESS_TOKEN);
 
-  //   await axios
-  //     .get("http://3.34.129.164/api/myposts", {
-  //       headers: {
-  //         Authorization: ACCESS_TOKEN,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       setData(response.data[0]);
-  //       console.log("데이터 나와랏", response.data[0]);
-  //     })
-  //     .catch((error) => {
-  //       console.log("에러", error);
-  //     });
-  // };
-  // useEffect(() => {
-  //   getPost();
-  // }, []);
+    await axios
+      .get("http://3.34.129.164/api/myposts", {
+        headers: {
+          Authorization: ACCESS_TOKEN,
+        },
+      })
+      .then((response) => {
+        setData(response.data[0]);
+        console.log("데이터 나와랏", response.data[0]);
+      })
+      .catch((error) => {
+        console.log("에러", error);
+      });
+  };
+  useEffect(() => {
+    getPost();
+  }, []);
 
   return (
     <>

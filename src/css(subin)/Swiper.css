@@ -1,4 +1,6 @@
-#enter { height: 100% }
+#enter {
+  height: 100%;
+}
 html,
 body {
   position: relative;
@@ -6,7 +8,7 @@ body {
 }
 
 body {
-  background: #eee;
+  background: #fff;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
@@ -37,7 +39,28 @@ body {
   -webkit-align-items: center;
   align-items: center;
 }
-
+.swiper-pagination-bullet {
+  background-color: #ffbb31;
+  margin: 0 10px;
+}
+.swiper-button-prev {
+  position: absolute;
+  width: 44.24px;
+  height: 48px;
+  left: 0px;
+  top: 461.57px;
+  background-color: #d9d9d9;
+  color: #fff;
+}
+.swiper-button-next {
+  position: absolute;
+  width: 44.24px;
+  height: 48px;
+  left: 480px;
+  top: 461.57px;
+  background-color: #d9d9d9;
+  color: #fff;
+}
 .swiper-slide img {
   display: block;
   width: 100%;
