@@ -1,6 +1,7 @@
 import React from 'react'
 
 const MorePostCard = (props) => {
+  
   return (
     <div className="more-post-card">
           <div className="card-img">
