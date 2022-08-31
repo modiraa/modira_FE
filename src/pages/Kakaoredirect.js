@@ -38,6 +38,8 @@ const Kakaoredirect = ({setUserName,userName}) => {
             
             }).catch((err) => {
             console.log("소셜로그인 에러", err);
+            alert('너 안됨')
+            navigate('/');
             })
     }
 
@@ -48,7 +50,7 @@ const Kakaoredirect = ({setUserName,userName}) => {
 
     return (
         <div>
-            카카오 리다이렉트
+            
         </div>
     )
 }

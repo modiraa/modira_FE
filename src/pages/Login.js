@@ -29,7 +29,7 @@ const Login = () => {
         </div>
         <div className='logo'>
           <h1>
-            Modira
+            Modira.
           </h1>
         </div>
       </div>
@@ -45,7 +45,7 @@ const Login = () => {
           </div>
           <div className='naver_btn'>
             <a className="naverIdLogin" href={NAVER_AUTH_URL}>
-              N 네이버로 시작하기
+              네이버로 시작하기
             </a>
           </div>
           {/* <div className='google_btn'>
