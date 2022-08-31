@@ -57,7 +57,7 @@ const Chat = () => {
     setIsConnected(true);
     console.log(chatRoomId)
     if(chatRoomId){
-      stompClient.subscribe(`/sub/chat/room/caea2012-5d71-4d57-9e01-3149f882baba`, subscribed);
+      stompClient.subscribe(`/sub/chat/room/c3289f5a-32e9-445c-a10c-d4b5ff540430`, subscribed);
     }
     
   }
@@ -88,7 +88,7 @@ const Chat = () => {
           // message: sendMessage,
           sender: sendNick,
           type: "ENTER",
-          roomId:"caea2012-5d71-4d57-9e01-3149f882baba",
+          roomId:"c3289f5a-32e9-445c-a10c-d4b5ff540430",
         })
       );
     } catch (error) {
@@ -106,7 +106,7 @@ const Chat = () => {
           message: sendMessage,
           sender: sendNick,
           type:"TALK",
-          roomId:"caea2012-5d71-4d57-9e01-3149f882baba",
+          roomId:"c3289f5a-32e9-445c-a10c-d4b5ff540430",
         })
       );
     } catch (error) {
