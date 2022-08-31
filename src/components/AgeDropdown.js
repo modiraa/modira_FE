@@ -55,7 +55,7 @@ background-color: #fff;
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    color: #BBB8CF;
+    color:  #CBCBCB;
   }
 `;
 
@@ -77,7 +77,7 @@ const Dropdownitem = styled.div`
   cursor: pointer;
   transition: all 0.2s;
   &:hover {
-    background: #DFDCFF;
+    background:  #FFE9BE;
     color: #140D41;
   }
 `;
