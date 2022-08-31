@@ -6,7 +6,6 @@
 .login {
     display: flex;
     width: 100px;
-    flex-wrap: wrap;
     flex-direction: column;
 
     width: 100%;
@@ -15,8 +14,6 @@
 
 .login_top{
     width: 100%;
-    height: 571px;
-    background-color: #f8f8f8;
 }
 
 .login-material-symbols-outlined{
@@ -26,7 +23,7 @@
 }
 
 .login_text {
-    margin-top: 147px;
+    margin-top: 132px;
     margin-left: 43px;
 }
 
@@ -48,12 +45,12 @@
 
 .login_bottom{
     display: flex;
-    width: 100px;
-    height: 459px;
+    /* width: 100px;
+    height: 459px; */
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    padding-top: 134px;
+    padding-top: 198px;
     box-sizing: border-box;
 
     width: 100%;
@@ -67,75 +64,60 @@
 }
 
 .login_btns{
+    width: 100%;
     display: flex;
-    background-color: aqua;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* background-color: aqua; */
     flex-direction: row;
-    margin-top: 22px;
-}
-
-.naver_btn{
-    width: 439px;
-    height: 70px;
-    background-color: rgb(57, 194, 57);
-    border-radius: 8px;
-    text-align: center;
-    padding-top: 8%;
-    box-sizing: border-box;
-    margin-right: 30px;
-}
-
-.naver_btn>a{
-    background-color: aqua;
-    font-size: 35px;
-    text-decoration: none;
-    color: white;
-    font-weight: bolder;
-    text-align: center;
 }
 
 .kakao_btn{
     width: 439px;
     height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: rgb(255, 217, 0);
     border-radius: 8px;
-    text-align: center;
-    padding-top: 12%;
-    box-sizing: border-box;
-    margin-right: 30px;
+    margin-top: 25px;
 }
 
 .kakao_btn>a{
-    font-size: 18px;
+    font-size: 20px;
     text-decoration: none;
     color: rgb(98, 98, 98);
     font-weight: bolder;
     text-align: center;
 }
 
-/* .google_btn{
-    width: 75px;
-    height: 75px;
-    background-color: rgb(0, 153, 255);
-    border-radius: 50px;
-    text-align: center;
-    padding-top: 9%;
-    box-sizing: border-box;
+.naver_btn{
+    width: 439px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(57, 194, 57);
+    border-radius: 8px;
+    margin-top: 17px;
 }
 
-.google_btn>a{
-    font-size: 18px;
+.naver_btn>a{
+    font-size: 20px;
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: white;
     font-weight: bolder;
     text-align: center;
-} */
+}
 
 .login_help{
     width: 235px;
     height: 35px;
     border-radius: 30px;
     border: 1px solid gray;
-    margin-top: 66px;
+    margin-top: 36px;
     background-color: transparent;
 }
 
