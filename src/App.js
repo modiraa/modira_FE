@@ -9,7 +9,7 @@ import MyInfo from "./pages/MyInfo";
 import styled from "styled-components";
 import testimage from "../src/image/11.jpg";
 import Enter from "./pages/Enter";
-import Inputaddress from "./pages/Inputaddress";
+import InputAddress from "./pages/InputAddress";
 import Kakaoredirect from "./pages/Kakaoredirect";
 import NaverRedirect from "./pages/NaverRedirect";
 import GoogleRedirect from "./pages/GoogleRedirect";
@@ -27,7 +27,7 @@ import WebViewLeft from "./components/WebViewLeft";
 import UserProfile from "./pages/UserProfile";
 import SelectPeopleCount from "./pages/SelectPeopleCount";
 import MorePost from "./pages/MorePost";
-import MyRoom from "./pages/Myroom";
+import MyRoom from "./pages/MyRoom";
 
 function App() {
   return (
@@ -57,14 +57,14 @@ function App() {
 
           <Route path="/register" element={<Register />} />
           <Route path="/enter" element={<Enter />} />
-          <Route path="/inputaddress" element={<Inputaddress />} />
+          <Route path="/inputaddress" element={<InputAddress />} />
           <Route path="/auth/kakao/callback" element={<Kakaoredirect />} />
           <Route path="/login/ouath2/code/naver" element={<NaverRedirect />} />
           <Route path="/auth/google/callback" element={<GoogleRedirect />} />
           <Route path="/postdetail:postId" element={<PostDetail />} />
           <Route path="/postcard" element={<PostCard />} />
           <Route path="/userprofile" element={<UserProfile />} />
-          <Route path="/myroom" element={<MyRoom />} />
+          <Route path="/myRoom" element={<MyRoom />} />
         </Routes>
       </Appview>
     </Background>

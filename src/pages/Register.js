@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import AgeDropdown from "../components/AgeDropdown";
 import { loginUserinfo } from "../redux/moduls/UserInfo";
-import profilebg from "../image/profilebg.png";
+import Profilebg from "../image/Profilebg.png";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -18,12 +18,12 @@ const Register = () => {
   let location = useLocation();
   const username = location.state?.username;
   //지도 api 주소 값 가져오기
-  const homesi = `${location.state?.homesi} ${location.state?.homegu}`;
-  console.log(homesi, "주소확인");
+  const home = `${location.state?.homesi} ${location.state?.homegu}`;
+  console.log(home, "주소확인");
 
   //이미지 업로드
   const [ProfileImg, SetProfileImg] = React.useState("");
-  const [userProfileImage, setUserProfileImage] = React.useState(null);
+  const [userProfileImage, setUserProfileImage] = React.useState("");
   const userProfileImageRef = React.useRef("");
   // 검색창에 검색어 변화
   const [nickName, setNickName] = React.useState("");
@@ -86,9 +86,9 @@ const Register = () => {
   }, []);
 
   useEffect(() => {
-    console.log("storage값 확인", storeUserInfo?.homesi, storeUserInfo);
-    if (storeUserInfo?.homesi !== "") {
-      setAddress(storeUserInfo?.homesi);
+    console.log("storage값 확인", storeUserInfo?.home, storeUserInfo);
+    if (storeUserInfo?.home !== "") {
+      setAddress(storeUserInfo?.home);
       console.log("여기옴?", storeUserInfo);
     }
   }, []);
@@ -106,7 +106,7 @@ const Register = () => {
     formData.append("nickname", nickName);
     formData.append("age", age);
     formData.append("gender", gender);
-    formData.append("address", homesi);
+    formData.append("address", home);
     formData.append("username", storeUserInfo.username);
     await axios
       .post("http://3.34.129.164/api/user/register", formData, {
@@ -151,8 +151,8 @@ const Register = () => {
           <Input
             type="text"
             name="nickName"
-            placeholder="2~8자 이내로 입력해주세요."
-            value={nickName}
+            placeholder="2~6자 이내로 입력해주세요."
+            value={nickName} 
             onChange={(e) => {
               setNickName(e.target.value);
             }}
@@ -198,12 +198,10 @@ const Register = () => {
             navigate("/inputaddress");
           }}
         >
-          <Address>
-            {homesi ? <span> {homesi} </span> : <span>주소검색</span>}
-          </Address>
+          <Address>{home ? <div>{home} </div> : <div>주소검색</div>}</Address>
         </InputBox>
         <Check>
-          <input type="checkbox" />
+          <input type="checkbox"/>
           <p>(필수) 개인정보 취급방침에 동의합니다.</p>
         </Check>
         <Button onClick={Submit}>
@@ -230,7 +228,7 @@ const Box = styled.div`
   align-items: center;
   width: 100%;
   height: 294px;
-  background-image: url(${profilebg});
+  background-image: url(${Profilebg});
   background-position: center;
   background-size: contain;
   input {
