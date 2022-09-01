@@ -2,30 +2,36 @@
     justify-content: end;
     margin-right: 32px;
     display: flex;
-    margin-top: 28px;
+    margin-top: 35px;
     
 }
 .mymodal-firsttext{
-    margin-top:31.81px;
+    margin-top:18px;
     font-style: normal;
-    font-weight: 700;
-    font-size: 23px;
-    line-height: 28px;
-    text-align:center
+font-weight: 400;
+font-size: 24px;
+line-height: 34px;
+text-align: center;
 
 }
-.mymodal-picture-icon{
-    margin-top:25px;
+.mymodal-picture-location{
+    margin-top:20px;
     justify-content: center;
     display: flex;
 }
+.mymodal-picture{
+    width: 349px;
+    height: 110px;
+
+}
 .mymodal-secondtext-location{
-    margin-top:23.25px
+    margin-top:6px
 }
 
 .mycodal-secondtext{
-    font-weight: 500;
+    font-style: normal;
+font-weight: 400;
 font-size: 18px;
-line-height: 22px;
+line-height: 24px;
 text-align: center;
 }

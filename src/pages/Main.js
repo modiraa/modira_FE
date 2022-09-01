@@ -33,7 +33,6 @@ const Main = () => {
           setPostDutchPay(res.data.postDutchPay.content);
           setPostGoldenBell(res.data.postGoldenBell.content);
         }
-        // console.log(postAll,postDutchPay,postGoldenBell)
       })
       .catch((err) => {
         console.log(err);

@@ -5,17 +5,16 @@ import MorePostCard from '../components/MorePostCard';
 import Navbar from '../components/Navbar';
 import '../css(subin)/MorePost.css';
 
+let test=0;
+
 const MorePost = () => {
-
+console.log(test,"test확인")
   const location=useLocation();
-  console.log(location)
-
   const [morePostTitle,setMorePostTitle] = useState('');
   const [morePostData,setMorePostData] = useState([]);
-  const [lastId,setLastId] = useState(60);
+  const [lastId,setLastId] = useState();
 
-  // console.log(morePostTitle);
-  // console.log(morePostData);
+
 
   const category = location.state;
   // console.log(category);
@@ -39,20 +38,23 @@ const MorePost = () => {
 
   useEffect(()=>{
     loadMorePost();
-  },[lastId])
+    console.log("두번찍히나?")
+  },[,lastId])
 
-  // useEffect(()=>{
-  //   console.log(morePostData[morePostData.length-1]?.postId)
-  // },[morePostData])
+
+  useEffect(()=>{
+    console.log(morePostData)
+  },[morePostData])
 
   const obsHandler = (entries) => {
     const target = entries[0];
     if (target.isIntersecting && preventRef.current) {
       preventRef.current = false;
-      // console.log('옵저버 발견됨')
-      // setLastId((prev) => prev-1);
-      setLastId(morePostData[morePostData.length-1]?.postId)
-      console.log(morePostData)
+  
+     
+      console.log("옵저버발션",test)
+        setLastId(test)
+   
     }
   };
   // console.log(lastId)
@@ -61,9 +63,21 @@ const MorePost = () => {
     if (category == "최근생성모임") {
       // console.log('최근생성모임 불러오기')
       setLoad(true)
-      await axios.get(`http://3.34.129.164/api/post?lastId=${lastId}`)
+      let firsturl="http://3.34.129.164/api/post"
+      let commonurl=`http://3.34.129.164/api/post?lastId=${lastId}`
+      let urlAX=""
+      if(lastId){
+        urlAX=commonurl
+        console.log(lastId)
+      }else{
+        urlAX= firsturl
+        console.log(lastId)
+      }
+      console.log(urlAX)
+      await axios.get(urlAX)
         .then((res) => {
-          // console.log(res);
+          console.log(res.data.content[7].postId);
+          test=res.data.content[7].postId;
           if(res.data){
             // console.log(res.data);
             setMorePostTitle("최근생성모임")
@@ -116,10 +130,14 @@ const MorePost = () => {
           return(
             <MorePostCard item={item} key={index}/>
           )
-        })}
-        <div ref={obsRef}>
+        })
+      
+     
+      }
+      {morePostData!=[]&&   <div ref={obsRef}>
           안녕
-        </div>
+        </div>}
+     
       </div>
     </div>
     

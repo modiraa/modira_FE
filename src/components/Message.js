@@ -10,8 +10,8 @@ const Message = ({ messageData, sendNick, prevData }) => {
   const isSmaeSender =
     prevData?.type !== "ENTER" && prevData?.sender == messageData.sender;
 
-  console.log(messageData.type == "TALK" && !isSmaeSender,messageData);
-  const navigate=useNavigate();
+  console.log(messageData.type == "TALK" && !isSmaeSender, messageData);
+  const navigate = useNavigate();
 
   //첫 입장
   if (messageData.type == "ENTER") {
@@ -24,36 +24,68 @@ const Message = ({ messageData, sendNick, prevData }) => {
   }
 
   // 메시지 연속x
-  if (messageData.type == "TALK" && !isSmaeSender){
-    console.log("같은 사람 연속 x")
+  if (messageData.type == "TALK" && !isSmaeSender && isMyMessage) {
+    console.log("같은 사람 연속 x");
     return (
-      <WrapImgAndText isMyMessage={isMyMessage}>
-        <img src={testimg} style={{ height: "48px", width: "48px",borderRadius:"8px" }}  onClick={()=>{navigate("/userprofile")}}></img>
+      <div className="chat-container-message-notsamemessage-mymessage">
+        <img
+          src={testimg}
+          style={{ height: "48px", width: "48px", borderRadius: "8px" }}
+          onClick={() => {
+            navigate("/userprofile");
+          }}
+        ></img>
 
         <div>
-         
-          <ChatMessageNick isMyMessage={isMyMessage}>{messageData.sender}</ChatMessageNick>
-         
-         
+          <div className="chat-sender-mymessage">{messageData.sender}</div>
+
           <div className="chat-message-wrap-text">
-            <div className="chat-message-text" >{messageData.message}</div>
+            <div className="chat-message-text">{messageData.message}</div>
           </div>
         </div>
-      </WrapImgAndText>
-    )
+      </div>
+    );
   }
-  
-  // 메시지 연속
-  if (messageData.type == "TALK" && isSmaeSender)
+  if (messageData.type == "TALK" && !isSmaeSender && !isMyMessage) {
     return (
-      <SameMessage isMyMessage={isMyMessage}>
+      <div className="chat-container-message-notsamemessage-notmymessage">
+        <img
+          src={testimg}
+          style={{ height: "48px", width: "48px", borderRadius: "8px" }}
+          onClick={() => {
+            navigate("/userprofile");
+          }}
+        ></img>
+
+        <div>
+          <div className="chat-sender-notsamemessge-notmymessage">{messageData.sender}</div>
+
+          <div className="chat-message-wrap-text-notsamemessge-notmymessage">
+            <div className="chat-message-text-notsamemessge-notmymessage">{messageData.message}</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 메시지 연속
+  if (messageData.type == "TALK" && isSmaeSender && isMyMessage)
+    return (
+      <div className="chat-container-message-samemessage-mymessage">
         <div className="chat-message-wrap-serial-text">
           <div className="chat-message-text">{messageData.message}</div>
         </div>
-      </SameMessage>
+      </div>
     );
-    // enter가 있다면?
-  
+    if (messageData.type == "TALK" && isSmaeSender && !isMyMessage)
+    return (
+      <div className="chat-container-message-samemessage-notmymessage">
+        <div className="chat-message-wrap-serial-text-notmymessage">
+          <div className="chat-message-text-serial-notmymessage">{messageData.message}</div>
+        </div>
+      </div>
+    );
+  // enter가 있다면?
 };
 
 export default Message;
@@ -65,20 +97,16 @@ const WrapImgAndText = styled.div`
   margin-left: 43px;
   margin-right: 43px;
   margin-top: 44px;
-  
- 
 `;
-const ChatMessageNick=styled.div`
-   margin-left: 23px;
-    margin-right: 23px;
-    font-size: 19px;
-    font-weight: 500;
-    text-align: ${({ isMyMessage }) =>
-    isMyMessage ? `right` : "left"};
-    background: linear-gradient(90deg, #8962E9 0%, #7767EC 100%);
-border-radius: 7px;
-
-`
+const ChatMessageNick = styled.div`
+  margin-left: 23px;
+  margin-right: 23px;
+  font-size: 19px;
+  font-weight: 500;
+  text-align: ${({ isMyMessage }) => (isMyMessage ? `right` : "left")};
+  background: linear-gradient(90deg, #8962e9 0%, #7767ec 100%);
+  border-radius: 7px;
+`;
 
 const SameMessage = styled.div`
   display: flex;
