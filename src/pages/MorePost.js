@@ -39,7 +39,7 @@ console.log(test,"test확인")
   useEffect(()=>{
     loadMorePost();
     console.log("두번찍히나?")
-  },[,lastId])
+  },[lastId])
 
 
   useEffect(()=>{
@@ -96,25 +96,77 @@ console.log(test,"test확인")
         })
     }
 
-    // else{
-    //   console.log(`category=${category}`)
-    //   await axios.get(`http://3.34.129.164/api/post?category=${category}&lastId=${lastId}`)
-    //     .then((res) => {
-    //       console.log(res.data.content);
-    //       if(category == "골든벨"){
-    //         setMorePostTitle("내가 쏜다! 골든벨")
-    //         setMorePostData({list:[...res.data.content]})
-    //       }
-    //       else if(category == "n빵"){
-    //         setMorePostTitle("무조건 N빵 모임")
-    //         setMorePostData({list:[...res.data.content]})
-    //       }
-    //       setLastId(10);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     })
-    // }
+    if(category == "골든벨"){
+      console.log(`category=${category}`)
+      setLoad(true)
+      let firsturl="http://3.34.129.164/api/post"
+      let commonurl=`http://3.34.129.164/api/post?lastId=${lastId}`
+      let urlAX=""
+      if(lastId){
+        urlAX=commonurl
+        console.log(lastId)
+      }else{
+        urlAX= firsturl
+        console.log(lastId)
+      }
+      console.log(urlAX)
+      await axios.get(urlAX)
+        .then((res) => {
+          console.log(res.data.content[7].postId);
+          test=res.data.content[7].postId;
+          if(res.data){
+            // console.log(res.data);
+            setMorePostTitle("내가 쏜다! 골든벨")
+            // console.log(setMorePostTitle)
+            setMorePostData(prev=>{
+              // console.log(prev);
+              return [...prev, ...res.data.content]
+            })
+            preventRef.current = true;
+          }else{
+            // console.log(res);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
+
+    if(category == "n빵"){
+      console.log(`category=${category}`)
+      setLoad(true)
+      let firsturl="http://3.34.129.164/api/post"
+      let commonurl=`http://3.34.129.164/api/post?lastId=${lastId}`
+      let urlAX=""
+      if(lastId){
+        urlAX=commonurl
+        console.log(lastId)
+      }else{
+        urlAX= firsturl
+        console.log(lastId)
+      }
+      console.log(urlAX)
+      await axios.get(urlAX)
+        .then((res) => {
+          console.log(res.data.content[7].postId);
+          test=res.data.content[7].postId;
+          if(res.data){
+            // console.log(res.data);
+            setMorePostTitle("내가 쏜다! 골든벨")
+            // console.log(setMorePostTitle)
+            setMorePostData(prev=>{
+              // console.log(prev);
+              return [...prev, ...res.data.content]
+            })
+            preventRef.current = true;
+          }else{
+            // console.log(res);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
   },[lastId])
 
 
@@ -126,17 +178,13 @@ console.log(test,"test확인")
         <h3>{morePostTitle}</h3>
       </div>
       <div className="more-post-Contents">
-        {morePostData && morePostData.map((item,index)=>{
-          return(
-            <MorePostCard item={item} key={index}/>
+        {morePostData && morePostData.map((item, index) => {
+          return (
+            <MorePostCard item={item} key={index} />
           )
-        })
-      
-     
-      }
-      {morePostData!=[]&&   <div ref={obsRef}>
-          안녕
-        </div>}
+        })}
+      {/* {morePostData!=[]&&<div ref={obsRef}>안녕</div>} */}
+      <div ref={obsRef}>안녕</div>
      
       </div>
     </div>

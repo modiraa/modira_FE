@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import AgeDropdown from "../components/AgeDropdown";
 import { loginUserinfo } from "../redux/moduls/UserInfo";
-import Profilebg from "../image/Profilebg.png";
+import Profilebg from "../image/profilebg.png";
 
 const Register = () => {
   const navigate = useNavigate();

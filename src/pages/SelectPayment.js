@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../css(subin)/SelectPayment.css';
 import PaymentPicker from '../components/PaymentPicker';
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,8 +15,6 @@ const SelectPayment = () => {
 
     const navigate = useNavigate();
 
-    const storeSelect = useSelector((state)=>state)
-
     const clickPayment = () => {
         dispatch(selectWrite({category:controlledSwiperPayment}))
         navigate("/write")
@@ -24,10 +22,9 @@ const SelectPayment = () => {
 
     return (
         <div className='select_payment'>
-            <button onClick={()=>{console.log(storeSelect)}}>스토어확인</button>
             <div className='select_payment_top'>
                 <div className='select_payment_count'>
-                    <p>6/6</p>
+                    <p>6 / 6</p>
                 </div>
                 <div className='select_payment_title'>
                     <h2>모임 정산은<br/>어떻게 하고 싶은가요?</h2>

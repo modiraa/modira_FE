@@ -19,7 +19,7 @@ const SelectGps = () => {
         <div className='select_gps'>
             <div className='select_gps_top'>
                 <div className='select_gps_count'>
-                    <p>3/6</p>
+                    <p>3 / 6</p>
                 </div>
                 <div className='select_gps_title'>
                     <h2>방문할 식당 위치를<br />입력해주세요</h2>

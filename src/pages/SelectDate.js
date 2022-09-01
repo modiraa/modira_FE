@@ -35,13 +35,13 @@ const SelectDate = () => {
         <div className='select-date'>
             <div className='select-date-top'>
                 <div className='select-date-count'>
-                    <p>1/6</p>
+                    <p>1 / 6</p>
                 </div>
                 <div className='select-date-title'>
-                    <h2>모임을 원하는<br/>날짜를 알려주세요</h2>
+                    <h2>원하는 모임의<br/>날짜를 알려주세요</h2>
                 </div>
                 <div className='select-date-value'>
-                    <h3>{fullDate}</h3>
+                    <h3>{selectDate}</h3>
                     <h5>에 만나는 모임이에요</h5>
                 </div>
             </div>

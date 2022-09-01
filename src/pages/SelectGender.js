@@ -13,8 +13,6 @@ const SelectGender = () => {
 
     const navigate = useNavigate();
 
-    const storeSelect = useSelector((state)=>state)
-
     const clickGender = () => {
         dispatch(selectWrite({gender:controlledSwiperGender}))
         navigate("/write")
@@ -22,7 +20,6 @@ const SelectGender = () => {
 
     return (
         <div className='select_gender'>
-            <button onClick={()=>{console.log(storeSelect)}}>스토어확인</button>
             <div className='select_gender_top'>
                 <div className='select_gender_count'>
                     <p>입장조건 추가</p>
