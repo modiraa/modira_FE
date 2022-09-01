@@ -95,21 +95,21 @@ function PostDetail() {
         <Writer>
           <Img src={data.writerProfileImage} />
           <UserInfo>
-            <p>{data.writerNickname}</p>
+            <b>{data.writerNickname}</b>
             <AgeGender>
               <span>{data.writerGender}</span>
               <span>{data.writerAge}</span>
             </AgeGender>
           </UserInfo>
           <Heart>
-            <span className="material-symbols-outlined">favorite</span>{" "}
-            <p>{data.writerScore}</p>
+            <span className="material-symbols-outlined">favorite</span>
+            <b>{data.writerScore}</b>
           </Heart>
         </Writer>
         <Limit>
           <LimiitTitle>제한조건</LimiitTitle>
           <div>
-            <span className="material-symbols-outlined">task_alt</span>
+            <Icon className="material-symbols-outlined">task_alt</Icon>
             <span>
               <b>
                 {data.limitAge}
@@ -121,7 +121,13 @@ function PostDetail() {
           <p>{data.contents}</p>
         </Limit>
         <ButtonSubmit>
-          <button>참여신청</button>
+          <button
+            onClick={() => {
+              navigate("/chat");
+            }}
+          >
+            참여신청
+          </button>
           {/* fullOfPeople? (<button>마감완료</button>) : (<button>참여신청</button>
           ) */}
         </ButtonSubmit>
@@ -161,21 +167,21 @@ const Arrow = styled.span`
   margin-left: 22px;
   cursor: pointer;
 `;
-const Category = styled.div`
-  font-weight: 400;
-  font-size: 18px;
+const Category = styled.b`
+  font-size: 20px;
+  color: #ffbb31;
 `;
 const Title = styled.div`
-  font-weight: 400;
-  font-size: 31px;
+  font-weight: bold;
+  font-size: 33px;
 `;
 const Date = styled.span`
   display: flex;
   flex-direction: column;
   font-weight: 400;
   font-size: 20px;
-  color: #9a9a9a;
-  margin-top: 12px;
+  color: #acacac;
+  margin-top: 15px;
   div {
     /* margin-right: 8px; */
     margin-bottom: 4px;
@@ -200,11 +206,11 @@ const Address = styled.span`
   display: flex;
   flex-direction: row;
   background-color: #fff;
-  font-weight: 700;
   font-size: 18px;
+  color: #acacac;
   padding: 0 0 19px 44px;
   span {
-    margin-right: 8px;
+    margin-right: 18px;
   }
 `;
 const Gps = styled.div`
@@ -214,7 +220,7 @@ const Gps = styled.div`
 `;
 const Writer = styled.div`
   height: 118px;
-  background-color: #f8f8f8;
+  background-color: #fffcf6;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -225,15 +231,16 @@ const Img = styled.img`
   width: 77px;
   height: 77px;
   border-radius: 10px;
+
 `;
 
 const UserInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 117px 0 27px;
-  p {
-    font-weight: 600;
+  margin: 0 50px 0 27px;
+  b {
+   
     font-size: 20px;
   }
 `;
@@ -247,7 +254,7 @@ const AgeGender = styled.span`
   span {
     width: 83px;
     height: 39px;
-    background: #f1f1f1;
+    background: #fff;
     border-radius: 68px;
     display: flex;
     justify-content: center;
@@ -256,16 +263,23 @@ const AgeGender = styled.span`
   }
 `;
 const Heart = styled.div`
-  flex-direction: row;
   display: flex;
   align-items: center;
-  p {
-    font-size: 23px;
+  width: 79px;
+  height: 32px;
+  background: #fff;
+  border-radius: 68px;
+  justify-content: center;
+  padding: 4px 14px;
+  b {
+    font-size: 25px;
     margin-left: 2px;
   }
+
   span {
-    font-size: 20px;
+    font-weight: 400;
     margin-right: 8px;
+    color: #ffe9be;
   }
 `;
 const Limit = styled.div`
@@ -276,6 +290,7 @@ const Limit = styled.div`
   padding: 44px 0 0 44px;
   span {
     margin: 0 8px 22px 0;
+    
   }
   p {
     margin-bottom: 12px;
@@ -292,6 +307,9 @@ const Limit = styled.div`
   }
 `;
 
+const Icon = styled.span`
+color: #4BDC78;`
+
 const LimiitTitle = styled.div`
   margin-bottom: 8px;
   font-weight: 600;
@@ -302,7 +320,7 @@ const ButtonSubmit = styled.div`
   position: relative;
   background-color: #fff;
   button {
-    background-color: black;
+    background-color: #ffbb31;
     width: 445px;
     height: 70px;
     border: none;

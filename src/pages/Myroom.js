@@ -4,47 +4,87 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import LowerNavbar from "../components/LowerNavbar";
 import Navbar from "../components/Navbar";
+import MiniBanner from "../image/MiniBanner.png";
 
-const Myroom = () => {
+const MyRoom = () => {
   const navigate = useNavigate();
 
-  const [data, setData] = useState({
+  const [myData, setMyData] = useState({
     postId: "id",
     title: "Lorem ipsum dolor",
     menuForImage: "치킨이미지",
     menu: "치킨",
   });
-  console.log("여기확인", data);
 
-  // const getPost = async () => {
-  //   const ACCESS_TOKEN = sessionStorage.getItem("token");
-  //   console.log(ACCESS_TOKEN);
+  const [joinData, setJoinData] = useState({
+    postId: "id",
+    title: "Lorem ipsum dolor",
+    menuForImage: "치킨이미지",
+    menu: "치킨",
+  });
 
-  //   await axios
-  //     .get("http://3.34.129.164/api/myposts", {
-  //       headers: {
-  //         Authorization: ACCESS_TOKEN,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       setData(response.data[0]);
-  //       console.log("데이터 나와랏", response.data[0]);
-  //     })
-  //     .catch((error) => {
-  //       console.log("에러", error);
-  //     });
-  // };
-  // useEffect(() => {
-  //   getPost();
-  // }, []);
+  const getPost = async () => {
+    const ACCESS_TOKEN = sessionStorage.getItem("token");
+    console.log(ACCESS_TOKEN);
+//생성한 모임
+    await axios
+      .get("http://3.34.129.164/api/myposts", {
+        headers: {
+          Authorization: ACCESS_TOKEN,
+        },
+      })
+      .then((response) => {
+        setMyData(response.myData[0]);
+        console.log("데이터 나와랏", response.myData[0]);
+      })
+      .catch((error) => {
+        console.log("에러", error);
+      });
+//참여한 모임
+    await axios
+    
+      .get("http://3.34.129.164/api/myjoin", {
+        headers: {
+          Authorization: ACCESS_TOKEN,
+        },
+      })
+      .then((response) => {
+        setJoinData(response.joinData[0]);
+        console.log("데이터 나와랏", response.joinData[0]);
+      })
+      .catch((error) => {
+        console.log("에러", error);
+      });
+  };
+  useEffect(() => {
+    getPost();
+  }, []);
 
+
+// //모임 삭제
+//   const removePost = async () => {
+//     // const ACCESS_TOKEN = sessionStorage.getItem("token");
+//     // console.log(ACCESS_TOKEN);
+//     await axios 
+//       .delete(`http://3.34.129.164/api/post/${postId}`)
+//       .then((response) => {
+//         console.log("삭제");
+//       })
+//       .catch((error) => {
+//         console.log("에러", error);
+//       });}
   return (
     <>
       <Navbar />
       <BorderLine />
       <Container>
         <Minibanner>
-          <p>미니배너</p>
+          <span>
+            이제 <b>혼밥</b>하지 마세요!<br></br>
+            <b>
+              밥 친구 찾기 플랫폼 <yellow>modira</yellow>
+            </b>
+          </span>
         </Minibanner>
         <CreateRoom>
           <p>생성한 모임</p>
@@ -53,13 +93,17 @@ const Myroom = () => {
               navigate("/postdetail:postId");
             }}
           >
-            <div>
+            <div  
+            // onClick={() => {
+            //   navigate("/postdetail:postId");
+            // }}
+            >
               <span className="material-symbols-outlined">delete</span>
               <p>게시물 삭제</p>
             </div>
-           
+            <img src={myData.menuForImage} />
           </Post>
-          <Title>{data.title}</Title>
+          <Title>{myData.title}</Title>
         </CreateRoom>
         <BorderLine />
         <CreateRoom>
@@ -69,20 +113,9 @@ const Myroom = () => {
               navigate("/postdetail:postId");
             }}
           >
-            <div>
-              {data.menuForImage ? (
-                <span>{data.menuForImage} </span>
-              ) : (
-                <div>
-                  <div>
-                    <span className="material-symbols-outlined">add</span>
-                  </div>
-                  <div> 모임 만들러 가기</div>
-                </div>
-              )}{" "}
-            </div>
+            <img src={joinData.menuForImage} />
           </Post>
-          <Title>{data.title}</Title>
+          <Title>{joinData.title}</Title>
         </CreateRoom>
       </Container>
       <div className="main-wrap-lowernavbar">
@@ -91,7 +124,7 @@ const Myroom = () => {
     </>
   );
 };
-export default Myroom;
+export default MyRoom;
 
 const Container = styled.div`
   display: flex;
@@ -108,15 +141,10 @@ const Title = styled.div`
 `;
 
 const Minibanner = styled.div`
-  width: 100%;
-  height: 126px;
-  background: #e2e2e2;
-  margin-top: 15px;
-  p {
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-  }
+  height: 153px;
+  background-image: url(${MiniBanner});
+  background-size: contain;
+  font-size: 19px;
 `;
 
 const CreateRoom = styled.div`
@@ -139,7 +167,7 @@ const BorderLine = styled.div`
 const Post = styled.div`
   width: 439px;
   height: 167px;
-  background-color: #d9d9d9;
+  background-color:  #EAF5D3;
   border-radius: 12px;
   border: none;
   overflow: hidden;
@@ -156,13 +184,13 @@ const Post = styled.div`
     margin-top: 14px;
     display: flex;
     flex-direction: row;
-  }
-  p {
-    margin-left: 4px;
-    font-size: 17px;
-  }
-  span {
-    margin: 0;
-    font-size: 24px;
+    p {
+      margin-left: 4px;
+      font-size: 17px;
+    }
+    span {
+      margin: 0;
+      font-size: 24px;
+    }
   }
 `;

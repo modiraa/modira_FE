@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import DaumPostcodeEmbed from "react-daum-postcode";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const Inputaddress = () => {
+const InputAddress = () => {
   const navigate = useNavigate();
   const handleComplete = (data) => {
     console.log(data);
@@ -44,7 +44,7 @@ const Inputaddress = () => {
   );
 };
 
-export default Inputaddress;
+export default InputAddress;
 
 const Arrow = styled.div`
   display: flex;

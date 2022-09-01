@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
-import enterimg from "../image/enter.jpg";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -24,11 +23,10 @@ const Enter = () => {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <img src={enterimg} />
-        </SwiperSlide>
-        <SwiperSlide><img src={enterimg} /></SwiperSlide>
-        <SwiperSlide><img src={enterimg} /></SwiperSlide>
+        <SwiperSlide />
+        <SwiperSlide />
+        <SwiperSlide />
+        <SwiperSlide />
       </Swiper>
     </Container>
   );
