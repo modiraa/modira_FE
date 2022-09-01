@@ -1,6 +1,7 @@
 import React from "react";
 import ReactModal from "react-modal";
 import "../css(subin)/MyModal.css";
+import likeimg from"../image/likeaandhate.png"
 
 const MyModal = ({ isOpen, handleClickCancel }) => {
   const style = {
@@ -25,21 +26,21 @@ const MyModal = ({ isOpen, handleClickCancel }) => {
       outline: "none",
       padding: "0px",
       width: "525px",
-      height: "341px",
+      height: "376px",
     },
   };
 
   return (
     <ReactModal isOpen={isOpen} style={style}>
       <div className="mymodal-close-icon">
-        <span className="material-symbols-outlined" onClick={handleClickCancel}>
+        <span className="material-symbols-outlined" onClick={handleClickCancel} style={{fontSize:"23px"}}>
           close
         </span>
       </div>
 
       <div className="mymodal-firsttext">모임에서 만난 친구들은 어땠나요?</div>
-      <div className="mymodal-picture-icon">
-        <span className="material-symbols-outlined">image</span>
+      <div className="mymodal-picture-location">
+        <img src={likeimg} className="mymodal-picture"></img>
       </div>
 
       <div className="mymodal-secondtext-location">

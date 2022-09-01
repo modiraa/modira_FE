@@ -1,0 +1,22 @@
+.userlist-wrap {
+  width: 363px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  margin-left: 41px;
+  margin-top: 6px;
+}
+.userlist-profile {
+  width: 48px;
+  height: 48px;
+}
+.userlist-nick {
+  height: 26px;
+  font-family: "AppleSDGothicNeoB00";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 26px;
+margin-left: 25px;
+  color: #000000;
+}
