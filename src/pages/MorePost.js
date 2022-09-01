@@ -14,13 +14,11 @@ console.log(test,"test확인")
   const [morePostData,setMorePostData] = useState([]);
   const [lastId,setLastId] = useState();
 
-
-
   const category = location.state;
   // console.log(category);
 
   const obsRef = useRef(null); //observer Element
-  const preventRef = useRef(true); //옵저버 중복 실행 방지
+  const preventRef = useRef(false); //옵저버 중복 실행 방지
   const [load, setLoad] = useState(false); //로딩 스피너
 
   // console.log(obsRef.current)
@@ -48,6 +46,7 @@ console.log(test,"test확인")
 
   const obsHandler = (entries) => {
     const target = entries[0];
+    console.log(entries);
     if (target.isIntersecting && preventRef.current) {
       preventRef.current = false;
 
@@ -59,9 +58,10 @@ console.log(test,"test확인")
   // console.log(lastId)
 
   const loadMorePost = useCallback(async () => {
+    console.log('나와라')
     if (category == "최근생성모임") {
       // console.log('최근생성모임 불러오기')
-      setLoad(true)
+      // setLoad(true)
       let firsturl="http://3.34.129.164/api/post"
       let commonurl=`http://3.34.129.164/api/post?lastId=${lastId}`
       let urlAX=""
@@ -183,6 +183,9 @@ console.log(test,"test확인")
           )
         })}
       {/* {morePostData!=[]&&<div ref={obsRef}>안녕</div>} */}
+
+
+      {/* <div className='hide-obs'></div> */}
       <div ref={obsRef}>안녕</div>
      
       </div>
@@ -190,4 +193,5 @@ console.log(test,"test확인")
     
   )
 }
-export default MorePost
+
+export default MorePost;
