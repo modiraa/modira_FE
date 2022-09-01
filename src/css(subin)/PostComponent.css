@@ -12,11 +12,11 @@
   background-size: cover;
   display: flex;
 }
-.postcomponent-resraint{
+.postcomponent-resraint {
   width: 73px;
   height: 28px;
-  
-  background: #787373;
+
+  background: #ffbb31;
   border-radius: 7px;
   display: flex;
   justify-content: center;
@@ -24,23 +24,21 @@
   margin-bottom: 7px;
 }
 
+.postcomponent-resraint-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
 
-.postcomponent-resraint-text{
-  font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 22px;
-/* identical to box height */
-
-
-color: #FFFFFF;
+  color: #ffffff;
 }
 .postcomponent-status {
   margin-top: 23px;
-  
-  height: 19px;
 
+  height: 19px;
+  color: #ffbb31;
   /* font-family: "Inter"; */
   /* font-style: normal; */
   font-weight: 500;
@@ -60,33 +58,29 @@ color: #FFFFFF;
 
   color: #000000;
 }
-.wrap-postcomponent-dayAndperson{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 18px;
-    margin-top: 2px;
-   
+.wrap-postcomponent-dayAndperson {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 18px;
+  margin-top: 2px;
 }
 
-.postcomponent-day{
-height: 18px;
-font-weight: 400;
-font-size: 15px;
-line-height: 18px;
-color: #9A9A9A;
-margin-left: 3px;
-margin-right: 21px;
+.postcomponent-day {
+  height: 18px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #9a9a9a;
+  margin-left: 3px;
+  margin-right: 21px;
 }
-.postcomponent-person{
- 
-    
-    /* font-family: 'Inter';
+.postcomponent-person {
+  /* font-family: 'Inter';
     font-style: normal; */
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
-    
-    color: #9A9A9A;
-   
-    }
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+
+  color: #9a9a9a;
+}

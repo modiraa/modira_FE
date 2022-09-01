@@ -49,8 +49,19 @@ const MessageInput = ({ setSendMessage, sendMessageFN, sendMessage }) => {
         ref={refInput}
       />
       <div className="chat-input-location-icon">
-        <div className="chat-input-incon-circle" onClick={sendMessageFN}>
-          <span class="material-symbols-outlined" style={{fontSize:"23px",color:"white"}}>arrow_upward</span>
+        <div
+          className="chat-input-incon-circle"
+          onClick={() => {
+            sendMessageFN();
+            refInput.current.value = "";
+          }}
+        >
+          <span
+            class="material-symbols-outlined"
+            style={{ fontSize: "23px", color: "white" }}
+          >
+            arrow_upward
+          </span>
         </div>
       </div>
       {/* <button onClick={sendMessageFN}>메시지보내기</button> */}

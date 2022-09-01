@@ -4,6 +4,7 @@ import PostComponent from "./PostComponent";
 import "../css(subin)/PostCollection.css";
 import ScrollContainer from "react-indiana-drag-scroll";
 import ReactDOM from "react-dom";
+import PostSeeMorePost from "./PostSeeMorePost";
 
 const PostCollection = ({ postAll, }) => {
 
@@ -33,6 +34,10 @@ const PostCollection = ({ postAll, }) => {
             <div style={{ marginRight: "27px" }}>
               <PostComponent postAll={postAll[6]}  />
               <PostComponent postAll={postAll[7]}  />
+            </div>
+            <div style={{ marginRight: "27px" }}>
+             <PostSeeMorePost width={"261px"} height={"221px"}/>
+             
             </div>
           </div>
         </ScrollContainer>
