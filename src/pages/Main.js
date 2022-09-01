@@ -8,12 +8,13 @@ import PostCollectionStatus from "../components/PostCollectionStatus";
 import MenuIconBunch from "../components/MenuIconBunch";
 import LowerNavbar from "../components/LowerNavbar";
 import { useNavigate } from "react-router-dom";
+import MainBanner from "../components/MainBanner";
 
 const Main = () => {
   const [postAll, setPostAll] = React.useState(null);
   const [postDutchPay, setPostDutchPay] = React.useState(null);
   const [postGoldenBell, setPostGoldenBell] = React.useState(null);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   // kakao/naver 인가 뽑아오기 (백엔드에 보낼 인가코드)
   let code = new URL(window.location.href).searchParams.get("code");
   console.log(code);
@@ -46,17 +47,13 @@ const Main = () => {
     <div>
       <div className="wrap-main">
         <Navbar />
-        <div className="main-explain">
-          <div className="main-explain-button">
-            <div onClick={()=>{navigate("/enter")}}>모디라 소개 바로가기</div>
-          </div>
-        </div>
+        <MainBanner />
         <div style={{ marginTop: "36px", marginLeft: "24px" }}>
           <PostCollection postAll={postAll} />
         </div>
         <div style={{ marginTop: "11px" }}>
           <PostCollectionStatus
-            titleCollection={"공짜밥! 골든벨 모임"}
+            titleCollection={"골든벨 모임"}
             postStatus={postGoldenBell}
             morepostType={"골든벨"}
           />
@@ -75,14 +72,14 @@ const Main = () => {
 
         <div style={{ marginTop: "59px" }}>
           <PostCollectionStatus
-            titleCollection={"무조건 N빵 모임"}
+            titleCollection={"N빵 모임"}
             postStatus={postDutchPay}
             morepostType={"n빵"}
           />
         </div>
         <div style={{ height: "125px" }}></div>
       </div>
-      
+
       <div className="main-wrap-lowernavbar">
         <LowerNavbar locationIndicator={"main"} />
       </div>

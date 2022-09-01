@@ -3,6 +3,7 @@ import MainPostTItle from "./MainPostTItle";
 import PostComponentStatus from "./PostComponentStatus";
 import "../css(subin)/postcolloctionstatus.css";
 import ScrollContainer from "react-indiana-drag-scroll";
+import PostSeeMorePostStatus from "./PostSeeMorePostStatus";
 
 const PostCollectionStatus = ({
   titleCollection,
@@ -21,10 +22,14 @@ const PostCollectionStatus = ({
         <ScrollContainer className="scroll-container" horizontal={true}>
           <div className="postcollectionstatus-wrap-postcomponents">
             {postStatus?.map((v, i) => (
-              <div key={i} style={{ marginRight: "50px" }}>
+              <div key={i} style={{ marginRight: "20px" }}>
                 <PostComponentStatus poststatus={v} />
               </div>
             ))}
+            <div>
+            <PostSeeMorePostStatus/>
+            </div>
+           
           </div>
         </ScrollContainer>
       </div>

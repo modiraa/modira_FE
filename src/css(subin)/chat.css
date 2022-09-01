@@ -82,7 +82,7 @@
 }
 
 .chat-message-wrap-text {
-  height: 34px;
+  min-height: 34px;
   background-color: #ffbb31;
   margin-left: 23px;
   margin-right: 23px;
@@ -102,6 +102,8 @@
   line-height: 26px;
   text-align: right;
   color: #ffffff;
+  max-width: 150px;
+  word-break: break-all;
 }
 .chat-container-message-samemessage-mymessage {
   display: flex;
