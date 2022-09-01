@@ -231,6 +231,7 @@ const Img = styled.img`
   width: 77px;
   height: 77px;
   border-radius: 10px;
+
 `;
 
 const UserInfo = styled.div`

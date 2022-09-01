@@ -26,7 +26,7 @@ const MyRoom = () => {
   const getPost = async () => {
     const ACCESS_TOKEN = sessionStorage.getItem("token");
     console.log(ACCESS_TOKEN);
-
+//생성한 모임
     await axios
       .get("http://3.34.129.164/api/myposts", {
         headers: {
@@ -40,8 +40,9 @@ const MyRoom = () => {
       .catch((error) => {
         console.log("에러", error);
       });
-
+//참여한 모임
     await axios
+    
       .get("http://3.34.129.164/api/myjoin", {
         headers: {
           Authorization: ACCESS_TOKEN,
@@ -59,6 +60,19 @@ const MyRoom = () => {
     getPost();
   }, []);
 
+
+// //모임 삭제
+//   const removePost = async () => {
+//     // const ACCESS_TOKEN = sessionStorage.getItem("token");
+//     // console.log(ACCESS_TOKEN);
+//     await axios 
+//       .delete(`http://3.34.129.164/api/post/${postId}`)
+//       .then((response) => {
+//         console.log("삭제");
+//       })
+//       .catch((error) => {
+//         console.log("에러", error);
+//       });}
   return (
     <>
       <Navbar />
@@ -79,7 +93,11 @@ const MyRoom = () => {
               navigate("/postdetail:postId");
             }}
           >
-            <div>
+            <div  
+            // onClick={() => {
+            //   navigate("/postdetail:postId");
+            // }}
+            >
               <span className="material-symbols-outlined">delete</span>
               <p>게시물 삭제</p>
             </div>
@@ -127,13 +145,6 @@ const Minibanner = styled.div`
   background-image: url(${MiniBanner});
   background-size: contain;
   font-size: 19px;
-  span {
-    position: absolute;
-    width: 300px;
-    height: 65px;
-    left: 230px;
-    top: 125px;
-  }
 `;
 
 const CreateRoom = styled.div`
@@ -156,7 +167,7 @@ const BorderLine = styled.div`
 const Post = styled.div`
   width: 439px;
   height: 167px;
-  background-color: #d9d9d9;
+  background-color:  #EAF5D3;
   border-radius: 12px;
   border: none;
   overflow: hidden;
@@ -173,13 +184,13 @@ const Post = styled.div`
     margin-top: 14px;
     display: flex;
     flex-direction: row;
-  }
-  p {
-    margin-left: 4px;
-    font-size: 17px;
-  }
-  span {
-    margin: 0;
-    font-size: 24px;
+    p {
+      margin-left: 4px;
+      font-size: 17px;
+    }
+    span {
+      margin: 0;
+      font-size: 24px;
+    }
   }
 `;

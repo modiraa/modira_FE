@@ -33,8 +33,7 @@ const Register = () => {
 
   const PreviewProfileImg = (e) => {
     const correctForm = /(.*?)\.(jpg|jpeg|png|gif|bmp)$/;
-    if (e.target.files[0]?.size > 3 * 1024 * 1024) {
-      alert("파일 사이즈는 3MB까지만 가능합니다.");
+    if (e.target.files[0]?.size > 3 * 1024 * 1024) {        
       return;
     } else if (!e.target?.files[0]?.name.match(correctForm)) {
       alert("이미지 파일만 가능합니다.");
@@ -46,7 +45,7 @@ const Register = () => {
     console.log(" 이미지확인", URL.createObjectURL(e.target.files[0]));
   };
   const ImageUpload = () => {
-    userProfileImageRef.current.click();
+    userProfileImageRef.current.click();  
   };
 
   // 클릭시 state에 저장한다. 여자:0, 남자:1
@@ -287,8 +286,8 @@ const Input = styled.input`
 const Imgset = styled.div`
   border-radius: 50px;
   overflow: hidden;
-  width: 108px;
-  height: 108px;
+  width: 110px;
+  height: 110px;
   margin-top: 53px;
 `;
 
@@ -306,7 +305,7 @@ const ButtonImg = styled.div`
   justify-content: center;
   display: flex;
   align-items: center;
-  font-weight: 800;
+  font-weight: bold;
   font-size: 18px;
   margin: 18px 0 20px 0;
   border-radius: 37px;
