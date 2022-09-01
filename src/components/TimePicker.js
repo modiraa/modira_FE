@@ -50,7 +50,7 @@ export default function TimePicker({controlledSwiperAmPm,setControlledSwiperAmPm
                 <Picker slideList={minuteSlideList} controlledSwiper={controlledSwiperMin} setControlledSwiper={setControlledSwiperMin} />
             </div>
 
-            <div className="vizor"></div>
+            <div className="vizor" style={{backgroundColor:"#FFBB31"}}></div>
 
 
 

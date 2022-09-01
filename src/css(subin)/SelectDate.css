@@ -19,7 +19,7 @@
     height: 332px;
     padding-top: 85px;
     box-sizing: border-box;
-    /* background-color: rgb(247, 136, 136); */
+    background-color: #FFF9EC;
 }
 
 .select-date-count>p{
@@ -48,7 +48,16 @@
 }
 
 .select-date-value>h3{
+    height: 37px;
+    padding-right: 7px;
+    padding-left: 12px;
+    margin-right: 8px;
+    box-sizing: border-box;
+    background-color: #ffff;
+    border-radius: 5px;
     font-size: 28px;
+    letter-spacing: 4px;
+    color: #FFBB31;
 }
 .select-date-value>h5{
     font-size: 18px;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../css(subin)/SelectMenu.css';
 import MenuPicker from '../components/MenuPicker';
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,8 +15,6 @@ const SelectMenu = () => {
 
     const navigate = useNavigate();
 
-    const storeSelect = useSelector((state)=>state)
-
     const clickMenu = () => {
         dispatch(selectWrite({menu:controlledSwiperMenu}))
         navigate("/selectpayment")
@@ -24,10 +22,9 @@ const SelectMenu = () => {
 
     return (
         <div className='select_menu'>
-            <button onClick={()=>{console.log(storeSelect)}}>스토어확인</button>
             <div className='select_menu_top'>
                 <div className='select_menu_count'>
-                    <p>5/6</p>
+                    <p>5 / 6</p>
                 </div>
                 <div className='select_menu_title'>
                     <h2>함께 드실 음식은<br/>무엇인가요?</h2>

@@ -135,7 +135,7 @@ const Write = () => {
             </div>
           </div>
           <div className='write_send_btn'>
-            <button onClick={WriteSend}>등록완료</button>
+            <button onClick={WriteSend}>작성완료</button>
           </div>
         </div>
       </div>

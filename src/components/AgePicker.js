@@ -50,7 +50,7 @@ export default function AgePicker({controlledSwiperAgeMin,setControlledSwiperAge
                 <Picker slideList={ageMaxSlideList} controlledSwiper={controlledSwiperAgeMax} setControlledSwiper={setControlledSwipeAgerMax} />
             </div>
 
-            <div className="vizor"></div>
+            <div className="vizor" style={{backgroundColor:"#FFBB31"}}></div>
 
 
 
