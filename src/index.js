@@ -15,9 +15,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 ReactModal.setAppElement(document.getElementById('root'));
 root.render(
   <Provider store={Store}>
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+ <BrowserRouter>
+ <App />
+ </BrowserRouter>
+   
+ 
   </Provider>
 );
 
