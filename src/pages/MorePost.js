@@ -50,8 +50,7 @@ console.log(test,"test확인")
     const target = entries[0];
     if (target.isIntersecting && preventRef.current) {
       preventRef.current = false;
-  
-     
+
       console.log("옵저버발션",test)
         setLastId(test)
    

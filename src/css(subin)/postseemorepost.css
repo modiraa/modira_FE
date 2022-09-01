@@ -1,0 +1,23 @@
+.wrap-postseemorepost {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  width: 261px;
+  height: 221px;
+}
+.postseemorepost-location-icon {
+  margin-top: 84px;
+  width: 29px;
+  height: 29px;
+}
+.postseemorepost-text {
+  font-family: "AppleSDGothicNeoB00";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 29px;
+  color: #ffc034;
+  margin-top: 17px;
+}

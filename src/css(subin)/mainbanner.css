@@ -1,0 +1,35 @@
+.wrap-mainbanner {
+  width: 525px;
+  height: 181px;
+  background: url("../image/main_배너.png") center no-repeat;
+  background-size: cover;
+}
+.mainbanner-wrap-logoAndtext {
+  margin-left: 44px;
+  margin-top: 30px;
+}
+.mainbanner-logo {
+}
+.mainbanner-text {
+  margin-top: 13px;
+  font-family: "AppleSDGothicNeoM00";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 30px;
+
+  letter-spacing: -0.03em;
+}
+.mainbanner-link-text {
+  margin-top: 15px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #ffbb31;
+}
+
+.font-color {
+  color: #ffbb31;
+}

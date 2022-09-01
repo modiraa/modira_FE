@@ -2,28 +2,23 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../css(subin)/PostComponentStatus.css";
 
-const PostComponentStatus = ({poststatus}) => {
-  const refClick=React.useRef();
-const navigate=useNavigate();
+const PostComponentStatus = ({ poststatus }) => {
+  const refClick = React.useRef();
+  const navigate = useNavigate();
   function eventHandler(event) {
-    console.log(event.type,"머가되지?")
-    navigate(`/postdetail${poststatus.postId}`)
+    console.log(event.type, "머가되지?");
+    navigate(`/postdetail${poststatus.postId}`);
   }
-  React.useEffect(()=>{
-    
-   
-    refClick.current.addEventListener('click',eventHandler )
+  React.useEffect(() => {
+    refClick.current.addEventListener("click", eventHandler);
 
-   return()=>{
-     refClick.current?.removeEventListener('click',eventHandler)
-   }
-   
- },[])
+    return () => {
+      refClick.current?.removeEventListener("click", eventHandler);
+    };
+  }, []);
   var sectionStyle = {
-
-    backgroundImage: "url(" +  poststatus.menuForImage  + ")"
+    backgroundImage: "url(" + poststatus.menuForImage + ")",
   };
-
 
   // console.log(poststatus)
   return (
@@ -53,7 +48,9 @@ const navigate=useNavigate();
         >
           person_outline
         </span>
-        <div className="postcomponentstatus-person">{poststatus?.numberOfParticipant}명 참여</div>
+        <div className="postcomponentstatus-person">
+          {poststatus?.numberOfParticipant}명 참여
+        </div>
       </div>
     </div>
   );

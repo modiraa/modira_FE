@@ -1,12 +1,12 @@
 .wrap-postcomponentstatus{
-    height: 311px;
-    width: 399px;
+    height: 359px;
+    width: 340px;
     
 }
 
 .postcomponentstatus-backimg{
-    width: 399px;
-    height: 246px;
+    width: 340px;
+    height: 287px;
     border-radius: 12px;
     display: flex;
     background-position: center;
@@ -49,7 +49,7 @@ line-height: 24px;
 color: #000000;
 }
 .wrap-postcomponentstatus-dayAndperson{
-    margin-top: 2px;
+    margin-top: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
