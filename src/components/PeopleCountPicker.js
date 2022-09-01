@@ -29,7 +29,7 @@ export default function PeopleCountPicker({controlledSwiperPeopleCount,setContro
                 <Picker slideList={PeopleCountList} controlledSwiper={controlledSwiperPeopleCount} setControlledSwiper={setControlledSwiperPeopleCount} />
             </div>
 
-            <div className="vizor"></div>
+            <div className="vizor" style={{backgroundColor:"#FFBB31"}}></div>
 
 
 

@@ -15,8 +15,6 @@ const SelectPeopleCount = () => {
 
     const navigate = useNavigate();
 
-    const storeSelect = useSelector((state)=>state)
-
     const clickPeopleCount = () => {
         dispatch(selectWrite({numberOfPeople:controlledSwiperPeopleCount}))
         navigate("/selectmenu")
@@ -24,10 +22,9 @@ const SelectPeopleCount = () => {
 
     return (
         <div className='select_people_count'>
-            <button onClick={()=>{console.log(storeSelect)}}>스토어확인</button>
             <div className='select_people_count_top'>
                 <div className='select_people_count_count'>
-                    <p>4/6</p>
+                    <p>4 / 6</p>
                 </div>
                 <div className='select_people_count_title'>
                     <h2>몇명이 참여하는<br/>모임인가요?</h2>

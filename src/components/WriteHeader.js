@@ -17,9 +17,6 @@ const WriteHeader = () => {
         <div className='write_top_title'>
           <h1>게시글 작성</h1>
         </div>
-        <div className='send_btn' onClick={()=>{navigate("/myroom")}}>
-          <h1>완료</h1>
-        </div>
       </div>
     </div>
   )

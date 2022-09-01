@@ -29,7 +29,7 @@ export default function MenuPicker({controlledSwiperMenu,setControlledSwiperMenu
                 <Picker slideList={menuList} controlledSwiper={controlledSwiperMenu} setControlledSwiper={setControlledSwiperMenu} />
             </div>
 
-            <div className="vizor"></div>
+            <div className="vizor" style={{backgroundColor:"#FFBB31"}}></div>
 
 
 

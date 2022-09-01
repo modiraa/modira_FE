@@ -22,8 +22,7 @@
     height: 332px;
     padding-top: 85px;
     box-sizing: border-box;
-    border-radius: 0 0 20px 20px;
-    background-color: rgb(255, 255, 255);
+    background-color: #FFF9EC;
 }
 
 .select_gps_count>p{
@@ -45,14 +44,21 @@
 
 .select_gps_value{
     display: flex;
+    width: 440px;
+    height: 37px;
     margin-top: 23px;
     margin-left: 43px;
     float: left;
-    /* background-color: aquamarine; */
+    padding-top: 6px;
+    padding-left: 12px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
 }
 
 .select_gps_value>.material-icons-outlined{
     font-size: 26px;
+    color: #FFBB31;
 }
 
 .select_gps_value>p{
@@ -60,6 +66,8 @@
     margin-left: 17.33px;
     font-size: 19px;
     font-weight: 400;
+    height: 37px;
+    color: #FFBB31;
 }
 
 .select_gps_bottom{
@@ -71,7 +79,6 @@
 
     width: 100%;
     height: 114px;
-    /* background-color: rgb(95, 65, 65); */
 }
 
 .select_gps_bottom>.material-icons-outlined{
@@ -80,6 +87,7 @@
     position: absolute;
     top: 27%;
     left:10.5%;
+    color: #BBB8CF;
 }
 
 .search-bg{
@@ -87,7 +95,7 @@
     height: 144px;
     display: flex;
     align-items: flex-end;
-    background-color: gray;
+    background-color: #FFBB31;
     border-radius:20px 20px 0 0;
 }
 

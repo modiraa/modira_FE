@@ -15,8 +15,6 @@ const SelectTime = () => {
 
     const navigate = useNavigate();
 
-    const storeSelect = useSelector((state)=>state)
-
     const clickTime = () => {
         dispatch(selectWrite({time:controlledSwiperAmPm+" "+controlledSwiperHour+" "+controlledSwiperMin}))
         navigate("/selectgps")
@@ -26,13 +24,12 @@ const SelectTime = () => {
 
     return (
         <div className='select_time'>
-            <button onClick={()=>{console.log(storeSelect)}}>스토어확인</button>
             <div className='select_time_top'>
                 <div className='select_time_count'>
-                    <p>3/6</p>
+                    <p>2 / 6</p>
                 </div>
                 <div className='select_time_title'>
-                    <h2>모임을 원하는<br/>시간을 알려주세요</h2>
+                    <h2>원하는 모임의<br/>시간을 알려주세요</h2>
                 </div>
                 <div className='select_time_value'>
                     <h3>{controlledSwiperAmPm}{controlledSwiperHour}{controlledSwiperMin}</h3>

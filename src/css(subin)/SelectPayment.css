@@ -19,7 +19,7 @@
     height: 332px;
     padding-top: 85px;
     box-sizing: border-box;
-    /* background-color: rgb(247, 136, 136); */
+    background-color: #FFF9EC;
 }
 
 .select_payment_count>p{
@@ -48,7 +48,16 @@
 }
 
 .select_payment_value>h3{
+    height: 37px;
+    padding-right: 7px;
+    padding-left: 12px;
+    margin-right: 8px;
+    box-sizing: border-box;
+    background-color: #ffff;
+    border-radius: 5px;
     font-size: 28px;
+    /* letter-spacing: 4px; */
+    color: #FFBB31;
 }
 .select_payment_value>h5{
     font-size: 18px;
@@ -82,12 +91,14 @@
 .payment-arrow-back-ios>.material-symbols-outlined{
     margin-left: 42.69px;
     font-size: 28px;
+    color: #BBB8CF;
 }
 
 .prev>h4{
     font-size: 20px;
     margin-top: 2px;
     margin-left: 11px;
+    color: #BBB8CF;
 }
 
 .next{

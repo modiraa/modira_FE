@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../css(subin)/SelectAge.css';
 import AgePicker from '../components/AgePicker';
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,8 +15,6 @@ const SelectAge = () => {
 
     const navigate = useNavigate();
 
-    const storeSelect = useSelector((state)=>state)
-
     const clickAge = () => {
         dispatch(selectWrite({age:controlledSwiperAgeMin+"~"+controlledSwiperAgeMax}))
         navigate("/write")
@@ -24,7 +22,6 @@ const SelectAge = () => {
 
     return (
         <div className='select_age'>
-            <button onClick={()=>{console.log(storeSelect)}}>스토어확인</button>
             <div className='select_age_top'>
                 <div className='write_page_count'>
                     <p>입장조건 추가</p>
