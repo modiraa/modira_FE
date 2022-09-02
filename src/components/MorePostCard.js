@@ -1,10 +1,13 @@
 import React from 'react'
 
 const MorePostCard = (props) => {
-  
+
   return (
     <div className="more-post-card">
           <div className="card-img">
+            <div>
+              <img src={props.item?.menuForImage}/>
+            </div>
             <div className='more-post-hashtag'>
               <div className="more-post-resraint">
                 <span className="more-post-resraint-text"># 20 대</span>
@@ -25,7 +28,7 @@ const MorePostCard = (props) => {
               <span className="material-icons-outlined">
                 calendar_today
               </span>
-              <p>{props.item?.date}</p>
+              <p>{props.item?.date}</p>6
             </div>
             <div className="card-people-count">
               <span className="material-icons-outlined">
