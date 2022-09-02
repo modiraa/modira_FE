@@ -7,24 +7,12 @@ body {
   height: 100%;
 }
 
-body {
-  background: #fff;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
-}
-
 .swiper {
   width: 100%;
   height: 100%;
 }
 
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,8 +28,12 @@ body {
   align-items: center;
 }
 .swiper-pagination-bullet {
+
   background-color: #ffbb31;
   margin: 0 10px;
+  width: 13px;
+  height: 13px;
+
 }
 .swiper-button-prev {
   position: absolute;

@@ -11,14 +11,14 @@ const MyRoom = () => {
 
   const [myData, setMyData] = useState({
     postId: "id",
-    title: "Lorem ipsum dolor",
-    menuForImage: "치킨이미지",
-    menu: "치킨",
+    title: "Lorem ipsum dolor1",
+    menuForImage: "피자이미지",
+    menu: "피자",
   });
 
   const [joinData, setJoinData] = useState({
     postId: "id",
-    title: "Lorem ipsum dolor",
+    title: "Lorem ipsum dolor2",
     menuForImage: "치킨이미지",
     menu: "치킨",
   });
@@ -26,7 +26,7 @@ const MyRoom = () => {
   const getPost = async () => {
     const ACCESS_TOKEN = sessionStorage.getItem("token");
     console.log(ACCESS_TOKEN);
-//생성한 모임
+    //생성한 모임
     await axios
       .get("http://3.34.129.164/api/myposts", {
         headers: {
@@ -40,9 +40,9 @@ const MyRoom = () => {
       .catch((error) => {
         console.log("에러", error);
       });
-//참여한 모임
+    //참여한 모임
     await axios
-    
+
       .get("http://3.34.129.164/api/myjoin", {
         headers: {
           Authorization: ACCESS_TOKEN,
@@ -60,19 +60,18 @@ const MyRoom = () => {
     getPost();
   }, []);
 
-
-// //모임 삭제
-//   const removePost = async () => {
-//     // const ACCESS_TOKEN = sessionStorage.getItem("token");
-//     // console.log(ACCESS_TOKEN);
-//     await axios 
-//       .delete(`http://3.34.129.164/api/post/${postId}`)
-//       .then((response) => {
-//         console.log("삭제");
-//       })
-//       .catch((error) => {
-//         console.log("에러", error);
-//       });}
+  // //모임 삭제
+  //   const removePost = async () => {
+  //     // const ACCESS_TOKEN = sessionStorage.getItem("token");
+  //     // console.log(ACCESS_TOKEN);
+  //     await axios
+  //       .delete(`http://3.34.129.164/api/post/${postId}`)
+  //       .then((response) => {
+  //         console.log("삭제");
+  //       })
+  //       .catch((error) => {
+  //         console.log("에러", error);
+  //       });}
   return (
     <>
       <Navbar />
@@ -88,32 +87,35 @@ const MyRoom = () => {
         </Minibanner>
         <CreateRoom>
           <p>생성한 모임</p>
-          <Post
-            onClick={() => {
-              navigate("/postdetail:postId");
-            }}
-          >
-            <div  
-            // onClick={() => {
-            //   navigate("/postdetail:postId");
-            // }}
-            >
-              <span className="material-symbols-outlined">delete</span>
-              <p>게시물 삭제</p>
-            </div>
-            <img src={myData.menuForImage} />
+          <Post>
+            {myData ? (
+              <div>
+                <span className="material-symbols-outlined">add_circle</span>
+                <div>새 모임 만들러 가기</div>
+              </div>
+            ) : (
+              <div>
+                <img src={myData.menuForImage} />
+                <span className="material-symbols-outlined">delete</span>
+                <p>게시물 삭제</p>
+              </div>
+            )}
           </Post>
           <Title>{myData.title}</Title>
         </CreateRoom>
         <BorderLine />
         <CreateRoom>
           <p>신청한 모임</p>
-          <Post
-            onClick={() => {
-              navigate("/postdetail:postId");
-            }}
-          >
-            <img src={joinData.menuForImage} />
+          <Post>
+            {myData ? (
+              <div>새 모임 만들러 가기</div>
+            ) : (
+              <div>
+                <img src={joinData.menuForImage} />
+                <span className="material-symbols-outlined">delete</span>
+                <p>게시물 삭제</p>
+              </div>
+            )}
           </Post>
           <Title>{joinData.title}</Title>
         </CreateRoom>
@@ -167,7 +169,7 @@ const BorderLine = styled.div`
 const Post = styled.div`
   width: 439px;
   height: 167px;
-  background-color:  #EAF5D3;
+  background-color: #eaf5d3;
   border-radius: 12px;
   border: none;
   overflow: hidden;
@@ -193,4 +195,5 @@ const Post = styled.div`
       font-size: 24px;
     }
   }
+
 `;
