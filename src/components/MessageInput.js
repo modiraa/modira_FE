@@ -57,7 +57,7 @@ const MessageInput = ({ setSendMessage, sendMessageFN, sendMessage }) => {
           }}
         >
           <span
-            class="material-symbols-outlined"
+            className="material-symbols-outlined"
             style={{ fontSize: "23px", color: "white" }}
           >
             arrow_upward

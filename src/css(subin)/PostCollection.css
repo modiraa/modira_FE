@@ -1,9 +1,12 @@
 .postcollection-wrap-postcomponents{
     display: flex;
-    /* overflow: auto; */
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 776px;
 
-    
 }
+
+
 .postcollection-wrap-postcomponents::-webkit-scrollbar{
     display: none;
 }

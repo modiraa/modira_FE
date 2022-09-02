@@ -3,23 +3,26 @@ import styled from "styled-components";
 import axios from "axios";
 import "../css(subin)/webviewleft.css";
 import"../App.css"
+import { useNavigate } from "react-router-dom";
 
 const WebViewLeft = () => {
   const refInputSearch = React.useRef();
+  const navigate=useNavigate();
   const searchAddressAX = async () => {
     const keyword = refInputSearch.current.value;
-    await axios
-      .get(`http://3.34.129.164/api/search/post?keyword=${keyword}`)
-      .then((response) => {
-        console.log("성공", response);
-      })
-      .catch((error) => {
-        console.log("에러", error);
-      });
+    navigate("/morepost",{state:{keyword:keyword}})
+    // await axios
+    //   .get(`http://3.34.129.164/api/search/post?keyword=${keyword}`)
+    //   .then((response) => {
+    //     console.log("성공", response);
+    //   })
+    //   .catch((error) => {
+    //     console.log("에러", error);
+    //   });
   };
   return (
     <div className="wrap-webview">
-      <div className="webview-logo">LOGO</div>
+      <div className="webview-logo"></div>
       <div className="webview-description">
         이제 혼밥하지 마세요!
         <br />
