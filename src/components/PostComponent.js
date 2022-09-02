@@ -17,7 +17,7 @@ const PostComponent = ({ postAll }) => {
     };
   }, []);
   var sectionStyle = {
-    backgroundImage: "url(" + postAll.menuForImage + ")",
+    backgroundImage: "url(" + postAll?.menuForImage + ")",
   };
   if (postAll) {
     return (
