@@ -8,6 +8,12 @@
   margin-left: 44px;
   margin-top: 30px;
 }
+.mainbanner-logo{
+  width: 52px;
+  height: 13px;
+  background: url("../image/logo.png") center no-repeat;
+  background-size: cover;
+}
 .mainbanner-logo {
 }
 .mainbanner-text {

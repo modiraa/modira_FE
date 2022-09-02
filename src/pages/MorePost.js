@@ -50,7 +50,7 @@ console.log(test,"test확인")
     if (target.isIntersecting && preventRef.current) {
       preventRef.current = false;
 
-      console.log("옵저버발션",test)
+      console.log("옵저버발견",test)
         setLastId(test)
    
     }
@@ -95,11 +95,11 @@ console.log(test,"test확인")
         })
     }
 
-    if(category == "골든벨"){
+    else if(category == "골든벨"){
+      console.log('나와라 골든벨')
       console.log(`category=${category}`)
-      setLoad(true)
-      let firsturl="http://3.34.129.164/api/post"
-      let commonurl=`http://3.34.129.164/api/post?lastId=${lastId}`
+      let firsturl=`http://3.34.129.164/api/post?&category=${category}`
+      let commonurl=`http://3.34.129.164/api/post?&category=${category}lastId=${lastId}`
       let urlAX=""
       if(lastId){
         urlAX=commonurl

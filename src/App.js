@@ -5,9 +5,7 @@ import RouteList from "./components/RouteList";
 function App() {
   return (
     <div className="wrap-app">
-      <div className="app-background-first-circle">
 
-      </div>
       <div className="wrap-app-webview">
         <WebViewLeft />
       </div>

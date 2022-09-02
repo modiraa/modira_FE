@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SelectAge = () => {
 
-    const [controlledSwiperAgeMin,setControlledSwiperAgeMin] = useState('')
+    const [controlledSwiperAgeMin,setControlledSwiperAgeMin] = useState('10대')
     const [controlledSwiperTo,setControlledSwiperTo] = useState('')
     const [controlledSwiperAgeMax,setControlledSwipeAgerMax] = useState('')
 

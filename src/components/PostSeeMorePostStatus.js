@@ -4,7 +4,7 @@ const PostSeeMorePostStatus = () => {
   return (
     <div className="wrap-postseemorepoststatus">
     <div className="postseemorepoststatus-location-icon">
-      <span class="material-symbols-outlined" style={{fontSize:"39px",color:"#FFBB31"}}>add</span>
+      <span className="material-symbols-outlined" style={{fontSize:"39px",color:"#FFBB31"}}>add</span>
     </div>
 
     <div className="postseemorepoststatus-text">더보기</div>
