@@ -13,8 +13,8 @@ const initialState = {
     numberOfPeople: '',
     menu: '',
     category: '',
-    gender:'모두가능',
-    age:'모두가능'
+    gender:'모든성별',
+    age:'모든나이'
 }
 
 // Action Creators(액션 생성 함수 만들어주는 곳)

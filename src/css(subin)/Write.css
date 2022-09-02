@@ -323,6 +323,15 @@
     margin-top: 9px;
 }
 
+.write_age{
+    width: 100%;
+    height: 52px;
+    border: 2px solid #FFE9BE;
+    border-radius: 12px;
+
+    margin-top: 9px;
+}
+
 .write_gender>input{
     float: left;
     width: 20px;
@@ -335,13 +344,31 @@
     background-color: antiquewhite;
 }
 
-.write_gender>input:checked +.check-flex .check-line{
+.write_age>input{
+    float: left;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+    margin-top: 16px;
+    margin-left: 16px;
+    display: none;
+    background-color: antiquewhite;
+}
+
+.write_gender>input:checked +.check-flex-gender .check-line-gender{
     background-color: #FFBB31;
     border: none;
     position: relative;
 }
 
-.write_gender>input:checked +.check-flex .check-line::before{
+.write_age>input:checked +.check-flex-age .check-line-age{
+    background-color: #FFBB31;
+    border: none;
+    position: relative;
+}
+
+.write_gender>input:checked +.check-flex-gender .check-line-gender::after{
     content: '';
     width: 8px;
     height: 12px;
@@ -355,7 +382,27 @@
     transform: rotate(45deg);
 }
 
-.check-flex{
+.write_age>input:checked +.check-flex-age .check-line-age::before{
+    content: '';
+    width: 8px;
+    height: 12px;
+    border: 2px solid white;
+    border-left: none;
+    border-top: none;
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 4px);
+    box-sizing: border-box;
+    transform: rotate(45deg);
+}
+
+.check-flex-gender{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.check-flex-age{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -379,7 +426,16 @@
     /* background-color: aqua; */
 }
 
-.check-gender>.check-line{
+.check-gender>.check-line-gender{
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FFBB31;
+    box-sizing: border-box;
+    margin-right: 15px;
+    margin-left: 17px;
+}
+
+.check-age>.check-line-age{
     width: 20px;
     height: 20px;
     border: 2px solid #FFBB31;
@@ -394,6 +450,12 @@
     font-weight: 700;
 }
 
+.check-age>h3{
+    float: left;
+    font-size: 20px;
+    font-weight: 700;
+}
+
 .gender_btn{
     font-size: 19px;
     font-weight: 500;
@@ -403,7 +465,16 @@
     margin-right: 16px;
 }
 
-.write_age{
+.age_btn{
+    font-size: 19px;
+    font-weight: 500;
+    text-align: right;
+    float: right;
+
+    margin-right: 16px;
+}
+
+/* .write_age{
     width: 100%;
     height: 52px;
     border: 2px solid #FFE9BE;
@@ -440,7 +511,7 @@
 
     margin-top: 14px;
     margin-right: 16px;
-}
+} */
 
 .write_send_btn{
     width: 445px;
@@ -459,11 +530,5 @@
     font-size: 20px;
     font-weight: 400;
     color: white;
-}
-
-.hide-obs{
-    width: 100%;
-    height: 1200px;
-    background-color: aquamarine;
 }
 

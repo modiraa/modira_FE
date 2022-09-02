@@ -1,11 +1,12 @@
 import '../css(subin)/Write.css';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import WriteHeader from '../components/WriteHeader';
 import WriteMainSelect from '../components/WriteMainSelect';
+import { selectWrite } from '../redux/moduls/SelectWrite';
 
 const Write = () => {
 
@@ -13,34 +14,43 @@ const Write = () => {
 
   const storeSelect = useSelector((state) => state.SelectWrite)
 
+  console.log(storeSelect.gender,storeSelect.age)
+
+  const dispatch = useDispatch();
+
   // 성별 체크박스 상태관리
   let [isGenderAction, setIsGenderAction] = useState(false);
+
+  console.log(isGenderAction)
 
   // 나이 체크박스 상태관리
   let [isAgeAction, setIsAgeAction] = useState(false);
 
-  const selectGenderAge = "모두가능";
+  const selectGender = "모든성별";
+  const selectAge = "모든나이";
 
   // 성별 체크박스 상태관리
   const genderChange = () => { // 입장조건 성별
-    if (isGenderAction === false) {
-      setIsGenderAction(!isGenderAction)
-      navigate("/selectgender")
+    if(storeSelect.gender==selectGender){
+        setIsGenderAction(false)
+        navigate('/selectgender')
     }
-    else if (isGenderAction === true) (
-      setIsGenderAction(!isGenderAction)
-    )
+    if(storeSelect.gender=='여성'||storeSelect.gender=='남성'){
+       setIsGenderAction(true)
+       dispatch(selectWrite({gender:selectGender}))
+    }
   }
 
   // 입장조건 나이 체크박스 상태관리
   const ageChange = () => { // 입장조건 나이
-    if (isAgeAction === false) {
-      setIsAgeAction(!isAgeAction)
+    if (storeSelect.age==selectAge) {
+      setIsAgeAction(false)
       navigate("/selectage")
     }
-    else if (isAgeAction === true) (
-      setIsAgeAction(!isAgeAction)
-    )
+    else if (storeSelect.age!==selectAge) {
+      setIsAgeAction(true)
+      dispatch(selectWrite({age:selectAge}))
+    }
   }
 
   // 등록완료 onClick때 보낼 값들
@@ -106,18 +116,18 @@ const Write = () => {
             <h3>입장 조건 설정</h3>
           </div>
           <div className='write_gender'>
-            <input type="checkbox" id='check-box'
-              checked={storeSelect.gender == '모두가능' ? false : true}
+            <input type="checkbox" id='check-box-gender'
+              checked={storeSelect.gender == '모든성별' ? false : true}
               onChange={genderChange}
             ></input>
-            <div className='check-flex'>
-              <label className='check-gender' htmlFor='check-box'>
-                <div className='check-line'></div>
+            <div className='check-flex-gender'>
+              <label className='check-gender' htmlFor='check-box-gender'>
+                <div className='check-line-gender'></div>
                 <h3>성 별</h3>
               </label>
               <div className='gender_btn'><span>
                 {storeSelect.gender == "" ?
-                  selectGenderAge
+                  selectGender
                   :
                   storeSelect.gender
                 }
@@ -125,40 +135,19 @@ const Write = () => {
               </div>
             </div>
           </div>
-          {/* <div className='write_age'>
-            <input type="checkbox"
-              checked={storeSelect.age == '모두가능' ? false : true}
-              onChange={ageChange}
-            />
-            <div className='check-flex'>
-              <label className='check-age' htmlFor='check-box'>
-                <div className='check-line'></div>
-                <h3>나 이</h3>
-              </label>
-              <div className='age_btn'>
-                <span>
-                  {storeSelect.age == "" ?
-                    selectGenderAge
-                    :
-                    storeSelect.age
-                  }
-                </span>
-              </div>
-            </div>
-          </div> */}
           <div className='write_age'>
-            <input type="checkbox" id='check-box'
-              checked={storeSelect.age == '모두가능' ? false : true}
+            <input type="checkbox" id='check-box-age'
+              checked={storeSelect.age == '모든나이' ? false : true}
               onChange={ageChange}
             ></input>
-            <div className='check-flex'>
-              <label className='check-age' htmlFor='check-box'>
-                <div className='check-line'></div>
+            <div className='check-flex-age'>
+              <label className='check-age' htmlFor='check-box-age'>
+                <div className='check-line-age'></div>
                 <h3>나 이</h3>
               </label>
               <div className='age_btn'><span>
                 {storeSelect.age == "" ?
-                  selectGenderAge
+                  selectAge
                   :
                   storeSelect.age
                 }
