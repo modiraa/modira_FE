@@ -61,7 +61,7 @@ console.log(test,"test확인")
     console.log('나와라')
     if (category == "최근생성모임") {
       // console.log('최근생성모임 불러오기')
-      // setLoad(true)
+      setLoad(false)
       let firsturl="http://3.34.129.164/api/post"
       let commonurl=`http://3.34.129.164/api/post?lastId=${lastId}`
       let urlAX=""
@@ -99,7 +99,7 @@ console.log(test,"test확인")
       console.log('나와라 골든벨')
       console.log(`category=${category}`)
       let firsturl=`http://3.34.129.164/api/post?&category=${category}`
-      let commonurl=`http://3.34.129.164/api/post?&category=${category}lastId=${lastId}`
+      let commonurl=`http://3.34.129.164/api/post?&category=${category}&lastId=${lastId}`
       let urlAX=""
       if(lastId){
         urlAX=commonurl
@@ -111,8 +111,8 @@ console.log(test,"test확인")
       console.log(urlAX)
       await axios.get(urlAX)
         .then((res) => {
-          console.log(res.data.content[7].postId);
-          test=res.data.content[7].postId;
+          console.log(res.data.content[7]?.postId);
+          test=res.data.content[7]?.postId;
           if(res.data){
             // console.log(res.data);
             setMorePostTitle("내가 쏜다! 골든벨")
@@ -131,11 +131,12 @@ console.log(test,"test확인")
         })
     }
 
-    if(category == "n빵"){
+    else if(category == "n빵"){
+      console.log('나와라 n빵')
       console.log(`category=${category}`)
       setLoad(true)
-      let firsturl="http://3.34.129.164/api/post"
-      let commonurl=`http://3.34.129.164/api/post?lastId=${lastId}`
+      let firsturl=`http://3.34.129.164/api/post?&category=${category}`
+      let commonurl=`http://3.34.129.164/api/post?&category=${category}&lastId=${lastId}`
       let urlAX=""
       if(lastId){
         urlAX=commonurl
@@ -179,7 +180,7 @@ console.log(test,"test확인")
       <div className="more-post-Contents">
         {morePostData && morePostData.map((item, index) => {
           return (
-            <MorePostCard item={item} key={index} />
+            <MorePostCard item={item} key={index}/>
           )
         })}
       {/* {morePostData!=[]&&<div ref={obsRef}>안녕</div>} */}
