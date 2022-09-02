@@ -9,6 +9,7 @@ import MenuIconBunch from "../components/MenuIconBunch";
 import LowerNavbar from "../components/LowerNavbar";
 import { useNavigate } from "react-router-dom";
 import MainBanner from "../components/MainBanner";
+import MiniBanner from "../components/MiniBanner";
 
 const Main = () => {
   const [postAll, setPostAll] = React.useState(null);
@@ -58,17 +59,10 @@ const Main = () => {
             morepostType={"골든벨"}
           />
         </div>
-        <div
-          style={{
-            marginTop: "114px",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <MenuIconBunch />
-        </div>
 
-        <div className="main-minibanner"></div>
+        <div className="main-minibanner">
+          <MiniBanner/>
+        </div>
 
         <div style={{ marginTop: "59px" }}>
           <PostCollectionStatus
