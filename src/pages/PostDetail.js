@@ -10,7 +10,7 @@ function PostDetail() {
   const params = useParams();
 
   const [data, setData] = useState({
-    category: "N빵 모임 (모임 카테고리)",
+    category: "다같이 내자! N빵 모임",
     title: "Lorem ipsum dolor",
     date: "2022 / 6 /9",
     time: "오후 12시 00분",
@@ -26,23 +26,23 @@ function PostDetail() {
     writerAge: "20대",
     writerScore: "12",
     limitGender: "여성",
-    limitAge: "20대",
+    limitAge: "10~20대",
     writerscore: "12",
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et id nam quis sodales. Eget lobortis neque mi,",
   });
 
-  useEffect(() => {
-    axios
-      .get(`http://3.34.129.164/api/post/detail/${params.postId}`)
-      .then((response) => {
-        setData(response.data);
-        console.log("성공", params.postId);
-      })
-      .catch((error) => {
-        console.log("에러", error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://3.34.129.164/api/post/detail/${params.postId}`)
+  //     .then((response) => {
+  //       setData(response.data);
+  //       console.log("성공", params.postId);
+  //     })
+  //     .catch((error) => {
+  //       console.log("에러", error);
+  //     });
+  // }, []);
 
   return (
     <>
@@ -112,7 +112,7 @@ function PostDetail() {
             <Icon className="material-symbols-outlined">task_alt</Icon>
             <span>
               <b>
-                {data.limitAge}
+                {data.limitAge}{" "}
                 {data.limitGender}
               </b>
               만 신청가능한 모임입니다.
@@ -280,6 +280,7 @@ const Heart = styled.div`
     font-weight: 400;
     margin-right: 8px;
     color: #ffe9be;
+              
   }
 `;
 const Limit = styled.div`
