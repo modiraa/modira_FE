@@ -1,15 +1,22 @@
 import React from "react";
 import DaumPostcodeEmbed from "react-daum-postcode";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const InputAddress = () => {
   const navigate = useNavigate();
+  const lacation=useLocation();
+  console.log(lacation.state)
   const handleComplete = (data) => {
     console.log(data);
-    navigate("/Register", {
-      state: { homesi: data.sido, homegu: data.sigungu },
-    });
+    if(lacation.state==="mainaddress"){
+      navigate("/morepost",{state:{address:data.sido+""+data.sigungu}})
+    }else{
+      navigate("/Register", {
+        state: { homesi: data.sido, homegu: data.sigungu },
+      });
+    }
+   
   };
   // 검색페이지 색상수정가능
   // var themeObj = {

@@ -1,13 +1,13 @@
 .wrap-webview {
  
   height: 579px;
-  margin-top: 139px;
+  margin-top: 161px;
 }
 .webview-logo {
-  width: 95px;
+  width: 159px;
   height: 40px;
-  font-weight: bold;
-  font-size: 33px;
+  background: url("../image/logo.png") center no-repeat;
+  background-size: cover;
 }
 .webview-description {
   width: 560px;

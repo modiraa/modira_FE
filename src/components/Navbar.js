@@ -7,21 +7,21 @@ import { useLocation, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [isOpenSearch, setIsOpenSearch] = React.useState(false);
   const refSearch = React.useRef();
-  const [test, setTest] = React.useState("");
+  const [keyword, setKeyword] = React.useState("");
   const islogin = sessionStorage.getItem("token");
   const navigate = useNavigate();
  
 
   const searchAddressAX = async () => {
-
-    await axios
-      .get(`http://3.34.129.164/api/search/post?keyword=${test}`)
-      .then((response) => {
-        console.log("성공", response);
-      })
-      .catch((error) => {
-        console.log("에러", error);
-      });
+    navigate("/morepost",{state:{keyword:keyword}})
+    // await axios
+    //   .get(`http://3.34.129.164/api/search/post?keyword=${test}`)
+    //   .then((response) => {
+    //     console.log("성공", response);
+    //   })
+    //   .catch((error) => {
+    //     console.log("에러", error);
+    //   });
   };
 
   const showSearchBar = () => {
@@ -49,7 +49,7 @@ const Navbar = () => {
         <input
           className="navbar-searchbar-input"
           onChange={() => {
-            setTest(refSearch.current.value);
+            setKeyword(refSearch.current.value);
           }}
           ref={refSearch}
           placeholder="어떤 모임을 찾으시나요?"

@@ -25,9 +25,16 @@ const Main = () => {
   const accessToken = parsedHash.get("access_token");
   console.log(accessToken);
 
+  // {
+  //   headers: {
+  //     Authorization:
+  //       "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjIxODY3NDcsInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4NzM3NzA4OCJ9.Rxaf4usRR4BOiBt4xJr1OvwE_dPfxO4TUlGGho7YCifdVQOgtm8u8Qs00Q_LO936_DLow_HPJ-eKbY2hjrs7OQ",
+  //   },
+  // }
+
   const loadpostAX = async () => {
     await axios
-      .get("http://3.34.129.164/api/post/list")
+      .get("http://3.34.129.164/api/post/list", {})
       .then((res) => {
         console.log(res);
         if (res.data) {
@@ -61,7 +68,7 @@ const Main = () => {
         </div>
 
         <div className="main-minibanner">
-          <MiniBanner/>
+          <MiniBanner />
         </div>
 
         <div style={{ marginTop: "59px" }}>
