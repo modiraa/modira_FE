@@ -53,12 +53,12 @@ const Register = () => {
     setGender(gender);
   };
 
-  // useEffect(() => {
-  //   if (storeUserInfo?.ProfileImg !== "") {
-  //     SetProfileImg(storeUserInfo?.ProfileImg);
-  //     console.log("여기옴?", storeUserInfo);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (storeUserInfo?.ProfileImg !== "") {
+      SetProfileImg(storeUserInfo?.ProfileImg);
+      console.log("여기옴?", storeUserInfo);
+    }
+  }, []);
 
   useEffect(() => {
     if (storeUserInfo?.userProfileImage !== "") {
@@ -196,6 +196,7 @@ const Register = () => {
                 gender,
                 address,
                 userProfileImage,
+                ProfileImg,
               })
             );
             navigate("/inputaddress");
