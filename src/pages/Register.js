@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import AgeDropdown from "../components/AgeDropdown";
 import { loginUserinfo } from "../redux/moduls/UserInfo";
-import Profilebg from "../image/profilebg.png";
+import ProfileBg from "../components/ProfileBg";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const Register = () => {
 
   const PreviewProfileImg = (e) => {
     const correctForm = /(.*?)\.(jpg|jpeg|png|gif|bmp)$/;
-    if (e.target.files[0]?.size > 3 * 1024 * 1024) {        
+    if (e.target.files[0]?.size > 3 * 1024 * 1024) {
       return;
     } else if (!e.target?.files[0]?.name.match(correctForm)) {
       alert("이미지 파일만 가능합니다.");
@@ -45,13 +45,20 @@ const Register = () => {
     console.log(" 이미지확인", URL.createObjectURL(e.target.files[0]));
   };
   const ImageUpload = () => {
-    userProfileImageRef.current.click();  
+    userProfileImageRef.current.click();
   };
 
   // 클릭시 state에 저장한다. 여자:0, 남자:1
   const selectGender = (gender) => {
     setGender(gender);
   };
+
+  // useEffect(() => {
+  //   if (storeUserInfo?.ProfileImg !== "") {
+  //     SetProfileImg(storeUserInfo?.ProfileImg);
+  //     console.log("여기옴?", storeUserInfo);
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (storeUserInfo?.userProfileImage !== "") {
@@ -123,9 +130,8 @@ const Register = () => {
   console.log({ username, userProfileImage, nickName, age, gender, address });
 
   return (
-    <Container>
+    <>
       <Box>
-        {" "}
         <Arrow
           onClick={() => {
             navigate("/");
@@ -139,9 +145,8 @@ const Register = () => {
           accept="image/*"
           onChange={PreviewProfileImg}
         />
-        <Imgset>
-          <Img src={ProfileImg} />
-        </Imgset>
+        {/* <span className="material-symbols-outlined">person_filled</span> */}
+        <ProfileBg ProfileImg={ProfileImg} />
         <ButtonImg onClick={ImageUpload}>+ 프로필 사진추가</ButtonImg>
       </Box>
       <LoginBox>
@@ -151,7 +156,7 @@ const Register = () => {
             type="text"
             name="nickName"
             placeholder="2~6자 이내로 입력해주세요."
-            value={nickName} 
+            value={nickName}
             onChange={(e) => {
               setNickName(e.target.value);
             }}
@@ -197,43 +202,35 @@ const Register = () => {
             navigate("/inputaddress");
           }}
         >
-          <Address>{home ? <div>{home} </div> : <div>주소검색</div>}</Address>
+          <Address>
+            {location.state?.homesi == undefined ? (
+              <div>주소검색</div>
+            ) : (
+              <div>{home} </div>
+            )}
+          </Address>
         </InputBox>
         <Check>
-          <input type="checkbox"/>
+          <input type="checkbox" />
           <p>(필수) 개인정보 취급방침에 동의합니다.</p>
         </Check>
         <Button onClick={Submit}>
           <button>등록완료</button>
         </Button>
       </LoginBox>
-    </Container>
+    </>
   );
 };
 
 export default Register;
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 525px;
-  background-color: #fff;
-`;
-
 const Box = styled.div`
-  justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 294px;
-  background-image: url(${Profilebg});
-  background-position: center;
-  background-size: contain;
   input {
     display: none;
   }
-
   span {
     cursor: pointer;
     font-size: 36px;
@@ -281,20 +278,6 @@ const Input = styled.input`
   &:focus {
     outline: none;
   }
-`;
-
-const Imgset = styled.div`
-  border-radius: 50px;
-  overflow: hidden;
-  width: 110px;
-  height: 110px;
-  margin-top: 53px;
-`;
-
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 `;
 
 const ButtonImg = styled.div`
@@ -379,15 +362,5 @@ const Check = styled.span`
     font-weight: 500;
     font-size: 18px;
     margin: 0 29px 0 0;
-  }
-  span {
-    display: flex;
-    flex-direction: row;
-    font-weight: 500;
-    font-size: 18px;
-  }
-  div {
-    display: flex;
-    align-items: center;
   }
 `;

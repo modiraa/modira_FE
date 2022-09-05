@@ -3,6 +3,7 @@ const USERINFO = "login/USERINFO";
 
 const initialState = {
   userProfileImage: "",
+  ProfileImg:"",
   nickName: "",
   age: "",
   gender: "",

@@ -5,6 +5,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Enter1 from "../image/Enter1.png";
+import Enter2 from "../image/Enter2.png";
+import Enter3 from "../image/Enter3.png";
+import Enter4 from "../image/Enter4.png";
 
 // import required modules
 
@@ -13,7 +17,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 
 const Enter = () => {
   return (
-    <Container>
+    <>
       <Swiper
         cssMode={true}
         navigation={true}
@@ -23,20 +27,22 @@ const Enter = () => {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        <SwiperSlide />
-        <SwiperSlide />
-        <SwiperSlide />
-        <SwiperSlide />
+        <SwiperSlide>
+          <img src={Enter1} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={Enter2} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={Enter3} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={Enter4} />
+        </SwiperSlide>
       </Swiper>
-    </Container>
+    </>
   );
 };
 
 export default Enter;
 
-const Container = styled.div`
-  display: flex;
-  width: 525px;
-  height: 100vh;
-  background-color: white;
-`;

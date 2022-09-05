@@ -3,13 +3,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Chat from "../pages/Chat";
 import Enter from "../pages/Enter";
 import GoogleRedirect from "../pages/GoogleRedirect";
-import Inputaddress from "../pages/Inputaddress";
+import InputAddress from "../pages/InputAddress";
 import Kakaoredirect from "../pages/Kakaoredirect";
 import Login from "../pages/Login";
 import Main from "../pages/Main";
 import MorePost from "../pages/MorePost";
 import MyInfo from "../pages/MyInfo";
-import Myroom from "../pages/Myroom";
+import MyRoom from "../pages/MyRoom";
 import NaverRedirect from "../pages/NaverRedirect";
 import PostDetail from "../pages/PostDetail";
 import Register from "../pages/Register";
@@ -51,14 +51,14 @@ const RouteList = () => {
 
     <Route path="/register" element={<Register />} />
     <Route path="/enter" element={<Enter />} />
-    <Route path="/inputaddress" element={<Inputaddress />} />
+    <Route path="/inputaddress" element={<InputAddress />} />
     <Route path="/auth/kakao/callback" element={<Kakaoredirect />} />
     <Route path="/login/ouath2/code/naver" element={<NaverRedirect />} />
     <Route path="/auth/google/callback" element={<GoogleRedirect />} />
     <Route path="/postdetail:postId" element={<PostDetail />} />
     <Route path="/postcard" element={<PostCard />} />
     <Route path="/userprofile" element={<UserProfile />} />
-    <Route path="/myroom" element={<Myroom />} />
+    <Route path="/myroom" element={<MyRoom />} />
   </Routes>
  
   )

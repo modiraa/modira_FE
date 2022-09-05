@@ -12,15 +12,9 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const searchAddressAX = async () => {
-    navigate("/morepost", { state: { keyword: keyword } });
-    // await axios
-    //   .get(`http://3.34.129.164/api/search/post?keyword=${test}`)
-    //   .then((response) => {
-    //     console.log("성공", response);
-    //   })
-    //   .catch((error) => {
-    //     console.log("에러", error);
-    //   });
+
+    navigate("/morepost",{state:{keyword:keyword}})
+
   };
 
   const showSearchBar = () => {
