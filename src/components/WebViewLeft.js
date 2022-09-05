@@ -22,7 +22,7 @@ const WebViewLeft = () => {
   };
   return (
     <div className="wrap-webview">
-      <div className="webview-logo"></div>
+      <div className="webview-logo" onClick={()=>navigate("/")}></div>
       <div className="webview-description">
         이제 혼밥하지 마세요!
         <br />
@@ -38,7 +38,7 @@ const WebViewLeft = () => {
           <div className="webview-wrap-icon">
             <span
               onClick={searchAddressAX}
-              style={{ color: "white", fontSize: "37.41px" }}
+              style={{ color: "white", fontSize: "37.41px",cursor:"pointer" }}
               className="material-symbols-outlined"
             >
               search

@@ -10,12 +10,14 @@ import LowerNavbar from "../components/LowerNavbar";
 import { useNavigate } from "react-router-dom";
 import MainBanner from "../components/MainBanner";
 import MiniBanner from "../components/MiniBanner";
+import { useSelector } from "react-redux";
 
 const Main = () => {
   const [postAll, setPostAll] = React.useState(null);
   const [postDutchPay, setPostDutchPay] = React.useState(null);
   const [postGoldenBell, setPostGoldenBell] = React.useState(null);
   const navigate = useNavigate();
+
   // kakao/naver 인가 뽑아오기 (백엔드에 보낼 인가코드)
   let code = new URL(window.location.href).searchParams.get("code");
   console.log(code);
@@ -23,18 +25,18 @@ const Main = () => {
   // google인가 뽑아오기
   const parsedHash = new URLSearchParams(window.location.hash.substring(1));
   const accessToken = parsedHash.get("access_token");
-  console.log(accessToken);
+  const dataMyinfo=useSelector((state)=>state.UserInfo)
+  const Auth=sessionStorage.getItem("token")
 
-  // {
-  //   headers: {
-  //     Authorization:
-  //       "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjIxODY3NDcsInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4NzM3NzA4OCJ9.Rxaf4usRR4BOiBt4xJr1OvwE_dPfxO4TUlGGho7YCifdVQOgtm8u8Qs00Q_LO936_DLow_HPJ-eKbY2hjrs7OQ",
-  //   },
-  // }
+
 
   const loadpostAX = async () => {
     await axios
-      .get("http://3.34.129.164/api/post/list", {})
+      .get("http://3.34.129.164/api/post/list",   {
+        headers: {
+          Authorization: Auth
+        },
+      })
       .then((res) => {
         console.log(res);
         if (res.data) {
@@ -54,7 +56,7 @@ const Main = () => {
   return (
     <div>
       <div className="wrap-main">
-        <Navbar />
+        <Navbar addrss={dataMyinfo.address}/>
         <MainBanner />
         <div className="main-postcollection">
           <PostCollection postAll={postAll} />

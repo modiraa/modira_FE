@@ -5,9 +5,16 @@ import "../css(subin)/PostComponentStatus.css";
 const PostComponentStatus = ({ poststatus }) => {
   const refClick = React.useRef();
   const navigate = useNavigate();
+  const Auth=sessionStorage.getItem("token")
   function eventHandler(event) {
     console.log(event.type, "머가되지?");
-    navigate(`/postdetail${poststatus.postId}`);
+    if(Auth){
+      navigate(`/postdetail${poststatus.postId}`);
+    }else{
+      alert("로그인이 필요합니다.")
+      navigate("/login")
+    }
+    
   }
   React.useEffect(() => {
     refClick.current.addEventListener("click", eventHandler);

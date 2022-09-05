@@ -4,21 +4,25 @@ import "../css(subin)/Navbar.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+
+const Navbar = ({address}) => {
   const [isOpenSearch, setIsOpenSearch] = React.useState(false);
   const refSearch = React.useRef();
   const [keyword, setKeyword] = React.useState("");
   const islogin = sessionStorage.getItem("token");
   const navigate = useNavigate();
 
+
+
   const searchAddressAX = async () => {
-
-    navigate("/morepost",{state:{keyword:keyword}})
-
+    navigate("/morepost", { state: { keyword: keyword } });
   };
 
   const showSearchBar = () => {
     setIsOpenSearch(true);
+  };
+  const changeAddress = () => {
+    navigate("/inputaddress", { state: "mainaddress" });
   };
   if (!islogin) {
     return (
@@ -47,8 +51,8 @@ const Navbar = () => {
           ref={refSearch}
           placeholder="어떤 모임을 찾으시나요?"
         ></input>
-        <div className="navbar-searchbar-location-icon">
-          <div onClick={searchAddressAX}>
+        <div className="navbar-searchbar-location-icon"onClick={searchAddressAX}>
+          <div >
             <span className="material-symbols-outlined">search</span>
           </div>
         </div>
@@ -58,14 +62,9 @@ const Navbar = () => {
     return (
       <div className="info_header">
         <div className="info_header_address">
-          <span className="info-header-address-text">서울시 논현동</span>
-          <div className="info_header_address_plus">
-            <div
-              className="location-trianle"
-              onClick={() =>
-                navigate("/inputaddress", { state: "mainaddress" })
-              }
-            ></div>
+          <span className="info-header-address-text">{address}</span>
+          <div className="info_header_address_plus" onClick={changeAddress}>
+            <div className="location-trianle"></div>
           </div>
         </div>
         <div className="info_header_search" onClick={showSearchBar}>
