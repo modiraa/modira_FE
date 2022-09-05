@@ -3,13 +3,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Chat from "../pages/Chat";
 import Enter from "../pages/Enter";
 import GoogleRedirect from "../pages/GoogleRedirect";
-import InputAddress from "../pages/InputAddress";
+import InputAddress from "../pages/Inputaddress"
 import Kakaoredirect from "../pages/Kakaoredirect";
 import Login from "../pages/Login";
 import Main from "../pages/Main";
 import MorePost from "../pages/MorePost";
 import MyInfo from "../pages/MyInfo";
-import MyRoom from "../pages/MyRoom";
+import MyRoom from "../pages/Myroom";
 import NaverRedirect from "../pages/NaverRedirect";
 import PostDetail from "../pages/PostDetail";
 import Register from "../pages/Register";
