@@ -26,6 +26,7 @@ const Main = () => {
   const parsedHash = new URLSearchParams(window.location.hash.substring(1));
   const accessToken = parsedHash.get("access_token");
   const dataMyinfo=useSelector((state)=>state.UserInfo)
+  console.log(dataMyinfo)
   const Auth=sessionStorage.getItem("token")
 
 
@@ -56,7 +57,7 @@ const Main = () => {
   return (
     <div>
       <div className="wrap-main">
-        <Navbar addrss={dataMyinfo.address}/>
+        <Navbar address={dataMyinfo.address}/>
         <MainBanner />
         <div className="main-postcollection">
           <PostCollection postAll={postAll} />
