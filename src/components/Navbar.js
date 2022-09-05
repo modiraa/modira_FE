@@ -4,12 +4,15 @@ import "../css(subin)/Navbar.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+
+const Navbar = ({address}) => {
   const [isOpenSearch, setIsOpenSearch] = React.useState(false);
   const refSearch = React.useRef();
   const [keyword, setKeyword] = React.useState("");
   const islogin = sessionStorage.getItem("token");
   const navigate = useNavigate();
+
+
 
   const searchAddressAX = async () => {
     navigate("/morepost", { state: { keyword: keyword } });
@@ -59,7 +62,7 @@ const Navbar = () => {
     return (
       <div className="info_header">
         <div className="info_header_address">
-          <span className="info-header-address-text">서울시 논현동</span>
+          <span className="info-header-address-text">{address}</span>
           <div className="info_header_address_plus" onClick={changeAddress}>
             <div className="location-trianle"></div>
           </div>
