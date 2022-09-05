@@ -10,7 +10,7 @@ const InputAddress = () => {
   const handleComplete = (data) => {
     console.log(data);
     if(lacation.state==="mainaddress"){
-      navigate("/morepost",{state:{address:data.sido+""+data.sigungu}})
+      navigate("/morepost",{state:{address:data.sido+" "+data.sigungu}})
     }else{
       navigate("/Register", {
         state: { homesi: data.sido, homegu: data.sigungu },

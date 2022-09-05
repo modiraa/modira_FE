@@ -15,7 +15,11 @@ console.log(test,"test확인")
   const [lastId,setLastId] = useState();
 
   const category = location.state;
-  // console.log(category);
+  const search = location.state.keyword;
+  const address = location.state.address;
+  console.log(category);
+  console.log(search);
+  console.log(address);
 
   const obsRef = useRef(null); //observer Element
   const preventRef = useRef(false); //옵저버 중복 실행 방지
@@ -39,6 +43,16 @@ console.log(test,"test확인")
     console.log("두번찍히나?")
   },[lastId])
 
+  useEffect(()=>{
+    loadSearchPost();
+    console.log("두번찍히나?")
+  },[lastId])
+
+  useEffect(()=>{
+    loadAddressPost();
+    console.log("두번찍히나?")
+  },[lastId])
+
 
   useEffect(()=>{
     console.log(morePostData)
@@ -56,6 +70,15 @@ console.log(test,"test확인")
     }
   };
   // console.log(lastId)
+
+  // await axios
+  //     .get(`http://3.34.129.164/api/search/post?keyword=${test}`)
+  //     .then((response) => {
+  //       console.log("성공", response);
+  //     })
+  //     .catch((error) => {
+  //       console.log("에러", error);
+  //     });
 
   const loadMorePost = useCallback(async () => {
     console.log('나와라')
@@ -167,8 +190,128 @@ console.log(test,"test확인")
           console.log(err);
         })
     }
+
+    else if(category == {}){
+      console.log('나와라 검색')
+      let firsturl="http://3.34.129.164/api/search/post"
+      let commonurl=`http://3.34.129.164/api/search/post?keyword=${search}&address={address}&lastId=${lastId}`
+      let urlAX=""
+      if(lastId){
+        urlAX=commonurl
+        console.log(lastId)
+      }else{
+        urlAX= firsturl
+        console.log(lastId)
+      }
+      console.log(urlAX)
+      await axios.get(urlAX)
+        .then((res) => {
+          console.log(res.data.content[7].postId);
+          test=res.data.content[7].postId;
+          if(res.data){
+            // console.log(res.data);
+            setMorePostTitle("내가 쏜다! 골든벨")
+            // console.log(setMorePostTitle)
+            setMorePostData(prev=>{
+              // console.log(prev);
+              return [...prev, ...res.data.content]
+            })
+            preventRef.current = true;
+          }else{
+            // console.log(res);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
   },[lastId])
 
+  const loadSearchPost = useCallback(async () => {
+    console.log('나와라 검색')
+    let firsturl = `http://3.34.129.164/api/search/post?keyword=${search}`
+    let commonurl = `http://3.34.129.164/api/search/post?keyword=${search}&lastId=${lastId}`
+    let urlAX = ""
+    if (lastId) {
+      urlAX = commonurl
+      console.log(lastId)
+    } else {
+      urlAX = firsturl
+      console.log(lastId)
+    }
+    console.log(urlAX)
+    await axios.get(urlAX)
+      .then((res) => {
+        console.log(res.data.content[res.data.content.length-1]?.postId);
+        test = res.data.content[res.data.content.length-1]?.postId;
+        if (res.data) {
+          // console.log(res.data);
+          setMorePostTitle('검색어' + ' : ' + search)
+          // console.log(setMorePostTitle)
+          setMorePostData(prev => {
+            // console.log(prev);
+            return [...prev, ...res.data.content]
+          })
+          preventRef.current = true;
+        }
+        if(res.data.content<8) {
+          // console.log(res.data);
+          setMorePostTitle('검색어' + ' : ' + search)
+          // console.log(setMorePostTitle)
+          setMorePostData(prev => {
+            // console.log(prev);
+            return [...prev, ...res.data.content]
+          })
+          preventRef.current = false;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }, [lastId])
+
+  const loadAddressPost = useCallback(async () => {
+    console.log('나와라 주소')
+    let firsturl = `http://3.34.129.164/api/search/post?address=${address}`
+    let commonurl = `http://3.34.129.164/api/search/post?address=${address}&lastId=${lastId}`
+    let urlAX = ""
+    if (lastId) {
+      urlAX = commonurl
+      console.log(lastId)
+    } else {
+      urlAX = firsturl
+      console.log(lastId)
+    }
+    console.log(urlAX)
+    await axios.get(urlAX)
+      .then((res) => {
+        console.log(res.data.content[res.data.content.length-1]?.postId);
+        test = res.data.content[res.data.content.length-1]?.postId;
+        if (res.data) {
+          // console.log(res.data);
+          setMorePostTitle('검색어' + ' : ' + address)
+          // console.log(setMorePostTitle)
+          setMorePostData(prev => {
+            // console.log(prev);
+            return [...prev, ...res.data.content]
+          })
+          preventRef.current = true;
+        }
+        if(res.data.content<8) {
+          // console.log(res.data);
+          setMorePostTitle('검색어' + ' : ' + search)
+          // console.log(setMorePostTitle)
+          setMorePostData(prev => {
+            // console.log(prev);
+            return [...prev, ...res.data.content]
+          })
+          preventRef.current = false;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }, [lastId])
 
   return (
     <div className="more-post">
@@ -187,7 +330,7 @@ console.log(test,"test확인")
 
 
       {/* <div className='hide-obs'></div> */}
-      <div ref={obsRef}>안녕</div>
+      <div ref={obsRef}/>
      
       </div>
     </div>
