@@ -32,17 +32,17 @@ function PostDetail() {
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et id nam quis sodales. Eget lobortis neque mi,",
   });
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://3.34.129.164/api/post/detail/${params.postId}`)
-  //     .then((response) => {
-  //       setData(response.data);
-  //       console.log("성공", params.postId);
-  //     })
-  //     .catch((error) => {
-  //       console.log("에러", error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(`http://3.34.129.164/api/post/detail/${params.postId}`)
+      .then((response) => {
+        setData(response.data);
+        console.log("성공", params.postId);
+      })
+      .catch((error) => {
+        console.log("에러", error);
+      });
+  }, []);
 
   return (
     <>
@@ -112,8 +112,7 @@ function PostDetail() {
             <Icon className="material-symbols-outlined">task_alt</Icon>
             <span>
               <b>
-                {data.limitAge}{" "}
-                {data.limitGender}
+                {data.limitAge} {data.limitGender}
               </b>
               만 신청가능한 모임입니다.
             </span>
@@ -142,9 +141,8 @@ export default PostDetail;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  font-family: "AppleSDGothicNeoB00";
-  width: 525px;
+  width: 100%;
+  height: auto;
   background-color: #f1f1f1;
 `;
 
@@ -156,7 +154,6 @@ const TitleBar = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
-  width: 100%;
   p {
     margin-left: 166.5px;
   }
@@ -231,7 +228,6 @@ const Img = styled.img`
   width: 77px;
   height: 77px;
   border-radius: 10px;
-
 `;
 
 const UserInfo = styled.div`
@@ -240,7 +236,6 @@ const UserInfo = styled.div`
   justify-content: center;
   margin: 0 50px 0 27px;
   b {
-   
     font-size: 20px;
   }
 `;
@@ -280,7 +275,6 @@ const Heart = styled.div`
     font-weight: 400;
     margin-right: 8px;
     color: #ffe9be;
-              
   }
 `;
 const Limit = styled.div`
@@ -291,7 +285,6 @@ const Limit = styled.div`
   padding: 44px 0 0 44px;
   span {
     margin: 0 8px 22px 0;
-    
   }
   p {
     margin-bottom: 12px;
@@ -309,7 +302,8 @@ const Limit = styled.div`
 `;
 
 const Icon = styled.span`
-color: #4BDC78;`
+  color: #4bdc78;
+`;
 
 const LimiitTitle = styled.div`
   margin-bottom: 8px;
