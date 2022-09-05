@@ -1,3 +1,5 @@
+import { act } from "react-dom/test-utils";
+
 // Actions
 const USERINFO = "login/USERINFO";
 
@@ -13,8 +15,8 @@ const initialState = {
 
 // Action Creators(액션 생성 함수 만들어주는 곳)
 export function loginUserinfo(login) {
+  console.log("1",login)
   // 액션 생성 함수는 액션 객체를 리턴해줘야 됨 / ()안에는 추가할 값
-  console.log("여기는 action creators", login);
   return { type: USERINFO, login: login }; // 딕셔너리 형(앞에는 액션타입 뒤에는 무엇을 추가해!라는 내용)
 }
 // { type: 'user/LOGIN', user: user };
@@ -26,13 +28,9 @@ export default function reducer(state = initialState, action = {}) {
     action.type //switch case : ~~할때 ~~해!
   ) {
     case "login/USERINFO": // case안에서 return해주는 어떤 값이 새로운 state값이 됨!
-      console.log("여기는 Reducer", action.login);
-      const new_list = {
-        ...state,
-        ...action.login,
-      };
-      console.log(new_list);
-      return new_list;
+      // console.log("여기는 Reducer", action.login);
+      
+      return action.login;
 
     default:
       return state;
