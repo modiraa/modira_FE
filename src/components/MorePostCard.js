@@ -5,9 +5,7 @@ const MorePostCard = (props) => {
   return (
     <div className="more-post-card">
           <div className="card-img">
-            <div>
-              <img src={props.item?.menuForImage}/>
-            </div>
+            <img src={props.item?.menuForImage}/>
             <div className='more-post-hashtag'>
               <div className="more-post-resraint">
                 <span className="more-post-resraint-text"># 20 대</span>
