@@ -10,10 +10,11 @@ const Navbar = () => {
   const [keyword, setKeyword] = React.useState("");
   const islogin = sessionStorage.getItem("token");
   const navigate = useNavigate();
- 
 
   const searchAddressAX = async () => {
+
     navigate("/morepost",{state:{keyword:keyword}})
+
   };
 
   const showSearchBar = () => {
@@ -59,9 +60,12 @@ const Navbar = () => {
         <div className="info_header_address">
           <span className="info-header-address-text">서울시 논현동</span>
           <div className="info_header_address_plus">
-            <div className="location-trianle" onClick={()=>navigate("/inputaddress",{state:"mainaddress"})}>
-              <div className="triangle"></div>
-            </div>
+            <div
+              className="location-trianle"
+              onClick={() =>
+                navigate("/inputaddress", { state: "mainaddress" })
+              }
+            ></div>
           </div>
         </div>
         <div className="info_header_search" onClick={showSearchBar}>
