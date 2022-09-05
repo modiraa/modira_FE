@@ -2,10 +2,12 @@ import styled from "styled-components";
 import ProfileLine from "../image/ProfileLine.png";
 import "../css(subin)/ProfileBg.css";
 import { relativeTimeRounding } from "moment";
+
 const ProfileBg = ({ ProfileImg }) => {
   let code = new URL(window.location.href);
   const PageCheck = code.href;
   console.log(PageCheck, "체크");
+  console.log('여기는 은형님', ProfileImg);
 
   return (
     <Background>
