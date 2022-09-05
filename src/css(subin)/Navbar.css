@@ -55,7 +55,7 @@
   height: 44px;
   margin-left: 43px;
   border-radius: 22px;
-  background-color: #f4f4f4;
+  background-color: #FFFCF6;
 
   display: flex;
 
@@ -68,6 +68,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 23px;
+  margin-left: 19px;
 }
 .info_header_address_plus {
   width: 28px;
@@ -80,6 +81,7 @@
 
   justify-content: end;
   align-items: center;
+  background: url("../image/Component\ 1\ \(3\).png");
 }
 
 .info_header_search {

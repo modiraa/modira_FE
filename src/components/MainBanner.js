@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../css(subin)/mainbanner.css";
+import "../css(subin)/MainBanner.css";
 const MainBanner = () => {
   const navigate = useNavigate();
   return (
@@ -9,7 +9,7 @@ const MainBanner = () => {
         <div className="mainbanner-logo"></div>
         <div className="mainbanner-text">이제 혼밥하지 마세요!<br/>밥 친구 찾기 플랫폼 <span className="font-color">modira</span></div>
         
-        <div className="mainbanner-link-text">모디라 소개 바로가기 {">"}</div>
+        <div className="mainbanner-link-text" onClick={()=>navigate("/enter")}>모디라 소개 바로가기 {">"}</div>
       </div>
     </div>
   );

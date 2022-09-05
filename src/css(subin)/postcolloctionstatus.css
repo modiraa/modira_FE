@@ -1,9 +1,14 @@
 .postcollectionstatus-wrap-postcomponents{
     display: flex;
+    max-height: 732px;
+    
   
 
     
 }
 .postcollectionstatus-wrap-postcomponents::-webkit-scrollbar{
     display: none;
+}
+.wrap-postcollectionstatus{
+    margin-left: 24px;
 }

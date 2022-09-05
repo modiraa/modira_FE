@@ -1,9 +1,16 @@
+.wrap-postcollection{
+    width:100%;
+}
+
 .postcollection-wrap-postcomponents{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-height: 776px;
+  max-height: 776px;
 
+}
+.postcollection-mainposttitle{
+margin-bottom: 28px;
 }
 
 
