@@ -138,7 +138,7 @@ console.log(test,"test확인")
           test=res.data.content[7]?.postId;
           if(res.data){
             // console.log(res.data);
-            setMorePostTitle("내가 쏜다! 골든벨")
+            setMorePostTitle("방장이 쏜다! 골든벨")
             // console.log(setMorePostTitle)
             setMorePostData(prev=>{
               // console.log(prev);
@@ -175,7 +175,7 @@ console.log(test,"test확인")
           test=res.data.content[7].postId;
           if(res.data){
             // console.log(res.data);
-            setMorePostTitle("내가 쏜다! 골든벨")
+            setMorePostTitle("다같이 내자! N빵")
             // console.log(setMorePostTitle)
             setMorePostData(prev=>{
               // console.log(prev);
@@ -315,24 +315,25 @@ console.log(test,"test확인")
 
   return (
     <div className="more-post">
-      <Navbar/>
-      <div className='more-post-top-line'/>
+      <Navbar address={address} />
+      <div className='more-post-top-line' />
       <div className="more-post-title">
         <h3>{morePostTitle}</h3>
       </div>
       <div className="more-post-Contents">
         {morePostData && morePostData.map((item, index) => {
           return (
-            <MorePostCard item={item} key={index}/>
+            <MorePostCard item={item} key={index} />
           )
         })}
-      {/* {morePostData!=[]&&<div ref={obsRef}>안녕</div>} */}
+        {/* {morePostData!=[]&&<div ref={obsRef}>안녕</div>} */}
 
 
-      {/* <div className='hide-obs'></div> */}
-      <div ref={obsRef}/>
-     
+        {/* <div className='hide-obs'></div> */}
+        <div ref={obsRef} />
+
       </div>
+
     </div>
     
   )

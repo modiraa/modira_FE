@@ -32,17 +32,19 @@ const MyInfo = () => {
         console.log(error);
       });
   }, []); // [] : 안에 있는 값이 바뀌면 다시 useEffect 작동
-  console.log(infoUser);
+  console.log(infoUser.userProfile);
 
   return (
     <div className="my_info">
       <Navbar />
       <div className="info_wrap">
-        <div className="bg"></div> 
-        <ProfileBg />
-        <div className="info_user_img">
-          {/* <img src={infoUser.userProfile}/> */}
+        {/* <div className="bg"></div> */}
+        <div>
+          <ProfileBg ProfileImg={infoUser.userProfile}/>
         </div>
+        {/* <div className="info_user_img">
+          <img src={infoUser.userProfile}/>
+        </div> */}
         <div className="info_user_name">
           <h3>{infoUser.nickname}</h3>
         </div>
@@ -64,10 +66,12 @@ const MyInfo = () => {
           </div>
           <span>{infoUser.score}</span>
         </div>
-        <div className="info_user_update_btn">
+        {/* <div className="info_user_update_btn">
           <button>프로필 수정</button>
+        </div> */}
+        <div className="myinfo-lowernavbar">
+          <LowerNavbar locationIndicator={"myinfo"} />
         </div>
-        <LowerNavbar locationIndicator={"myinfo"} />
       </div>
     </div>
   );

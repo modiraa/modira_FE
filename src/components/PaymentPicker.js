@@ -10,7 +10,7 @@ export default function PaymentPicker({controlledSwiperPayment,setControlledSwip
 
     console.log(controlledSwiperPayment)
 
-    const PaymentList = ["내가 쏜다! 골든벨!", "N빵"]
+    const PaymentList = ["방장이 쏜다! 골든벨", "다같이 내자! N빵"]
 
     React.useEffect(() => {
 
