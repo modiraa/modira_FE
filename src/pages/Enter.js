@@ -24,18 +24,18 @@ const Enter = () => {
         mousewheel={true}
         keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-        className="mySwiper"
+        className="Enter-Swiper"
       >
-        <SwiperSlide>
+        <SwiperSlide className="Enter-SwiperSlide">
           <img src={Enter1} />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="Enter-SwiperSlide">
           <img src={Enter2} />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="Enter-SwiperSlide">
           <img src={Enter3} />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="Enter-SwiperSlide">
           <img src={Enter4} />
         </SwiperSlide>
       </Swiper>

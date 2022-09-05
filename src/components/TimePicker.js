@@ -5,7 +5,6 @@ import React, { useRef, useState } from "react";
 import Picker from "./Picker";
 
 
-
 export default function TimePicker({controlledSwiperAmPm,setControlledSwiperAmPm,controlledSwiperHour,setControlledSwiperHour,controlledSwiperMin,setControlledSwiperMin}) {
 
     console.log(controlledSwiperAmPm,controlledSwiperHour,controlledSwiperMin)
@@ -32,11 +31,10 @@ export default function TimePicker({controlledSwiperAmPm,setControlledSwiperAmPm
     }
         , [controlledSwiperAmPm,controlledSwiperHour,controlledSwiperMin])
 
-
-
     return (
 
         <div style={{ display: "flex", position: "relative", height:"100%" }}>
+            
 
             <div style={{ height: "100%", width: "400px", display: "flex"}}>
                 <Picker slideList={ampmleList} controlledSwiper={controlledSwiperAmPm} setControlledSwiper={setControlledSwiperAmPm} />
@@ -50,7 +48,7 @@ export default function TimePicker({controlledSwiperAmPm,setControlledSwiperAmPm
                 <Picker slideList={minuteSlideList} controlledSwiper={controlledSwiperMin} setControlledSwiper={setControlledSwiperMin} />
             </div>
 
-            <div className="vizor" style={{backgroundColor:"#FFBB31"}}></div>
+            <div className="vizor" style={{backgroundColor:'#FFBB31'}}></div>
 
 
 

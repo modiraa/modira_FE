@@ -7,13 +7,13 @@ body {
   height: 100%;
 }
 
-.swiper {
+.Enter-Swiper {
   display: grid;
   place-items: center;
   min-height: 100vh;
 }
 
-.swiper-slide {
+.Enter-SwiperSlide {
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
