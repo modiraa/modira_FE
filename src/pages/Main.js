@@ -56,10 +56,10 @@ const Main = () => {
       <div className="wrap-main">
         <Navbar />
         <MainBanner />
-        <div style={{ marginTop: "36px", marginLeft: "24px" }}>
+        <div className="main-postcollection">
           <PostCollection postAll={postAll} />
         </div>
-        <div style={{ marginTop: "11px" }}>
+        <div className="main-postcollectionstatus-goldenbell">
           <PostCollectionStatus
             titleCollection={"골든벨 모임"}
             postStatus={postGoldenBell}
@@ -71,7 +71,7 @@ const Main = () => {
           <MiniBanner />
         </div>
 
-        <div style={{ marginTop: "59px" }}>
+        <div className="main-postcollectionstsus-dutch">
           <PostCollectionStatus
             titleCollection={"N빵 모임"}
             postStatus={postDutchPay}

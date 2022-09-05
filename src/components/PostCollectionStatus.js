@@ -11,7 +11,7 @@ const PostCollectionStatus = ({
   morepostType,
 }) => {
   return (
-    <div style={{ marginLeft: "24px" }}>
+    <div className="wrap-postcollectionstatus">
       <div style={{ width: "100%" }}>
         <div style={{ marginBottom: "21px" }}>
           <MainPostTItle
@@ -27,7 +27,7 @@ const PostCollectionStatus = ({
               </div>
             ))}
             <div>
-            <PostSeeMorePostStatus/>
+            <PostSeeMorePostStatus  morepostType={morepostType}/>
             </div>
            
           </div>

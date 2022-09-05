@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
 var stompClient = null;
+let auth=sessionStorage.getItem("token")?.split(" ")[1];
 const Chat = () => {
   const [isConnected, setIsConnected] = React.useState(false);
   const [showMessage, setShowMessage] = React.useState([]);
@@ -29,12 +30,12 @@ const Chat = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    var socket = new SockJS("http://52.79.223.9/ws-stomp");
+    var socket = new SockJS("http://3.34.129.164/ws-stomp");
     stompClient = Stomp.over(socket);
-    // stompClient.debug=null;
+  console.log(auth)
     stompClient.connect(
       {
-        Authorization: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjIwOTMyMjksInVzZXJuYW1lIjoiS2FrYW9uYW1lMjQxMDkwMzEyOSJ9.Y9N_2aYxLDmglG50dZdd8XbXd1Xevp52Eu3sZ3GfzZ0TFLUZqKvR0Q0SPh35v7iJCMS17EFOHqKJdJFLAmdvdg`,
+        Authorization: auth,
       },
       connected
     );
@@ -58,12 +59,15 @@ const Chat = () => {
   function connected() {
     setIsConnected(true);
     console.log(chatRoomId);
-    if (chatRoomId) {
+   
       stompClient.subscribe(
-        `/sub/chat/room/22f09ce6-cb44-4f16-a054-20f8a09f5275`,
-        subscribed
+        `/sub/chat/room/3aad0163-70cc-4d80-9059-7d67ba89d847`,
+        subscribed,
+        {
+          Authorization: auth,
+        }
       );
-    }
+    
   }
   //
   function subscribed(greeting) {
@@ -84,12 +88,12 @@ const Chat = () => {
   }
   function sendNicknameFN() {
     try {
-      let auth = `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjIwOTMyMjksInVzZXJuYW1lIjoiS2FrYW9uYW1lMjQxMDkwMzEyOSJ9.Y9N_2aYxLDmglG50dZdd8XbXd1Xevp52Eu3sZ3GfzZ0TFLUZqKvR0Q0SPh35v7iJCMS17EFOHqKJdJFLAmdvdg`;
+     
       let sendmessage = JSON.stringify({
         // message: sendMessage,
         sender: sendNick,
         type: "ENTER",
-        roomId: "22f09ce6-cb44-4f16-a054-20f8a09f5275",
+        roomId: "3aad0163-70cc-4d80-9059-7d67ba89d847",
       });
       console.log(chatRoomId);
       stompClient.send(
@@ -106,7 +110,7 @@ const Chat = () => {
   }
 
   function sendMessageFN() {
-    let auth = `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjIwOTMyMjksInVzZXJuYW1lIjoiS2FrYW9uYW1lMjQxMDkwMzEyOSJ9.Y9N_2aYxLDmglG50dZdd8XbXd1Xevp52Eu3sZ3GfzZ0TFLUZqKvR0Q0SPh35v7iJCMS17EFOHqKJdJFLAmdvdg`;
+    
 
     try {
       stompClient.send(
@@ -118,7 +122,7 @@ const Chat = () => {
           message: sendMessage,
           sender: sendNick,
           type: "TALK",
-          roomId: "22f09ce6-cb44-4f16-a054-20f8a09f5275",
+          roomId: "3aad0163-70cc-4d80-9059-7d67ba89d847",
         })
       );
     } catch (error) {
@@ -131,7 +135,7 @@ const Chat = () => {
     params.append("name", "11");
 
     await axios
-      .post(`http://52.79.223.9/chat/room`, params)
+      .post(`http://3.34.129.164/chat/room`, params)
       .then((response) => {
         console.log("성공", response);
         setChatRoomId(response.data.uuid);
