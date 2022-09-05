@@ -25,6 +25,7 @@ import UserProfile from "../pages/UserProfile";
 import Write from "../pages/Write";
 import Mapgps from "./Mapgps";
 import PostCard from "./PostCard";
+import ProfileBg from "./ProfileBg";
 
 
 
@@ -48,6 +49,7 @@ const RouteList = () => {
     <Route path="/myinfo" element={<MyInfo />} />
     <Route path="/mapgps" element={<Mapgps />} />
     <Route path="/morepost" element={<MorePost />} />
+    <Route path="/profilebg" element={<ProfileBg />} />
 
     <Route path="/register" element={<Register />} />
     <Route path="/enter" element={<Enter />} />
