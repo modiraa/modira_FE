@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {userLogin} from '../redux/moduls/UserName';
 import {loginUserinfo} from '../redux/moduls/UserInfo';
 import { isCompositeComponent } from 'react-dom/test-utils';
 
@@ -29,11 +28,12 @@ const Kakaoredirect = ({setUserName,userName}) => {
 
             if(res.data.id===null){
                 navigate("/register","/myroom",{ state: { username: res.data.username} });
-                dispatch(loginUserinfo({username:res.data.username}))
+                // dispatch(loginUserinfo({username:res.data.username}))
             }
             else{
                 navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
-                dispatch(userLogin(res.data.username))
+                // dispatch(userLogin(res.data.username))
+                dispatch(loginUserinfo(res.data))
             }
             
             }).catch((err) => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TimePicker from '../components/TimePicker';
 import '../css(subin)/SelectTime.css';
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';
 
