@@ -145,7 +145,6 @@ const Register = () => {
           accept="image/*"
           onChange={PreviewProfileImg}
         />
-        {/* <span className="material-symbols-outlined">person_filled</span> */}
         <ProfileBg ProfileImg={ProfileImg} />
         <ButtonImg onClick={ImageUpload}>+ 프로필 사진추가</ButtonImg>
       </Box>
