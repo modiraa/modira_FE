@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import LowerNavbar from "../components/LowerNavbar";
 import Navbar from "../components/Navbar";
 import MiniBanner from "../image/MiniBanner.png";
+import "../css(subin)/mainbanner.css";
 
 const MyRoom = () => {
   const navigate = useNavigate();
@@ -78,26 +79,29 @@ const MyRoom = () => {
       <BorderLine />
       <Container>
         <Minibanner>
-          <span>
-            이제 <b>혼밥</b>하지 마세요!<br></br>
-            <b>
-              밥 친구 찾기 플랫폼 <yellow>modira</yellow>
-            </b>
-          </span>
+          <div className="mainbanner-wrap-logoAndtext">
+            <div className="mainbanner-logo"></div>
+            <p>
+              이제 <b>혼밥</b>하지 마세요!
+              <br />
+              <b>밥 친구 찾기 플랫폼</b>{" "}
+              <span className="font-color">modira</span>
+            </p>
+          </div>
         </Minibanner>
         <CreateRoom>
           <p>생성한 모임</p>
           <Post>
             {myData ? (
               <div>
-                <span className="material-symbols-outlined">add_circle</span>
-                <div>새 모임 만들러 가기</div>
-              </div>
-            ) : (
-              <div>
                 <img src={myData.menuForImage} />
                 <span className="material-symbols-outlined">delete</span>
                 <p>게시물 삭제</p>
+              </div>
+            ) : (
+              <div>
+                <span className="material-symbols-outlined">add_circle</span>
+                <div>새 모임 만들러 가기</div>
               </div>
             )}
           </Post>
@@ -147,6 +151,9 @@ const Minibanner = styled.div`
   background-image: url(${MiniBanner});
   background-size: contain;
   font-size: 19px;
+  p {
+    margin-top: 15px;
+  }
 `;
 
 const CreateRoom = styled.div`
@@ -196,4 +203,5 @@ const Post = styled.div`
     }
   }
 
-`;
+  `;
+
