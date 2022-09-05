@@ -4,10 +4,17 @@ import "../css(subin)/PostComponent.css";
 const PostComponent = ({ postAll }) => {
   const navigate = useNavigate();
   const refClick = React.useRef();
+  const Auth=sessionStorage.getItem("token")
 
   function eventHandler(event) {
     console.log(event.type, "머가되지?");
-    navigate(`/postdetail${postAll.postId}`);
+    if(Auth){
+      navigate(`/postdetail${postAll.postId}`);
+    }else{
+      alert("로그인이 필요합니다.")
+      navigate("/login")
+    }
+    
   }
   React.useEffect(() => {
     refClick.current.addEventListener("click", eventHandler);

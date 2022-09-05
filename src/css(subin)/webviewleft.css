@@ -8,6 +8,7 @@
   height: 40px;
   background: url("../image/logo.png") center no-repeat;
   background-size: cover;
+  cursor: pointer;
 }
 .webview-description {
   width: 560px;

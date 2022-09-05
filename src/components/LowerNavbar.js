@@ -4,6 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 const LowerNavbar = ({ locationIndicator }) => {
   const navigate = useNavigate();
+  const Auth=sessionStorage.getItem("token")
+  const goPage=(rourterAddress)=>{
+    if(Auth){
+      navigate(`/${rourterAddress}`)
+    }else{
+      alert("로그인이 필요합니다!")
+      navigate("/login")
+    }   
+  }
 
   return (
     <div className="wrap-lowernavbar">
@@ -29,7 +38,7 @@ const LowerNavbar = ({ locationIndicator }) => {
         </div>
       </div>
 
-      <div className="wrap-symbols-text" onClick={() => navigate("/chat")}>
+      <div className="wrap-symbols-text" onClick={()=>{goPage("chat")}}>
         <div className="lowernavbar-location-symbol">
           <div className="lowernavbar-center">
           {locationIndicator=="chat"&&<div className="lowernavbar-indicator-circle"></div>}
@@ -38,7 +47,7 @@ const LowerNavbar = ({ locationIndicator }) => {
         </div>
         <span className="symbols-text">채 팅</span>
       </div>
-      <div className="wrap-symbols-text" onClick={() => navigate("/write")}>
+      <div className="wrap-symbols-text"  onClick={()=>{goPage("write")}}>
         <div className="lowernavbar-location-symbol">
           <div className="lowernavbar-center">
           {locationIndicator=="write"&&<div className="lowernavbar-indicator-circle"></div>}
@@ -50,7 +59,7 @@ const LowerNavbar = ({ locationIndicator }) => {
         </div>
       </div>
 
-      <div className="wrap-symbols-text" onClick={() => navigate("/myroom")}>
+      <div className="wrap-symbols-text" onClick={()=>{goPage("myroom")}}>
         <div className="lowernavbar-location-symbol">
           <div className="lowernavbar-center">
           {locationIndicator=="myroom"&&<div className="lowernavbar-indicator-circle"></div>}
@@ -60,7 +69,7 @@ const LowerNavbar = ({ locationIndicator }) => {
         <span className="symbols-text">내 모임</span>
       </div>
 
-      <div className="wrap-symbols-text" onClick={() => navigate("/myinfo")}>
+      <div className="wrap-symbols-text" onClick={()=>{goPage("myinfo")}}>
         <div className="lowernavbar-location-symbol">
           <div className="lowernavbar-center">
           {locationIndicator=="myinfo"&&<div className="lowernavbar-indicator-circle"></div>}
