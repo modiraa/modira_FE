@@ -5,9 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
+// import "swiper/css";
+// import "swiper/css/free-mode";
+// import "swiper/css/pagination";
 import "../css(subin)/Picker.css";
 
 
@@ -24,8 +24,9 @@ export default function Picker({ slideList, setControlledSwiper, controlledSwipe
 
     return (
 
-        <div style={{ height: "100%", width: "100%", display: "flex", paddingTop:"80px", boxSizing:"border-box"}}>
-            <Swiper
+        <div style={{ height: "100%", width: "100%", display: "flex", paddingTop:"80px",
+        boxSizing:"border-box" }}>
+            <Swiper className="Select-Swiper"
                 controller={{ control: controlledSwiper }}
                 direction={"vertical"}
                 centeredSlides={true}
@@ -36,7 +37,7 @@ export default function Picker({ slideList, setControlledSwiper, controlledSwipe
                 slideToClickedSlide={true}
                 modules={[Pagination, Mousewheel, Controller]}
             >
-                {slideList.map((v, i) => <SwiperSlide key={i}>{v}</SwiperSlide>)}
+                {slideList.map((v, i) => <SwiperSlide className="Select-SwiperSlide" key={i}>{v}</SwiperSlide>)}
             </Swiper>
             
         </div>
