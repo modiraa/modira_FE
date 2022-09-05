@@ -5,8 +5,14 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import LowerNavbar from "../components/LowerNavbar";
 import ProfileBg from "../components/ProfileBg";
+import { useSelector } from "react-redux";
+
 const MyInfo = () => {
   const [infoUser, setInfoUser] = useState({});
+
+  const UserInfo = useSelector((state)=>state)
+
+  console.log('유저인포',UserInfo);
 
   useEffect(() => {
     const ACCESS_TOKEN = sessionStorage.getItem("token");

@@ -2,7 +2,6 @@ import axios from 'axios';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {userLogin} from '../redux/moduls/UserName';
 import { loginUserinfo } from '../redux/moduls/UserInfo';
 
 const NaverRedirect = () => {
@@ -30,7 +29,6 @@ const NaverRedirect = () => {
                 }
                 else{
                     navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
-                    dispatch(userLogin(res.data.username))
                 }
 
             }).catch((err) => {
