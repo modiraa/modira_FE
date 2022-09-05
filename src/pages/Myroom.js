@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import LowerNavbar from "../components/LowerNavbar";
 import Navbar from "../components/Navbar";
 import MiniBanner from "../image/MiniBanner.png";
-import "../css(subin)/MainBanner.css"
+import "../css(subin)/mainbanner.css"
 
 const MyRoom = () => {
   const navigate = useNavigate();

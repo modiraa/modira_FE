@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../css(subin)/MainBanner.css";
+import "../css(subin)/mainbanner.css";
 const MainBanner = () => {
   const navigate = useNavigate();
   return (
