@@ -10,7 +10,7 @@ export default function MenuPicker({controlledSwiperGender,setControlledSwiperGe
 
     console.log(controlledSwiperGender)
 
-    const genderList = ["여성", "남성"]
+    const genderList = ["여 성", "남 성"]
 
     React.useEffect(() => {
 
