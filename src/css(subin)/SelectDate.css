@@ -26,6 +26,8 @@
     margin-left: 43px;
     font-size: 19px;
     font-weight: 400;
+    font-family: 'Noto Sans KR';
+    font-weight: 400;
 }
 
 .select-date-title{
@@ -36,6 +38,8 @@
 
 .select-date-title>h2{
     font-size: 34px;
+    font-weight: 700;
+    font-family: 'Noto Sans KR';
     font-weight: 700;
 }
 
@@ -50,18 +54,23 @@
 .select-date-value>h3{
     height: 37px;
     padding-right: 7px;
+    padding-top: 4px;
     padding-left: 12px;
     margin-right: 8px;
     box-sizing: border-box;
     background-color: #ffff;
     border-radius: 5px;
     font-size: 28px;
-    letter-spacing: 4px;
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
     color: #FFBB31;
+    
 }
 .select-date-value>h5{
     font-size: 18px;
     margin-top: 10px;
+    font-family: 'Noto Sans KR';
+    font-weight: 400;
 }
 
 .select-date-bottom{

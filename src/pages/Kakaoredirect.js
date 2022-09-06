@@ -23,16 +23,15 @@ const Kakaoredirect = ({setUserName,userName}) => {
             const ACCESS_TOKEN = "Bearer"+" "+res.headers.authorization;
             
             console.log("token", ACCESS_TOKEN); 
-            
-            sessionStorage.setItem("token",ACCESS_TOKEN)
 
             if(res.data.id===null){
-                navigate("/register","/myroom",{ state: { username: res.data.username} });
+                navigate("/register",{ state: { username: res.data.username} });
                 // dispatch(loginUserinfo({username:res.data.username}))
             }
             else{
                 navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
                 // dispatch(userLogin(res.data.username))
+                sessionStorage.setItem("token",ACCESS_TOKEN)
                 dispatch(loginUserinfo(res.data))
             }
             

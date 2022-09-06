@@ -34,6 +34,9 @@ const SelectDate = () => {
     return (
         <div className='select-date'>
             <div className='select-date-top'>
+                <div className='close-select'>
+                    
+                </div>
                 <div className='select-date-count'>
                     <p>1 / 6</p>
                 </div>

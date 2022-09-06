@@ -121,9 +121,9 @@ const WriteMainSelect = () => {
                     <div className='write_payment'>
                         <div className='write-payment-title'>
                             <h3>모임유형</h3>
-                            {/* <span className="material-icons-outlined">
-                place
-              </span> */}
+                            <span className="material-icons-outlined">
+                                groups
+                            </span>
                         </div>
                         <div className='write-payment-text'>
                             <span>{storeSelect.category}</span>

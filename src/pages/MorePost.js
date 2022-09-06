@@ -190,41 +190,6 @@ console.log(test,"test확인")
           console.log(err);
         })
     }
-
-    else if(category == {}){
-      console.log('나와라 검색')
-      let firsturl="http://3.34.129.164/api/search/post"
-      let commonurl=`http://3.34.129.164/api/search/post?keyword=${search}&address={address}&lastId=${lastId}`
-      let urlAX=""
-      if(lastId){
-        urlAX=commonurl
-        console.log(lastId)
-      }else{
-        urlAX= firsturl
-        console.log(lastId)
-      }
-      console.log(urlAX)
-      await axios.get(urlAX)
-        .then((res) => {
-          console.log(res.data.content[7].postId);
-          test=res.data.content[7].postId;
-          if(res.data){
-            // console.log(res.data);
-            setMorePostTitle("내가 쏜다! 골든벨")
-            // console.log(setMorePostTitle)
-            setMorePostData(prev=>{
-              // console.log(prev);
-              return [...prev, ...res.data.content]
-            })
-            preventRef.current = true;
-          }else{
-            // console.log(res);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-    }
   },[lastId])
 
   const loadSearchPost = useCallback(async () => {
