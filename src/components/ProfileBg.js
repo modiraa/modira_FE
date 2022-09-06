@@ -11,7 +11,11 @@ const ProfileBg = ({ ProfileImg }) => {
 
   return (
     <Background>
-      <YellowBack />
+     {PageCheck === "http://localhost:3000/register" ? (
+       <div  style={{height: "155px",backgroundColor: "#fffcf6"}}/>
+        ) : (
+          <div  style={{height: "192px",backgroundColor: "#fffcf6"}}/>
+        )}
       <img className="line" src={ProfileLine} />
 
       <Circle>
@@ -64,11 +68,6 @@ const Background = styled.div`
     z-index: 2;
     position: relative;
   }
-`;
-
-const YellowBack = styled.div`
-  height: 155px;
-  background-color: #fffcf6;
 `;
 
 const Circle = styled.div`
