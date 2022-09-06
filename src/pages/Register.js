@@ -19,7 +19,7 @@ const Register = () => {
   const username = location.state?.username;
   //지도 api 주소 값 가져오기
   const home = `${location.state?.homesi} ${location.state?.homegu}`;
-  console.log(home, "주소확인");
+  console.log(username, "유저확인");
 
   //이미지 업로드
   const [ProfileImg, SetProfileImg] = React.useState("");
@@ -97,7 +97,7 @@ const Register = () => {
       setAddress(storeUserInfo?.home);
       console.log("여기옴?", storeUserInfo);
     }
-  }, []);
+  }, [dispatch]);
 
   const Submit = async (e) => {
     e.preventDefault(e);
@@ -197,6 +197,7 @@ const Register = () => {
                 address,
                 userProfileImage,
                 ProfileImg,
+                username,
               })
             );
             navigate("/inputaddress");
@@ -228,7 +229,8 @@ const Box = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Noto Sans KR';
+  font-family: "Noto Sans KR700";
+  font-weight: 700;
   input {
     display: none;
   }
@@ -252,7 +254,7 @@ const LoginBox = styled.div`
   padding: 36px 43px;
   background-color: #fcfaff;
   background-color: #fcfcfc;
-  font-family: 'Noto Sans KR';
+  font-family: "Noto Sans KR";
   p {
     font-weight: 600;
     font-size: 20px;
@@ -290,7 +292,8 @@ const ButtonImg = styled.div`
   justify-content: center;
   display: flex;
   align-items: center;
-  font-weight: bold;
+  font-family: "Noto Sans KR400";
+  font-weight: 400;
   font-size: 18px;
   margin: 18px 0 20px 0;
   border-radius: 37px;
