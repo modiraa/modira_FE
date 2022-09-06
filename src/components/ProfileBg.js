@@ -1,19 +1,54 @@
 import styled from "styled-components";
 import ProfileLine from "../image/ProfileLine.png";
+import "../css(subin)/ProfileBg.css";
+import { relativeTimeRounding } from "moment";
+
 const ProfileBg = ({ ProfileImg }) => {
   let code = new URL(window.location.href);
   const PageCheck = code.href;
   console.log(PageCheck, "체크");
+  console.log('여기는 은형님', ProfileImg);
 
   return (
     <Background>
       <YellowBack />
       <img className="line" src={ProfileLine} />
+
       <Circle>
+        {ProfileImg ? (
+          <img src={ProfileImg} />
+        ) : (
+          <span
+            className="material-symbols-outlined"
+            style={{
+              fontSize: "40px",
+              fontVariationSettings: "'FILL' 1",
+              color: "#FFE9BE",
+              width: "115px",
+              height: "115px",
+              // position: "absolute",
+            }}
+          >
+            person_filled
+          </span>
+        )}
+
         {PageCheck === "http://localhost:3000/register" ? (
           <img src={ProfileImg} />
         ) : (
-          <img src={ProfileImg} />
+          <span
+            className="material-symbols-outlined"
+            style={{
+              fontSize: "40px",
+              fontVariationSettings: "'FILL' 1",
+              color: "#FFE9BE",
+              width: "115px",
+              height: "115px",
+              // position: "absolute",
+            }}
+          >
+            person_filled
+          </span>
         )}
       </Circle>
     </Background>
@@ -44,6 +79,12 @@ const Circle = styled.div`
   margin-top: -141.8px;
   margin-left: 207px;
   overflow: hidden;
+  span {
+    margin-left: 38px;
+    margin-top: 40px;
+    z-index: 3;
+    position: relative;
+  }
   img {
     width: 100%;
     height: 100%;

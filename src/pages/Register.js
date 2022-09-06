@@ -53,12 +53,12 @@ const Register = () => {
     setGender(gender);
   };
 
-  // useEffect(() => {
-  //   if (storeUserInfo?.ProfileImg !== "") {
-  //     SetProfileImg(storeUserInfo?.ProfileImg);
-  //     console.log("여기옴?", storeUserInfo);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (storeUserInfo?.ProfileImg !== "") {
+      SetProfileImg(storeUserInfo?.ProfileImg);
+      console.log("여기옴?", storeUserInfo);
+    }
+  }, []);
 
   useEffect(() => {
     if (storeUserInfo?.userProfileImage !== "") {
@@ -145,7 +145,6 @@ const Register = () => {
           accept="image/*"
           onChange={PreviewProfileImg}
         />
-        {/* <span className="material-symbols-outlined">person_filled</span> */}
         <ProfileBg ProfileImg={ProfileImg} />
         <ButtonImg onClick={ImageUpload}>+ 프로필 사진추가</ButtonImg>
       </Box>
@@ -197,6 +196,7 @@ const Register = () => {
                 gender,
                 address,
                 userProfileImage,
+                ProfileImg,
               })
             );
             navigate("/inputaddress");
