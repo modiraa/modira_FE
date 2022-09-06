@@ -61,7 +61,7 @@ const Chat = () => {
     console.log(chatRoomId);
    
       stompClient.subscribe(
-        `/sub/chat/room/3aad0163-70cc-4d80-9059-7d67ba89d847`,
+        `/sub/chat/room/15cee64a-27d6-47a9-a1ae-c9ba15c4be50`,
         subscribed,
         {
           Authorization: auth,
@@ -72,6 +72,7 @@ const Chat = () => {
   //
   function subscribed(greeting) {
     console.log("여기올텐데");
+    console.log(greeting)
     const soketMessage = JSON.parse(greeting.body);
     showMessage.push(soketMessage);
     setShowMessage([...showMessage]);
@@ -93,7 +94,7 @@ const Chat = () => {
         // message: sendMessage,
         sender: sendNick,
         type: "ENTER",
-        roomId: "3aad0163-70cc-4d80-9059-7d67ba89d847",
+        roomId: "15cee64a-27d6-47a9-a1ae-c9ba15c4be50",
       });
       console.log(chatRoomId);
       stompClient.send(
@@ -122,7 +123,7 @@ const Chat = () => {
           message: sendMessage,
           sender: sendNick,
           type: "TALK",
-          roomId: "3aad0163-70cc-4d80-9059-7d67ba89d847",
+          roomId: "15cee64a-27d6-47a9-a1ae-c9ba15c4be50",
         })
       );
     } catch (error) {
