@@ -61,10 +61,21 @@ const MyInfo = () => {
           </div>
         </div>
         <div className="info_user_good">
-          <div className="myinfo-material-icons-outlined">
-            <span className="material-icons-outlined">favorite_border</span>
+          <div className="info-user-countlike">
+            <div className="info-arrow_box">
+              <span
+                className="material-symbols-outlined"
+                style={{
+                  fontSize: "16px",
+                  fontVariationSettings: "'FILL' 1",
+                  color: "#FFE9BE",
+                }}
+              >
+                favorite
+              </span>
+              <span className="info-like-text">{infoUser?.score}</span>
+            </div>
           </div>
-          <span>{infoUser.score}</span>
         </div>
         {/* <div className="info_user_update_btn">
           <button>프로필 수정</button>

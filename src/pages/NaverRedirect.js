@@ -17,7 +17,7 @@ const NaverRedirect = () => {
             .then((res) => {
                 console.log(res); // 토큰이 넘어올 것임
 
-                const ACCESS_TOKEN = "Bearer"+" "+res.data.accessToken;
+                const ACCESS_TOKEN = "Bearer"+" "+res.headers.authorization;
 
                 console.log("token", ACCESS_TOKEN);
 

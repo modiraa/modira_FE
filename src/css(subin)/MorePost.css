@@ -153,6 +153,7 @@
     font-size: 17px;
     font-weight: 400;
     float: left;
+    color: #9A9A9A;
 }
 
 .card-date>.material-icons-outlined{
@@ -161,6 +162,7 @@
     float: left;
     margin-right: 11px;
     margin-top: 2px;
+    color: #9A9A9A;
 }
 
 .card-people-count-menu{
@@ -174,6 +176,7 @@
     font-weight: 400;
     float: left;
     margin-right: 18px;
+    color: #9A9A9A;
 }
 
 .card-people-count-menu>.material-icons-outlined{
@@ -182,4 +185,5 @@
     float: left;
     margin-right: 9px;
     margin-top: 1px;
+    color: #9A9A9A;
 }
