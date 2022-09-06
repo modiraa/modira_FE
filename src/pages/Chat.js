@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
 var stompClient = null;
-let auth = sessionStorage.getItem("token")?.split(" ")[1];
+
 const Chat = () => {
   const [isConnected, setIsConnected] = React.useState(false);
   const [showMessage, setShowMessage] = React.useState([]);
@@ -29,6 +29,7 @@ const Chat = () => {
   const RefViewControll = React.useRef();
   const navigate = useNavigate();
   const Auth = sessionStorage.getItem("token");
+  let auth = sessionStorage.getItem("token")?.split(" ")[1];
 
   React.useEffect(() => {
     var socket = new SockJS("http://3.34.129.164/ws-stomp");
