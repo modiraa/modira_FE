@@ -51,8 +51,7 @@ const MorePostCard = (props) => {
           <span className="material-icons-outlined">
             calendar_today
           </span>
-          {/* <p>{props.item?.date}</p> */}
-          <p>2022/6/9 오후 12시 00분</p>
+          <p>{props.item?.date}</p>
         </div>
         <div className="card-people-count-menu">
           <span className="material-icons-outlined">
