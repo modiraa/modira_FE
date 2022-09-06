@@ -16,6 +16,7 @@ const Main = () => {
   const [postAll, setPostAll] = React.useState(null);
   const [postDutchPay, setPostDutchPay] = React.useState(null);
   const [postGoldenBell, setPostGoldenBell] = React.useState(null);
+  
   const navigate = useNavigate();
 
   // kakao/naver 인가 뽑아오기 (백엔드에 보낼 인가코드)
@@ -25,9 +26,13 @@ const Main = () => {
   // google인가 뽑아오기
   const parsedHash = new URLSearchParams(window.location.hash.substring(1));
   const accessToken = parsedHash.get("access_token");
-  const dataMyinfo=useSelector((state)=>state.UserInfo)
-  console.log(dataMyinfo)
+
   const Auth=sessionStorage.getItem("token")
+
+  useEffect(() => {
+    loadpostAX();
+  }, []);
+
 
 
 
@@ -50,14 +55,13 @@ const Main = () => {
         console.log(err);
       });
   };
-  useEffect(() => {
-    loadpostAX();
-  }, []);
+
+  
 
   return (
     <div>
       <div className="wrap-main">
-        <Navbar address={dataMyinfo.address}/>
+        <Navbar />
         <MainBanner />
         <div className="main-postcollection">
           <PostCollection postAll={postAll} />

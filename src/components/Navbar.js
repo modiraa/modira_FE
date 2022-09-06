@@ -4,15 +4,37 @@ import "../css(subin)/Navbar.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 
-
-const Navbar = ({address}) => {
+const Navbar = ({ address }) => {
   const [isOpenSearch, setIsOpenSearch] = React.useState(false);
   const refSearch = React.useRef();
   const [keyword, setKeyword] = React.useState("");
-  const islogin = sessionStorage.getItem("token");
+  const [uesrInfo, setUserInfo] = React.useState(null);
+  const Auth = sessionStorage.getItem("token");
+  const islogin = Auth;
   const navigate = useNavigate();
 
+  React.useEffect(() => {
+    if (address === undefined) {
+      loadUserInfo();
+    } else {
+      setUserInfo({ address: address });
+    }
+  }, []);
 
+  const loadUserInfo = async () => {
+    axios
+      .get("http://3.34.129.164/api/user/info", {
+        headers: {
+          Authorization: Auth,
+        },
+      })
+      .then((response) => {
+        setUserInfo(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const searchAddressAX = async () => {
     navigate("/morepost", { state: { keyword: keyword } });
@@ -51,8 +73,11 @@ const Navbar = ({address}) => {
           ref={refSearch}
           placeholder="어떤 모임을 찾으시나요?"
         ></input>
-        <div className="navbar-searchbar-location-icon"onClick={searchAddressAX}>
-          <div >
+        <div
+          className="navbar-searchbar-location-icon"
+          onClick={searchAddressAX}
+        >
+          <div>
             <span className="material-symbols-outlined">search</span>
           </div>
         </div>
@@ -62,7 +87,7 @@ const Navbar = ({address}) => {
     return (
       <div className="info_header">
         <div className="info_header_address">
-          <span className="info-header-address-text">{address}</span>
+          <span className="info-header-address-text">{uesrInfo?.address}</span>
           <div className="info_header_address_plus" onClick={changeAddress}>
             <div className="location-trianle"></div>
           </div>

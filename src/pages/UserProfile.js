@@ -6,10 +6,13 @@ import testimg from "../image/11.jpg";
 import styled from "styled-components";
 import axios from "axios";
 import UserList from "../components/UserList";
+import ProfileBg from "../components/ProfileBg";
+import { useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
   const [dataProfile, setDataProfile] = React.useState();
   const Auth = sessionStorage.getItem("token");
+  const navigate=useNavigate();
 
   const showProfileAX = async () => {
     await axios
@@ -81,7 +84,8 @@ const UserProfile = () => {
         <div className="userprofile-header-icon" style={{ marginLeft: "28px" }}>
           <span
             className="material-symbols-outlined"
-            style={{ fontSize: "28px" }}
+            style={{ fontSize: "28px",cursor:"pointer" }}
+            onClick={()=>{navigate(-1)}}
           >
             arrow_back_ios
           </span>
@@ -105,7 +109,7 @@ const UserProfile = () => {
           </div>
         </div>
         <div className="userprofile-background-img">
-          <img src={dataProfile?.userProfile} className="user-img" />
+          <ProfileBg ProfileImg={dataProfile?.userProfile} />
         </div>
 
         <div className="user-nick">Lorem ipsum dolor</div>
@@ -118,14 +122,14 @@ const UserProfile = () => {
           </div>
         </div>
         <div className="user-wrap-like">
-          <div className="user-like">
-            <div className="user-like-text" onClick={likePlusScore}>
-              +1 싫어요
+          <div className="user-like"  onClick={dislikePlusScore}>
+            <div className="user-like-text">
+              -1 싫어요
             </div>
           </div>
-          <div className="user-like">
-            <div className="user-like-text" onClick={dislikePlusScore}>
-              -1 좋아요
+          <div className="user-like" style={{backgroundColor:"#FFBB31"}} onClick={likePlusScore}>
+            <div className="user-like-text" style={{color:"white"}}>
+              +1 좋아요
             </div>
           </div>
         </div>
