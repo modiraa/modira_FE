@@ -228,6 +228,7 @@ const Box = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Noto Sans KR';
   input {
     display: none;
   }
@@ -251,6 +252,7 @@ const LoginBox = styled.div`
   padding: 36px 43px;
   background-color: #fcfaff;
   background-color: #fcfcfc;
+  font-family: 'Noto Sans KR';
   p {
     font-weight: 600;
     font-size: 20px;
