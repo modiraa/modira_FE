@@ -25,6 +25,11 @@ const SelectTime = () => {
     return (
         <div className='select_time'>
             <div className='select_time_top'>
+                <div className='select-close'>
+                    <span className="material-icons" onClick={() => { navigate("/write") }}>
+                        close
+                    </span>
+                </div>
                 <div className='select_time_count'>
                     <p>2 / 6</p>
                 </div>

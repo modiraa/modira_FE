@@ -3,8 +3,11 @@ import Mapgps from '../components/Mapgps';
 import '../css(subin)/SelectGps.css';
 import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
+import { useNavigate } from 'react-router-dom';
 
 const SelectGps = () => {
+
+    const navigate = useNavigate();
 
     const [menuSearch, setMenuSearch] = React.useState();
     console.log(menuSearch)
@@ -18,6 +21,11 @@ const SelectGps = () => {
     return (
         <div className='select_gps'>
             <div className='select_gps_top'>
+                <div className='select-close'>
+                    <span className="material-icons" onClick={() => { navigate("/write") }}>
+                        close
+                    </span>
+                </div>
                 <div className='select_gps_count'>
                     <p>3 / 6</p>
                 </div>

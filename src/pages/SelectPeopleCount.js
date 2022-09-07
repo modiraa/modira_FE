@@ -23,6 +23,11 @@ const SelectPeopleCount = () => {
     return (
         <div className='select_people_count'>
             <div className='select_people_count_top'>
+                <div className='select-close'>
+                    <span className="material-icons" onClick={() => { navigate("/write") }}>
+                        close
+                    </span>
+                </div>
                 <div className='select_people_count_count'>
                     <p>4 / 6</p>
                 </div>

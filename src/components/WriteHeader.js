@@ -15,7 +15,7 @@ const WriteHeader = () => {
           </span>
         </div>
         <div className='write_top_title'>
-          <h1>게시글 작성</h1>
+          <h1>게시글 작성ㅎ</h1>
         </div>
       </div>
     </div>
