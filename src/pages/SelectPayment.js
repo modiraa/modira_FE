@@ -23,6 +23,11 @@ const SelectPayment = () => {
     return (
         <div className='select_payment'>
             <div className='select_payment_top'>
+                <div className='select-close'>
+                    <span className="material-icons" onClick={() => { navigate("/write") }}>
+                        close
+                    </span>
+                </div>
                 <div className='select_payment_count'>
                     <p>6 / 6</p>
                 </div>

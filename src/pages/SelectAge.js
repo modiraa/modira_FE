@@ -7,27 +7,32 @@ import { useNavigate } from 'react-router-dom';
 
 const SelectAge = () => {
 
-    const [controlledSwiperAgeMin,setControlledSwiperAgeMin] = useState('10대')
-    const [controlledSwiperTo,setControlledSwiperTo] = useState('')
-    const [controlledSwiperAgeMax,setControlledSwipeAgerMax] = useState('')
+    const [controlledSwiperAgeMin, setControlledSwiperAgeMin] = useState('10대')
+    const [controlledSwiperTo, setControlledSwiperTo] = useState('')
+    const [controlledSwiperAgeMax, setControlledSwipeAgerMax] = useState('')
 
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
     const clickAge = () => {
-        dispatch(selectWrite({age:controlledSwiperAgeMin+"~"+controlledSwiperAgeMax}))
+        dispatch(selectWrite({ age: controlledSwiperAgeMin + "~" + controlledSwiperAgeMax }))
         navigate("/write")
     }
 
     return (
         <div className='select_age'>
             <div className='select_age_top'>
+                <div className='select-close'>
+                    <span className="material-icons" onClick={() => { navigate("/write") }}>
+                        close
+                    </span>
+                </div>
                 <div className='write_page_count'>
                     <p>입장조건 추가</p>
                 </div>
                 <div className='select_age_title'>
-                    <h2>모임에 참여가능한<br/>나이대를 선택해주세요</h2>
+                    <h2>모임에 참여가능한<br />나이대를 선택해주세요</h2>
                 </div>
                 <div className='select_age_value'>
                     <h3>{controlledSwiperAgeMin}~{controlledSwiperAgeMax}</h3>
@@ -36,12 +41,12 @@ const SelectAge = () => {
             </div>
             <div className='age'>
                 <AgePicker
-                controlledSwiperAgeMin={controlledSwiperAgeMin} setControlledSwiperAgeMin={setControlledSwiperAgeMin}
-                controlledSwiperTo={controlledSwiperTo} setControlledSwiperTo={setControlledSwiperTo}
-                controlledSwiperAgeMax={controlledSwiperAgeMax} setControlledSwipeAgerMax={setControlledSwipeAgerMax}
+                    controlledSwiperAgeMin={controlledSwiperAgeMin} setControlledSwiperAgeMin={setControlledSwiperAgeMin}
+                    controlledSwiperTo={controlledSwiperTo} setControlledSwiperTo={setControlledSwiperTo}
+                    controlledSwiperAgeMax={controlledSwiperAgeMax} setControlledSwipeAgerMax={setControlledSwipeAgerMax}
                 />
             </div>
-            
+
             <div className='select_age_bottom' onClick={clickAge}>
                 <div className='next'>
                     <h4>입 력</h4>

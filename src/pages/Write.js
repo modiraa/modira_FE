@@ -44,11 +44,11 @@ const Write = () => {
   // 입장조건 나이 체크박스 상태관리
   const ageChange = () => { // 입장조건 나이
     if (storeSelect.age==selectAge) {
-      setIsAgeAction(false)
+      setIsAgeAction(true)
       navigate("/selectage")
     }
     else if (storeSelect.age!==selectAge) {
-      setIsAgeAction(true)
+      setIsAgeAction(false)
       dispatch(selectWrite({age:selectAge}))
     }
   }

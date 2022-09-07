@@ -21,6 +21,11 @@ const SelectGender = () => {
     return (
         <div className='select_gender'>
             <div className='select_gender_top'>
+                <div className='select-close'>
+                    <span className="material-icons" onClick={() => { navigate("/write") }}>
+                        close
+                    </span>
+                </div>
                 <div className='select_gender_count'>
                     <p>입장조건 추가</p>
                 </div>
