@@ -1,13 +1,8 @@
 import Stomp, { connect } from "stompjs";
 import SockJS from "sockjs-client";
 import React from "react";
-import styled from "styled-components";
-import { FiChevronLeft } from "react-icons/fi";
-import { BiExit } from "react-icons/bi";
 import "../css(subin)/chat.css";
 import MessagelList from "../components/MessagelList";
-import UserProfile from "./UserProfile";
-import MyCalendar from "../components/MyCalendar";
 import MessageInput from "../components/MessageInput";
 import MyModal from "../components/MyModal";
 import axios from "axios";
@@ -16,9 +11,10 @@ import { useNavigate } from "react-router-dom";
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
 var stompClient = null;
-
+let prevMessage=[];
 const Chat = () => {
   const [isConnected, setIsConnected] = React.useState(false);
+  
   const [showMessage, setShowMessage] = React.useState([]);
   const [sendMessage, setSendMessage] = React.useState("");
   const [sendNick, setSendNick] = React.useState("");
@@ -55,8 +51,27 @@ const Chat = () => {
     loadUserInfo();
   }, []);
 
+  React.useEffect(()=>{
+    loadPrevMessage();
+  },[])
+
+  const loadPrevMessage=async()=>{
+    await axios
+    .get("http://3.34.129.164/chat/messages/15cee64a-27d6-47a9-a1ae-c9ba15c4be50")
+    .then((response) => {
+  
+      console.log("api 호출 성공", response.data.content);
+   
+     prevMessage=response.data.content
+     console.log(prevMessage)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   const loadUserInfo = async () => {
-    axios
+    await axios
       .get("http://3.34.129.164/api/user/info", {
         headers: {
           Authorization: Auth,
@@ -120,6 +135,7 @@ const Chat = () => {
           roomId: "15cee64a-27d6-47a9-a1ae-c9ba15c4be50",
         })
       );
+      setSendMessage("")
     } catch (error) {
       console.log(error);
     }
@@ -173,6 +189,8 @@ const Chat = () => {
         </div>
       </div>
       <div ref={RefViewControll} className="chat-message-container">
+        11
+        <MessagelList showMessage={prevMessage} sendNick={sendNick}/>
         <MessagelList showMessage={showMessage} sendNick={sendNick} />
       </div>
       <div className="chat-input-wrap">
