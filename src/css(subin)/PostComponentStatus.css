@@ -1,75 +1,88 @@
-.wrap-postcomponentstatus{
-    height: 359px;
-    width: 340px;
-    
+.wrap-postcomponentstatus {
+  height: 386px;
+  width: 340px;
 }
 
-.postcomponentstatus-backimg{
-    width: 340px;
-    height: 287px;
-    border-radius: 12px;
-    display: flex;
-    background-position: center;
-    background-image: url("https://www.missioninfra.net/img/noimg/noimg_4x3.gif");
-    background-repeat: no-repeat;
-    background-size: cover;
+.postcomponentstatus-backimg {
+  width: 340px;
+  height: 287px;
+  border-radius: 12px;
+  display: flex;
+  background-position: center;
+  background-image: url("https://www.missioninfra.net/img/noimg/noimg_4x3.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.postcomponentstatus-resraint{
-    width: 73px;
-    height: 28px;
-    
-    background: #787373;
-    border-radius: 7px;
+.postcomponentstatus-resraint {
+  min-width: 73px;
+  height: 28px;
+  background: #ffbb31;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.postcomponentstatus-resraint-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin-left: 6px;
+  margin-right: 6px;
+  color: #ffffff;
+}
+
+.postcomponentstatus-title {
+  margin-top: 21px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+}
+.wrap-postcomponentstatus-dayAndperson {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.postcomponentstatus-location-icon {
+  display: flex;
+  height: 18px;
+  align-items: center;
+}
+.postcomponentstatus-location-icon-person {
     display: flex;
-    justify-content: center;
+    height: 18px;
     align-items: center;
-    margin-bottom: 7px;
+    margin-top: 7px;
+  }
+.postcomponentstatus-day {
+  margin-left: 14px;
+  margin-right: 21px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+
+  color: #9a9a9a;
+}
+.postcomponentstatus-person {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+
+  margin-left: 14px;
+  margin-right: 18px;
+  color: #9a9a9a;
+}
+.postcollectionstatus-wrap-postnocomponent{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-
-.postcomponentstatus-resraint-text{
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 22px;
-/* identical to box height */
-
-
-color: #FFFFFF;
-}
-
-.postcomponentstatus-title{
-    margin-top: 21px;
-    font-weight: 700;
-font-size: 20px;
-line-height: 24px;
-
-color: #000000;
-}
-.wrap-postcomponentstatus-dayAndperson{
-    margin-top: 5px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-}
-.postcomponentstatus-day{
-    margin-left: 3px;
-    margin-right: 21px;
-    font-weight: 400;
-font-size: 15px;
-line-height: 18px;
-
-color: #9A9A9A;
-}
-.postcomponentstatus-person{
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
-
-    margin-left: 5px;
-    
-    color: #9A9A9A;
+.postcollectionstatus-wrap-postnocomponent>div{
+margin-right: 20px;
 }

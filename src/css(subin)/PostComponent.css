@@ -14,7 +14,7 @@
   display: flex;
 }
 .postcomponent-resraint {
-  width: 73px;
+  min-width: 73px;
   height: 28px;
 
   background: #ffbb31;
@@ -31,6 +31,8 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;
+  margin-left: 6px;
+  margin-right: 6px;
   /* identical to box height */
 
   color: #ffffff;
@@ -82,6 +84,7 @@
 }
 .postcomponent-personAndicon {
   display: flex;
+  margin-top: 7px;
 }
 .postcomponent-person {
   font-weight: 400;

@@ -190,7 +190,7 @@ const Chat = () => {
       </div>
       <div ref={RefViewControll} className="chat-message-container">
         11
-        <MessagelList showMessage={prevMessage} sendNick={sendNick}/>
+        {/* <MessagelList showMessage={prevMessage} sendNick={sendNick}/> */}
         <MessagelList showMessage={showMessage} sendNick={sendNick} />
       </div>
       <div className="chat-input-wrap">

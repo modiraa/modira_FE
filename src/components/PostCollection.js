@@ -5,6 +5,8 @@ import "../css(subin)/PostCollection.css";
 import ScrollContainer from "react-indiana-drag-scroll";
 import ReactDOM from "react-dom";
 import PostSeeMorePost from "./PostSeeMorePost";
+import PostNoComponentStatus from "./PostNoComponentStatus";
+import PostNoComponent from "./PostNoComponent";
 
 const PostCollection = ({ postAll, }) => {
 
@@ -19,7 +21,8 @@ const PostCollection = ({ postAll, }) => {
         <ScrollContainer className="scroll-container" horizontal={true} >
           <div className="postcollection-wrap-postcomponents">
           {postAll?.map((v,i)=>{return <PostComponent key={i} postAll={v}/>})}
-             <PostSeeMorePost  className="item" width={"261px"} height={"221px"} morepostType={"최근생성모임"}/>
+             {postAll?.length>8&&<PostSeeMorePost  className="item" width={"261px"} height={"221px"} morepostType={"최근생성모임"}/>}
+             {postAll?.length==0&&<PostNoComponent/>}
           </div>
         </ScrollContainer>
       </div>

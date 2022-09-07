@@ -29,10 +29,10 @@ const Message = ({ messageData, sendNick, prevData }) => {
     return (
       <div className="chat-container-message-notsamemessage-mymessage">
         <img
-          src={testimg}
+          src={messageData.profileImage}
           style={{ height: "48px", width: "48px", borderRadius: "8px" }}
           onClick={() => {
-            navigate("/userprofile");
+            navigate("/userprofile",{state:messageData.senderId});
           }}
         ></img>
 
@@ -50,10 +50,10 @@ const Message = ({ messageData, sendNick, prevData }) => {
     return (
       <div className="chat-container-message-notsamemessage-notmymessage">
         <img
-          src={testimg}
+          src={messageData.profileImage}
           style={{ height: "48px", width: "48px", borderRadius: "8px" }}
           onClick={() => {
-            navigate("/userprofile");
+            navigate("/userprofile",{state:messageData.senderId});
           }}
         ></img>
 
