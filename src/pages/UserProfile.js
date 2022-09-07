@@ -16,7 +16,7 @@ const UserProfile = () => {
 
   const showProfileAX = async () => {
     await axios
-      .get(`http://3.34.129.164/api/user/info/9`)
+      .get(`http://3.34.197.6/api/user/info/9`)
       .then((response) => {
         console.log(response);
         setDataProfile(response.data);
@@ -34,7 +34,7 @@ const UserProfile = () => {
 
     await axios
       .post(
-        "http://3.34.129.164/api/likes",
+        "http://3.34.197.6/api/likes",
         { userId: 9 },
         {
           headers: {
@@ -60,7 +60,7 @@ const UserProfile = () => {
 
     await axios
       .post(
-        "http://3.34.129.164/api/hates",
+        "http://3.34.197.6/api/hates",
         { userId: 9 },
         {
           headers: {

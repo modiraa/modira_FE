@@ -19,7 +19,7 @@ const MyInfo = () => {
     console.log(ACCESS_TOKEN);
     // axios 요청하기(axios의 response)
     axios
-      .get("http://3.34.129.164/api/user/info", {
+      .get("http://3.34.197.6/api/user/info", {
         headers: {
           Authorization: ACCESS_TOKEN,
         },

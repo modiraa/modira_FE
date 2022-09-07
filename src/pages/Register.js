@@ -229,7 +229,6 @@ const Box = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Noto Sans KR700";
   font-weight: 700;
   input {
     display: none;
@@ -273,7 +272,6 @@ const InputBox = styled.div`
 const Input = styled.input`
   width: 100%;
   padding: 14px 29px;
-  font-family: "AppleSDGothicNeoM00";
   font-size: 20px;
   border-radius: 12px;
   border: none;
@@ -285,15 +283,15 @@ const Input = styled.input`
 `;
 
 const ButtonImg = styled.div`
-  width: 173px;
-  height: 25px;
+  width: 176px;
+  height: 40x;
   border: 2px solid #ffbb31;
-  padding: 8px 22px;
+  padding: 8px 18px;
   justify-content: center;
   display: flex;
   align-items: center;
-  font-family: "Noto Sans KR400";
-  font-weight: 400;
+  font-family: "Noto Sans KR";
+  font-weight: 600;
   font-size: 18px;
   margin: 18px 0 20px 0;
   border-radius: 37px;
@@ -306,7 +304,6 @@ const Address = styled.div`
   padding-left: 29px;
   width: 100%;
   height: 54px;
-  font-family: "AppleSDGothicNeoM00";
   color: #cbcbcb;
   background-color: #fff;
   font-size: 20px;
@@ -320,7 +317,6 @@ const Address = styled.div`
 const GenderButton = styled.div`
   width: 213px;
   height: 54px;
-  font-family: "AppleSDGothicNeoM00";
   font-size: 20px;
   display: flex;
   justify-content: center;
@@ -357,7 +353,6 @@ const Button = styled.div`
 const Check = styled.span`
   display: flex;
   align-items: center;
-  font-family: "Inter";
   input {
     margin-right: 15px;
     width: 19px;

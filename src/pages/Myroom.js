@@ -8,7 +8,6 @@ import MiniBanner from "../image/MiniBanner.png";
 import "../css(subin)/MainBanner.css";
 import Enter1 from "../image/Enter1.png";
 
-
 const MyRoom = () => {
   const navigate = useNavigate();
   const params = useParams();
@@ -54,8 +53,8 @@ const MyRoom = () => {
         },
       })
       .then((response) => {
-        setData(response.data[0]);
-        console.log("데이터 나와랏", response.data[0]);
+        setJoinData(response.joindata[0]);
+        console.log("데이터 나와랏", response.joindata[0]);
       })
       .catch((error) => {
         console.log("에러", error);
@@ -67,11 +66,10 @@ const MyRoom = () => {
 
   //모임 삭제
   const removePost = async () => {
-    // const ACCESS_TOKEN = sessionStorage.getItem("token");
-    // console.log(ACCESS_TOKEN);
     await axios
-      .delete(`http://3.34.129.164/api/post/${params.postId}`)
+      .delete("http://3.34.197.6/api/post/{postId}")
       .then((response) => {
+        setData(response.data);
         console.log("삭제");
       })
       .catch((error) => {
@@ -98,14 +96,20 @@ const MyRoom = () => {
           <p>생성한 모임</p>
           <Post>
             {data ? (
-              <MakedRoom
-                onClick={() => {
-                  navigate("/postdetail:postId");
-                }}
-              >
-                <img src={data?.menuForImage} />
-               <div onClick={removePost}> <span className="material-symbols-outlined">delete</span>
-                <p>게시물 삭제</p></div>
+              <MakedRoom>
+                {" "}
+                <span
+                  className="material-symbols-outlined"
+                  onClick={removePost}
+                >
+                  delete<p>게시물 삭제</p>
+                </span>
+                <img
+                  src={data?.menuForImage}
+                  onClick={() => {
+                    navigate(`/postdetail${params.postId}`);
+                  }}
+                />
               </MakedRoom>
             ) : (
               <ToMakeRoom
@@ -193,13 +197,10 @@ const CreateRoom = styled.div`
   p {
     margin-bottom: 19px;
     font-size: 26px;
-   font-family: 'Noto Sans KR' ;
-    font-weight: 700;
   }
   div {
     font-size: 23px;
   }
-
 `;
 
 const BorderLine = styled.div`
@@ -219,9 +220,10 @@ const Post = styled.div`
   img {
     object-fit: cover;
     width: 439px;
-  height: 167px;
-  border-radius: 12px;
+    height: 167px;
+    border-radius: 12px;
     position: absolute;
+    z-index: 1;
   }
 `;
 
@@ -231,15 +233,22 @@ const MakedRoom = styled.div`
   background-size: contain;
   display: flex;
   flex-direction: row;
-  p {
-    margin-left: 4px;
-    font-size: 17px;
-  }
   span {
-    margin-left: 300px;
-    font-size: 24px;
+    z-index: 2;
+    margin-left: 315px;
+    font-size: 23px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 5px;
+    height: 25px;
+
+    p {
+      margin-left: 4px;
+      font-size: 17px;
+      margin-top: 3px;
+    }
   }
-  
 `;
 
 const ToMakeRoom = styled.span`
