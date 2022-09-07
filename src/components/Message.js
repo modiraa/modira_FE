@@ -10,7 +10,7 @@ const Message = ({ messageData, sendNick, prevData }) => {
   const isSmaeSender =
     prevData?.type !== "ENTER" && prevData?.sender == messageData.sender;
 
-  console.log(messageData.type == "TALK" && !isSmaeSender, messageData);
+  // console.log(messageData.type == "TALK" && !isSmaeSender, messageData);
   const navigate = useNavigate();
 
   //첫 입장
