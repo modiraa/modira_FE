@@ -7,15 +7,15 @@ const ProfileBg = ({ ProfileImg }) => {
   let code = new URL(window.location.href);
   const PageCheck = code.href;
   console.log(PageCheck, "체크");
-  console.log('여기는 은형님', ProfileImg);
+  console.log("여기는 은형님", ProfileImg);
 
   return (
     <Background>
-     {PageCheck === "http://localhost:3000/register" ? (
-       <div  style={{height: "155px",backgroundColor: "#fffcf6"}}/>
-        ) : (
-          <div  style={{height: "192px",backgroundColor: "#fffcf6"}}/>
-        )}
+      {PageCheck === "http://localhost:3000/register" ? (
+        <div style={{ height: "155px", backgroundColor: "#fffcf6" }} />
+      ) : (
+        <div style={{ height: "192px", backgroundColor: "#fffcf6" }} />
+      )}
       <img className="line" src={ProfileLine} />
 
       <Circle>
@@ -30,7 +30,6 @@ const ProfileBg = ({ ProfileImg }) => {
               color: "#FFE9BE",
               width: "115px",
               height: "115px",
-              // position: "absolute",
             }}
           >
             person_filled
@@ -48,7 +47,6 @@ const ProfileBg = ({ ProfileImg }) => {
               color: "#FFE9BE",
               width: "115px",
               height: "115px",
-              // position: "absolute",
             }}
           >
             person_filled
