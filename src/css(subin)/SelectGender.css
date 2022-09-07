@@ -22,6 +22,18 @@
     background-color: #FFF9EC;
 }
 
+.select-close{
+    position: absolute;
+    top: 28px;
+    right: 35px;
+    width: 44px;
+    height: 44px;
+}
+
+.select-close>.material-icons{
+    font-size: 44px;
+}
+
 .select_gender_count>p{
     margin-left: 43px;
     font-size: 19px;

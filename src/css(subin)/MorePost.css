@@ -1,3 +1,5 @@
+
+
 .more-post{
     width: 100%;
 }
@@ -79,6 +81,7 @@
 .more-post-resraint-text1{
     color: white;
     font-size: 18px;
+    font-family: 'Inter';
     font-weight: 500;
     background-color: aquamarine;
 
@@ -88,7 +91,7 @@
     background-color: #FFBB31;
     margin-bottom: 7px;
     text-align: left;
-    padding-top: 3px;
+    padding-top: 5px;
     padding-left: 6px;
     padding-right: 6px;
     box-sizing: border-box;
@@ -97,6 +100,7 @@
 .more-post-resraint-text2{
     color: white;
     font-size: 18px;
+    font-family: 'Inter';
     font-weight: 500;
     background-color: aquamarine;
 
@@ -106,11 +110,10 @@
     background-color: #FFBB31;
     margin-bottom: 7px;
     text-align: left;
-    padding-top: 3px;
+    padding-top: 5px;
     padding-left: 6px;
     padding-right: 6px;
     box-sizing: border-box;
-    
 }
 
 .card-cartegory{
@@ -121,8 +124,9 @@
 
 .card-cartegory>p{
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 100;
     color: #FFBB31;
+    font-family: 'Inter';
 }
 
 .card-title{
@@ -133,7 +137,8 @@
 
 .card-title>p{
     font-size: 21px;
-    font-weight: 700;
+    font-weight: 300;
+    font-family: 'Noto Sans KR';
 }
 
 .card-date-count-menu{
@@ -152,6 +157,7 @@
 .card-date>p{
     font-size: 17px;
     font-weight: 400;
+    font-family: 'Inter';
     float: left;
     color: #9A9A9A;
 }

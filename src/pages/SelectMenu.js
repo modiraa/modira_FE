@@ -23,6 +23,11 @@ const SelectMenu = () => {
     return (
         <div className='select_menu'>
             <div className='select_menu_top'>
+                <div className='select-close'>
+                    <span className="material-icons" onClick={() => { navigate("/write") }}>
+                        close
+                    </span>
+                </div>
                 <div className='select_menu_count'>
                     <p>5 / 6</p>
                 </div>
