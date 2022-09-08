@@ -11,63 +11,64 @@ import { useNavigate } from "react-router-dom";
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
 var stompClient = null;
-let prevMessage=[];
+let prevMessage = [];
 const Chat = () => {
   const [isConnected, setIsConnected] = React.useState(false);
-  
   const [showMessage, setShowMessage] = React.useState([]);
   const [sendMessage, setSendMessage] = React.useState("");
   const [sendNick, setSendNick] = React.useState("");
-  const [enterChatRoom, setEnterChatRoom] = React.useState([]);
   const [modalIsopen, setmodalIsopen] = React.useState(false);
-  const [postId, setPostId] = React.useState("");
-  const [chatRoomId, setChatRoomId] = React.useState("");
   const RefViewControll = React.useRef();
   const navigate = useNavigate();
   const Auth = sessionStorage.getItem("token");
-  let auth = sessionStorage.getItem("token")?.split(" ")[1];
+  const authNoBearer = sessionStorage.getItem("token")?.split(" ")[1];
 
+  //소켓연결
   React.useEffect(() => {
     var socket = new SockJS("http://3.34.129.164/ws-stomp");
     stompClient = Stomp.over(socket);
-    console.log(auth);
+
     stompClient.connect(
       {
-        Authorization: auth,
+        Authorization: authNoBearer,
       },
       connected
     );
+    //unmount시 연결헤제
+    return () => {
+      disconnect();
+    };
   }, []);
-  React.useEffect(() => {
-    console.log(showMessage);
 
-    //가장 최근 채팅 보여주기
-    if (RefViewControll.current) {
+  //가장 최근 채팅 보여주기
+  React.useEffect(() => {
+    if (RefViewControll.current && prevMessage.length > 0) {
       RefViewControll.current.scrollTop = RefViewControll.current.scrollHeight;
     }
-  }, [showMessage, enterChatRoom, sendMessage, chatRoomId]);
-
+  }, [showMessage, sendMessage, isConnected]);
+  // 유저의 방 정보 가기오기
   React.useEffect(() => {
     loadUserInfo();
   }, []);
-
-  React.useEffect(()=>{
+  // 지난 메시지 가져오기
+  React.useEffect(() => {
     loadPrevMessage();
-  },[])
-  const loadPrevMessage=async()=>{
+  }, []);
+
+  //채팅관련 axios통신 함수
+  const loadPrevMessage = async () => {
     await axios
-    .get("http://3.34.129.164/chat/messages/15cee64a-27d6-47a9-a1ae-c9ba15c4be50")
-    .then((response) => {
-  
-      console.log("api 호출 성공", response.data.content);
-   
-     prevMessage=response.data.content.reverse();
-     console.log(prevMessage)
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }
+      .get(
+        "http://3.34.129.164/chat/messages/ec0d4dfb-12e3-40b9-bd8e-2260e638947c"
+      )
+      .then((response) => {
+        prevMessage = response.data.content.reverse();
+        console.log(prevMessage);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const loadUserInfo = async () => {
     await axios
@@ -78,36 +79,26 @@ const Chat = () => {
       })
       .then((response) => {
         setSendNick(response.data.nickname);
-        console.log("api 호출 성공", response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  const modalHandler = () => {
-    setmodalIsopen(true);
-  };
-  const handleClickCancel = () => {
-    setmodalIsopen(false);
-  };
 
+// 소켓 함수
   function connected() {
     setIsConnected(true);
-    console.log(chatRoomId);
-
     stompClient.subscribe(
-      `/sub/chat/room/15cee64a-27d6-47a9-a1ae-c9ba15c4be50`,
+      `/sub/chat/room/ec0d4dfb-12e3-40b9-bd8e-2260e638947c`,
       subscribed,
       {
-        Authorization: auth,
+        Authorization: authNoBearer,
       }
     );
   }
-  //
+  
   function subscribed(greeting) {
-    console.log("여기올텐데");
-    console.log(greeting);
     const soketMessage = JSON.parse(greeting.body);
     showMessage.push(soketMessage);
     setShowMessage([...showMessage]);
@@ -125,36 +116,28 @@ const Chat = () => {
       stompClient.send(
         "/pub/chat/message",
         {
-          Authorization: auth,
+          Authorization: authNoBearer,
         },
         JSON.stringify({
           message: sendMessage,
-          sender: sendNick,
           type: "TALK",
-          roomId: "15cee64a-27d6-47a9-a1ae-c9ba15c4be50",
+          roomId: "ec0d4dfb-12e3-40b9-bd8e-2260e638947c",
         })
       );
-      setSendMessage("")
+      setSendMessage("");
     } catch (error) {
       console.log(error);
     }
   }
-  const makeChatRoom = async () => {
-    const params = new URLSearchParams();
-    params.append("name", "11");
 
-    await axios
-      .post(`http://3.34.129.164/chat/room`, params)
-      .then((response) => {
-        console.log("성공", response);
-        setChatRoomId(response.data.uuid);
-        console.log(response.data.uuid);
-        console.log(chatRoomId);
-      })
-      .catch((error) => {
-        console.log("에러", error);
-      });
+  //modal창 함수
+  const modalHandler = () => {
+    setmodalIsopen(true);
   };
+  const handleClickCancel = () => {
+    setmodalIsopen(false);
+  };
+ 
 
   return (
     <div className="chat-wrap">
@@ -188,8 +171,7 @@ const Chat = () => {
         </div>
       </div>
       <div ref={RefViewControll} className="chat-message-container">
-        11
-        <MessagelList showMessage={prevMessage} sendNick={sendNick}/>
+        <MessagelList showMessage={prevMessage} sendNick={sendNick} />
         <MessagelList showMessage={showMessage} sendNick={sendNick} />
       </div>
       <div className="chat-input-wrap">
