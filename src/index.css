@@ -61,3 +61,11 @@ code {
     url("../src/assets/fonts/NotoSansKR-Bold.otf") format("woff"),
     url("../src/assets/fonts/NotoSansKR-Bold.otf") format("opentype");
 }
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 900;
+  src: local("Noto Sans KR"),
+    url("../src/assets/fonts/NotoSansKR-Black.otf") format("woff2"),
+    url("../src/assets/fonts/NotoSansKR-Black.otf")format("woff"),
+    url("../src/assets/fonts/NotoSansKR-Black.otf")format("opentype");
+}
