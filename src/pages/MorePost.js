@@ -25,10 +25,6 @@ console.log(test,"test확인")
   const preventRef = useRef(false); //옵저버 중복 실행 방지
   const [load, setLoad] = useState(false); //로딩 스피너
 
-  // console.log(obsRef.current)
-
-  // mainposttitle.js console.확인하시면 됩니다.!!!! uselocation으로 콘솔확인하세요!
-
   // 옵저버 생성
   useEffect(() => {
     const observer = new IntersectionObserver(obsHandler, { threshold: 0.5 });
@@ -46,8 +42,7 @@ console.log(test,"test확인")
   useEffect(()=>{
     loadSearchPost();
     console.log("두번찍히나?")
-    // window.location.reload();
-  },[lastId,search])
+  },[lastId])
 
   useEffect(()=>{
     loadAddressPost();
@@ -70,21 +65,10 @@ console.log(test,"test확인")
    
     }
   };
-  // console.log(lastId)
-
-  // await axios
-  //     .get(`http://3.34.129.164/api/search/post?keyword=${test}`)
-  //     .then((response) => {
-  //       console.log("성공", response);
-  //     })
-  //     .catch((error) => {
-  //       console.log("에러", error);
-  //     });
 
   const loadMorePost = useCallback(async () => {
     console.log('나와라')
     if (category == "최근생성모임") {
-      // console.log('최근생성모임 불러오기')
       setLoad(false)
       let firsturl="http://3.34.129.164/api/post"
       let commonurl=`http://3.34.129.164/api/post?lastId=${lastId}`
@@ -120,7 +104,6 @@ console.log(test,"test확인")
     }
 
     else if(category == "골든벨"){
-      console.log('나와라 골든벨')
       console.log(`category=${category}`)
       let firsturl=`http://3.34.129.164/api/post?&category=${category}`
       let commonurl=`http://3.34.129.164/api/post?&category=${category}&lastId=${lastId}`
@@ -156,7 +139,6 @@ console.log(test,"test확인")
     }
 
     else if(category == "n빵"){
-      console.log('나와라 n빵')
       console.log(`category=${category}`)
       setLoad(true)
       let firsturl=`http://3.34.129.164/api/post?&category=${category}`

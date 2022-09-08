@@ -38,6 +38,7 @@ const Navbar = ({ address }) => {
 
   const searchAddressAX = async () => {
     navigate("/morepost", { state: { keyword: keyword } });
+    window.location.reload();
   };
 
   const showSearchBar = () => {

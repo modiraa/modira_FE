@@ -17,7 +17,6 @@ const MyInfo = () => {
   useEffect(() => {
     const ACCESS_TOKEN = sessionStorage.getItem("token");
     console.log(ACCESS_TOKEN);
-    // axios 요청하기(axios의 response)
     axios
       .get("http://3.34.129.164/api/user/info", {
         headers: {
@@ -31,20 +30,16 @@ const MyInfo = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []); // [] : 안에 있는 값이 바뀌면 다시 useEffect 작동
+  }, []);
   console.log(infoUser.userProfile);
 
   return (
     <div className="my_info">
       <Navbar />
       <div className="info_wrap">
-        {/* <div className="bg"></div> */}
         <div>
           <ProfileBg ProfileImg={infoUser.userProfile}/>
         </div>
-        {/* <div className="info_user_img">
-          <img src={infoUser.userProfile}/>
-        </div> */}
         <div className="info_user_name">
           <h3>{infoUser.nickname}</h3>
         </div>
@@ -77,9 +72,6 @@ const MyInfo = () => {
             </div>
           </div>
         </div>
-        {/* <div className="info_user_update_btn">
-          <button>프로필 수정</button>
-        </div> */}
         <div className="myinfo-lowernavbar">
           <LowerNavbar locationIndicator={"myinfo"} />
         </div>

@@ -11,6 +11,7 @@ const WebViewLeft = () => {
   const searchAddressAX = async () => {
     const keyword = refInputSearch.current.value;
     navigate("/morepost",{state:{keyword:keyword}})
+    window.location.reload();
     // await axios
     //   .get(`http://3.34.129.164/api/search/post?keyword=${keyword}`)
     //   .then((response) => {
