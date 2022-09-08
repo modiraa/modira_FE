@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ProfileLine from "../image/ProfileLine.png";
 import "../css(subin)/ProfileBg.css";
 import { relativeTimeRounding } from "moment";
+import { CenturyView } from "react-calendar";
 
 const ProfileBg = ({ ProfileImg }) => {
   let code = new URL(window.location.href);
@@ -25,7 +26,7 @@ const ProfileBg = ({ ProfileImg }) => {
           <span
             className="material-symbols-outlined"
             style={{
-              fontSize: "40px",
+              fontSize: "70px",
               fontVariationSettings: "'FILL' 1",
               color: "#FFE9BE",
               width: "115px",
@@ -42,7 +43,7 @@ const ProfileBg = ({ ProfileImg }) => {
           <span
             className="material-symbols-outlined"
             style={{
-              fontSize: "40px",
+              fontSize: "70px",
               fontVariationSettings: "'FILL' 1",
               color: "#FFE9BE",
               width: "115px",
@@ -77,8 +78,8 @@ const Circle = styled.div`
   margin-left: 207px;
   overflow: hidden;
   span {
-    margin-left: 38px;
-    margin-top: 40px;
+    margin-left: 22.5px;
+    margin-top: 20px;
     z-index: 3;
     position: relative;
   }

@@ -8,6 +8,7 @@ import LowerNavbar from "../components/LowerNavbar";
 function PostDetail() {
   const navigate = useNavigate();
   const params = useParams();
+  // console.log(params.postId.split(":")[1],"파람스")
   const [data, setData] = useState({
     category: "다같이 내자! N빵 모임",
     title: "Lorem ipsum dolor",
@@ -43,6 +44,25 @@ function PostDetail() {
       });
   }, []);
 
+  const Submit = async () => {
+    await axios
+      .post(
+        `http://3.34.129.164/api/enter/7782412b-a124-4088-8218-f08cc759185a`,
+        null,
+        {
+          headers: {
+            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjI3MTE2NDQsInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4OTc0OTcyNCJ9.eR22bMPsYpq9xw1VRSI6ayo1JUxWM8wscd9iGhUrelDq30ZCu6pJy1OSSEXKNSTqFl0FPkEQtSd356aOTJt1Ng`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log("참여완료", response);
+      })
+
+      .catch((error) => {
+        console.log("실패",error);
+      });
+  };
   return (
     <>
       <TitleBar>
@@ -58,55 +78,60 @@ function PostDetail() {
       </TitleBar>
       <Container>
         <InfoBox>
-          <Category>{data?.category}</Category>
-          <Title>{data?.title}</Title>
+          <Category>{data.category}</Category>
+          <Title>{data.title}</Title>
           <Date>
             <div>
               <span className="material-symbols-outlined">calendar_today</span>
-              <span>{data?.date}</span>
-              <span>{data?.time}</span>
+              <span>{data.date}</span>
+              <span>{data.time}</span>
             </div>
             <div>
               <div>
                 <span className="material-symbols-outlined">person</span>{" "}
-                <span>{data?.numberOfPeople}명 참여</span>
+                <span>{data.numberOfPeople}명 참여</span>
               </div>
               <div>
                 {" "}
                 <span className="material-symbols-outlined">
                   ramen_dining
                 </span>{" "}
-                <span>{data?.menu}</span>
+                <span>{data.menu}</span>
               </div>
             </div>
           </Date>
         </InfoBox>
         <Address>
           <span className="material-symbols-outlined">location_on</span>
-          <p>{data?.restaurantAddress}</p>
+          <p>{data.restaurantAddress}</p>
         </Address>
         <Gps>
           <MapgpsForDetail
-            latitude={data?.latitude}
-            longitude={data?.longitude}
+            latitude={data.latitude}
+            longitude={data.longitude}
           />
         </Gps>
         <Writer>
-          <Img src={data?.writerProfileImage} />
+          <Img src={data.writerProfileImage} />
           <UserInfo>
-            <b>{data?.writerNickname}</b>
+            <b>{data.writerNickname}</b>
             <AgeGender>
-              <span>{data?.writerGender}</span>
-              <span>{data?.writerAge}</span>
+              <span>{data.writerGender}</span>
+              <span>{data.writerAge}</span>
             </AgeGender>
           </UserInfo>
           <Heart>
-            <span className="material-symbols-outlined"style={{
-              fontSize: "25px",
-              fontVariationSettings: "'FILL' 1",
-              color: "#FFE9BE",
-            }}>favorite</span>
-            <b>{data?.writerScore}</b>
+            <span
+              className="material-symbols-outlined"
+              style={{
+                fontSize: "25px",
+                fontVariationSettings: "'FILL' 1",
+                color: "#FFE9BE",
+              }}
+            >
+              favorite
+            </span>
+            <b>{data.writerScore}</b>
           </Heart>
         </Writer>
         <Limit>
@@ -115,21 +140,15 @@ function PostDetail() {
             <Icon className="material-symbols-outlined">task_alt</Icon>
             <span>
               <b>
-                {data?.limitAge} {data?.limitGender}
+                {data.limitAge} {data.limitGender}
               </b>
               만 신청가능한 모임입니다.
             </span>
           </div>
-          <p>{data?.contents}</p>
+          <p>{data.contents}</p>
         </Limit>
-        <ButtonSubmit>
-          <button
-            onClick={() => {
-              navigate("/chat");
-            }}
-          >
-            참여신청
-          </button>
+        <ButtonSubmit onClick={Submit}>
+          <button>참여신청</button>
           {/* fullOfPeople? (<button>마감완료</button>) : (<button>참여신청</button>
           ) */}
         </ButtonSubmit>
