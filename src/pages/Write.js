@@ -70,7 +70,7 @@ const Write = () => {
     const ACCESS_TOKEN = sessionStorage.getItem("token")
     console.log(ACCESS_TOKEN)
 
-    await axios.post("http://3.34.197.6/api/post",
+    await axios.post("http://3.34.129.164/api/post",
       JSON.stringify({
         "category": storeSelect.category,
         "title": storeSelect.writeTitle,

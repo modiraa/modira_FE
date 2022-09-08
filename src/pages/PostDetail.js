@@ -8,6 +8,7 @@ import LowerNavbar from "../components/LowerNavbar";
 function PostDetail() {
   const navigate = useNavigate();
   const params = useParams();
+  // console.log(params.postId.split(":")[1],"파람스")
   const [data, setData] = useState({
     category: "다같이 내자! N빵 모임",
     title: "Lorem ipsum dolor",
@@ -33,7 +34,7 @@ function PostDetail() {
 
   useEffect(() => {
     axios
-      .get(`http://3.34.197.6/api/post/detail/${params.postId}`)
+      .get(`http://3.34.129.164/api/post/detail/${params.postId}`)
       .then((response) => {
         setData(response.data);
         console.log("성공", params.postId);
@@ -44,10 +45,9 @@ function PostDetail() {
   }, []);
 
   const Submit = async () => {
-    console.log("테스트");
     await axios
       .post(
-        `http://3.34.197.6/api/enter/7782412b-a124-4088-8218-f08cc759185a`,
+        `http://3.34.129.164/api/enter/7782412b-a124-4088-8218-f08cc759185a`,
         null,
         {
           headers: {
@@ -59,8 +59,8 @@ function PostDetail() {
         console.log("참여완료", response);
       })
 
-      .catch((err) => {
-        console.log("실패");
+      .catch((error) => {
+        console.log("실패",error);
       });
   };
   return (

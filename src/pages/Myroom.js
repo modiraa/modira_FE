@@ -53,8 +53,8 @@ const MyRoom = () => {
         },
       })
       .then((response) => {
-        setJoinData(response.joindata[0]);
-        console.log("데이터 나와랏", response.joindata[0]);
+        setJoinData(response.joinData[0]);
+        console.log("데이터 나와랏", response.joinData[0]);
       })
       .catch((error) => {
         console.log("에러", error);
@@ -66,16 +66,23 @@ const MyRoom = () => {
 
   //모임 삭제
   const removePost = async () => {
+    const ACCESS_TOKEN = sessionStorage.getItem("token");
     await axios
-      .delete("http://3.34.197.6/api/post/{postId}")
+      .delete(`http://3.34.129.164/api/post/${data.postId}`, {
+        headers: {
+          Authorization: ACCESS_TOKEN,
+        },
+      })
       .then((response) => {
-        setData(response.data);
-        console.log("삭제");
+        alert('게시물이 삭제되었습니다.')
+        console.log("삭제", response.data);
       })
       .catch((error) => {
         console.log("에러", error);
+        console.log(params);
       });
   };
+
   return (
     <>
       <Navbar />
@@ -101,13 +108,14 @@ const MyRoom = () => {
                 <span
                   className="material-symbols-outlined"
                   onClick={removePost}
+                  style={{ color: "#FFF" }}
                 >
                   delete<p>게시물 삭제</p>
                 </span>
                 <img
                   src={data?.menuForImage}
                   onClick={() => {
-                    navigate(`/postdetail${params.postId}`);
+                    navigate(`/postdetail${data.postId}`);
                   }}
                 />
               </MakedRoom>
@@ -135,7 +143,16 @@ const MyRoom = () => {
         <CreateRoom>
           <p>신청한 모임</p>
           <Post>
-            {data ? (
+            {joinData ? (
+              <MakedRoom>
+                <img
+                  src={joinData?.menuForImage}
+                  onClick={() => {
+                    navigate(`/postdetail/${data.postId}`);
+                  }}
+                />
+              </MakedRoom>
+            ) : (
               <ToMakeRoom
                 onClick={() => {
                   navigate("/morepost");
@@ -151,10 +168,6 @@ const MyRoom = () => {
                 </span>
                 <p>모임 찾아보러 가기</p>
               </ToMakeRoom>
-            ) : (
-              <MakedRoom>
-                <img src={joinData?.menuForImage} />
-              </MakedRoom>
             )}
           </Post>
           <Title>{joinData?.title}</Title>
@@ -235,18 +248,26 @@ const MakedRoom = styled.div`
   flex-direction: row;
   span {
     z-index: 2;
-    margin-left: 315px;
-    font-size: 23px;
+    margin-left: 305px;
+    font-size: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 5px;
-    height: 25px;
+    align-items: center;
+    margin-top: 9px;
+    height: 36px;
+    width: 126px;
+    background: #ffbb31;
+    border-radius: 22px;
 
     p {
       margin-left: 4px;
-      font-size: 17px;
-      margin-top: 3px;
+      font-size: 13px;
+      margin-top: 19px;
+      color: #ffffff;
+      align-items: center;
+      font-family: "Noto Sans";
+      font-style: normal;
     }
   }
 `;

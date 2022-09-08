@@ -13,7 +13,7 @@ const NaverRedirect = () => {
     let state = new URL(window.location.href).searchParams.get("state");
 
     const test = async () => {
-        await axios.get(`http://3.34.197.6/login/ouath2/code/naver?code=${code}&state=${state}`)
+        await axios.get(`http://3.34.129.164/login/ouath2/code/naver?code=${code}&state=${state}`)
             .then((res) => {
                 console.log(res); // 토큰이 넘어올 것임
 

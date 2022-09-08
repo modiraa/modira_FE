@@ -38,7 +38,7 @@ const Main = () => {
 
   const loadpostAX = async () => {
     await axios
-      .get("http://3.34.197.6/api/post/list",   {
+      .get("http://3.34.129.164/api/post/list",   {
         headers: {
           Authorization: Auth
         },
