@@ -1,0 +1,21 @@
+.wrap-postnocomponentstatus {
+    background: #eaeaea;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+    height: 287px;
+  }
+  .postnocomponentstatus-location-icon {
+    margin-top: 105.18px;
+  }
+  .postnocomponentstatus-text {
+    margin-top: 29.18px;
+    font-weight: 400;
+    font-size: 29px;
+    line-height: 40px;
+    color: #ffffff;
+  }
+  
+  

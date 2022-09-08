@@ -5,6 +5,7 @@
   align-items: center;
   margin-left: 41px;
   margin-top: 6px;
+  cursor: pointer;
 }
 .userlist-profile {
   width: 48px;

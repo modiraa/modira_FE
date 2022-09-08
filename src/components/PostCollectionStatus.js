@@ -4,6 +4,7 @@ import PostComponentStatus from "./PostComponentStatus";
 import "../css(subin)/postcolloctionstatus.css";
 import ScrollContainer from "react-indiana-drag-scroll";
 import PostSeeMorePostStatus from "./PostSeeMorePostStatus";
+import PostNoComponentStatus from "./PostNoComponentStatus";
 
 const PostCollectionStatus = ({
   titleCollection,
@@ -13,7 +14,7 @@ const PostCollectionStatus = ({
   return (
     <div className="wrap-postcollectionstatus">
       <div style={{ width: "100%" }}>
-        <div style={{ marginBottom: "21px" }}>
+        <div style={{ marginBottom: "26px" }}>
           <MainPostTItle
             titleCollection={titleCollection}
             morepostType={morepostType}
@@ -27,9 +28,16 @@ const PostCollectionStatus = ({
               </div>
             ))}
             <div>
-            <PostSeeMorePostStatus  morepostType={morepostType}/>
+              {postStatus?.length > 7 && (
+                <PostSeeMorePostStatus morepostType={morepostType} />
+              )}
+              {postStatus?.length == 0 && (
+                <div className="postcollectionstatus-wrap-postnocomponent">
+                  <PostNoComponentStatus />
+                  <PostNoComponentStatus />
+                </div>
+              )}
             </div>
-           
           </div>
         </ScrollContainer>
       </div>

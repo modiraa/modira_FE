@@ -7,27 +7,56 @@ import styled from "styled-components";
 import axios from "axios";
 import UserList from "../components/UserList";
 import ProfileBg from "../components/ProfileBg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
   const [dataProfile, setDataProfile] = React.useState();
   const Auth = sessionStorage.getItem("token");
-  const navigate=useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const showUser = location.state;
+  const [userList, setUserList] = React.useState([]);
+  const [userChoiceValidation, setUserChoiceValidation] =
+    React.useState(showUser);
+
+  console.log(location);
 
   const showProfileAX = async () => {
     await axios
-      .get(`http://3.34.129.164/api/user/info/9`)
+      .get(`http://3.34.129.164/api/user/info/${userChoiceValidation}`)
       .then((response) => {
         console.log(response);
         setDataProfile(response.data);
+        console.log(response.data.score);
       })
       .catch((error) => {
         console.log(error.response);
       });
   };
+  const showListParticipants = async () => {
+    await axios
+      .get(
+        `http://3.34.129.164/api/userlist/15cee64a-27d6-47a9-a1ae-c9ba15c4be50`
+      )
+      .then((response) => {
+        console.log(response);
+        setUserList(response.data);
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  };
+ 
+
+
+
   useEffect(() => {
     showProfileAX();
-  }, []);
+
+  }, [userChoiceValidation]);
+  useEffect(() => {
+    showListParticipants();
+  }, [userChoiceValidation]);
 
   const likePlusScore = async () => {
     const Auth = sessionStorage.getItem("token");
@@ -35,7 +64,7 @@ const UserProfile = () => {
     await axios
       .post(
         "http://3.34.129.164/api/likes",
-        { userId: 9 },
+        { userId: userChoiceValidation },
         {
           headers: {
             Authorization: Auth,
@@ -44,8 +73,8 @@ const UserProfile = () => {
       )
       .then((res) => {
         console.log(res); // 토큰이 넘어올 것임
-
-        window.location.reload();
+        showProfileAX()
+        // window.location.reload();
         // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
       })
       .catch((err) => {
@@ -61,7 +90,7 @@ const UserProfile = () => {
     await axios
       .post(
         "http://3.34.129.164/api/hates",
-        { userId: 9 },
+        { userId: userChoiceValidation },
         {
           headers: {
             Authorization: Auth,
@@ -70,7 +99,9 @@ const UserProfile = () => {
       )
       .then((res) => {
         console.log(res); // 토큰이 넘어올 것임
-        window.location.reload();
+       
+        showProfileAX()
+        // window.location.reload();
         // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
       })
       .catch((err) => {
@@ -84,8 +115,10 @@ const UserProfile = () => {
         <div className="userprofile-header-icon" style={{ marginLeft: "28px" }}>
           <span
             className="material-symbols-outlined"
-            style={{ fontSize: "28px",cursor:"pointer" }}
-            onClick={()=>{navigate(-1)}}
+            style={{ fontSize: "28px", cursor: "pointer" }}
+            onClick={() => {
+              navigate(-1);
+            }}
           >
             arrow_back_ios
           </span>
@@ -112,7 +145,7 @@ const UserProfile = () => {
           <ProfileBg ProfileImg={dataProfile?.userProfile} />
         </div>
 
-        <div className="user-nick">Lorem ipsum dolor</div>
+        <div className="user-nick">{dataProfile?.nickname}</div>
         <div className="user-wrap-sexAndage">
           <div className="user-sexAndage">
             <div className="user-sexAndage-text">{dataProfile?.gender}</div>
@@ -122,13 +155,15 @@ const UserProfile = () => {
           </div>
         </div>
         <div className="user-wrap-like">
-          <div className="user-like"  onClick={dislikePlusScore}>
-            <div className="user-like-text">
-              -1 싫어요
-            </div>
+          <div className="user-like" onClick={dislikePlusScore}>
+            <div className="user-like-text">-1 싫어요</div>
           </div>
-          <div className="user-like" style={{backgroundColor:"#FFBB31"}} onClick={likePlusScore}>
-            <div className="user-like-text" style={{color:"white"}}>
+          <div
+            className="user-like"
+            style={{ backgroundColor: "#FFBB31" }}
+            onClick={likePlusScore}
+          >
+            <div className="user-like-text" style={{ color: "white" }}>
               +1 좋아요
             </div>
           </div>
@@ -138,12 +173,13 @@ const UserProfile = () => {
             모임원들이 평가를 기다리고 있어요!
           </div>
           <div className="user-wrap-userchange-userlist">
-            <UserList />
-            <UserList />
-            <UserList />
-            <UserList />
-            <UserList />
-            <UserList />
+            {userList.map((v, i) => (
+              <UserList
+                data={v}
+                key={i}
+                setUserChoiceValidation={setUserChoiceValidation}
+              />
+            ))}
           </div>
         </div>
       </div>

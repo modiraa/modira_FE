@@ -17,3 +17,10 @@ margin-bottom: 28px;
 .postcollection-wrap-postcomponents::-webkit-scrollbar{
     display: none;
 }
+.postcollection-wrap-postnocomponent{
+    display: flex;
+
+}
+.postcollection-wrap-postnocomponent>div{
+    margin-right: 20px;
+}
