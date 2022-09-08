@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import MorePostCard from '../components/MorePostCard';
-import Navbar from '../components/Navbar';
+import MorePostCard from '../components/morepost/MorePostCard';
+import Navbar from '../components/public/Navbar';
 import '../css(subin)/MorePost.css';
 
 let test=0;

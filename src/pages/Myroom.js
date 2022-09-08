@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import LowerNavbar from "../components/LowerNavbar";
-import Navbar from "../components/Navbar";
+import LowerNavbar from "../components/public/LowerNavbar";
+import Navbar from "../components/public/Navbar";
 import MiniBanner from "../image/MiniBanner.png";
-import "../css(subin)/MainBanner.css";
+import "../components/main/MainBanner.css"
 import Enter1 from "../image/Enter1.png";
 
 const MyRoom = () => {

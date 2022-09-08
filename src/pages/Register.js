@@ -3,9 +3,10 @@ import styled from "styled-components";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
-import AgeDropdown from "../components/AgeDropdown";
 import { loginUserinfo } from "../redux/moduls/UserInfo";
-import ProfileBg from "../components/ProfileBg";
+//component
+import AgeDropdown from "../components/register/AgeDropdown";
+import ProfileBg from "../components/public/ProfileBg";
 
 const Register = () => {
   const navigate = useNavigate();

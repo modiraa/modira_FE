@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
-import LowerNavbar from "../components/LowerNavbar";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+//css
 import "../css(subin)/chat.css";
 import "../css(subin)/UserProfile.css";
-import testimg from "../image/11.jpg";
-import styled from "styled-components";
-import axios from "axios";
-import UserList from "../components/UserList";
-import ProfileBg from "../components/ProfileBg";
-import { useLocation, useNavigate } from "react-router-dom";
+//conponent
+import UserList from "../components/userprofile/UserList";
+import ProfileBg from "../components/public/ProfileBg";
+import LowerNavbar from "../components/public/LowerNavbar";
+
 
 const UserProfile = () => {
   const [dataProfile, setDataProfile] = React.useState();

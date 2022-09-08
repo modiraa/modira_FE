@@ -1,6 +1,6 @@
 import React from "react";
-import WebViewLeft from "./components/WebViewLeft";
-import RouteList from "./components/RouteList";
+import WebViewLeft from "./components/public/WebViewLeft"
+import RouteList from "./components/public/RouteList";
 import './index.css';
 
 function App() {

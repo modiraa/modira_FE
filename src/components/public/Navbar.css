@@ -1,0 +1,117 @@
+.info_header {
+  width: 525px;
+  height: 75px;
+  /* background-color: antiquewhite; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrap-navbar-searchbar {
+  display: flex;
+  flex-direction: row;
+  width: 408px;
+  height: 75px;
+  align-items: center;
+}
+
+.navbar-searchbar-input {
+  width: 360px;
+  height: 44px;
+  margin-left: 75px;
+  padding-left: 20px;
+  border-bottom-left-radius: 22px;
+  border-top-left-radius: 22px;
+  background: #e4e4e4;
+  border: none;
+}
+.navbar-searchbar-input:focus{
+    outline: none;
+}
+
+.navbar-searchbar-location-icon {
+  height: 44px;
+  width: 48px;
+  background: #e4e4e4;
+  border: none;
+  border-bottom-right-radius: 22px;
+  border-top-right-radius: 22px;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.navbar-login-button {
+  width: 86px;
+  height: 44px;
+  margin-left: 43px;
+  background: #f4f4f4;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.info_header_address {
+  min-width: 152px;
+  height: 44px;
+  margin-left: 43px;
+  border-radius: 22px;
+  background-color: #FFFCF6;
+
+
+  display: flex;
+
+  justify-content: end;
+  align-items: center;
+
+  /* background-color: aquamarine; */
+}
+.info-header-address-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  margin-left: 19px;
+}
+.info_header_address_plus {
+  width: 28px;
+  height: 28px;
+  background-color: #d9d9d9;
+  border-radius: 15px;
+  margin-right: 7px;
+  margin-left: 10px;
+  display: flex;
+
+  justify-content: end;
+  align-items: center;
+  background: url("../../image/Component\ 1\ \(3\).png");
+  cursor: pointer;
+}
+
+.info_header_search {
+  width: 44px;
+  height: 44px;
+  margin-right: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.info_header_search > .material-icons-outlined {
+  font-size: 17px;
+}
+.location-trianle {
+  position: relative;
+}
+.triangle {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-bottom: 15px solid transparent;
+  border-top: 15px solid transparent;
+  border-left: 15px solid #4a4a4a;
+  border-right: 15px solid transparent;
+  left: -24px;
+  top: -3px;
+}
