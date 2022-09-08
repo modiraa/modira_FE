@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../css(subin)/SelectPeopleCount.css';
-import PeopleCountPicker from '../components/PeopleCountPicker';
+import PeopleCountPicker from '../components/selectpeoplecount/PeopleCountPicker';
 import { useDispatch,useSelector } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';

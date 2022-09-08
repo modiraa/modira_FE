@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../css(subin)/SelectMenu.css';
-import MenuPicker from '../components/MenuPicker';
+import MenuPicker from '../components/selectmenu/MenuPicker';
 import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';

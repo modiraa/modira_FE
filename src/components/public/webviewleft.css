@@ -1,0 +1,64 @@
+.wrap-webview {
+ 
+  height: 579px;
+  margin-top: 161px;
+}
+
+.webview-logo {
+  width: 159px;
+  height: 40px;
+  background: url("../../image/logo.png") center no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+.webview-description {
+  width: 560px;
+  height: 161px;
+  font-weight: 400;
+  font-size: 47px;
+  line-height: 80px;
+  color: #0e0741;
+  margin-top: 195px;
+  /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif */
+}
+.wrap-webview-search {
+  width: 521px;
+  height: 91px;
+  margin-top: 91px;
+  background-color: white;
+  border-radius: 71px;
+}
+.wrap-webview-search-inputAndicon {
+  box-sizing: border-box;
+  border: 4px solid #ffbb31;
+  border-radius: 71px;
+  width: 100%;
+  height: 100%;
+  padding: 18px 0px 18px 44px;
+  font-size: 31px;
+  color: #bcbcbc;
+  line-height: 37.52px;
+  font-weight: 500px;
+  position: relative;
+}
+.webview-search {
+  height: 100%;
+  font-size: 28px;
+  line-height: 37px;
+  border: none;
+}
+.webview-search:focus {
+  outline: none;
+}
+.webview-wrap-icon {
+  position: absolute;
+  height: 91px;
+  width: 91px;
+  background-color: #ffbb31;
+  border-radius: 50%;
+  right: -4px;
+  bottom: -4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

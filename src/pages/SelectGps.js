@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Mapgps from '../components/Mapgps';
+import Mapgps from '../components/selectgps/Mapgps';
 import '../css(subin)/SelectGps.css';
 import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
