@@ -109,6 +109,23 @@ const UserProfile = () => {
         // navigate("/login"); // 로그인 실패하면 로그인화면으로 돌려보냄
       });
   };
+  const exitPost= async()=>{
+    await axios
+    .delete(
+      "http://3.34.129.164/api/enter/ec0d4dfb-12e3-40b9-bd8e-2260e638947c",
+      {
+        headers: {
+          Authorization: Auth,
+        },
+      }
+    )
+    .then((res) => {
+      console.log(res); // 토큰이 넘어올 것임
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
   return (
     <div className="useprofile-wrap">
       <div className="userprofile-header-wrap">
@@ -122,6 +139,7 @@ const UserProfile = () => {
           >
             arrow_back_ios
           </span>
+          <button onClick={exitPost}>완료</button>
         </div>
       </div>
 

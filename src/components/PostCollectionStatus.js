@@ -28,7 +28,7 @@ const PostCollectionStatus = ({
               </div>
             ))}
             <div>
-              {postStatus?.length > 7 && (
+              {postStatus?.length > 8 && (
                 <PostSeeMorePostStatus morepostType={morepostType} />
               )}
               {postStatus?.length == 0 && (
