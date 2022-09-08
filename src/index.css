@@ -44,6 +44,7 @@ code {
     url("../src/assets/fonts/NotoSansKR-Regular.otf") format("woff"),
     url("../src/assets/fonts/NotoSansKR-Regular.otf") format("opentype");
 }
+
 @font-face {
   font-family: "Noto Sans KR";
   font-weight: 700;
