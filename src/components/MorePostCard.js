@@ -51,7 +51,7 @@ const MorePostCard = (props) => {
           <span className="material-icons-outlined">
             calendar_today
           </span>
-          <p>{props.item?.date}</p>
+          <p>{props.item?.date} {props.item?.time}</p>
         </div>
         <div className="card-people-count-menu">
           <span className="material-icons-outlined">
