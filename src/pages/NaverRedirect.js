@@ -6,12 +6,9 @@ import { loginUserinfo } from '../redux/moduls/UserInfo';
 
 const NaverRedirect = () => {
     const navigate = useNavigate();
-
     let dispatch = useDispatch();
-
     let code = new URL(window.location.href).searchParams.get("code");
     let state = new URL(window.location.href).searchParams.get("state");
-
     const test = async () => {
         await axios.get(`http://3.34.129.164/login/ouath2/code/naver?code=${code}&state=${state}`)
             .then((res) => {
@@ -31,15 +28,12 @@ const NaverRedirect = () => {
                     sessionStorage.setItem("token", ACCESS_TOKEN)
                     dispatch(loginUserinfo(res.data))
                 }
-
             }).catch((err) => {
                 console.log("소셜로그인 에러", err);
                 // navigate("/login"); // 로그인 실패하면 로그인화면으로 돌려보냄
             })
     }
-
     React.useEffect(() => {
-        console.log(code, state)
         test()
     }, [])
 
@@ -49,5 +43,4 @@ const NaverRedirect = () => {
         </div>
     )
 }
-
 export default NaverRedirect;

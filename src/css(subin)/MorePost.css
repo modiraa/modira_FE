@@ -124,7 +124,7 @@
 
 .card-cartegory>p{
     font-size: 16px;
-    font-weight: 100;
+    font-weight: 500;
     color: #FFBB31;
     font-family: 'Inter';
 }
@@ -137,7 +137,7 @@
 
 .card-title>p{
     font-size: 21px;
-    font-weight: 300;
+    font-weight: 700;
     font-family: 'Noto Sans KR';
 }
 
@@ -150,8 +150,10 @@
 }
 
 .card-date{
-    display: block;
+    width: 100%;
     margin-right: 16px;
+    margin-top: 6px;
+    /* background-color: aqua; */
 }
 
 .card-date>p{
@@ -167,14 +169,13 @@
     font-weight: 400;
     float: left;
     margin-right: 11px;
-    margin-top: 2px;
     color: #9A9A9A;
 }
 
 .card-people-count-menu{
     display: flex;
     flex-direction: row;
-    margin-top: 7px;
+    margin-top: 4px;
 }
 
 .card-people-count-menu>p{
@@ -190,6 +191,6 @@
     font-weight: 400;
     float: left;
     margin-right: 9px;
-    margin-top: 1px;
+    margin-top: 4px;
     color: #9A9A9A;
 }

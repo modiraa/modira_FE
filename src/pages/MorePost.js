@@ -46,7 +46,8 @@ console.log(test,"test확인")
   useEffect(()=>{
     loadSearchPost();
     console.log("두번찍히나?")
-  },[lastId])
+    // window.location.reload();
+  },[lastId,search])
 
   useEffect(()=>{
     loadAddressPost();

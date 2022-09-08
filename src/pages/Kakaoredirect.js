@@ -1,11 +1,10 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {loginUserinfo} from '../redux/moduls/UserInfo';
-import { isCompositeComponent } from 'react-dom/test-utils';
 
-const Kakaoredirect = ({setUserName,userName}) => {
+const Kakaoredirect = ({userName}) => {
     const navigate = useNavigate();
 
     console.log(userName);
@@ -43,7 +42,6 @@ const Kakaoredirect = ({setUserName,userName}) => {
     }
 
     React.useEffect(()=>{
-        console.log(code)
         test()
     },[])
 
