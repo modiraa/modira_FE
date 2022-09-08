@@ -3,7 +3,7 @@ import"../css(subin)/uselist.css"
 import test from"../image/11.jpg"
 
 const UserList = ({data,setUserChoiceValidation}) => {
-  console.log(data)
+  // console.log(data)
   return (
     <div className='userlist-wrap' onClick={()=>{setUserChoiceValidation(data.userId)}}>
         <img src={data.userProfile} className="userlist-profile"></img>

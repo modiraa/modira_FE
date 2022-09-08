@@ -30,7 +30,7 @@ const Message = ({ messageData, sendNick, prevData }) => {
       <div className="chat-container-message-notsamemessage-mymessage">
         <img
           src={messageData.profileImage}
-          style={{ height: "48px", width: "48px", borderRadius: "8px" }}
+          style={{ height: "48px", width: "48px", borderRadius: "8px",cursor:"pointer" }}
           onClick={() => {
             navigate("/userprofile",{state:messageData.senderId});
           }}
@@ -51,7 +51,7 @@ const Message = ({ messageData, sendNick, prevData }) => {
       <div className="chat-container-message-notsamemessage-notmymessage">
         <img
           src={messageData.profileImage}
-          style={{ height: "48px", width: "48px", borderRadius: "8px" }}
+          style={{ height: "48px", width: "48px", borderRadius: "8px",cursor:"pointer" }}
           onClick={() => {
             navigate("/userprofile",{state:messageData.senderId});
           }}

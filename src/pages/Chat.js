@@ -54,7 +54,6 @@ const Chat = () => {
   React.useEffect(()=>{
     loadPrevMessage();
   },[])
-
   const loadPrevMessage=async()=>{
     await axios
     .get("http://3.34.129.164/chat/messages/15cee64a-27d6-47a9-a1ae-c9ba15c4be50")
@@ -62,7 +61,7 @@ const Chat = () => {
   
       console.log("api 호출 성공", response.data.content);
    
-     prevMessage=response.data.content
+     prevMessage=response.data.content.reverse();
      console.log(prevMessage)
     })
     .catch((error) => {
@@ -190,7 +189,7 @@ const Chat = () => {
       </div>
       <div ref={RefViewControll} className="chat-message-container">
         11
-        {/* <MessagelList showMessage={prevMessage} sendNick={sendNick}/> */}
+        <MessagelList showMessage={prevMessage} sendNick={sendNick}/>
         <MessagelList showMessage={showMessage} sendNick={sendNick} />
       </div>
       <div className="chat-input-wrap">

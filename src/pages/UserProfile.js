@@ -18,7 +18,7 @@ const UserProfile = () => {
   const [userList, setUserList] = React.useState([]);
   const [userChoiceValidation, setUserChoiceValidation] =
     React.useState(showUser);
-    const [score,setScore]= React.useState();
+
   console.log(location);
 
   const showProfileAX = async () => {
@@ -27,8 +27,7 @@ const UserProfile = () => {
       .then((response) => {
         console.log(response);
         setDataProfile(response.data);
-        setScore(response.data.score);
-        console.log(response.data.score)
+        console.log(response.data.score);
       })
       .catch((error) => {
         console.log(error.response);
@@ -48,15 +47,16 @@ const UserProfile = () => {
       });
   };
  
-  useEffect(() => {
-    showListParticipants();
-  }, [dataProfile]);
+
+
+
   useEffect(() => {
     showProfileAX();
+
   }, [userChoiceValidation]);
-  useEffect(()=>{
-console.log(score)
-  },[score])
+  useEffect(() => {
+    showListParticipants();
+  }, [userChoiceValidation]);
 
   const likePlusScore = async () => {
     const Auth = sessionStorage.getItem("token");
@@ -73,7 +73,7 @@ console.log(score)
       )
       .then((res) => {
         console.log(res); // 토큰이 넘어올 것임
-        setDataProfile([...dataProfile]);
+        showProfileAX()
         // window.location.reload();
         // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
       })
@@ -99,7 +99,8 @@ console.log(score)
       )
       .then((res) => {
         console.log(res); // 토큰이 넘어올 것임
-        setDataProfile([...dataProfile]);
+       
+        showProfileAX()
         // window.location.reload();
         // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
       })

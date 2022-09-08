@@ -22,7 +22,9 @@ const PostCollection = ({ postAll, }) => {
           <div className="postcollection-wrap-postcomponents">
           {postAll?.map((v,i)=>{return <PostComponent key={i} postAll={v}/>})}
              {postAll?.length>8&&<PostSeeMorePost  className="item" width={"261px"} height={"221px"} morepostType={"최근생성모임"}/>}
-             {postAll?.length==0&&<PostNoComponent/>}
+             {postAll?.length==0&&<div className="postcollection-wrap-postnocomponent">
+              
+              <PostNoComponent/><PostNoComponent/></div>}
           </div>
         </ScrollContainer>
       </div>
