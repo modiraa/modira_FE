@@ -73,6 +73,8 @@
     font-size: 16px;
     font-weight: 400;
     margin-top: 1px;
+    margin-left: 7px;
+    color: #000000;
 }
 
 .info_user_genderAge{
@@ -92,7 +94,7 @@
     width: 83px;
     height: 39px;
     margin-right: 10px;
-    background-color: #F1F1F1;
+    background-color: #FFE9BE;
     border-radius: 68px;
 }
 
@@ -109,7 +111,7 @@
     
     width: 83px;
     height: 39px;
-    background-color: #F1F1F1;
+    background-color: #FFE9BE;
     border-radius: 68px;
 }
 
@@ -169,10 +171,11 @@
     margin-left: -10px;
   }
   
-  .info-userprofile-like-text {
+  .info-like-text {
     font-size: 25px;
     font-weight: 400;
-    margin-left: 2px;
+    margin-left: 7px;
+    margin-bottom: 4px;
   }
 
 .info_user_good>.material-icons-outlined{

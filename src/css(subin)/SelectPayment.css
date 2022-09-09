@@ -19,7 +19,7 @@
     height: 332px;
     padding-top: 85px;
     box-sizing: border-box;
-    background-color: #FFF9EC;
+    background-color: #FFFDF8;
 }
 
 .select_payment_count>p{
@@ -55,13 +55,15 @@
     box-sizing: border-box;
     background-color: #ffff;
     border-radius: 5px;
+
     font-size: 28px;
-    /* letter-spacing: 4px; */
+    font-weight: 600;
     color: #FFBB31;
 }
 .select_payment_value>h5{
     font-size: 18px;
     margin-top: 10px;
+    font-weight: 400;
 }
 
 .select_payment_bottom{
@@ -90,6 +92,7 @@
 
 .payment-arrow-back-ios>.material-symbols-outlined{
     margin-left: 42.69px;
+    margin-top: 3px;
     font-size: 28px;
     color: #BBB8CF;
 }
@@ -114,6 +117,7 @@
 
 .payment-arrow-forward-ios>.material-symbols-outlined{
     font-size: 28px;
+    margin-top: 3px;
 }
 
 .next>h4{

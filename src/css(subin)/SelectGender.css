@@ -38,6 +38,7 @@
     margin-left: 43px;
     font-size: 19px;
     font-weight: 400;
+    color: #000000;
 }
 
 .select_gender_title{
@@ -63,16 +64,20 @@
     height: 37px;
     padding-right: 7px;
     padding-left: 12px;
+    padding-bottom: 10px;
     margin-right: 8px;
     box-sizing: border-box;
     background-color: #ffff;
     border-radius: 5px;
+
     font-size: 28px;
+    font-weight: 700;
     letter-spacing: 4px;
     color: #FFBB31;
 }
 .select_gender_value>h5{
     font-size: 18px;
+    font-weight: 400;
     margin-top: 10px;
 }
 
@@ -109,6 +114,7 @@
 .next>h4{
     margin-right: 11px;
     font-size: 20px;
+    font-weight: 600;
     margin-top: 2px;
 }
 
