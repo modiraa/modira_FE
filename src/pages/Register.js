@@ -281,17 +281,19 @@ const Input = styled.input`
   &:focus {
     outline: none;
   }
+  ::placeholder {
+    color: #cbcbcb;
+  }
 `;
 
 const ButtonImg = styled.div`
   width: 176px;
-  height: 40x;
+  height: 40px;
   border: 2px solid #ffbb31;
   padding: 8px 18px;
   justify-content: center;
   display: flex;
   align-items: center;
-  font-family: "Noto Sans KR";
   font-weight: 600;
   font-size: 18px;
   margin: 18px 0 20px 0;
@@ -360,8 +362,8 @@ const Check = styled.span`
     height: 19px;
   }
   p {
-    font-weight: 500;
     font-size: 18px;
+    font-weight: 400;
     margin: 0 29px 0 0;
   }
 `;
