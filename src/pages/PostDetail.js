@@ -47,20 +47,25 @@ function PostDetail() {
   const Submit = async () => {
     await axios
       .post(
-        `http://3.34.129.164/api/enter/7782412b-a124-4088-8218-f08cc759185a`,
+        `http://3.34.129.164/api/enter/e329c5d4-ea5e-4a6b-92a3-1dcae107c56c`,
         null,
         {
           headers: {
-            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjI3MTE2NDQsInVzZXJuYW1lIjoiS2FrYW9uYW1lMjM4OTc0OTcyNCJ9.eR22bMPsYpq9xw1VRSI6ayo1JUxWM8wscd9iGhUrelDq30ZCu6pJy1OSSEXKNSTqFl0FPkEQtSd356aOTJt1Ng`,
+            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjI3OTM2NTEsInVzZXJuYW1lIjoiZ1NkUXFPZ1VfNVI1SnFNcGRVM1o0RzVLS01XX1J2VHJPU2FYYkJKT2NqcyJ9.I3R3ZELuVY7nz1mUQFbYj9hQ7r2D576H7yLcWpMGQbdxRK3_m1w0K_UVdnHh1XD-qfuEgTCX-Ok4RVYwRhHZ0w`,
           },
         }
       )
       .then((response) => {
         console.log("참여완료", response);
+        if (data.currentPeople < data.numberOfPeople) {
+          alert("모집 인원이 마감 되었습니다");
+        } else {
+          alert("중복된 참여는 불가능 합니다.");
+        }
       })
 
       .catch((error) => {
-        console.log("실패",error);
+        console.log("실패", error);
       });
   };
   return (
@@ -68,7 +73,7 @@ function PostDetail() {
       <TitleBar>
         <Arrow
           onClick={() => {
-            navigate("/");
+            navigate(-1);
           }}
           className="material-symbols-outlined"
         >
@@ -88,14 +93,11 @@ function PostDetail() {
             </div>
             <div>
               <div>
-                <span className="material-symbols-outlined">person</span>{" "}
+                <span className="material-symbols-outlined">person</span>
                 <span>{data.numberOfPeople}명 참여</span>
               </div>
               <div>
-                {" "}
-                <span className="material-symbols-outlined">
-                  ramen_dining
-                </span>{" "}
+                <span className="material-symbols-outlined">ramen_dining</span>
                 <span>{data.menu}</span>
               </div>
             </div>
@@ -148,9 +150,11 @@ function PostDetail() {
           <p>{data.contents}</p>
         </Limit>
         <ButtonSubmit onClick={Submit}>
-          <button>참여신청</button>
-          {/* fullOfPeople? (<button>마감완료</button>) : (<button>참여신청</button>
-          ) */}
+          {data.currentPeople < data.numberOfPeople ? (
+            <Join>참여신청</Join>
+          ) : (
+            <Finish>마감완료</Finish>
+          )}
         </ButtonSubmit>
       </Container>
       <LowerNavbar />
@@ -189,28 +193,23 @@ const Arrow = styled.span`
 const Category = styled.b`
   font-size: 20px;
   color: #ffbb31;
+  font-weight: 500;
 `;
 const Title = styled.div`
-  font-weight: bold;
+  font-weight: 600;
   font-size: 33px;
   margin-top: 5px;
 `;
 const Date = styled.span`
   display: flex;
   flex-direction: column;
-  font-weight: 400;
   font-size: 20px;
   color: #acacac;
   margin-top: 15px;
   div {
-    /* margin-right: 8px; */
     margin-bottom: 4px;
     display: flex;
     align-items: center;
-    margin-right: 24px;
-  }
-  p {
-    margin-right: 18px;
   }
   span {
     margin-right: 18px;
@@ -264,7 +263,6 @@ const UserInfo = styled.div`
 `;
 
 const AgeGender = styled.span`
-  font-weight: 400;
   font-size: 16px;
   display: flex;
   flex-direction: row;
@@ -292,6 +290,7 @@ const Heart = styled.div`
   b {
     font-size: 25px;
     margin-left: 2px;
+    margin-bottom: 3px;
   }
 
   span {
@@ -303,15 +302,13 @@ const Heart = styled.div`
 const Limit = styled.div`
   position: relative;
   background-color: #fff;
-  font-weight: 400;
   font-size: 18px;
-  padding: 44px 0 0 44px;
+  padding: 44px 43px 0 44px;
   span {
     margin: 0 8px 22px 0;
   }
   p {
     margin-bottom: 12px;
-    font-weight: 400;
     font-size: 20px;
   }
   b {
@@ -329,7 +326,7 @@ const Icon = styled.span`
 `;
 
 const LimiitTitle = styled.div`
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   font-weight: 600;
   font-size: 20px;
 `;
@@ -337,17 +334,30 @@ const LimiitTitle = styled.div`
 const ButtonSubmit = styled.div`
   position: relative;
   background-color: #fff;
-  button {
-    background-color: #ffbb31;
-    width: 445px;
-    height: 70px;
-    border: none;
-    color: white;
-    padding: 12px 25px;
-    justify-content: center;
-    font-size: 20px;
-    margin: 56px 40px 85px 40px;
-    border-radius: 35px;
-    cursor: pointer;
-  }
+`;
+const Join = styled.button`
+  background-color: #ffbb31;
+  width: 445px;
+  height: 70px;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  justify-content: center;
+  font-size: 20px;
+  margin: 56px 40px 85px 40px;
+  border-radius: 35px;
+  cursor: pointer;
+`;
+
+const Finish = styled.button`
+  background-color: #ffe4a8;
+  width: 445px;
+  height: 70px;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  justify-content: center;
+  font-size: 20px;
+  margin: 56px 40px 85px 40px;
+  border-radius: 35px;
 `;
