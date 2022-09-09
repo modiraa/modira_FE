@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../css(subin)/SelectAge.css';
-import AgePicker from '../components/AgePicker';
+import AgePicker from '../components/selectage/AgePicker';
 import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';

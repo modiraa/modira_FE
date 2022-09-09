@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import WriteHeader from '../components/WriteHeader';
-import WriteMainSelect from '../components/WriteMainSelect';
+import WriteHeader from '../components/write/WriteHeader';
+import WriteMainSelect from '../components/write/WriteMainSelect';
 import { selectWrite } from '../redux/moduls/SelectWrite';
 
 const Write = () => {

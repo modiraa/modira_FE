@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../css(subin)/SelectDate.css';
-import MyCalendar from '../components/MyCalendar';
+import MyCalendar from '../components/selectdate/MyCalendar';
 import { useDispatch } from "react-redux";
 import {useNavigate} from "react-router-dom";
 import { selectWrite } from '../redux/moduls/SelectWrite';

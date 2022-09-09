@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TimePicker from '../components/TimePicker';
+import TimePicker from '../components/selecttime/TimePicker';
 import '../css(subin)/SelectTime.css';
 import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';

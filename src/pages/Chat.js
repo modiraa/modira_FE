@@ -2,9 +2,9 @@ import Stomp, { connect } from "stompjs";
 import SockJS from "sockjs-client";
 import React from "react";
 import "../css(subin)/chat.css";
-import MessagelList from "../components/MessagelList";
-import MessageInput from "../components/MessageInput";
-import MyModal from "../components/MyModal";
+import MessageList from "../components/chat/MessageList"
+import MessageInput from "../components/chat/MessageInput";
+import MyModal from "../components/public/MyModal";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -171,8 +171,8 @@ const Chat = () => {
         </div>
       </div>
       <div ref={RefViewControll} className="chat-message-container">
-        <MessagelList showMessage={prevMessage} sendNick={sendNick} />
-        <MessagelList showMessage={showMessage} sendNick={sendNick} />
+        <MessageList showMessage={prevMessage} sendNick={sendNick} />
+        <MessageList showMessage={showMessage} sendNick={sendNick} />
       </div>
       <div className="chat-input-wrap">
         <MessageInput

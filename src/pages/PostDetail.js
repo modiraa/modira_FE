@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import MapgpsForDetail from "../components/MapgpsForDetail";
+import MapgpsForDetail from "../components/postdetail/MapgpsForDetail";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import LowerNavbar from "../components/LowerNavbar";
+import LowerNavbar from "../components/public/LowerNavbar";
 
 function PostDetail() {
   const navigate = useNavigate();

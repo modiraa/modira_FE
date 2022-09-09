@@ -26,6 +26,7 @@
     margin-left: 43px;
     font-size: 19px;
     font-weight: 400;
+    color: #000000;
 }
 
 .select_age_title{
@@ -37,6 +38,7 @@
 .select_age_title>h2{
     font-size: 34px;
     font-weight: 700;
+    color: #000000;
 }
 
 .select_age_value{
@@ -48,19 +50,21 @@
 }
 
 .select_age_value>h3{
-    height: 37px;
+    height: 39px;
     padding-right: 7px;
     padding-left: 12px;
     margin-right: 8px;
     box-sizing: border-box;
     background-color: #ffff;
     border-radius: 5px;
+
     font-size: 28px;
-    letter-spacing: 4px;
+    font-weight: 700;
     color: #FFBB31;
 }
 .select_age_value>h5{
     font-size: 18px;
+    font-weight: 400;
     margin-top: 10px;
 }
 
@@ -98,6 +102,7 @@
 .next>h4{
     margin-right: 11px;
     font-size: 20px;
+    font-weight: 700;
     margin-top: 2px;
 }
 

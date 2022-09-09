@@ -4,6 +4,7 @@
 }
 
 .login {
+    position: relative;
     display: flex;
     width: 100px;
     flex-direction: column;
@@ -12,8 +13,21 @@
     /* background-color: aqua; */
 }
 
+.login-bg{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.login-bg>img{
+    width: 100%;
+}
+
 .login_top{
     width: 100%;
+    z-index: 3;
 }
 
 .login-material-symbols-outlined{
@@ -22,8 +36,12 @@
     /* background-color: aquamarine; */
 }
 
+.login-material-symbols-outlined>.material-symbols-outlined{
+    font-size: 50px;
+}
+
 .login_text {
-    margin-top: 132px;
+    margin-top: 120px;
     margin-left: 43px;
 }
 
@@ -38,9 +56,9 @@
     margin-left: 43px;
 }
 
-.logo>h1{
-    font-size: 60px;
-    font-weight: 700;
+.logo>img{
+    width: 239px;
+    height: 60px;
 }
 
 .login_bottom{
@@ -52,6 +70,7 @@
     align-items: center;
     padding-top: 198px;
     box-sizing: border-box;
+    z-index: 3;
 
     width: 100%;
     /* background-color: aqua; */
@@ -59,8 +78,8 @@
 
 .login_bottom>h3{
     font-size: 18px;
-    font-weight: 500;
-    color: #A4A4A4;
+    font-weight: 600;
+    color: #000000;
 }
 
 .login_btns{
@@ -88,8 +107,8 @@
 .kakao_btn>a{
     font-size: 20px;
     text-decoration: none;
-    color: rgb(98, 98, 98);
-    font-weight: bolder;
+    color: #321E1C;
+    font-weight: 600;
     text-align: center;
 }
 
@@ -108,7 +127,7 @@
     font-size: 20px;
     text-decoration: none;
     color: white;
-    font-weight: bolder;
+    font-weight: 600;
     text-align: center;
 }
 
@@ -116,7 +135,7 @@
     width: 235px;
     height: 35px;
     border-radius: 30px;
-    border: 1px solid gray;
+    border: 1px solid #FFBB31;;
     margin-top: 36px;
     background-color: transparent;
 }
@@ -125,7 +144,6 @@
     text-align: center;
     font-size: 18px;
     font-weight: 500;
-    margin-top: 1%;
-    color: gray;
+    color: #FFBB31;
 }
 

@@ -2,9 +2,9 @@ import "../css(subin)/MyInfo.css";
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Navbar from "../components/Navbar";
-import LowerNavbar from "../components/LowerNavbar";
-import ProfileBg from "../components/ProfileBg";
+import Navbar from "../components/public/Navbar";
+import LowerNavbar from "../components/public/LowerNavbar";
+import ProfileBg from "../components/public/ProfileBg";
 import { useSelector } from "react-redux";
 
 const MyInfo = () => {
@@ -68,6 +68,7 @@ const MyInfo = () => {
               >
                 favorite
               </span>
+              {/* <span className="info-like-text">{infoUser?.score}</span> */}
               <span className="info-like-text">{infoUser?.score}</span>
             </div>
           </div>
