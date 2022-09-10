@@ -68,6 +68,7 @@ const MyInfo = () => {
               >
                 favorite
               </span>
+              {/* <span className="info-like-text">{infoUser?.score}</span> */}
               <span className="info-like-text">{infoUser?.score}</span>
             </div>
           </div>

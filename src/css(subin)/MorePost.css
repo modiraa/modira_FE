@@ -28,7 +28,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 auto;
-    margin-top: 38px;
+    margin-top: 34px;
     /* background-color: rgb(132, 164, 164); */
 }
 
@@ -37,7 +37,7 @@
     flex-direction: column;
     width: 229.7px;
     float: left;
-    margin-bottom: 54px;
+    margin-bottom: 53px;
     /* background-color: rgb(202, 162, 162); */
 }
 
@@ -81,7 +81,6 @@
 .more-post-resraint-text1{
     color: white;
     font-size: 18px;
-    font-family: 'Inter';
     font-weight: 500;
     background-color: aquamarine;
 
@@ -91,7 +90,6 @@
     background-color: #FFBB31;
     margin-bottom: 7px;
     text-align: left;
-    padding-top: 5px;
     padding-left: 6px;
     padding-right: 6px;
     box-sizing: border-box;
@@ -100,7 +98,6 @@
 .more-post-resraint-text2{
     color: white;
     font-size: 18px;
-    font-family: 'Inter';
     font-weight: 500;
     background-color: aquamarine;
 
@@ -110,7 +107,6 @@
     background-color: #FFBB31;
     margin-bottom: 7px;
     text-align: left;
-    padding-top: 5px;
     padding-left: 6px;
     padding-right: 6px;
     box-sizing: border-box;
@@ -119,26 +115,24 @@
 .card-cartegory{
     width: 100%;
     /* background-color: aqua; */
-    margin-top: 17px;
+    margin-top: 20.5px;
 }
 
 .card-cartegory>p{
     font-size: 16px;
     font-weight: 500;
     color: #FFBB31;
-    font-family: 'Inter';
 }
 
 .card-title{
     width: 100%;
     /* background-color: aqua; */
-    margin-top: 5px;
+    margin-top: 2px;
 }
 
 .card-title>p{
     font-size: 21px;
     font-weight: 700;
-    font-family: 'Noto Sans KR';
 }
 
 .card-date-count-menu{
@@ -152,14 +146,12 @@
 .card-date{
     width: 100%;
     margin-right: 16px;
-    margin-top: 6px;
     /* background-color: aqua; */
 }
 
 .card-date>p{
     font-size: 17px;
     font-weight: 400;
-    font-family: 'Inter';
     float: left;
     color: #9A9A9A;
 }
@@ -167,6 +159,7 @@
 .card-date>.material-icons-outlined{
     font-size: 17px;
     font-weight: 400;
+    margin-top: 5px;
     float: left;
     margin-right: 11px;
     color: #9A9A9A;
@@ -175,7 +168,7 @@
 .card-people-count-menu{
     display: flex;
     flex-direction: row;
-    margin-top: 4px;
+    margin-top: 5px;
 }
 
 .card-people-count-menu>p{

@@ -29,7 +29,7 @@ code {
 
 @font-face {
   font-family: "Noto Sans KR";
-  font-weight: 300;
+  font-weight: 400;
   src: local("Noto Sans KR"),
     url("../src/assets/fonts/NotoSansKR-Light.otf") format("woff2"),
 
@@ -37,14 +37,15 @@ code {
 
 @font-face {
   font-family: "Noto Sans KR";
-  font-weight: 400;
+  font-weight: 500;
   src: local("Noto Sans KR"),
     url("../src/assets/fonts/NotoSansKR-Regular.otf") format("woff2"),
   
 }
+
 @font-face {
   font-family: "Noto Sans KR";
-  font-weight: 500;
+  font-weight: 700;
   src: local("Noto Sans KR"),
     url("../src/assets/fonts/NotoSansKR-Medium.otf") format("woff2"),
    
@@ -52,11 +53,12 @@ code {
 
 @font-face {
   font-family: "Noto Sans KR";
-  font-weight: 700;
+  font-weight: 900;
   src: local("Noto Sans KR"),
     url("../src/assets/fonts/NotoSansKR-Bold.otf") format("woff2"),
 
 }
+
 @font-face {
   font-family: "Noto Sans KR";
   font-weight: 900;
@@ -118,4 +120,5 @@ font-weight:400 ;
     font-size: 48.3%;
   }
 }
+
 
