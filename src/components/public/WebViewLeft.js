@@ -24,10 +24,10 @@ const WebViewLeft = () => {
   return (
     <div className="wrap-webview">
       <div className="webview-logo" onClick={()=>navigate("/")}></div>
-      <div className="webview-description">
-        이제 혼밥하지 마세요!
+      <div className="webview-description" >
+        이제 <span className="font-bold">혼밥</span>하지 마세요!
         <br />
-        <div>밥친구 찾기 플렛폼 <span className="font-corlor-orange">modira</span></div>
+        <div className="font-bold">밥친구 찾기 플렛폼 <span className="font-corlor-orange font-black">modira</span></div>
       </div>
       <div className="wrap-webview-search">
         <div className="wrap-webview-search-inputAndicon">

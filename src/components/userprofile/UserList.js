@@ -8,7 +8,7 @@ const UserList = ({data,setUserChoiceValidation}) => {
   return (
     <div className='userlist-wrap' onClick={()=>{setUserChoiceValidation(data.userId)}}>
         <img src={data.userProfile} className="userlist-profile"></img>
-        <div className='userlist-nick'>{data.nickname}</div>
+        <div className='userlist-nick font-bold'>{data.nickname}</div>
     </div>
   )
 }

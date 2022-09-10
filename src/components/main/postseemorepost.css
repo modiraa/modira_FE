@@ -3,21 +3,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 8px;
-  width: 261px;
-  height: 221px;
+  border-radius: 0.5rem;
+  width: 16.3125rem;
+  height: 13.8125rem;
 }
 .postseemorepost-location-icon {
-  margin-top: 84px;
-  width: 29px;
-  height: 29px;
+  margin-top: 5.25rem;
+  width: 1.8125rem;
+  height: 1.8125rem;
 }
 .postseemorepost-text {
-  font-family: "AppleSDGothicNeoB00";
-  font-style: normal;
+ 
   font-weight: 400;
-  font-size: 21px;
-  line-height: 29px;
+  font-size: 1.3125rem;
+  line-height: 1.8125rem;
   color: #ffc034;
-  margin-top: 17px;
+  margin-top: 1.0625rem;
 }

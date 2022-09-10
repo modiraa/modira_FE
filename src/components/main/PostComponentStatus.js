@@ -43,16 +43,16 @@ const PostComponentStatus = ({ poststatus }) => {
       <div className="postcomponentstatus-backimg" style={sectionStyle}>
         <div style={{ marginTop: "14px", marginLeft: "15px" }}>
           <div className="postcomponentstatus-resraint">
-            <span className="postcomponentstatus-resraint-text">
+            <span className="postcomponentstatus-resraint-text font-medium">
               #{poststatus.age}
             </span>
           </div>
           <div className="postcomponentstatus-resraint">
-            <span className="postcomponentstatus-resraint-text">#{gender}</span>
+            <span className="postcomponentstatus-resraint-text font-medium">#{gender}</span>
           </div>
         </div>
       </div>
-      <div className="postcomponentstatus-title">{title}</div>
+      <div className="postcomponentstatus-title font-bold">{title}</div>
       <div className="wrap-postcomponentstatus-dayAndperson">
         <div className="postcomponentstatus-location-icon">
           <span

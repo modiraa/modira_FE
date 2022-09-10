@@ -1,6 +1,6 @@
 .posttitle-wrap{
     width: 100%;
-    height: 31px;
+    height: 1.9375rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -8,18 +8,14 @@
 }
 
 .posttitle-status{
-
-font-weight: 700;
-font-size: 26px;
-line-height: 31px;
-
+font-size: 1.625rem;
+line-height: 1.9375rem;
 }
 
 .posttitle-viewmore{
-    font-weight: 500;
-font-size: 14px;
-line-height: 17px;
-margin-right: 28px;
+font-size: 0.875rem;
+line-height: 1.0625rem;
+margin-right: 1.75rem;
 cursor: pointer;
 }
 .font-orange{

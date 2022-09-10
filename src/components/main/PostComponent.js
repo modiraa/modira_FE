@@ -39,17 +39,17 @@ const PostComponent = ({ postAll }) => {
         <div className="postcomponent-backimg" style={sectionStyle}>
           <div style={{ marginTop: "10px", marginLeft: "10px" }}>
             <div className="postcomponent-resraint">
-              <span className="postcomponent-resraint-text">
+              <span className="postcomponent-resraint-text font-medium">
                 #{postAll.age}
               </span>
             </div>
             <div className="postcomponent-resraint">
-              <span className="postcomponent-resraint-text">#{gender}</span>
+              <span className="postcomponent-resraint-text font-medium">#{gender}</span>
             </div>
           </div>
         </div>
-        <div className="postcomponent-status">{postAll.category} 모임</div>
-        <div className="postcomponent-title">{title}</div>
+        <div className="postcomponent-status font-medium">{postAll.category} 모임</div>
+        <div className="postcomponent-title font-bold">{title}</div>
         <div className="wrap-postcomponent-dayAndperson">
           <div className="postcomponent-dayAndicon">
             <div className="postcomponent-location-icon">

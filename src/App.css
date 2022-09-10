@@ -1,8 +1,7 @@
 
 .wrap-app{
-  max-width:1920px;
-  height: 1030px;
- 
+  width:100vw;
+  height:100vh;
   background: url("./image/웹앱_배경.png") center no-repeat;
   background-size: cover;
   display: flex;
@@ -14,13 +13,15 @@
   
 .wrap-app-webview{
  
-  width: 40%;
   height: 100%;
   margin-right: 12.938rem;
 }
+
 @media screen and (max-width: 1182px) {
   .wrap-app{
+    width:100%;
     background-image: none;
+    display: flex;
     justify-content: center;
     background-color: #FFF7E3;
   }
@@ -28,15 +29,39 @@
     display: none;
   } 
   .wrap-app-appview{
-    width: 525px;
+    width: 512px;
+    max-width: none;
     margin-right: 0px;
   }
+
 }
+
+@media screen and (max-width: 512px) {
+  .wrap-app{
+    width:100%;
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    background-color: #FFF7E3;
+    min-width: 355px;
+  }
+  .wrap-app-webview{
+    display: none;
+  } 
+  .wrap-app-appview{
+    width: 100%;
+    max-width: none;
+    margin-right: 0px;
+    min-width: 355px;
+  }
+
+}
+
 .wrap-app-appview{
  
-  min-width: 525px;
   width: 525px;
-  height: 100%;
+  max-width: 525px;
+  height: 1030px;
   background: white;
   overflow: auto;
 

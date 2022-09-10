@@ -2,22 +2,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 8px;
-  width: 340px;
-  height: 287px;
+  border-radius: 0.5rem;
+  width: 21.25rem;
+  height: 17.9375rem;
   /* background-color: green; */
 }
 .postseemorepoststatus-location-icon {
-  margin-top: 101px;
-  width: 39px;
-  height: 39px;
+  margin-top: 6.3125rem;
+  width: 2.4375rem;
+  height: 2.4375rem;
 }
 .postseemorepoststatus-text {
-    margin-top: 25px;
-  font-family: "AppleSDGothicNeoB00";
-  font-style: normal;
+   margin-top: 1.5625rem;
   font-weight: 400;
-  font-size: 21px;
-  line-height: 29px;
+  font-size: 1.3125rem;
+  line-height: 1.8125rem;
   color: #ffc034;
 }
