@@ -16,7 +16,7 @@ const Message = ({ messageData, sendNick, prevData }) => {
   if (messageData.type == "ENTER") {
     return (
       <div className="chat-message-enter">
-        <span className="chat-message-enter-nick">{messageData.sender}</span>
+        <span className="chat-message-enter-nick font-bold">{messageData.sender}</span>
         님이 입장하셨습니다
       </div>
     );
@@ -36,7 +36,7 @@ const Message = ({ messageData, sendNick, prevData }) => {
         ></img>
 
         <div>
-          <div className="chat-sender-mymessage">{messageData.sender}</div>
+          <div className="chat-sender-mymessage font-bold">{messageData.sender}</div>
 
           <div className="chat-message-wrap-text">
             <div className="chat-message-text">{messageData.message}</div>
@@ -57,7 +57,7 @@ const Message = ({ messageData, sendNick, prevData }) => {
         ></img>
 
         <div>
-          <div className="chat-sender-notsamemessge-notmymessage">{messageData.sender}</div>
+          <div className="chat-sender-notsamemessge-notmymessage font-bold">{messageData.sender}</div>
 
           <div className="chat-message-wrap-text-notsamemessge-notmymessage">
             <div className="chat-message-text-notsamemessge-notmymessage">{messageData.message}</div>

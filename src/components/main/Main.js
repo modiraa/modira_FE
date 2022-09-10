@@ -17,25 +17,21 @@ const Main = () => {
   // kakao/naver 인가 뽑아오기 (백엔드에 보낼 인가코드)
   let code = new URL(window.location.href).searchParams.get("code");
   console.log(code);
-
   // google인가 뽑아오기
   const parsedHash = new URLSearchParams(window.location.hash.substring(1));
   const accessToken = parsedHash.get("access_token");
 
-  const Auth=sessionStorage.getItem("token")
+  const Auth = sessionStorage.getItem("token");
 
   useEffect(() => {
     loadpostAX();
   }, []);
 
-
-
-
   const loadpostAX = async () => {
     await axios
-      .get("http://3.34.129.164/api/post/list",   {
+      .get("http://3.34.129.164/api/post/list", {
         headers: {
-          Authorization: Auth
+          Authorization: Auth,
         },
       })
       .then((res) => {
@@ -51,39 +47,34 @@ const Main = () => {
       });
   };
 
-  
-
   return (
-    <div>
-      <div className="wrap-main">
-        <Navbar />
-        <MainBanner />
-        <div className="main-postcollection">
-          <PostCollection postAll={postAll} />
-        </div>
-        <div className="main-postcollectionstatus-goldenbell">
-          <PostCollectionStatus
-            titleCollection={"골든벨 모임"}
-            postStatus={postGoldenBell}
-            morepostType={"골든벨"}
-          />
-        </div>
-
-        <div className="main-minibanner">
-          <MiniBanner />
-        </div>
-
-        <div className="main-postcollectionstsus-dutch">
-          <PostCollectionStatus
-            titleCollection={"N빵 모임"}
-            postStatus={postDutchPay}
-            morepostType={"n빵"}
-          />
-        </div>
-        <div style={{ height: "125px" }}></div>
+    <div className="wrap-main">
+      <Navbar />
+      <MainBanner />
+      <div className="main-postcollection">
+        <PostCollection postAll={postAll} />
+      </div>
+      <div className="main-postcollectionstatus-goldenbell">
+        <PostCollectionStatus
+          titleCollection={"골든벨 모임"}
+          postStatus={postGoldenBell}
+          morepostType={"골든벨"}
+        />
       </div>
 
-      <div className="main-wrap-lowernavbar">
+      <div className="main-minibanner">
+        <MiniBanner />
+      </div>
+
+      <div className="main-postcollectionstsus-dutch">
+        <PostCollectionStatus
+          titleCollection={"N빵 모임"}
+          postStatus={postDutchPay}
+          morepostType={"n빵"}
+        />
+      </div>
+      <div style={{ height: "125px" }}></div>
+      <div className="lowernavbar">
         <LowerNavbar locationIndicator={"main"} />
       </div>
     </div>

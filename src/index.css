@@ -32,8 +32,7 @@ code {
   font-weight: 300;
   src: local("Noto Sans KR"),
     url("../src/assets/fonts/NotoSansKR-Light.otf") format("woff2"),
-    url("../src/assets/fonts/NotoSansKR-Light.otf") format("woff"),
-    url("../src/assets/fonts/NotoSansKR-Light.otf") format("opentype");
+
 }
 
 @font-face {
@@ -41,16 +40,14 @@ code {
   font-weight: 400;
   src: local("Noto Sans KR"),
     url("../src/assets/fonts/NotoSansKR-Regular.otf") format("woff2"),
-    url("../src/assets/fonts/NotoSansKR-Regular.otf") format("woff"),
-    url("../src/assets/fonts/NotoSansKR-Regular.otf") format("opentype");
+  
 }
 @font-face {
   font-family: "Noto Sans KR";
   font-weight: 500;
   src: local("Noto Sans KR"),
     url("../src/assets/fonts/NotoSansKR-Medium.otf") format("woff2"),
-    url("../src/assets/fonts/NotoSansKR-Medium.otf") format("woff"),
-    url("../src/assets/fonts/NotoSansKR-Medium.otf") format("opentype");
+   
 }
 
 @font-face {
@@ -58,14 +55,67 @@ code {
   font-weight: 700;
   src: local("Noto Sans KR"),
     url("../src/assets/fonts/NotoSansKR-Bold.otf") format("woff2"),
-    url("../src/assets/fonts/NotoSansKR-Bold.otf") format("woff"),
-    url("../src/assets/fonts/NotoSansKR-Bold.otf") format("opentype");
+
 }
 @font-face {
   font-family: "Noto Sans KR";
   font-weight: 900;
   src: local("Noto Sans KR"),
     url("../src/assets/fonts/NotoSansKR-Black.otf") format("woff2"),
-    url("../src/assets/fonts/NotoSansKR-Black.otf")format("woff"),
-    url("../src/assets/fonts/NotoSansKR-Black.otf")format("opentype");
 }
+ 
+.font-regural{
+font-weight:400 ;
+}
+.font-medium{
+  font-weight:500 ;
+}
+.font-bold{
+  font-weight:700 ;
+}
+.font-black{
+  font-weight:900 ;
+}
+
+@media all and (max-width: 800px) {
+  html {
+  
+    font-size: 85%;
+  }
+}
+
+@media all and (max-width: 600px) {
+  html {
+
+    font-size: 80%;
+  }
+}
+
+@media all and (max-width: 450px) {
+  html {
+   
+    font-size: 70%;
+  }
+}
+
+@media all and (max-width: 400px) {
+  html {
+  
+    font-size: 62.5%;
+  }
+}
+
+@media all and (max-width: 330px) {
+  html {
+
+    font-size: 55%;
+  }
+}
+
+@media all and (max-width: 300px) {
+  html {
+ 
+    font-size: 48.3%;
+  }
+}
+

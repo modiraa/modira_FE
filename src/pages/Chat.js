@@ -151,12 +151,12 @@ const Chat = () => {
         >
           <span
             className="material-symbols-outlined"
-            style={{ fontSize: "28px" }}
+            style={{ fontSize: "28px",fontWeight:"bold" }}
           >
             arrow_back_ios
           </span>
         </div>
-        <div className="chat-header-title">Lorem ipsum dolor...</div>{" "}
+        <div className="chat-header-title font-bold">Lorem ipsum dolor...</div>{" "}
         <div
           className="chat-header-icon"
           style={{ marginRight: "35px", cursor: "pointer" }}

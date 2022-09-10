@@ -130,10 +130,10 @@ const UserProfile = () => {
   return (
     <div className="useprofile-wrap">
       <div className="userprofile-header-wrap">
-        <div className="userprofile-header-icon" style={{ marginLeft: "28px" }}>
+        <div className="userprofile-header-icon" style={{ marginLeft: "28px", }}>
           <span
             className="material-symbols-outlined"
-            style={{ fontSize: "28px", cursor: "pointer" }}
+            style={{ fontSize: "28px", cursor: "pointer",fontWeight:"700" }}
             onClick={() => {
               navigate(-1);
             }}
@@ -153,6 +153,7 @@ const UserProfile = () => {
                 fontSize: "16px",
                 fontVariationSettings: "'FILL' 1",
                 color: "#FFE9BE",
+                
               }}
             >
               favorite
@@ -164,31 +165,31 @@ const UserProfile = () => {
           <ProfileBg ProfileImg={dataProfile?.userProfile} />
         </div>
 
-        <div className="user-nick">{dataProfile?.nickname}</div>
+        <div className="user-nick font-bold">{dataProfile?.nickname}</div>
         <div className="user-wrap-sexAndage">
           <div className="user-sexAndage">
-            <div className="user-sexAndage-text">{dataProfile?.gender}</div>
+            <div className="user-sexAndage-text font-medium">{dataProfile?.gender}</div>
           </div>
           <div className="user-sexAndage">
-            <div className="user-sexAndage-text">{dataProfile?.age}</div>
+            <div className="user-sexAndage-text font-medium">{dataProfile?.age}</div>
           </div>
         </div>
         <div className="user-wrap-like">
           <div className="user-like" onClick={dislikePlusScore}>
-            <div className="user-like-text">-1 싫어요</div>
+            <div className="user-like-text font-bold">-1 싫어요</div>
           </div>
           <div
             className="user-like"
             style={{ backgroundColor: "#FFBB31" }}
             onClick={likePlusScore}
           >
-            <div className="user-like-text" style={{ color: "white" }}>
+            <div className="user-like-text font-bold" style={{ color: "white" }}>
               +1 좋아요
             </div>
           </div>
         </div>
         <div className="user-wrap-userchange">
-          <div className="user-userchange-title">
+          <div className="user-userchange-title font-bold">
             모임원들이 평가를 기다리고 있어요!
           </div>
           <div className="user-wrap-userchange-userlist">

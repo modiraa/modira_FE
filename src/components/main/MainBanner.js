@@ -8,8 +8,8 @@ const MainBanner = () => {
       <div className="mainbanner-wrap-logoAndtext">
         <div className="mainbanner-logo"></div>
         <div className="mainbanner-text">
-          이제 혼밥하지 마세요!
-          <br />밥 친구 찾기 플랫폼 <span className="font-color">modira</span>
+          이제 <span className="font-bold">혼밥</span>하지 마세요!
+          <br /><span className="font-bold">밥 친구 찾기 플랫폼</span> <span  className="font-color font-black">modira</span>
         </div>
         <div
           className="mainbanner-link-text"

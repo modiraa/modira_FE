@@ -51,9 +51,6 @@
   border-radius: 50%;
 }
 .user-nick {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 600;
   font-size: 25px;
   line-height: 30px;
 }
@@ -79,9 +76,7 @@
   align-items: center;
 }
 .user-sexAndage-text {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
+  
   font-size: 20px;
   line-height: 24px;
 
@@ -108,7 +103,6 @@
   cursor: pointer;
 }
 .user-like-text {
-  font-weight: 400;
   font-size: 22px;
   line-height: 31px;
   color: #ffbb31;

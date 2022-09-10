@@ -23,9 +23,7 @@
 }
 .chat-header-title {
   font-size: 22px;
-  font-weight: bold;
   position: absolute;
-
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -59,14 +57,12 @@
 }
 .chat-sender-mymessage {
   font-style: normal;
-  font-weight: 400;
   font-size: 19px;
   line-height: 26px;
   text-align: right;
   margin-right: 23px;
 }
 .chat-message-enter-nick {
-  font-weight: bold;
   text-decoration: underline;
 }
 
@@ -125,7 +121,6 @@
 .chat-sender-notsamemessge-notmymessage {
   margin-left: 23px;
   font-style: normal;
-  font-weight: 400;
   font-size: 19px;
   line-height: 26px;
 }

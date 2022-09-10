@@ -1,38 +1,34 @@
 .wrap-mainbanner {
   width: 100%;
-  height: 181px;
+  height: 11.3125rem;
   background: url("../../image/main_배너.png") center no-repeat;
   background-size: cover;
 }
 .mainbanner-wrap-logoAndtext {
-  margin-left: 44px;
-  margin-top: 30px;
+  margin-left: 2.75rem;
+  margin-top: 1.875rem;
 }
 .mainbanner-logo{
-  width: 52px;
-  height: 13px;
+  width: 3.25rem;
+  height: 0.8125rem;
   background: url("../../image/logo.png") center no-repeat;
   background-size: cover;
 }
-.mainbanner-logo {
-}
+
 .mainbanner-text {
-  margin-top: 13px;
-  font-family: "AppleSDGothicNeoM00";
+  margin-top: 0.8125rem;
   font-style: normal;
   font-weight: 400;
-  font-size: 21px;
-  line-height: 30px;
-
+  font-size: 1.3125rem;
+  line-height: 1.875rem;
   letter-spacing: -0.03em;
 }
 .mainbanner-link-text {
-  margin-top: 15px;
-  font-family: "Inter";
+  margin-top: 0.9375rem;
   font-style: normal;
   font-weight: 500;
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 0.9375rem;
+  line-height: 1.125rem;
   color: #ffbb31;
   cursor: pointer;
 }

@@ -6,14 +6,12 @@
   display: flex;
 }
 .minibanner-text {
-  height: 60px;
-  margin-left: 44px;
-  margin-top: 34px;
-  font-family: "AppleSDGothicNeoM00";
-  font-style: normal;
+  height: 3.75rem;
+  margin-left: 2.75rem;
+  margin-top: 2.125rem;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
   letter-spacing: -0.03em;
 }
 .font-orange {
