@@ -13,7 +13,7 @@ import MyModal from "../components/public/MyModal";
 
 const UserProfile = () => {
   const [dataProfile, setDataProfile] = React.useState();
-  const [modalIsopen, setmodalIsopen] = React.useState(true);
+  const [modalIsopen, setmodalIsopen] = React.useState(false);
   const Auth = sessionStorage.getItem("token");
   const navigate = useNavigate();
   const location = useLocation();
@@ -204,7 +204,7 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
-      <MyModal isOpen={modalIsopen} handleClickCancel={handleClickCancel} />
+      {/* <MyModal isOpen={modalIsopen} handleClickCancel={handleClickCancel} /> */}
 
       <LowerNavbar />
     </div>

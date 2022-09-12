@@ -36,15 +36,15 @@ export default function TimePicker({controlledSwiperAmPm,setControlledSwiperAmPm
         <div style={{ display: "flex", position: "relative", height:"100%" }}>
             
 
-            <div style={{ height: "100%", width: "400px", display: "flex"}}>
+            <div style={{ height: "100%", width: "25rem", display: "flex"}}>
                 <Picker slideList={ampmleList} controlledSwiper={controlledSwiperAmPm} setControlledSwiper={setControlledSwiperAmPm} />
             </div>
 
-            <div style={{ height: "100%", width: "400px", display: "flex", }}>
+            <div style={{ height: "100%", width: "25rem", display: "flex", }}>
                 <Picker slideList={hourSlideList} controlledSwiper={controlledSwiperHour} setControlledSwiper={setControlledSwiperHour} />
             </div>
 
-            <div style={{ height: "100%", width: "400px", display: "flex"}}>
+            <div style={{ height: "100%", width: "25rem", display: "flex"}}>
                 <Picker slideList={minuteSlideList} controlledSwiper={controlledSwiperMin} setControlledSwiper={setControlledSwiperMin} />
             </div>
 

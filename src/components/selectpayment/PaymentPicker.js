@@ -25,7 +25,7 @@ export default function PaymentPicker({controlledSwiperPayment,setControlledSwip
 
         <div style={{ display: "flex", position: "relative", height:"100%"}}>
 
-            <div style={{ height: "100%", width: "400px", display: "flex", marginLeft:"60px"}}>
+            <div style={{ height: "100%", width: "80%", display: "flex",marginLeft:"10%",marginRight:"10%"}}>
                 <Picker slideList={PaymentList} controlledSwiper={controlledSwiperPayment} setControlledSwiper={setControlledSwiperPayment} />
             </div>
 
