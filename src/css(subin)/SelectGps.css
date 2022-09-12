@@ -62,10 +62,9 @@
 }
 
 .select_gps_value>p{
-    margin-top: 2px;
     margin-left: 17.33px;
     font-size: 19px;
-    font-weight: 400;
+    font-weight: 700;
     height: 37px;
     color: #FFBB31;
 }

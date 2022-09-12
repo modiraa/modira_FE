@@ -32,8 +32,7 @@
 
 .write_top_title>h1{
     font-size: 26px;
-    font-family: 'Noto Sans KR';
-    font-weight: 300;
+    font-weight: 700;
     margin-top: 20px;
 }
 
@@ -114,13 +113,16 @@
 
 .write-address-title>h3{
     font-size: 20px;
+    font-weight: 600;
+    color: #000000;
     text-align: left;
     float: left;
 }
 
 .write-address-title>.material-icons-outlined{
     text-align: left;
-    color: #FFE9BE
+    color: #FFE9BE;
+    margin-top: 2px;
 }
 
 .write-address-text{
@@ -132,7 +134,7 @@
 
 .write-address-text>span{
     font-size: 19px;
-    font-weight: 400;
+    font-weight: 300;
     text-align: right;
 }
 
@@ -151,13 +153,16 @@
 
 .write-date-title>h3{
     font-size: 20px;
+    font-weight: 600;
+    color: #000000;
     text-align: left;
     float: left;
 }
 
 .write-date-title>.material-icons-outlined{
     text-align: left;
-    color: #FFE9BE
+    margin-top: 2px;
+    color: #FFE9BE;
 }
 
 .write-date-text{
@@ -169,7 +174,7 @@
 
 .write-date-text>span{
     font-size: 19px;
-    font-weight: 400;
+    font-weight: 300;
     text-align: right;
 }
 
@@ -189,6 +194,8 @@
 
 .write-people-count-title>h3{
     font-size: 20px;
+    font-weight: 600;
+    color: #000000;
     text-align: left;
     float: left;
 }
@@ -196,7 +203,8 @@
 .write-people-count-title>.material-icons-outlined{
     text-align: left;
     margin-left: 6px;
-    color: #FFE9BE
+    color: #FFE9BE;
+    margin-top: 2px;
 }
 
 .write-people-count-text{
@@ -209,7 +217,7 @@
 
 .write-people-count-text>span{
     font-size: 19px;
-    font-weight: 400;
+    font-weight: 300;
     text-align: right;
     /* background-color: aqua; */
 }
@@ -230,6 +238,8 @@
 
 .write-menu-title>h3{
     font-size: 20px;
+    font-weight: 600;
+    color: #000000;
     text-align: left;
     float: left;
 }
@@ -237,7 +247,8 @@
 .write-menu-title>.material-icons-outlined{
     text-align: left;
     margin-left: 6px;
-    color: #FFE9BE
+    color: #FFE9BE;
+    margin-top: 2px;
 }
 
 .write-menu-text{
@@ -249,7 +260,7 @@
 
 .write-menu-text>span{
     font-size: 19px;
-    font-weight: 400;
+    font-weight: 300;
     text-align: right;
 }
 
@@ -269,6 +280,8 @@
 
 .write-payment-title>h3{
     font-size: 20px;
+    font-weight: 600;
+    color: #000000;
     text-align: left;
     float: left;
 }
@@ -277,6 +290,7 @@
     text-align: left;
     margin-left: 6px;
     color: #FFE9BE;
+    margin-top: 2px;
     font-size: 28px;
 }
 
@@ -289,7 +303,7 @@
 
 .write-payment-text>span{
     font-size: 19px;
-    font-weight: 400;
+    font-weight: 300;
     text-align: right;
 }
 
@@ -314,7 +328,7 @@
 .write_condition_title>h3{
     font-size: 23px;
     font-weight: 700;
-
+    color: #000000;
     margin-top: 20px;
 }
 
@@ -437,6 +451,7 @@
     box-sizing: border-box;
     margin-right: 15px;
     margin-left: 17px;
+    margin-bottom: 2px;
 }
 
 .check-age>.check-line-age{
@@ -446,18 +461,21 @@
     box-sizing: border-box;
     margin-right: 15px;
     margin-left: 17px;
+    margin-bottom: 2px;
 }
 
 .check-gender>h3{
     float: left;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
+    margin-bottom: 3px;
 }
 
 .check-age>h3{
     float: left;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
+    margin-bottom: 3px;
 }
 
 .gender_btn{
@@ -467,6 +485,7 @@
     float: right;
 
     margin-right: 16px;
+    margin-bottom: 5px;
 }
 
 .age_btn{
@@ -476,6 +495,7 @@
     float: right;
 
     margin-right: 16px;
+    margin-bottom: 5px;
 }
 
 .write_send_btn{
@@ -493,7 +513,7 @@
     background-color: #FFBB31;
 
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     color: white;
 }
 

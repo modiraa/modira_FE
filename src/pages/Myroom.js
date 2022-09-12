@@ -1,16 +1,15 @@
 import styled from "styled-components";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import LowerNavbar from "../components/public/LowerNavbar";
 import Navbar from "../components/public/Navbar";
 import MiniBanner from "../image/MiniBanner.png";
-import "../components/main/MainBanner.css"
+import "../components/main/MainBanner.css";
 import Enter1 from "../image/Enter1.png";
 
 const MyRoom = () => {
   const navigate = useNavigate();
-  const params = useParams();
 
   const [data, setData] = useState({
     postId: "id",
@@ -22,39 +21,39 @@ const MyRoom = () => {
   const [joinData, setJoinData] = useState({
     postId: "id",
     title: "Lorem ipsum dolor2",
-    menuForImage: "치킨이미지",
+    menuForImage: { Enter1 },
     menu: "치킨",
   });
 
-  const getPost = async () => {
+  const getPost = () => {
     const ACCESS_TOKEN = sessionStorage.getItem("token");
     console.log(ACCESS_TOKEN);
 
     // 생성한 모임
-    await axios
+    axios
       .get("http://3.34.129.164/api/myposts", {
         headers: {
           Authorization: ACCESS_TOKEN,
         },
       })
       .then((response) => {
-        setData(response.data[0]);
         console.log("데이터 나와랏", response.data[0]);
+        setData(response.data[0]);
       })
       .catch((error) => {
         console.log("에러", error);
       });
 
     // 참여한 모임
-    await axios
+    axios
       .get("http://3.34.129.164/api/myjoin", {
         headers: {
           Authorization: ACCESS_TOKEN,
         },
       })
       .then((response) => {
-        setJoinData(response.joinData[0]);
-        console.log("데이터 나와랏", response.joinData[0]);
+        console.log("데이터 나와랏", response.data[0]);
+        setJoinData(response.data[0]);
       })
       .catch((error) => {
         console.log("에러", error);
@@ -62,6 +61,7 @@ const MyRoom = () => {
   };
   useEffect(() => {
     getPost();
+    removePost();
   }, []);
 
   //모임 삭제
@@ -74,12 +74,11 @@ const MyRoom = () => {
         },
       })
       .then((response) => {
-        alert('게시물이 삭제되었습니다.')
         console.log("삭제", response.data);
+        window.location.reload();
       })
       .catch((error) => {
         console.log("에러", error);
-        console.log(params);
       });
   };
 
@@ -148,7 +147,7 @@ const MyRoom = () => {
                 <img
                   src={joinData?.menuForImage}
                   onClick={() => {
-                    navigate(`/postdetail/${data.postId}`);
+                    navigate(`/postdetail${joinData?.postId}`);
                   }}
                 />
               </MakedRoom>
@@ -193,6 +192,8 @@ const Container = styled.div`
 
 const Title = styled.div`
   margin: 9px 0 38px 0;
+  font-size: 23px;
+  font-weight: 500;
 `;
 
 const Minibanner = styled.div`
@@ -210,6 +211,7 @@ const CreateRoom = styled.div`
   p {
     margin-bottom: 19px;
     font-size: 26px;
+    font-weight: 700;
   }
   div {
     font-size: 23px;
@@ -246,6 +248,7 @@ const MakedRoom = styled.div`
   background-size: contain;
   display: flex;
   flex-direction: row;
+
   span {
     z-index: 2;
     margin-left: 305px;
@@ -257,17 +260,15 @@ const MakedRoom = styled.div`
     margin-top: 9px;
     height: 36px;
     width: 126px;
-    background: #ffbb31;
+    background: rgba(255, 187, 49, 0.6);
     border-radius: 22px;
-
     p {
       margin-left: 4px;
+      font-weight: 500;
       font-size: 13px;
       margin-top: 19px;
       color: #ffffff;
       align-items: center;
-      font-family: "Noto Sans";
-      font-style: normal;
     }
   }
 `;

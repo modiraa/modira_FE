@@ -10,7 +10,7 @@ const AgeDropdown = ({ age, setAge }) => {
       <Dropdownbtn onClick={(e) => setIsActive(!isActive)}>
         <span>
           {age} 
-          <span className="material-symbols-outlined">arrow_drop_down</span>
+          <span className="material-symbols-outlined" style={{fontSize:"45PX"}}>arrow_drop_down</span>
         </span>
       </Dropdownbtn>
       {isActive && (

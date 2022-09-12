@@ -19,14 +19,12 @@
     height: 332px;
     padding-top: 85px;
     box-sizing: border-box;
-    background-color: #FFF9EC;
+    background-color: #FFFDF8;
 }
 
 .select-date-count>p{
     margin-left: 43px;
     font-size: 19px;
-    font-weight: 400;
-    font-family: 'Noto Sans KR';
     font-weight: 400;
 }
 
@@ -38,8 +36,6 @@
 
 .select-date-title>h2{
     font-size: 34px;
-    font-weight: 700;
-    font-family: 'Noto Sans KR';
     font-weight: 700;
 }
 
@@ -60,16 +56,15 @@
     box-sizing: border-box;
     background-color: #ffff;
     border-radius: 5px;
+
     font-size: 28px;
-    font-family: 'Noto Sans KR';
     font-weight: 600;
     color: #FFBB31;
     
 }
 .select-date-value>h5{
     font-size: 18px;
-    margin-top: 10px;
-    font-family: 'Noto Sans KR';
+    margin-top: 12px;
     font-weight: 400;
 }
 
@@ -115,19 +110,19 @@
     flex-direction: row;
     justify-content: end;
 
-    width: 50%;
-    height: 29px;
     /* background-color: aqua; */
 }
 
 .date-arrow-forward-ios>.material-symbols-outlined{
     font-size: 28px;
+    font-weight: 600;
+    margin-top: 4px;
 }
 
 .next>h4{
     margin-right: 11px;
     font-size: 20px;
-    margin-top: 2px;
+    font-weight: 600;
 }
 
 .date{
