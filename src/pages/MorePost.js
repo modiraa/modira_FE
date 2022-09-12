@@ -35,19 +35,29 @@ console.log(test,"test확인")
   }, []);
 
   useEffect(()=>{
-    loadMorePost();
-    console.log("두번찍히나?")
+    if(category){
+      loadMorePost();
+      console.log("카테고리?")
+    }
+    if(search){
+      loadSearchPost();
+      console.log("검색?")
+    }
+    if(address){
+      loadAddressPost();
+      console.log("주소?")
+    }
   },[lastId])
 
-  useEffect(()=>{
-    loadSearchPost();
-    console.log("두번찍히나?")
-  },[lastId])
+  // useEffect(()=>{
+  //   loadSearchPost();
+  //   console.log("두번찍히나?")
+  // },[lastId])
 
-  useEffect(()=>{
-    loadAddressPost();
-    console.log("두번찍히나?")
-  },[lastId])
+  // useEffect(()=>{
+  //   loadAddressPost();
+  //   console.log("두번찍히나?")
+  // },[lastId])
 
 
   useEffect(()=>{
@@ -70,8 +80,8 @@ console.log(test,"test확인")
     console.log('나와라')
     if (category == "최근생성모임") {
       setLoad(false)
-      let firsturl="http://3.34.129.164/api/post"
-      let commonurl=`http://3.34.129.164/api/post?lastId=${lastId}`
+      let firsturl=`http://3.34.129.164/api/post?category=${""}`
+      let commonurl=`http://3.34.129.164/api/post?category=${""}&lastId=${lastId}`
       let urlAX=""
       if(lastId){
         urlAX=commonurl
@@ -83,8 +93,8 @@ console.log(test,"test확인")
       console.log(urlAX)
       await axios.get(urlAX)
         .then((res) => {
-          console.log(res.data.content[7].postId);
-          test=res.data.content[7].postId;
+          console.log(res.data.content[res.data.content.length-1]?.postId);
+          test = res.data.content[res.data.content.length-1]?.postId;
           if(res.data){
             // console.log(res.data);
             setMorePostTitle("최근생성모임")
@@ -94,8 +104,16 @@ console.log(test,"test확인")
               return [...prev, ...res.data.content]
             })
             preventRef.current = true;
-          }else{
-            // console.log(res);
+          }
+          if(res.data.content<8) {
+            // console.log(res.data);
+            setMorePostTitle("최근생성모임")
+            // console.log(setMorePostTitle)
+            setMorePostData(prev => {
+              // console.log(prev);
+              return [...prev, ...res.data.content]
+            })
+            preventRef.current = false;
           }
         })
         .catch((err) => {
@@ -154,8 +172,8 @@ console.log(test,"test확인")
       console.log(urlAX)
       await axios.get(urlAX)
         .then((res) => {
-          console.log(res.data.content[7].postId);
-          test=res.data.content[7].postId;
+          console.log(res.data.content[7]?.postId);
+          test=res.data.content[7]?.postId;
           if(res.data){
             // console.log(res.data);
             setMorePostTitle("다같이 내자! N빵")

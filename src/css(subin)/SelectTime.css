@@ -87,14 +87,8 @@
 
     width: 50%;
     height: 29px;
+    padding-left: 42.69px;
     /* background-color: aqua; */
-}
-
-.time-arrow-back-ios>.material-symbols-outlined{
-    margin-left: 42.69px;
-    margin-top: 3px;
-    font-size: 28px;
-    color: #BBB8CF;
 }
 
 .prev>h4{

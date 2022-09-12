@@ -10,7 +10,7 @@ const WriteHeader = () => {
   return (
     <div>
       <div className='write_top'>
-        <div className='write-close-btn'>
+        <div className='write-close-btn' onClick={() => { navigate("/") }}>
           <MyIcon iconName={"close"} sizePx={45} color={"gray"} cursor={"point"}/>
         </div>
         <div className='write_top_title'>

@@ -59,12 +59,15 @@ const Write = () => {
     // input값들 유효성 검사!!
     if (storeSelect.writeTitle == '') {
       alert('게시글 제목을 작성해주세요')
+      return;
     }
     else if (storeSelect.writeText == '') {
       alert('게시글 내용을 작성해주세요')
+      return;
     }
     else if (storeSelect.address == '') {
       alert('주소를 입력해주세요')
+      return;
     }
 
     const ACCESS_TOKEN = sessionStorage.getItem("token")

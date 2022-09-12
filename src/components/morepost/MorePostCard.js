@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import MyIcon from '../../element/MyIcon';
 
 const MorePostCard = (props) => {
 
@@ -48,19 +49,19 @@ const MorePostCard = (props) => {
       </div>
       <div className='card-date-count-menu'>
         <div className="card-date">
-          <span className="material-icons-outlined">
-            calendar_today
-          </span>
+          <div className='card-date-icon'>
+            <MyIcon iconName={"calendar_today"} sizePx={14} color={"gray"}/>
+          </div>
           <p>{props.item?.date} {props.item?.time}</p>
         </div>
         <div className="card-people-count-menu">
-          <span className="material-icons-outlined">
-            person_outline
-          </span>
+          <div className='card-people-count-icon'>
+            <MyIcon iconName={"person"} sizePx={14} color={"gray"}/>
+          </div>
           <p>{props.item?.numberOfPeople}명 참여</p>
-          <span className="material-icons-outlined">
-            ramen_dining
-          </span>
+          <div className='card-menu-icon'>
+            <MyIcon iconName={"ramen_dining"} sizePx={14} color={"gray"}/>
+          </div>
           <p>{props.item?.menu}</p>
         </div>
       </div>
