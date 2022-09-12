@@ -21,6 +21,7 @@ import arrow_drop from "./outline_arrow_drop_down_40.png"
 import longarrow from"./outline_longarrow_back.png"
 import groups from './outline_groups_black_24dp.png'
 import arrow_forward_ios from "./outline_arrow_forward_ios_black_24dp.png"
+import arrow_back from './outline_arrow_back_black_24dp.png'
 
 
 const png={
@@ -47,6 +48,7 @@ const png={
         longarrow,
         groups,
         arrow_forward_ios,
+        arrow_back,
 
     },
 
