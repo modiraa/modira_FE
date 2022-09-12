@@ -12,8 +12,16 @@ import logout from"./outline_logout_black_24dp.png"
 import arrow_upward from"./outline_arrow_upward_white_24dp.png"
 import favorite from"./outline_favorite_black_24dp.png"
 import place from"./outline_place_black_24dp.png"
+
+import task from"./outline_task_black_24dp.png"
+import add_circle from"./outline_add_circle_black_48dp.png"
+import delete_white from "./outline_delete_48dp.png"
+import profile from "./outline_profile_40dp.png"
+import arrow_drop from "./outline_arrow_drop_down_40.png"
+import longarrow from"./outline_longarrow_back.png"
 import groups from './outline_groups_black_24dp.png'
 import arrow_forward_ios from "./outline_arrow_forward_ios_black_24dp.png"
+
 
 const png={
     icon:{
@@ -31,8 +39,15 @@ const png={
         arrow_upward,
         favorite,
         place,
+        task,
+        add_circle,
+        delete_white,
+        profile,
+        arrow_drop,
+        longarrow,
         groups,
         arrow_forward_ios,
+
     },
 
 }
