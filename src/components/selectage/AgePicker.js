@@ -38,15 +38,15 @@ export default function AgePicker({controlledSwiperAgeMin,setControlledSwiperAge
 
         <div style={{ display: "flex", position: "relative", height:"100%" }}>
 
-            <div style={{ height: "100%", width: "400px", display: "flex"}}>
+            <div style={{ height: "100%", width: "25rem", display: "flex"}}>
                 <Picker slideList={ageMinSlideList} controlledSwiper={controlledSwiperAgeMin} setControlledSwiper={setControlledSwiperAgeMin} />
             </div>
 
-            <div style={{ height: "100%", width: "400px", display: "flex", }}>
+            <div style={{ height: "100%", width: "25rem", display: "flex", }}>
                 <Picker slideList={ageToSlideList} controlledSwiper={controlledSwiperTo} setControlledSwiper={setControlledSwiperTo} />
             </div>
 
-            <div style={{ height: "100%", width: "400px", display: "flex"}}>
+            <div style={{ height: "100%", width: "25rem", display: "flex"}}>
                 <Picker slideList={ageMaxSlideList} controlledSwiper={controlledSwiperAgeMax} setControlledSwiper={setControlledSwipeAgerMax} />
             </div>
 

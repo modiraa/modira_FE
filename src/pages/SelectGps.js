@@ -47,9 +47,9 @@ const SelectGps = () => {
                 </div>
                 <input placeholder='주소를 입력해주세요' onChange={(e) => { setMenuSearch(e.target.value) }}
                     style={{
-                        position: "absolute", zIndex: "4", top: "15%", left: "7%", width: "445px",
-                        height: "49px", borderRadius: "35px", border: "none", fontSize: "19px"
-                        , paddingLeft: "50px", boxSizing: "border-box"
+                        position: "absolute", zIndex: "4", top: "15%", left: "7.5%",right: "7.5%" ,width: "85%",
+                        height: "3.0625rem", borderRadius: "2.1875rem", border: "none", fontSize: "1.1875rem"
+                        , paddingLeft: "3.125rem", boxSizing: "border-box"
                     }} />
             </div>
         </div>

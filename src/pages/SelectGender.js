@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../css(subin)/SelectGender.css';
 import GenderPicker from '../components/selectgender/GenderPicker';
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';
 import MyIcon from '../element/MyIcon';

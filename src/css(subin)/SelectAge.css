@@ -50,21 +50,22 @@
 
 .select_age_value>h3{
     height: 2.4375rem;
-    padding-right: 0.4375;
-    padding-left: 12px;
-    margin-right: 8px;
+    padding-right: 0.4375rem;
+    padding-top: 0.25rem;
+    padding-left: 0.75rem;
+    margin-right: 0.5rem;
     box-sizing: border-box;
     background-color: #ffff;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
 
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 1.75rem;
+    font-weight: 600;
     color: #FFBB31;
 }
 .select_age_value>h5{
-    font-size: 18px;
+    font-size: 1.125rem;
+    margin-top: 0.75rem;
     font-weight: 400;
-    margin-top: 10px;
 }
 
 .select_age_bottom{
@@ -72,11 +73,11 @@
     bottom: 0;
     display: flex;
     flex-direction: column;
-    padding-top: 41px;
+    padding-top: 2.5625rem;
     box-sizing: border-box;
 
     width: 100%;
-    height: 144px;
+    height: 9rem;
     /* background-color: rgb(95, 65, 65); */
 }
 
@@ -86,28 +87,23 @@
     right: 0;
     flex-direction: row;
     justify-content: end;
-    padding-right: 43px;
+    padding-right: 2.6875rem;
 
     width: 100%;
-    height: 29px;
+    height: 1.8125rem;
     /* background-color: aqua; */
 }
 
-.next>.material-symbols-outlined{
-    margin-right: 42.69px;
-    font-size: 28px;
-}
-
 .next>h4{
-    margin-right: 11px;
-    font-size: 20px;
+    margin-right: 0.6875rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-top: 2px;
+    margin-top: 0.125rem;
 }
 
 .age{
     width: 100%;
-    height: 554px;
+    height: 34.625rem;
     position: relative;
     /* padding-top: 7%; */
     box-sizing: border-box;

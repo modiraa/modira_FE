@@ -24,7 +24,7 @@ export default function Picker({ slideList, setControlledSwiper, controlledSwipe
 
     return (
 
-        <div style={{ height: "100%", width: "100%", display: "flex", paddingTop:"80px",
+        <div style={{ height: "100%", width: "100%", display: "flex", paddingTop:"5rem",
         boxSizing:"border-box" }}>
             <Swiper className="Select-Swiper"
                 controller={{ control: controlledSwiper }}
