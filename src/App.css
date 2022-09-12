@@ -8,13 +8,16 @@
   flex-direction: row;
   justify-content: center;
   position: relative;
+
  
 }
   
 .wrap-app-webview{
  
-  height: 100%;
+  
   margin-right: 12.938rem;
+  height: 100vh;
+    max-height: 1030px;
 }
 
 @media screen and (max-width: 1182px) {

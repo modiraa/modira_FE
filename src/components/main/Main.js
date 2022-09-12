@@ -31,11 +31,12 @@ const Main = () => {
     await axios
       .get("http://3.34.129.164/api/post/list", {
         headers: {
-          Authorization: Auth,
+          Authorization: null,
         },
       })
       .then((res) => {
         console.log(res);
+        console.log(res.data.postAll.content,typeof(res.data.postAll.content))
         if (res.data) {
           setPostAll(res.data.postAll.content);
           setPostDutchPay(res.data.postDutchPay.content);

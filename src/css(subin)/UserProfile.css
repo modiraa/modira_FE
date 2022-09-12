@@ -1,6 +1,5 @@
 .useprofile-wrap {
- 
-  height: 1030px;
+  height: 64.375rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,14 +9,14 @@
   display: flex;
   position: relative;
   flex-direction: row;
-  height: 75px;
+  height: 4.6875rem;
   align-items: center;
   background-color: #ffffff;
-  justify-content: space-between;
+  
 }
 .userprofile-header-icon {
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,48 +26,48 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 830px;
+  height: 51.875rem;
 }
 .user-wrap-countlike {
-  width: 103px;
-  height: 55px;
- top: 127px;
+  width: 6.4375rem;
+  height: 3.4375rem;
+ top: 7.9375rem;
   position: absolute;
   z-index: 2;
 }
 .user-column-countlike {
-  height: 45px;
+  height: 2.8125rem;
   box-sizing: border-box;
   background: #d9d9d9;
-  border: 2px solid #e7e7e7;
-  border-radius: 26px;
+  border: 0.125rem solid #e7e7e7;
+  border-radius: 1.625rem;
 }
 .user-img {
-  width: 113px;
-  height: 113px;
-  margin-top: 34px;
-  margin-left: 206px;
+  width: 7.0625rem;
+  height: 7.0625rem;
+  margin-top: 2.125rem;
+  margin-left: 12.875rem;
   border-radius: 50%;
 }
 .user-nick {
-  font-size: 25px;
-  line-height: 30px;
+  font-size: 1.5625rem;
+  line-height: 1.875rem;
 }
 
 .user-wrap-sexAndage {
   display: flex;
   flex-direction: row;
-  width: 182.09px;
-  height: 39.21px;
+  width: 11.380625rem;
+  height:2.450625rem;
   justify-content: center;
-  gap: 9.91px;
-  margin-top: 20px;
+  gap: 0.619375rem;
+  margin-top:1.25rem;
 }
 .user-sexAndage {
-  width: 83px;
-  height: 39px;
+  width:5.1875rem;
+  height: 2.4375rem;
 
-  border-radius: 68px;
+  border-radius: 4.25rem;
   background: #ffe9be;
   transform: rotate(0.13deg);
   display: flex;
@@ -77,54 +76,54 @@
 }
 .user-sexAndage-text {
   
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
 
   color: #000000;
 }
 .user-wrap-like {
   display: flex;
   flex-direction: row;
-  width: 445px;
-  height: 70px;
+  width: 27.8125rem;
+  height: 4.375rem;
   justify-content: space-between;
-  margin-top: 47.8px;
+  margin-top: 2.9875rem;
   left: 50%;
 }
 .user-like {
   box-sizing: border-box;
-  width: 216px;
-  height: 70px;
+  width: 13.5rem;
+  height: 4.375rem;
   background: #ffe9be;
-  border-radius: 35px;
+  border-radius: 2.1875rem;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
 .user-like-text {
-  font-size: 22px;
-  line-height: 31px;
+  font-size: 1.375rem;
+  line-height: 1.9375rem;
   color: #ffbb31;
 }
 
 .triangle {
   width: 0;
   height: 0;
-  border-bottom: 10px solid transparent;
-  border-top: 10px solid transparent;
-  border-left: 10px solid black;
-  border-right: 10px solid transparent;
+  border-bottom: 0.625rem solid transparent;
+  border-top: 0.625rem solid transparent;
+  border-left: 0.625rem solid black;
+  border-right: 0.625rem solid transparent;
   transform: rotate(90deg);
 }
 
 .arrow_box {
-  width: 103px;
-  height: 45px;
+  width: 6.4375rem;
+  height: 2.8125rem;
   position: relative;
   background: #ffffff;
-  border: 2px solid #ffe9be;
-  border-radius: 26px;
+  border: 0.125rem solid #ffe9be;
+  border-radius: 1.625rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,51 +143,65 @@
 .arrow_box:after {
   border-color: rgba(213, 213, 213, 0);
   border-top-color: #ffffff;
-  border-width: 7px;
-  margin-left: -7px;
+  border-width: 0.4375rem;
+  margin-left: -0.4375rem;
 }
 .arrow_box:before {
   border-color: rgba(2, 2, 3, 0);
   border-top-color: #ffe9be;
-  border-width: 10px;
-  margin-left: -10px;
+  border-width: 0.625rem;
+  margin-left: -0.625rem;
 }
 
 .userprofile-like-text {
-  font-size: 25px;
-  font-weight: 400;
-  margin-left: 2px;
+  font-size: 1.5625rem;
+  font-weight: 25rem;
+  margin-left: 0.125rem;
  
 }
 .userprofile-background-img {
   transform: translate(0px, -10px);
-  height: 268px;
+  height: 16.75rem;
   z-index: 1;
   width: 100%;
   background-size: cover;
 }
 
 .user-wrap-userchange {
-  margin-top: 80px;
+  margin-top: 5rem;
   width: 100%;
 }
 .user-userchange-title {
   font-family: "AppleSDGothicNeoB00";
   font-style: normal;
-  font-weight: 400;
-  font-size: 21px;
-  line-height: 29px;
+  font-weight: 25rem;
+  font-size: 1.3125rem;
+  line-height: 1.8125rem;
   color: #000000;
-  margin-left: 41px;
+  margin-left: 2.5625rem;
  
 }
 .user-wrap-userchange-userlist{
   width: 100%;
-  height: 198px;
-  margin-top: 13px;
+  height: 12.375rem;
+  margin-top: 0.8125rem;
   overflow: auto;
 }
 .user-wrap-userchange-userlist::-webkit-scrollbar{
   display: none;
+}
+.userprofile-header-btn{
+cursor: pointer;
+border-radius: 4.25rem;
+background: #ffe9be;
+display: flex;
+align-items: center;
+justify-content: center;
+width:12.5rem;
+height: 2.4375rem;
+margin-left: 5.6875rem;
+font-size: 1.25rem;
+line-height: 1.9375rem;
+
 }
 

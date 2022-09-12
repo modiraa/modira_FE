@@ -4,6 +4,7 @@ import GenderPicker from '../components/selectgender/GenderPicker';
 import { useDispatch,useSelector } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';
+import MyIcon from '../element/MyIcon';
 
 const SelectGender = () => {
 
@@ -22,9 +23,7 @@ const SelectGender = () => {
         <div className='select_gender'>
             <div className='select_gender_top'>
                 <div className='select-close'>
-                    <span className="material-icons" onClick={() => { navigate("/write") }}>
-                        close
-                    </span>
+                    <MyIcon iconName={"close"} sizePx={32} color={"gray"} cursor={"point"}/>
                 </div>
                 <div className='select_gender_count'>
                     <p>입장조건 추가</p>

@@ -4,6 +4,7 @@ import PeopleCountPicker from '../components/selectpeoplecount/PeopleCountPicker
 import { useDispatch,useSelector } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';
+import MyIcon from '../element/MyIcon';
 
 const SelectPeopleCount = () => {
 
@@ -24,9 +25,7 @@ const SelectPeopleCount = () => {
         <div className='select_people_count'>
             <div className='select_people_count_top'>
                 <div className='select-close'>
-                    <span className="material-icons" onClick={() => { navigate("/write") }}>
-                        close
-                    </span>
+                    <MyIcon iconName={"close"} sizePx={32} color={"gray"} cursor={"point"}/>
                 </div>
                 <div className='select_people_count_count'>
                     <p>4 / 6</p>
@@ -46,18 +45,14 @@ const SelectPeopleCount = () => {
             <div className='select_people_count_bottom'>
                 <div className='prev' onClick={()=>{navigate(-1)}}>
                         <div className='people-arrow-back-ios'>
-                            <span className="material-symbols-outlined">
-                                arrow_back_ios
-                            </span>
+                            <MyIcon iconName={"arrow_back_ios"} sizePx={28} color={"gray"} cursor={"point"}/>
                         </div>
                         <h4>이전</h4>
                     </div>
                     <div className='next' onClick={clickPeopleCount}>
                         <h4>다음</h4>
                         <div className='people-arrow-forward-ios'>
-                            <span className="material-symbols-outlined">
-                                arrow_forward_ios
-                            </span>
+                            <MyIcon iconName={"arrow_forward_ios"} sizePx={28} color={"black"} cursor={"point"}/>
                         </div>
                     </div>
                 </div>

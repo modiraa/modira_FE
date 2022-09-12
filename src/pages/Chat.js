@@ -19,12 +19,13 @@ const Chat = () => {
   const [sendMessage, setSendMessage] = React.useState("");
   const [sendNick, setSendNick] = React.useState("");
   
-  const [modalIsopen, setmodalIsopen] = React.useState(false);
+
   const RefViewControll = React.useRef();
   const navigate = useNavigate();
   const Auth = sessionStorage.getItem("token");
   const authNoBearer = sessionStorage.getItem("token")?.split(" ")[1];
   const roomId=sessionStorage.getItem("roomId")
+  const postTitle=sessionStorage.getItem("postTitle")
 
 
 
@@ -143,12 +144,15 @@ const Chat = () => {
   }
 
   //modal창 함수
-  const modalHandler = () => {
-    setmodalIsopen(true);
-  };
-  const handleClickCancel = () => {
-    setmodalIsopen(false);
-  };
+
+ 
+  const exitChatRoom=(event)=>{
+    // console.log(prevMessage)
+    event.stopPropagation();
+    const senderId=prevMessage.filter((v)=>v.sender==sendNick)[0].senderId
+    // console.log(senderId)
+    navigate("/userprofile",{state:senderId})
+  }
 
   return (
     <div className="chat-wrap">
@@ -156,17 +160,19 @@ const Chat = () => {
         <div
           className="chat-header-icon"
           style={{ marginLeft: "28px", cursor: "pointer" }}
-          onClick={() => {
+          onClick={(event) => {
+            event.stopPropagation();
+            console.log("뒤로가기!")
             navigate(-1);
           }}
         >
           <MyIcon sizePx={28} iconName={"arrow_back_ios"} />
         </div>
-        <div className="chat-header-title font-bold">Lorem ipsum dolor...</div>{" "}
+        <div className="chat-header-title font-bold">{postTitle}</div>{" "}
         <div
           className="chat-header-icon"
           style={{ marginRight: "35px", cursor: "pointer" }}
-          onClick={modalHandler}
+          onClick={exitChatRoom}
         >
           <MyIcon sizePx={28} iconName={"logout"} />
         </div>
@@ -182,7 +188,7 @@ const Chat = () => {
           sendMessage={sendMessage}
         />
       </div>
-      <MyModal isOpen={modalIsopen} handleClickCancel={handleClickCancel} />
+      
     </div>
   );
 };

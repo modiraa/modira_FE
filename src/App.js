@@ -5,7 +5,7 @@ import './index.css';
 
 function App() {
   return (
-    <div className="wrap-app">
+    <div className="wrap-app box">
 
       <div className="wrap-app-webview">
         <WebViewLeft />

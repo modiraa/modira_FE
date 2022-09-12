@@ -2,6 +2,7 @@ import React from "react";
 import ReactModal from "react-modal";
 import "./MyModal.css";
 import likeimg from"../../image/likeaandhate.png"
+import MyIcon from "../../element/MyIcon";
 
 const MyModal = ({ isOpen, handleClickCancel }) => {
   const style = {
@@ -32,10 +33,9 @@ const MyModal = ({ isOpen, handleClickCancel }) => {
 
   return (
     <ReactModal isOpen={isOpen} style={style}>
-      <div className="mymodal-close-icon">
-        <span className="material-symbols-outlined" onClick={handleClickCancel} style={{fontSize:"23px"}}>
-          close
-        </span>
+      <div className="mymodal-close-icon" onClick={handleClickCancel} >
+        
+        <MyIcon sizePx={23} iconName={"close"} color={"gray"}/>
       </div>
 
       <div className="mymodal-firsttext">모임에서 만난 친구들은 어땠나요?</div>

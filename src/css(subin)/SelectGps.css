@@ -80,7 +80,7 @@
     height: 114px;
 }
 
-.select_gps_bottom>.material-icons-outlined{
+.select_gps_bottom>.gps-search-icon{
     font-size: 22px;
     z-index: 5;
     position: absolute;

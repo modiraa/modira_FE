@@ -9,9 +9,11 @@ import UserList from "../components/userprofile/UserList";
 import ProfileBg from "../components/public/ProfileBg";
 import LowerNavbar from "../components/public/LowerNavbar";
 import MyIcon from "../element/MyIcon";
+import MyModal from "../components/public/MyModal";
 
 const UserProfile = () => {
   const [dataProfile, setDataProfile] = React.useState();
+  const [modalIsopen, setmodalIsopen] = React.useState(true);
   const Auth = sessionStorage.getItem("token");
   const navigate = useNavigate();
   const location = useLocation();
@@ -19,8 +21,13 @@ const UserProfile = () => {
   const [userList, setUserList] = React.useState([]);
   const [userChoiceValidation, setUserChoiceValidation] =
     React.useState(showUser);
-const roomId=sessionStorage.getItem("roomId")
+  const roomId = sessionStorage.getItem("roomId");
   console.log(location);
+  console.log(showUser);
+
+  const handleClickCancel = () => {
+    setmodalIsopen(false);
+  };
 
   const showProfileAX = async () => {
     await axios
@@ -36,9 +43,7 @@ const roomId=sessionStorage.getItem("roomId")
   };
   const showListParticipants = async () => {
     await axios
-      .get(
-        `http://3.34.129.164/api/userlist/${roomId}`
-      )
+      .get(`http://3.34.129.164/api/userlist/${roomId}`)
       .then((response) => {
         console.log(response);
         setUserList(response.data);
@@ -69,15 +74,12 @@ const roomId=sessionStorage.getItem("roomId")
         }
       )
       .then((res) => {
-        console.log(res); // 토큰이 넘어올 것임
+        console.log(res);
         showProfileAX();
-        // window.location.reload();
-        // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
       })
       .catch((err) => {
         console.log(err.response.data);
         alert(err.response.data);
-        // navigate("/login"); // 로그인 실패하면 로그인화면으로 돌려보냄
       });
   };
 
@@ -95,30 +97,28 @@ const roomId=sessionStorage.getItem("roomId")
         }
       )
       .then((res) => {
-        console.log(res); // 토큰이 넘어올 것임
+        console.log(res); 
 
         showProfileAX();
-        // window.location.reload();
-        // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
+      
       })
       .catch((err) => {
         console.log(err.response);
-        // navigate("/login"); // 로그인 실패하면 로그인화면으로 돌려보냄
       });
   };
-  const exitPost = async () => {
+  const exitPost = async (event) => {
+    event.stopPropagation();
     await axios
-      .post(
-        `http://3.34.129.164/api/leave/${roomId}`,null,
-        {
-          headers: {
-            Authorization: Auth,
-          },
-        }
-      )
+      .post(`http://3.34.129.164/api/leave/${roomId}`, null, {
+        headers: {
+          Authorization: Auth,
+        },
+      })
       .then((res) => {
-        console.log(res); // 토큰이 넘어올 것임
-        showListParticipants()
+        console.log(res);
+        sessionStorage.removeItem("rommId");
+        alert("모임나가기가 완료되었습니다!");
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);
@@ -127,37 +127,37 @@ const roomId=sessionStorage.getItem("roomId")
   return (
     <div className="useprofile-wrap">
       <div className="userprofile-header-wrap">
-        <div className="userprofile-header-icon" style={{ marginLeft: "28px" }}>
-       
-          <MyIcon
-            sizePx={28}
-            iconName={"arrow_back_ios"}
-            cursor= "pointer"
-            onClick={() => {
-              navigate(-1);
-            }}
-          />
+        <div
+          className="userprofile-header-icon"
+          style={{ marginLeft: "28px" }}
+          onClick={(event) => {
+            event.stopPropagation();
+            navigate(-1);
+          }}
+        >
+          <MyIcon sizePx={28} iconName={"arrow_back_ios"} cursor="pointer" />
 
-          <button onClick={exitPost}>완료</button>
+          
         </div>
+        <div onClick={exitPost} className="userprofile-header-btn" ><div>모임 나가기</div></div>
       </div>
 
       <div className="wrap-middle">
-        <div className="user-wrap-countlike">
-          <div className="arrow_box">
-     
-            <MyIcon
-            sizePx={16}
-            iconName={"favorite"}
-            color= "beige"
-          
-          />
-            <span className="userprofile-like-text">{dataProfile?.score}</span>
-          </div>
-        </div>
-        <div className="userprofile-background-img">
-          <ProfileBg ProfileImg={dataProfile?.userProfile} />
-        </div>
+        {!modalIsopen ? (
+          <>
+            <div className="user-wrap-countlike">
+              <div className="arrow_box">
+                <MyIcon sizePx={16} iconName={"favorite"} color="beige" />
+                <span className="userprofile-like-text">
+                  {dataProfile?.score}
+                </span>
+              </div>
+            </div>
+            <div className="userprofile-background-img">
+              <ProfileBg ProfileImg={dataProfile?.userProfile} />
+            </div>
+          </>
+        ):<><div className="user-wrap-countlike"></div> <div className="userprofile-background-img"/></>}
 
         <div className="user-nick font-bold">{dataProfile?.nickname}</div>
         <div className="user-wrap-sexAndage">
@@ -204,6 +204,7 @@ const roomId=sessionStorage.getItem("roomId")
           </div>
         </div>
       </div>
+      <MyModal isOpen={modalIsopen} handleClickCancel={handleClickCancel} />
 
       <LowerNavbar />
     </div>

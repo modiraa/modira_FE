@@ -4,6 +4,7 @@ import PaymentPicker from '../components/selectpayment/PaymentPicker';
 import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';
+import MyIcon from '../element/MyIcon';
 
 const SelectPayment = () => {
 
@@ -24,9 +25,7 @@ const SelectPayment = () => {
         <div className='select_payment'>
             <div className='select_payment_top'>
                 <div className='select-close'>
-                    <span className="material-icons" onClick={() => { navigate("/write") }}>
-                        close
-                    </span>
+                    <MyIcon iconName={"close"} sizePx={32} color={"gray"} cursor={"point"}/>
                 </div>
                 <div className='select_payment_count'>
                     <p>6 / 6</p>
@@ -46,18 +45,14 @@ const SelectPayment = () => {
             <div className='select_payment_bottom'>
                 <div className='prev' onClick={()=>{navigate(-1)}}>
                     <div className='payment-arrow-back-ios'>
-                        <span className="material-symbols-outlined">
-                            arrow_back_ios
-                        </span>
+                        <MyIcon iconName={"arrow_back_ios"} sizePx={28} color={"gray"} cursor={"point"}/>
                     </div>
                     <h4>이전</h4>
                 </div>
                 <div className='next' onClick={clickPayment}>
                     <h4>다음</h4>
                     <div className='payment-arrow-forward-ios'>
-                        <span className="material-symbols-outlined">
-                            arrow_forward_ios
-                        </span>
+                        <MyIcon iconName={"arrow_forward_ios"} sizePx={28} color={"black"} cursor={"point"}/>
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import '../css(subin)/SelectGps.css';
 import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';
+import MyIcon from '../element/MyIcon';
 
 const SelectGps = () => {
 
@@ -22,9 +23,7 @@ const SelectGps = () => {
         <div className='select_gps'>
             <div className='select_gps_top'>
                 <div className='select-close'>
-                    <span className="material-icons" onClick={() => { navigate("/write") }}>
-                        close
-                    </span>
+                    <MyIcon iconName={"close"} sizePx={32} color={"gray"} cursor={"point"}/>
                 </div>
                 <div className='select_gps_count'>
                     <p>3 / 6</p>
@@ -33,9 +32,7 @@ const SelectGps = () => {
                     <h2>방문할 식당 위치를<br />입력해주세요</h2>
                 </div>
                 <div className='select_gps_value'>
-                    <span className="material-icons-outlined">
-                        place
-                    </span>
+                    <MyIcon iconName={"place"} sizePx={28} color={"beige"}/>
                     <p>{menuSearch}</p>
                 </div>
             </div>
@@ -45,9 +42,9 @@ const SelectGps = () => {
 
             <div className='select_gps_bottom'>
                 <div className="search-bg" />
-                <span className="material-icons-outlined">
-                    search
-                </span>
+                <div className='gps-search-icon'>
+                    <MyIcon iconName={"search"} sizePx={22} color={"gray"} className='search_icon'/>
+                </div>
                 <input placeholder='주소를 입력해주세요' onChange={(e) => { setMenuSearch(e.target.value) }}
                     style={{
                         position: "absolute", zIndex: "4", top: "15%", left: "7%", width: "445px",

@@ -4,6 +4,7 @@ import MyCalendar from '../components/selectdate/MyCalendar';
 import { useDispatch } from "react-redux";
 import {useNavigate} from "react-router-dom";
 import { selectWrite } from '../redux/moduls/SelectWrite';
+import MyIcon from '../element/MyIcon';
 
 const SelectDate = () => {
 
@@ -35,9 +36,7 @@ const SelectDate = () => {
         <div className='select-date'>
             <div className='select-date-top'>
                 <div className='select-close'>
-                    <span className="material-icons" onClick={() => { navigate("/write") }}>
-                        close
-                    </span>
+                    <MyIcon iconName={"close"} sizePx={32} color={"gray"} cursor={"point"}/>
                 </div>
                 <div className='select-date-count'>
                     <p>1 / 6</p>
@@ -57,9 +56,7 @@ const SelectDate = () => {
                 <div className='next' onClick={clickDate}>
                     <h4>다음</h4>
                     <div className='date-arrow-forward-ios'>
-                        <span className="material-symbols-outlined">
-                            arrow_forward_ios
-                        </span>
+                        <MyIcon iconName={"arrow_forward_ios"} sizePx={28} color={"black"} cursor={"point"}/>
                     </div>
                 </div>
             </div>
