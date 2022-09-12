@@ -7,6 +7,7 @@ import Navbar from "../components/public/Navbar";
 import MiniBanner from "../image/MiniBanner.png";
 import "../components/main/MainBanner.css";
 import Enter1 from "../image/Enter1.png";
+import MyIcon from "../element/MyIcon";
 
 const MyRoom = () => {
   const navigate = useNavigate();
@@ -124,14 +125,7 @@ const MyRoom = () => {
                   navigate("/write");
                 }}
               >
-                <span
-                  className="material-symbols-outlined"
-                  style={{
-                    fontVariationSettings: "'FILL' 1",
-                  }}
-                >
-                  add_circle
-                </span>
+                <MyIcon sizePx={20} iconName={"add_circle"} color={"beige"} />
                 <p>새 모임 만들러 가기</p>
               </ToMakeRoom>
             )}

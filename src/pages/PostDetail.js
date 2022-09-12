@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import LowerNavbar from "../components/public/LowerNavbar";
+import MyIcon from "../element/MyIcon";
 
 function PostDetail() {
   const navigate = useNavigate();
@@ -73,36 +74,35 @@ function PostDetail() {
           onClick={() => {
             navigate(-1);
           }}
-          className="material-symbols-outlined"
         >
-          arrow_back_ios
+          <MyIcon sizePx={28} iconName={"arrow_back_ios"}/>
         </Arrow>
         <p>모임소개</p>
       </TitleBar>
       <Container>
         <InfoBox>
-          <Category>{data.category}{data.roomId}</Category>
+          <Category>{data.category}</Category>
           <Title>{data.title}</Title>
           <Date>
             <div>
-              <span className="material-symbols-outlined">calendar_today</span>
+              <MyIcon sizePx={20} iconName={"calendar_today"} color={"gray"} />
               <span>{data.date}</span>
               <span>{data.time}</span>
             </div>
             <div>
               <div>
-                <span className="material-symbols-outlined">person</span>
+                <MyIcon sizePx={20} iconName={"person"} color={"gray"} />
                 <span>{data.numberOfPeople}명 참여</span>
               </div>
               <div>
-                <span className="material-symbols-outlined">ramen_dining</span>
+                <MyIcon sizePx={20} iconName={"ramen_dining"} color={"gray"} />
                 <span>{data.menu}</span>
               </div>
             </div>
           </Date>
         </InfoBox>
         <Address>
-          <span className="material-symbols-outlined">location_on</span>
+          <MyIcon sizePx={20} iconName={"place"} color={"gray"} />
           <p>{data.restaurantAddress}</p>
         </Address>
         <Gps>
@@ -121,23 +121,16 @@ function PostDetail() {
             </AgeGender>
           </UserInfo>
           <Heart>
-            <span
-              className="material-symbols-outlined"
-              style={{
-                fontSize: "25px",
-                fontVariationSettings: "'FILL' 1",
-                color: "#FFE9BE",
-              }}
-            >
-              favorite
-            </span>
+          <MyIcon sizePx={20} iconName={"favorite"} color={"beige"} />
             <b>{data.writerScore}</b>
           </Heart>
         </Writer>
         <Limit>
           <LimiitTitle>제한조건</LimiitTitle>
           <div>
-            <Icon className="material-symbols-outlined">task_alt</Icon>
+          <MyIcon sizePx={20} iconName={"task"}  style={{
+                    fontVariationSettings: "'FILL' 1",color:"#4bdc78"
+                  }}/>
             <span>
               <b>
                 {data.limitAge} {data.limitGender}
@@ -317,10 +310,6 @@ const Limit = styled.div`
     display: flex;
     align-items: center;
   }
-`;
-
-const Icon = styled.span`
-  color: #4bdc78;
 `;
 
 const LimiitTitle = styled.div`

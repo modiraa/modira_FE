@@ -12,6 +12,8 @@ import logout from"./outline_logout_black_24dp.png"
 import arrow_upward from"./outline_arrow_upward_white_24dp.png"
 import favorite from"./outline_favorite_black_24dp.png"
 import place from"./outline_place_black_24dp.png"
+import task from"./outline_task_black_24dp.png"
+import add_circle from"./outline_add_circle_black_48dp.png"
 
 const png={
     icon:{
@@ -29,6 +31,8 @@ const png={
         arrow_upward,
         favorite,
         place,
+        task,
+        add_circle,
     },
 
 }
