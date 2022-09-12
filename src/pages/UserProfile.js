@@ -104,6 +104,7 @@ const UserProfile = () => {
       })
       .catch((err) => {
         console.log(err.response);
+        alert(err.response.data);
       });
   };
   const exitPost = async (event) => {

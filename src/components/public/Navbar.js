@@ -101,7 +101,7 @@ const Navbar = ({ address }) => {
             <div className="location-trianle"></div>
           </div>
         </div>
-        <div onClick={()=>{sessionStorage.clear();window.location.reload()}} style={{cursor:"pointer"}}>로그아웃</div>
+        <div onClick={()=>{sessionStorage.clear();navigate("/")}} style={{cursor:"pointer"}}>로그아웃</div>
         <div className="info_header_search" onClick={showSearchBar}>
           <MyIcon sizePx={17} iconName={"search"} />
         </div>
