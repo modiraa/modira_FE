@@ -4,6 +4,7 @@ import AgePicker from '../components/selectage/AgePicker';
 import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';
+import MyIcon from '../element/MyIcon';
 
 const SelectAge = () => {
 
@@ -23,10 +24,8 @@ const SelectAge = () => {
     return (
         <div className='select_age'>
             <div className='select_age_top'>
-                <div className='select-close'>
-                    <span className="material-icons" onClick={() => { navigate("/write") }}>
-                        close
-                    </span>
+                <div className='select-close' onClick={() => { navigate("/write") }}>
+                    <MyIcon iconName={"close"} sizePx={32} color={"gray"} cursor={"point"}/>
                 </div>
                 <div className='write_page_count'>
                     <p>입장조건 추가</p>

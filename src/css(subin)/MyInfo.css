@@ -62,13 +62,6 @@
     /* background-color: rgb(199, 237, 237); */
 }
 
-.myinfo-material-icons-outlined{
-    font-size: 1.25rem;
-    float: left;
-    margin-right: 0.5rem;
-
-}
-
 .info_user_address>h5{
     font-size: 1rem;
     font-weight: 400;
@@ -175,7 +168,6 @@
     font-size: 1.5625rem;
     font-weight: 400;
     margin-left: 0.4375rem;
-    margin-bottom: 0.25rem;
   }
 
 .info_user_good>.material-icons-outlined{

@@ -4,6 +4,7 @@ import '../css(subin)/SelectTime.css';
 import { useDispatch } from "react-redux";
 import { selectWrite } from '../redux/moduls/SelectWrite';
 import { useNavigate } from 'react-router-dom';
+import MyIcon from '../element/MyIcon';
 
 const SelectTime = () => {
 
@@ -26,9 +27,7 @@ const SelectTime = () => {
         <div className='select_time'>
             <div className='select_time_top'>
                 <div className='select-close'>
-                    <span className="material-icons" onClick={() => { navigate("/write") }}>
-                        close
-                    </span>
+                    <MyIcon iconName={"close"} sizePx={32} color={"gray"} cursor={"point"}/>
                 </div>
                 <div className='select_time_count'>
                     <p>2 / 6</p>
@@ -50,18 +49,14 @@ const SelectTime = () => {
             <div className='select_time_bottom'>
                 <div className='prev' onClick={()=>{navigate(-1)}}>
                         <div className='time-arrow-back-ios'>
-                            <span className="material-symbols-outlined">
-                                arrow_back_ios
-                            </span>
+                            <MyIcon iconName={"arrow_back_ios"} sizePx={28} color={"gray"} cursor={"point"}/>
                         </div>
                         <h4>이전</h4>
                     </div>
                     <div className='next' onClick={clickTime}>
                         <h4>다음</h4>
                         <div className='time-arrow-forward-ios'>
-                            <span className="material-symbols-outlined">
-                                arrow_forward_ios
-                            </span>
+                            <MyIcon iconName={"arrow_forward_ios"} sizePx={28} color={"black"} cursor={"point"}/>
                         </div>
                     </div>
                 </div>
