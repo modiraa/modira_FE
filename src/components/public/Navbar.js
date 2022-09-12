@@ -33,8 +33,10 @@ const Navbar = ({ address }) => {
         },
       })
       .then((response) => {
+        console.log(response);
         setUserInfo(response.data);
-        sessionStorage.setItem("roomId",response.data.roomId)
+        sessionStorage.setItem("roomId", response.data.roomId);
+        sessionStorage.setItem("postTitle", response.data.isJoinPost);
       })
       .catch((error) => {
         console.log(error);
@@ -52,7 +54,7 @@ const Navbar = ({ address }) => {
   const changeAddress = () => {
     navigate("/inputaddress", { state: "mainaddress" });
   };
-  
+
   if (!islogin) {
     return (
       <div className="info_header">
@@ -85,7 +87,7 @@ const Navbar = ({ address }) => {
           onClick={searchAddressAX}
         >
           <div>
-            <img src={png.iconSearch}/>
+            <MyIcon sizePx={17} iconName={"search"} />
           </div>
         </div>
       </div>
@@ -99,9 +101,9 @@ const Navbar = ({ address }) => {
             <div className="location-trianle"></div>
           </div>
         </div>
+        <div onClick={()=>{sessionStorage.clear();window.location.reload()}} style={{cursor:"pointer"}}>로그아웃</div>
         <div className="info_header_search" onClick={showSearchBar}>
-        <MyIcon sizePx={17} iconName={"search"}/>
-    
+          <MyIcon sizePx={17} iconName={"search"} />
         </div>
       </div>
     );
