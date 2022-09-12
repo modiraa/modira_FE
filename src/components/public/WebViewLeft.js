@@ -4,6 +4,7 @@ import axios from "axios";
 import "./webviewleft.css";
 import"../../App.css"
 import { useNavigate } from "react-router-dom";
+import MyIcon from "../../element/MyIcon";
 
 const WebViewLeft = () => {
   const refInputSearch = React.useRef();
@@ -37,13 +38,7 @@ const WebViewLeft = () => {
             ref={refInputSearch}
           ></input>
           <div className="webview-wrap-icon">
-            <span
-              onClick={searchAddressAX}
-              style={{ color: "white", fontSize: "37.41px",cursor:"pointer" }}
-              className="material-symbols-outlined"
-            >
-              search
-            </span>
+            <MyIcon sizePx={28} iconName={"searchWhite"} onClick={searchAddressAX}   cursor={"pointer"}/>
           </div>
         </div>
       </div>

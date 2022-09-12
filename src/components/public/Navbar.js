@@ -1,8 +1,12 @@
 // import styled from "styled-components";
 import React from "react";
-import "./Navbar.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+
+import "./Navbar.css";
+
+import { png } from "../../image";
+import MyIcon from "../../element/MyIcon";
 
 const Navbar = ({ address }) => {
   const [isOpenSearch, setIsOpenSearch] = React.useState(false);
@@ -30,6 +34,7 @@ const Navbar = ({ address }) => {
       })
       .then((response) => {
         setUserInfo(response.data);
+        sessionStorage.setItem("roomId",response.data.roomId)
       })
       .catch((error) => {
         console.log(error);
@@ -47,6 +52,7 @@ const Navbar = ({ address }) => {
   const changeAddress = () => {
     navigate("/inputaddress", { state: "mainaddress" });
   };
+  
   if (!islogin) {
     return (
       <div className="info_header">
@@ -79,7 +85,7 @@ const Navbar = ({ address }) => {
           onClick={searchAddressAX}
         >
           <div>
-            <span className="material-symbols-outlined">search</span>
+            <img src={png.iconSearch}/>
           </div>
         </div>
       </div>
@@ -94,7 +100,8 @@ const Navbar = ({ address }) => {
           </div>
         </div>
         <div className="info_header_search" onClick={showSearchBar}>
-          <span className="material-icons-outlined">search</span>
+        <MyIcon sizePx={17} iconName={"search"}/>
+    
         </div>
       </div>
     );

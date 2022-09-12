@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import MyIcon from "../../element/MyIcon";
 import "./PostComponent.css";
 
 const PostComponent = ({ postAll }) => {
@@ -53,35 +54,21 @@ const PostComponent = ({ postAll }) => {
         <div className="wrap-postcomponent-dayAndperson">
           <div className="postcomponent-dayAndicon">
             <div className="postcomponent-location-icon">
-              <span
-                className="material-icons-outlined"
-                style={{ fontSize: "14px", color: "#9A9A9A" }}
-              >
-                calendar_today
-              </span>
+            <MyIcon sizePx={14} iconName={"calendar_today"} color={"gray"} />
+            
             </div>
 
             <div className="postcomponent-day">{postAll.date+" "+postAll.time}</div>
           </div>
           <div className="postcomponent-personAndicon">
             <div className="postcomponent-location-icon">
-              <span
-                className="material-icons-outlined"
-                style={{ fontSize: "14px", color: "#9A9A9A" }}
-              >
-                person_outline
-              </span>
+            <MyIcon sizePx={14} iconName={"person"} color={"gray"} />
             </div>
             <div className="postcomponent-person">
               {postAll.numberOfParticipant}명 참여
             </div>
             <div className="postcomponent-location-icon">
-              <span
-                className="material-icons-outlined"
-                style={{ fontSize: "14px", color: "#9A9A9A" }}
-              >
-                ramen_dining
-              </span>
+            <MyIcon sizePx={14} iconName={"ramen_dining"} color={"gray"} />
             </div>
             <div className="postcomponent-person">{menu}</div>
           </div>

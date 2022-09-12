@@ -6,7 +6,7 @@ const PostNoComponent = () => {
     <div className="wrap-postnocomponent">
       <div className="posnocomponent-location-icon">
         <span
-          className="material-symbols-outlined"
+          className="material-icons-outlined"
           style={{ fontSize: "39px", color: "white" }}
         >
           close
