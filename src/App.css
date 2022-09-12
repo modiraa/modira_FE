@@ -62,12 +62,12 @@
 
 .wrap-app-appview{
  
- 
-  height: 1030px;
+  height: 100vh;
+  max-height: 1030px;
   background: white;
   overflow: auto;
-  width:100vw;
-  max-width:32.8125rem;
+  width: 100vw;
+  max-width: 32.8125rem;
 
 }
 .wrap-app-appview::-webkit-scrollbar{

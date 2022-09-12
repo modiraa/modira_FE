@@ -17,6 +17,8 @@
 }
 .postcollection-wrap-postnocomponent {
   display: flex;
+  height: 13.75rem;
+
 }
 .postcollection-wrap-postnocomponent > div {
   margin-right: 1.25rem;

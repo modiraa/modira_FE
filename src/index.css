@@ -85,42 +85,42 @@ font-weight:400 ;
   font-weight:900 ;
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 800px ),screen and(max-height:400px) {
   html {
   
     font-size: 85%;
   }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 600px),screen and(max-height:300px) {
   html {
 
     font-size: 80%;
   }
 }
 
-@media all and (max-width: 450px) {
+@media all and (max-width: 450px),screen and(max-height:225px) {
   html {
    
     font-size: 70%;
   }
 }
 
-@media all and (max-width: 400px) {
+@media all and (max-width: 400px),screen and(max-height:200px) {
   html {
   
     font-size: 62.5%;
   }
 }
 
-@media all and (max-width: 330px) {
+@media all and (max-width: 330px),screen and(max-height:165px) {
   html {
 
     font-size: 55%;
   }
 }
 
-@media all and (max-width: 300px) {
+@media all and (max-width: 300px),screen and(max-height:150px) {
   html {
  
     font-size: 48.3%;

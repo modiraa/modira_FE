@@ -149,9 +149,9 @@ const Chat = () => {
   const exitChatRoom=(event)=>{
     // console.log(prevMessage)
     event.stopPropagation();
-    const senderId=prevMessage.filter((v)=>v.sender==sendNick)[0].senderId
+    // const senderId=prevMessage.filter((v)=>v.sender==sendNick)[0].senderId
     // console.log(senderId)
-    navigate("/userprofile",{state:senderId})
+    navigate("/userprofile",)
   }
 
   return (
