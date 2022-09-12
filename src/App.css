@@ -22,7 +22,7 @@
 
 @media screen and (max-width: 1182px) {
   .wrap-app{
-    width:100%;
+    width:100vw;
     background-image: none;
     display: flex;
     justify-content: center;
@@ -32,7 +32,7 @@
     display: none;
   } 
   .wrap-app-appview{
-    width: 512px;
+    width:32.8125rem;
     max-width: none;
     margin-right: 0px;
   }
@@ -41,7 +41,7 @@
 
 @media screen and (max-width: 512px) {
   .wrap-app{
-    width:100%;
+    width:100vw;
     background-image: none;
     display: flex;
     justify-content: center;
@@ -52,7 +52,7 @@
     display: none;
   } 
   .wrap-app-appview{
-    width: 100%;
+    width:32.8125rem;
     max-width: none;
     margin-right: 0px;
     min-width: 355px;
@@ -62,11 +62,12 @@
 
 .wrap-app-appview{
  
-  width: 525px;
-  max-width: 525px;
+ 
   height: 1030px;
   background: white;
   overflow: auto;
+  width:100vw;
+  max-width:32.8125rem;
 
 }
 .wrap-app-appview::-webkit-scrollbar{
