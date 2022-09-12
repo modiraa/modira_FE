@@ -69,7 +69,19 @@ const LowerNavbar = ({ locationIndicator }) => {
       <div
         className="wrap-symbols-text"
         onClick={() => {
-          goPage("write");
+          const roomId=sessionStorage.getItem("roomId")
+          const Auth = sessionStorage.getItem("token");
+          if(!Auth){
+            alert("로그인이 필요합니다!");
+            navigate("/login")
+            return;
+          }
+          if(roomId!=="null"){
+            alert("모임은 하나의 모임만 참여 할 수 있습니다.")
+            goPage("userprofile")
+          }
+          else{goPage("write")}
+          ;
         }}
       >
         <div className="lowernavbar-location-symbol">
