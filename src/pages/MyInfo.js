@@ -6,6 +6,7 @@ import Navbar from "../components/public/Navbar";
 import LowerNavbar from "../components/public/LowerNavbar";
 import ProfileBg from "../components/public/ProfileBg";
 import { useSelector } from "react-redux";
+import MyIcon from "../element/MyIcon";
 
 const MyInfo = () => {
   const [infoUser, setInfoUser] = useState({});
@@ -44,7 +45,8 @@ const MyInfo = () => {
           <h3>{infoUser.nickname}</h3>
         </div>
         <div className="info_user_address">
-          <span className="material-icons-outlined">place</span>
+          
+          <MyIcon iconName={"place"} sizePx={20}/>
           <h5>{infoUser.address}</h5>
         </div>
         <div className="info_user_genderAge">
@@ -58,17 +60,9 @@ const MyInfo = () => {
         <div className="info_user_good">
           <div className="info-user-countlike">
             <div className="info-arrow_box">
-              <span
-                className="material-symbols-outlined"
-                style={{
-                  fontSize: "16px",
-                  fontVariationSettings: "'FILL' 1",
-                  color: "#FFE9BE",
-                }}
-              >
-                favorite
-              </span>
-              {/* <span className="info-like-text">{infoUser?.score}</span> */}
+          
+              <MyIcon iconName={"favorite"} sizePx={16} color={"beige"}/>
+              {/* <span className="info-like-tex"t">{infoUser?.score}</span> */}
               <span className="info-like-text">{infoUser?.score}</span>
             </div>
           </div>
