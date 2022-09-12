@@ -1,6 +1,7 @@
 import React from "react";
 import "./LowerNavbar.css";
 import { useNavigate } from "react-router-dom";
+import MyIcon from "../../element/MyIcon";
 
 const LowerNavbar = ({ locationIndicator }) => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const LowerNavbar = ({ locationIndicator }) => {
             )}
           </div>
 
-          <span className="material-symbols-outlined">home</span>
+          <MyIcon sizePx={25} iconName={"home"} />
         </div>
 
         <div>
@@ -50,7 +51,7 @@ const LowerNavbar = ({ locationIndicator }) => {
               <div className="lowernavbar-indicator-circle"></div>
             )}
           </div>
-          <span className="material-symbols-outlined">sms</span>
+          <MyIcon sizePx={25} iconName={"sms"} />
         </div>
         <span className="symbols-text">채 팅</span>
       </div>
@@ -66,7 +67,7 @@ const LowerNavbar = ({ locationIndicator }) => {
               <div className="lowernavbar-indicator-circle"></div>
             )}
           </div>
-          <span className="material-symbols-outlined">add_location</span>
+          <MyIcon sizePx={25} iconName={"add_location"} />
         </div>
         <div>
           <span className="symbols-text">글 작성</span>
@@ -85,7 +86,7 @@ const LowerNavbar = ({ locationIndicator }) => {
               <div className="lowernavbar-indicator-circle"></div>
             )}
           </div>
-          <span className="material-symbols-outlined">calendar_today</span>
+          <MyIcon sizePx={25} iconName={"calendar_today"} />
         </div>
         <span className="symbols-text">내 모임</span>
       </div>
@@ -102,7 +103,7 @@ const LowerNavbar = ({ locationIndicator }) => {
               <div className="lowernavbar-indicator-circle"></div>
             )}
           </div>
-          <span className="material-symbols-outlined">person</span>
+          <MyIcon sizePx={25} iconName={"person"} />
         </div>
         <span className="symbols-text">마이페이지</span>
       </div>

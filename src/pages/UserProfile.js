@@ -8,7 +8,7 @@ import "../css(subin)/UserProfile.css";
 import UserList from "../components/userprofile/UserList";
 import ProfileBg from "../components/public/ProfileBg";
 import LowerNavbar from "../components/public/LowerNavbar";
-
+import MyIcon from "../element/MyIcon";
 
 const UserProfile = () => {
   const [dataProfile, setDataProfile] = React.useState();
@@ -19,7 +19,7 @@ const UserProfile = () => {
   const [userList, setUserList] = React.useState([]);
   const [userChoiceValidation, setUserChoiceValidation] =
     React.useState(showUser);
-
+const roomId=sessionStorage.getItem("roomId")
   console.log(location);
 
   const showProfileAX = async () => {
@@ -37,7 +37,7 @@ const UserProfile = () => {
   const showListParticipants = async () => {
     await axios
       .get(
-        `http://3.34.129.164/api/userlist/15cee64a-27d6-47a9-a1ae-c9ba15c4be50`
+        `http://3.34.129.164/api/userlist/${roomId}`
       )
       .then((response) => {
         console.log(response);
@@ -47,13 +47,9 @@ const UserProfile = () => {
         console.log(error.response);
       });
   };
- 
-
-
 
   useEffect(() => {
     showProfileAX();
-
   }, [userChoiceValidation]);
   useEffect(() => {
     showListParticipants();
@@ -74,7 +70,7 @@ const UserProfile = () => {
       )
       .then((res) => {
         console.log(res); // 토큰이 넘어올 것임
-        showProfileAX()
+        showProfileAX();
         // window.location.reload();
         // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
       })
@@ -100,8 +96,8 @@ const UserProfile = () => {
       )
       .then((res) => {
         console.log(res); // 토큰이 넘어올 것임
-       
-        showProfileAX()
+
+        showProfileAX();
         // window.location.reload();
         // navigate("/") // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
       })
@@ -110,36 +106,38 @@ const UserProfile = () => {
         // navigate("/login"); // 로그인 실패하면 로그인화면으로 돌려보냄
       });
   };
-  const exitPost= async()=>{
+  const exitPost = async () => {
     await axios
-    .delete(
-      "http://3.34.129.164/api/enter/ec0d4dfb-12e3-40b9-bd8e-2260e638947c",
-      {
-        headers: {
-          Authorization: Auth,
-        },
-      }
-    )
-    .then((res) => {
-      console.log(res); // 토큰이 넘어올 것임
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  }
+      .post(
+        `http://3.34.129.164/api/leave/${roomId}}`,null,
+        {
+          headers: {
+            Authorization: Auth,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res); // 토큰이 넘어올 것임
+        showListParticipants()
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="useprofile-wrap">
       <div className="userprofile-header-wrap">
-        <div className="userprofile-header-icon" style={{ marginLeft: "28px", }}>
-          <span
-            className="material-symbols-outlined"
-            style={{ fontSize: "28px", cursor: "pointer",fontWeight:"700" }}
+        <div className="userprofile-header-icon" style={{ marginLeft: "28px" }}>
+       
+          <MyIcon
+            sizePx={28}
+            iconName={"arrow_back_ios"}
+            cursor= "pointer"
             onClick={() => {
               navigate(-1);
             }}
-          >
-            arrow_back_ios
-          </span>
+          />
+
           <button onClick={exitPost}>완료</button>
         </div>
       </div>
@@ -147,17 +145,13 @@ const UserProfile = () => {
       <div className="wrap-middle">
         <div className="user-wrap-countlike">
           <div className="arrow_box">
-            <span
-              className="material-symbols-outlined"
-              style={{
-                fontSize: "16px",
-                fontVariationSettings: "'FILL' 1",
-                color: "#FFE9BE",
-                
-              }}
-            >
-              favorite
-            </span>
+     
+            <MyIcon
+            sizePx={16}
+            iconName={"favorite"}
+            color= "beige"
+          
+          />
             <span className="userprofile-like-text">{dataProfile?.score}</span>
           </div>
         </div>
@@ -168,10 +162,14 @@ const UserProfile = () => {
         <div className="user-nick font-bold">{dataProfile?.nickname}</div>
         <div className="user-wrap-sexAndage">
           <div className="user-sexAndage">
-            <div className="user-sexAndage-text font-medium">{dataProfile?.gender}</div>
+            <div className="user-sexAndage-text font-medium">
+              {dataProfile?.gender}
+            </div>
           </div>
           <div className="user-sexAndage">
-            <div className="user-sexAndage-text font-medium">{dataProfile?.age}</div>
+            <div className="user-sexAndage-text font-medium">
+              {dataProfile?.age}
+            </div>
           </div>
         </div>
         <div className="user-wrap-like">
@@ -183,7 +181,10 @@ const UserProfile = () => {
             style={{ backgroundColor: "#FFBB31" }}
             onClick={likePlusScore}
           >
-            <div className="user-like-text font-bold" style={{ color: "white" }}>
+            <div
+              className="user-like-text font-bold"
+              style={{ color: "white" }}
+            >
               +1 좋아요
             </div>
           </div>

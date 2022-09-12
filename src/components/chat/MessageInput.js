@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import MyIcon from "../../element/MyIcon";
 
 const MessageInput = ({ setSendMessage, sendMessageFN, sendMessage }) => {
   const refInput = useRef();
@@ -56,12 +57,7 @@ const MessageInput = ({ setSendMessage, sendMessageFN, sendMessage }) => {
             refInput.current.value = "";
           }}
         >
-          <span
-            className="material-symbols-outlined"
-            style={{ fontSize: "23px", color: "white" }}
-          >
-            arrow_upward
-          </span>
+          <MyIcon sizePx={23} iconName={"arrow_upward"} />
         </div>
       </div>
       {/* <button onClick={sendMessageFN}>메시지보내기</button> */}

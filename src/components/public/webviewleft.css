@@ -1,5 +1,5 @@
 .wrap-webview {
- 
+
   height: 579px;
   margin-top: 161px;
 }
@@ -12,7 +12,7 @@
   cursor: pointer;
 }
 .webview-description {
-  width: 560px;
+  
   height: 161px;
   font-weight: 400;
   font-size: 47px;

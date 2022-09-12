@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import MyIcon from "../../element/MyIcon";
 import "./PostComponentStatus.css";
 
 const PostComponentStatus = ({ poststatus }) => {
@@ -55,34 +56,21 @@ const PostComponentStatus = ({ poststatus }) => {
       <div className="postcomponentstatus-title font-bold">{title}</div>
       <div className="wrap-postcomponentstatus-dayAndperson">
         <div className="postcomponentstatus-location-icon">
-          <span
-            className="material-icons-outlined"
-            style={{ fontSize: "14px", color: "#9A9A9A" }}
-          >
-            calendar_today
-          </span>
-
+   
+          <MyIcon sizePx={14} iconName={"calendar_today"} color={"gray"} />
+        
           <div className="postcomponentstatus-day">
             {poststatus.date + " " + poststatus.time}
           </div>
         </div>
         <div className="postcomponentstatus-location-icon-person">
-          <span
-            className="material-icons-outlined"
-            style={{ fontSize: "14px", color: "#9A9A9A" }}
-          >
-            person_outline
-          </span>
+    
+        <MyIcon sizePx={14} iconName={"person"} color={"gray"} />
 
           <div className="postcomponentstatus-person">
             {poststatus?.numberOfParticipant}명 참여
           </div>
-          <span
-            className="material-icons-outlined"
-            style={{ fontSize: "14px", color: "#9A9A9A" }}
-          >
-            ramen_dining
-          </span>
+          <MyIcon sizePx={14} iconName={"ramen_dining"} color={"gray"} />
 
           <div className="postcomponentstatus-person">{menu}</div>
         </div>

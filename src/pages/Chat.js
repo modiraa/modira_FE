@@ -2,11 +2,12 @@ import Stomp, { connect } from "stompjs";
 import SockJS from "sockjs-client";
 import React from "react";
 import "../css(subin)/chat.css";
-import MessageList from "../components/chat/MessageList"
+import MessageList from "../components/chat/MessageList";
 import MessageInput from "../components/chat/MessageInput";
 import MyModal from "../components/public/MyModal";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import MyIcon from "../element/MyIcon";
 
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
@@ -17,14 +18,23 @@ const Chat = () => {
   const [showMessage, setShowMessage] = React.useState([]);
   const [sendMessage, setSendMessage] = React.useState("");
   const [sendNick, setSendNick] = React.useState("");
+  
   const [modalIsopen, setmodalIsopen] = React.useState(false);
   const RefViewControll = React.useRef();
   const navigate = useNavigate();
   const Auth = sessionStorage.getItem("token");
   const authNoBearer = sessionStorage.getItem("token")?.split(" ")[1];
+  const roomId=sessionStorage.getItem("roomId")
+
+
+
+  
+
 
   //소켓연결
   React.useEffect(() => {
+    
+
     var socket = new SockJS("http://3.34.129.164/ws-stomp");
     stompClient = Stomp.over(socket);
 
@@ -59,7 +69,7 @@ const Chat = () => {
   const loadPrevMessage = async () => {
     await axios
       .get(
-        "http://3.34.129.164/chat/messages/ec0d4dfb-12e3-40b9-bd8e-2260e638947c"
+        `http://3.34.129.164/chat/messages/${roomId}`
       )
       .then((response) => {
         prevMessage = response.data.content.reverse();
@@ -78,26 +88,28 @@ const Chat = () => {
         },
       })
       .then((response) => {
+        console.log(response.data.roomId)
+      
         setSendNick(response.data.nickname);
+        
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-
-// 소켓 함수
+  // 소켓 함수
   function connected() {
     setIsConnected(true);
     stompClient.subscribe(
-      `/sub/chat/room/ec0d4dfb-12e3-40b9-bd8e-2260e638947c`,
+      `/sub/chat/room/${roomId}`,
       subscribed,
       {
         Authorization: authNoBearer,
       }
     );
   }
-  
+
   function subscribed(greeting) {
     const soketMessage = JSON.parse(greeting.body);
     showMessage.push(soketMessage);
@@ -121,7 +133,7 @@ const Chat = () => {
         JSON.stringify({
           message: sendMessage,
           type: "TALK",
-          roomId: "ec0d4dfb-12e3-40b9-bd8e-2260e638947c",
+          roomId: roomId,
         })
       );
       setSendMessage("");
@@ -137,7 +149,6 @@ const Chat = () => {
   const handleClickCancel = () => {
     setmodalIsopen(false);
   };
- 
 
   return (
     <div className="chat-wrap">
@@ -149,12 +160,7 @@ const Chat = () => {
             navigate(-1);
           }}
         >
-          <span
-            className="material-symbols-outlined"
-            style={{ fontSize: "28px",fontWeight:"bold" }}
-          >
-            arrow_back_ios
-          </span>
+          <MyIcon sizePx={28} iconName={"arrow_back_ios"} />
         </div>
         <div className="chat-header-title font-bold">Lorem ipsum dolor...</div>{" "}
         <div
@@ -162,12 +168,7 @@ const Chat = () => {
           style={{ marginRight: "35px", cursor: "pointer" }}
           onClick={modalHandler}
         >
-          <span
-            className="material-icons-outlined"
-            style={{ fontSize: "28px" }}
-          >
-            logout
-          </span>
+          <MyIcon sizePx={28} iconName={"logout"} />
         </div>
       </div>
       <div ref={RefViewControll} className="chat-message-container">
