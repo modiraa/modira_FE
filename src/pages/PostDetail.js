@@ -48,7 +48,7 @@ function PostDetail() {
     const ACCESS_TOKEN = sessionStorage.getItem("token");
     console.log(ACCESS_TOKEN);
     await axios
-      .post(`http://3.34.129.164/api/enter/49f4bd09-7366-427d-85e5-1513a4ce20e7`, null, {
+      .post(`http://3.34.129.164/api/enter/${data.roomId}`, null, {
         headers: {
           Authorization: ACCESS_TOKEN,
         },
