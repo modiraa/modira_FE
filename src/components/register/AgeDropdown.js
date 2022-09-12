@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import MyIcon from "../../element/MyIcon";
 
 const AgeDropdown = ({ age, setAge }) => {
   const [isActive, setIsActive] = React.useState(false);
@@ -10,7 +11,7 @@ const AgeDropdown = ({ age, setAge }) => {
       <Dropdownbtn onClick={(e) => setIsActive(!isActive)}>
         <span>
           {age} 
-          <span className="material-symbols-outlined" style={{fontSize:"45PX"}}>arrow_drop_down</span>
+          <MyIcon sizePx={40} iconName={"arrow_drop"} color={"dropgray"}  />
         </span>
       </Dropdownbtn>
       {isActive && (

@@ -56,14 +56,14 @@ function PostDetail() {
       })
       .then((response) => {
         console.log("참여완료", response);
+      })
+
+      .catch((error) => {
         if (data.currentPeople < data.numberOfPeople) {
           alert("참여 되었습니다");
         } else {
           alert("중복된 참여는 불가능 합니다.");
         }
-      })
-
-      .catch((error) => {
         console.log("실패", error);
       });
   };
@@ -128,9 +128,7 @@ function PostDetail() {
         <Limit>
           <LimiitTitle>제한조건</LimiitTitle>
           <div>
-          <MyIcon sizePx={20} iconName={"task"}  style={{
-                    fontVariationSettings: "'FILL' 1",color:"#4bdc78"
-                  }}/>
+          <MyIcon sizePx={20} iconName={"task"} color={"green"} />
             <span>
               <b>
                 {data.limitAge} {data.limitGender}

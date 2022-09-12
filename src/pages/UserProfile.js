@@ -109,7 +109,7 @@ const roomId=sessionStorage.getItem("roomId")
   const exitPost = async () => {
     await axios
       .post(
-        `http://3.34.129.164/api/leave/${roomId}}`,null,
+        `http://3.34.129.164/api/leave/${roomId}`,null,
         {
           headers: {
             Authorization: Auth,

@@ -43,12 +43,12 @@
     align-content: center;
     
     width: 100%;
-    margin-top: 17px;
+    margin-top: 1.0625rem;
     /* background-color: azure; */
 }
 
 .info_user_name>h3{
-    font-size: 25px;
+    font-size: 1.5625rem;
     font-weight: 600;
 }
 
@@ -58,22 +58,22 @@
     justify-content: center;
     
     width: 100%;
-    margin-top: 10px;
+    margin-top: 0.625rem;
     /* background-color: rgb(199, 237, 237); */
 }
 
 .myinfo-material-icons-outlined{
-    font-size: 20px;
+    font-size: 1.25rem;
     float: left;
-    margin-right: 8px;
+    margin-right: 0.5rem;
 
 }
 
 .info_user_address>h5{
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
-    margin-top: 1px;
-    margin-left: 7px;
+    margin-top: 0.0625rem;
+    margin-left: 0.4375rem;
     color: #000000;
 }
 
@@ -83,7 +83,7 @@
     justify-content: center;
 
     width: 100%;
-    margin-top: 32px;
+    margin-top: 2rem;
 }
 
 .info_user_gender{
@@ -91,15 +91,15 @@
     align-items: center;
     justify-content: center;
     
-    width: 83px;
-    height: 39px;
-    margin-right: 10px;
+    width: 5.1875rem;
+    height: 2.4375rem;
+    margin-right: 0.625rem;
     background-color: #FFE9BE;
-    border-radius: 68px;
+    border-radius: 4.25rem;
 }
 
 .info_user_gender>h3{
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 500;
     color: #000000;
 }
@@ -109,14 +109,14 @@
     align-items: center;
     justify-content: center;
     
-    width: 83px;
-    height: 39px;
+    width: 5.1875rem;
+    height: 2.4375rem;
     background-color: #FFE9BE;
-    border-radius: 68px;
+    border-radius: 4.25rem;
 }
 
 .info_user_age>h3{
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 500;
     color: #000000;
 }
@@ -128,20 +128,20 @@
 }
 
 .info-user-countlike {
-    width: 103px;
-    height: 55px;
-    margin-top: 51px;
+    width: 6.4375rem;
+    height: 3.4375rem;
+    margin-top: 3.1875rem;
     position: relative;
     z-index: 2;
   }
 
   .info-arrow_box {
-    width: 103px;
-    height: 45px;
+    width: 6.4375rem;
+    height: 2.8125rem;
     position: relative;
     background: #ffffff;
-    border: 2px solid #ffe9be;
-    border-radius: 26px;
+    border: 0.125rem solid #ffe9be;
+    border-radius: 1.625rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,42 +161,41 @@
   .info-arrow_box:after {
     border-color: rgba(213, 213, 213, 0);
     border-top-color: #ffffff;
-    border-width: 7px;
-    margin-left: -7px;
+    border-width: 0.4375rem;
+    margin-left: -0.4375rem;
   }
   .info-arrow_box:before {
     border-color: rgba(2, 2, 3, 0);
     border-top-color: #ffe9be;
-    border-width: 10px;
-    margin-left: -10px;
+    border-width: 0.625rem;
+    margin-left: -0.625rem;
   }
   
   .info-like-text {
-    font-size: 25px;
+    font-size: 1.5625rem;
     font-weight: 400;
-    margin-left: 7px;
-    margin-bottom: 4px;
+    margin-left: 0.4375rem;
+    margin-bottom: 0.25rem;
   }
 
 .info_user_good>.material-icons-outlined{
-    font-size: 18px;
-    margin-right: 9.8px;
+    font-size: 1.125rem;
+    margin-right: 0.6125rem;
 }
 
 .info_user_good>span:last-child{
-    font-size: 25px;
+    font-size: 1.5625rem;
     font-weight: 400;
 }
 
-.info_user_update_btn{
+/* .info_user_update_btn{
     width: 100%;
-    height: 70px;
+    height: 4.375rem;
 
-    margin-top: 70.8px;
+    margin-top: 4.425rem;
 }
 
 .info_user_update_btn>button{
-    /* width : 473px */
     width: 90.10%;
     height: 70px;
     border: none;
@@ -206,8 +205,8 @@
     color: #ffffff;
     font-size: 20px;
     font-weight: 600;
-}
+} */
 
 .myinfo-lowernavbar{
-    margin-top: 468.8px;
+    margin-top: 29.3rem;
 }

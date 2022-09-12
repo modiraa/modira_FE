@@ -100,18 +100,14 @@ const MyRoom = () => {
           </div>
         </Minibanner>
         <CreateRoom>
-          <p>생성한 모임</p>
+          <p>생성한 모임</p>{" "}
+          {/* <span onClick={removePost}>
+            <MyIcon sizePx={25} iconName={"delete_white"} color={"white"} />
+            <p>게시물 삭제</p>
+          </span> */}
           <Post>
             {data ? (
               <MakedRoom>
-                {" "}
-                <span
-                  className="material-symbols-outlined"
-                  onClick={removePost}
-                  style={{ color: "#FFF" }}
-                >
-                  delete<p>게시물 삭제</p>
-                </span>
                 <img
                   src={data?.menuForImage}
                   onClick={() => {
@@ -125,7 +121,7 @@ const MyRoom = () => {
                   navigate("/write");
                 }}
               >
-                <MyIcon sizePx={20} iconName={"add_circle"} color={"beige"} />
+                <MyIcon sizePx={25} iconName={"add_circle"} color={"orange"} />
                 <p>새 모임 만들러 가기</p>
               </ToMakeRoom>
             )}
@@ -151,14 +147,7 @@ const MyRoom = () => {
                   navigate("/morepost");
                 }}
               >
-                <span
-                  className="material-symbols-outlined"
-                  style={{
-                    fontVariationSettings: "'FILL' 1",
-                  }}
-                >
-                  add_circle
-                </span>
+                <MyIcon sizePx={25} iconName={"add_circle"} color={"orange"} />
                 <p>모임 찾아보러 가기</p>
               </ToMakeRoom>
             )}
@@ -231,7 +220,7 @@ const Post = styled.div`
     width: 439px;
     height: 167px;
     border-radius: 12px;
-    position: absolute;
+    position: relative;
     z-index: 1;
   }
 `;
@@ -242,34 +231,24 @@ const MakedRoom = styled.div`
   background-size: contain;
   display: flex;
   flex-direction: row;
-
-  span {
-    z-index: 2;
-    margin-left: 305px;
-    font-size: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  p {
+    margin-left: 4px;
+    font-weight: 500;
+    font-size: 13px;
+    color: #ffffff;
     align-items: center;
-    margin-top: 9px;
-    height: 36px;
-    width: 126px;
-    background: rgba(255, 187, 49, 0.6);
-    border-radius: 22px;
-    p {
-      margin-left: 4px;
-      font-weight: 500;
-      font-size: 13px;
-      margin-top: 19px;
-      color: #ffffff;
-      align-items: center;
-    }
+  }
+  span {
+    position: relative;
+    z-index: 2;
+    width: 20px;
+    font-size: 20px;
+    margin: 0;
   }
 `;
 
 const ToMakeRoom = styled.span`
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 439px;
@@ -277,11 +256,7 @@ const ToMakeRoom = styled.span`
   border-radius: 12px;
   border: none;
   overflow: hidden;
-  padding-top: 10px;
-  span {
-    font-size: 25px;
-    color: #ffbb31;
-  }
+  padding-top: 50px;
   p {
     margin-top: 15px;
     color: #ffbb31;

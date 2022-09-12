@@ -7,6 +7,7 @@ import { loginUserinfo } from "../redux/moduls/UserInfo";
 //component
 import AgeDropdown from "../components/register/AgeDropdown";
 import ProfileBg from "../components/public/ProfileBg";
+import MyIcon from "../element/MyIcon";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -128,7 +129,14 @@ const Register = () => {
         console.log("에러!", error);
       });
   };
-  console.log({ username, userProfileImage, nickName, age, gender, address });
+  console.log({
+    username,
+    userProfileImage,
+    nickName,
+    age,
+    gender,
+    address,
+  });
 
   return (
     <>
@@ -138,7 +146,7 @@ const Register = () => {
             navigate("/");
           }}
         >
-          <span className="material-symbols-outlined">arrow_back</span>
+          <MyIcon sizePx={60} iconName={"longarrow"} />
         </Arrow>
         <input
           type="file"
@@ -287,10 +295,10 @@ const Input = styled.input`
 `;
 
 const ButtonImg = styled.div`
-  width: 176px;
+  width: 192px;
   height: 40px;
   border: 2px solid #ffbb31;
-  padding: 8px 18px;
+  padding: 3px 18px;
   justify-content: center;
   display: flex;
   align-items: center;
