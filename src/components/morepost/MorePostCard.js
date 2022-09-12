@@ -31,10 +31,10 @@ const MorePostCard = (props) => {
     <div className="more-post-card" ref={refClick}>
       <div className='more-post-img-hashtag'>
         <div className='more-post-hashtag1'>
-            <span className="more-post-resraint-text1"># {props.item?.age}</span>
+          <span className="more-post-resraint-text1"># {props.item?.age}</span>
         </div>
         <div className='more-post-hashtag2'>
-        <span className="more-post-resraint-text2"># {props.item?.gender}</span>
+          <span className="more-post-resraint-text2"># {props.item?.gender}</span>
         </div>
         <div className="card-img">
           <img src={props.item?.menuForImage} />

@@ -6,7 +6,7 @@
 
 .write_top{
     width: 100%;
-    height: 75px;
+    height: 4.6875rem;
     position: relative;
 }
 
@@ -14,12 +14,8 @@
     width: 100px;
     height: 75px;
     float: left;
-}
-
-.write-close-btn>.material-icons{
-    font-size: 50px;
-    margin-top: 11px;
-    margin-left: 43px;
+    padding-top: 12px;
+    padding-left: 43px;
 }
 
 .write_top_title{
@@ -198,13 +194,7 @@
     color: #000000;
     text-align: left;
     float: left;
-}
-
-.write-people-count-title>.material-icons-outlined{
-    text-align: left;
-    margin-left: 6px;
-    color: #FFE9BE;
-    margin-top: 2px;
+    margin-right: 6px;
 }
 
 .write-people-count-text{
