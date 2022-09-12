@@ -244,7 +244,7 @@ const Box = styled.div`
   }
   span {
     cursor: pointer;
-    font-size: 36px;
+    font-size: 2.25rem;
     display: flex;
     flex-direction: row;
   }
@@ -252,37 +252,37 @@ const Box = styled.div`
 
 const Arrow = styled.div`
   position: relative;
-  top: 70px;
-  left: -200px;
+  top: 4.375rem;
+  left: -12.5rem;
 `;
 
 const LoginBox = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 36px 43px;
+  padding: 2.25rem 2.6875rem;
   background-color: #fcfaff;
   background-color: #fcfcfc;
   font-family: "Noto Sans KR";
   p {
     font-weight: 600;
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
   }
 `;
 
 const InputBox = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 439px;
+  width: 27.4375rem;
   height: 100%;
-  margin-bottom: 29px;
+  margin-bottom: 1.8125rem;
 `;
 
 const Input = styled.input`
   width: 100%;
-  padding: 14px 29px;
-  font-size: 20px;
-  border-radius: 12px;
+  padding: 0.875rem 1.8125rem;
+  font-size: 1.25rem;
+  border-radius: 0.75rem;
   border: none;
   background-color: #fff;
   cursor: pointer;
@@ -295,30 +295,30 @@ const Input = styled.input`
 `;
 
 const ButtonImg = styled.div`
-  width: 192px;
-  height: 40px;
-  border: 2px solid #ffbb31;
-  padding: 3px 18px;
+  width: 12rem;
+  height: 2.5rem;
+  border: 0.125rem solid #ffbb31;
+  padding: 0.1875rem 1.125rem;
   justify-content: center;
   display: flex;
   align-items: center;
   font-weight: 600;
-  font-size: 18px;
-  margin: 18px 0 20px 0;
-  border-radius: 37px;
+  font-size:1.125rem;
+  margin: 1.125rem 0 1.25rem 0;
+  border-radius: 2.3125rem;
   cursor: pointer;
 `;
 
 const Address = styled.div`
   display: flex;
   align-items: center;
-  padding-left: 29px;
+  padding-left: 1.8125rem;
   width: 100%;
-  height: 54px;
+  height: 3.375rem;
   color: #cbcbcb;
   background-color: #fff;
-  font-size: 20px;
-  border-radius: 12px;
+  font-size: 1.25rem;
+  border-radius: 0.75rem;
   cursor: pointer;
   &:focus {
     outline: none;
@@ -326,16 +326,16 @@ const Address = styled.div`
 `;
 
 const GenderButton = styled.div`
-  width: 213px;
-  height: 54px;
-  font-size: 20px;
+  width: 13.3125rem;
+  height: 3.375rem;
+  font-size: 1.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
   color: ${(props) => props.color};
   background-color: ${(props) => props.bg};
   border: ${(props) => props.border};
-  border-radius: 12px;
+  border-radius: 0.75rem;
   cursor: pointer;
 `;
 
@@ -348,15 +348,15 @@ const Button = styled.div`
 
   button {
     background-color: #ffbb31;
-    width: 445px;
-    height: 70px;
+    width: 27.8125rem;
+    height: 4.375rem;
     border: none;
     color: white;
-    padding: 12px 25px;
+    padding: 0.75rem 1.5625rem;
     text-align: center;
-    font-size: 20px;
-    margin-top: 60px;
-    border-radius: 35px;
+    font-size: 1.25rem;
+    margin-top: 3.75rem;
+    border-radius: 2.1875rem;
     cursor: auto;
   }
 `;
@@ -365,13 +365,13 @@ const Check = styled.span`
   display: flex;
   align-items: center;
   input {
-    margin-right: 15px;
-    width: 19px;
-    height: 19px;
+    margin-right: 0.9375rem;
+    width: 1.1875rem;
+    height: 1.1875rem;
   }
   p {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 400;
-    margin: 0 29px 0 0;
+    margin: 0 1.8125rem 0 0;
   }
 `;

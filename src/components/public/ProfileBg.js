@@ -76,8 +76,8 @@ const Circle = styled.div`
     position: relative;
   }
   div {
-    margin-top: 20px;
-    margin-left: 15px;
-    padding-bottom: 20px;
+    margin-top: 1.25rem;
+    margin-left: 0.9375rem;
+    padding-bottom: 1.25rem;
   }
 `;
