@@ -74,7 +74,10 @@ const Main = () => {
           morepostType={"n빵"}
         />
       </div>
-      <div style={{ height: "125px" }}></div>
+      <div>
+      <div style={{height:"150px"}}></div>
+      </div>
+      
       <div className="lowernavbar">
         <LowerNavbar locationIndicator={"main"} />
       </div>

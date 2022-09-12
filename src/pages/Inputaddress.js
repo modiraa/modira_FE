@@ -2,6 +2,7 @@ import React from "react";
 import DaumPostcodeEmbed from "react-daum-postcode";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import MyIcon from "../element/MyIcon";
 
 const InputAddress = () => {
   const navigate = useNavigate();
@@ -33,13 +34,10 @@ const InputAddress = () => {
 
   return (
     <div>
-      <Arrow
-        onClick={() => {
+      <Arrow  onClick={() => {
           navigate("/register");
-        }}
-        className="material-symbols-outlined"
-      >
-        arrow_back_ios
+        }}>
+      <MyIcon sizePx={25} iconName={"arrow_back_ios"}/>
       </Arrow>
       <DaumPostcodeEmbed
         onComplete={handleComplete}

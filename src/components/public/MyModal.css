@@ -3,6 +3,7 @@
   margin-right: 2rem;
   display: flex;
   margin-top: 2.1875rem;
+  cursor: pointer;
 }
 .mymodal-firsttext {
   margin-top: 1.125rem;
