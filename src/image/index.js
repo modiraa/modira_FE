@@ -12,6 +12,7 @@ import logout from"./outline_logout_black_24dp.png"
 import arrow_upward from"./outline_arrow_upward_white_24dp.png"
 import favorite from"./outline_favorite_black_24dp.png"
 import place from"./outline_place_black_24dp.png"
+import groups from './outline_groups_black_24dp.png'
 
 const png={
     icon:{
@@ -29,6 +30,7 @@ const png={
         arrow_upward,
         favorite,
         place,
+        groups,
     },
 
 }

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { selectWrite } from '../../redux/moduls/SelectWrite';
+import MyIcon from '../../element/MyIcon';
 
 const WriteMainSelect = () => {
 
@@ -73,9 +74,7 @@ const WriteMainSelect = () => {
                     <div className='write_address'>
                         <div className='write-address-title'>
                             <h3>장 소</h3>
-                            <span className="material-icons-outlined">
-                                place
-                            </span>
+                            <MyIcon iconName={"place"} sizePx={20} color={"beige"}/>
                         </div>
                         <div className='write-address-text'>
                             <span>{storeSelect.address}</span>
@@ -85,9 +84,7 @@ const WriteMainSelect = () => {
                     <div className='write_date'>
                         <div className='write-date-title'>
                             <h3>일 정</h3>
-                            <span className="material-icons-outlined">
-                                calendar_month
-                            </span>
+                            <MyIcon iconName={"calendar_today"} sizePx={20} color={"beige"}/>
                         </div>
                         <div className='write-date-text'>
                             <span>{storeSelect.date} {storeSelect.time}</span>
@@ -97,9 +94,7 @@ const WriteMainSelect = () => {
                     <div className='write_people_count'>
                         <div className='write-people-count-title'>
                             <h3>참여인원</h3>
-                            <span className="material-icons-outlined">
-                                perm_identity
-                            </span>
+                            <MyIcon iconName={"person"} sizePx={20} color={"beige"}/>
                         </div>
                         <div className='write-people-count-text'>
                             <span>{storeSelect.numberOfPeople}</span>
@@ -109,9 +104,7 @@ const WriteMainSelect = () => {
                     <div className='write_menu'>
                         <div className='write-menu-title'>
                             <h3>메 뉴</h3>
-                            <span className="material-icons-outlined">
-                                ramen_dining
-                            </span>
+                            <MyIcon iconName={"ramen_dining"} sizePx={20} color={"beige"} cursor={"point"}/>
                         </div>
                         <div className='write-menu-text'>
                             <span>{storeSelect.menu}</span>
@@ -121,9 +114,10 @@ const WriteMainSelect = () => {
                     <div className='write_payment'>
                         <div className='write-payment-title'>
                             <h3>모임유형</h3>
-                            <span className="material-icons-outlined">
+                            <MyIcon iconName={"groups"} sizePx={23} color={"beige"} cursor={"point"}/>
+                            {/* <span className="material-icons-outlined">
                                 groups
-                            </span>
+                            </span> */}
                         </div>
                         <div className='write-payment-text'>
                             <span>{storeSelect.category}</span>
