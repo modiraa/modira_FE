@@ -36,8 +36,8 @@ function PostDetail() {
     axios
       .get(`http://3.34.129.164/api/post/detail/${params.postId}`)
       .then((response) => {
+        console.log("성공", response);
         setData(response.data);
-        console.log("성공", params.postId);
       })
       .catch((error) => {
         console.log("에러", error);
@@ -45,20 +45,18 @@ function PostDetail() {
   }, []);
 
   const Submit = async () => {
+    const ACCESS_TOKEN = sessionStorage.getItem("token");
+    console.log(ACCESS_TOKEN);
     await axios
-      .post(
-        `http://3.34.129.164/api/enter/e329c5d4-ea5e-4a6b-92a3-1dcae107c56c`,
-        null,
-        {
-          headers: {
-            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjI3OTM2NTEsInVzZXJuYW1lIjoiZ1NkUXFPZ1VfNVI1SnFNcGRVM1o0RzVLS01XX1J2VHJPU2FYYkJKT2NqcyJ9.I3R3ZELuVY7nz1mUQFbYj9hQ7r2D576H7yLcWpMGQbdxRK3_m1w0K_UVdnHh1XD-qfuEgTCX-Ok4RVYwRhHZ0w`,
-          },
-        }
-      )
+      .post(`http://3.34.129.164/api/enter/49f4bd09-7366-427d-85e5-1513a4ce20e7`, null, {
+        headers: {
+          Authorization: ACCESS_TOKEN,
+        },
+      })
       .then((response) => {
         console.log("참여완료", response);
         if (data.currentPeople < data.numberOfPeople) {
-          alert("모집 인원이 마감 되었습니다");
+          alert("참여 되었습니다");
         } else {
           alert("중복된 참여는 불가능 합니다.");
         }
@@ -83,7 +81,7 @@ function PostDetail() {
       </TitleBar>
       <Container>
         <InfoBox>
-          <Category>{data.category}</Category>
+          <Category>{data.category}{data.roomId}</Category>
           <Title>{data.title}</Title>
           <Date>
             <div>
