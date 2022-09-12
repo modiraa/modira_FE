@@ -6,6 +6,7 @@ import { NAVER_AUTH_URL } from "../components/OauthNaver";
 import loginBg from '../image/loginBg.png';
 import loginLogo from '../image/logo.png';
 import { useNavigate } from 'react-router-dom';
+import MyIcon from '../element/MyIcon';
 
 // kakao 로그인 참고 : https://data-jj.tistory.com/53
 // naver 로그인 참고 : https://velog.io/@sssssssssy/%EB%84%A4%EC%9D%B4%EB%B2%84%EB%A1%9C%EA%B7%B8%EC%9D%B8
@@ -29,9 +30,7 @@ const Login = () => {
       </div>
       <div className='login_top'>
         <div className='login-material-symbols-outlined'>
-          <span className="material-symbols-outlined" onClick={()=>{navigate('/')}}>
-            arrow_back
-          </span>
+        <MyIcon iconName={"arrow_back"} sizePx={40} color={"black"} cursor={"point"}/>
         </div>
         <div className="login_text">
           <h1>이제 혼밥하지 마세요!</h1>
