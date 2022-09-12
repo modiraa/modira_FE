@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useNavigate, useParams,useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import LowerNavbar from "../components/public/LowerNavbar";
@@ -10,7 +10,6 @@ import Enter1 from "../image/Enter1.png";
 
 const MyRoom = () => {
   const navigate = useNavigate();
-  const params = useParams();
 
   const [data, setData] = useState({
     postId: "id",
@@ -49,8 +48,7 @@ const MyRoom = () => {
     axios
       .get("http://3.34.129.164/api/myjoin", {
         headers: {
-          Authorization:
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJleHAiOjE2NjI3OTM2NTEsInVzZXJuYW1lIjoiZ1NkUXFPZ1VfNVI1SnFNcGRVM1o0RzVLS01XX1J2VHJPU2FYYkJKT2NqcyJ9.I3R3ZELuVY7nz1mUQFbYj9hQ7r2D576H7yLcWpMGQbdxRK3_m1w0K_UVdnHh1XD-qfuEgTCX-Ok4RVYwRhHZ0w",
+          Authorization: ACCESS_TOKEN,
         },
       })
       .then((response) => {
@@ -81,7 +79,6 @@ const MyRoom = () => {
       })
       .catch((error) => {
         console.log("에러", error);
-        console.log(params);
       });
   };
 
@@ -150,7 +147,7 @@ const MyRoom = () => {
                 <img
                   src={joinData?.menuForImage}
                   onClick={() => {
-                    navigate(`/postdetail${data.postId}`);
+                    navigate(`/postdetail${joinData?.postId}`);
                   }}
                 />
               </MakedRoom>
