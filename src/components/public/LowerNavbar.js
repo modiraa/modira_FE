@@ -42,7 +42,18 @@ const LowerNavbar = ({ locationIndicator }) => {
       <div
         className="wrap-symbols-text"
         onClick={() => {
-          goPage("chat");
+          const roomId=sessionStorage.getItem("roomId")
+          const Auth = sessionStorage.getItem("token");
+          if(!Auth){
+            alert("로그인이 필요합니다!");
+            navigate("/login")
+            return;
+          }
+          if(roomId=="null"||roomId==undefined){
+            alert("현재 참여중인 채팅방이 없습니다.")
+          }
+          else{goPage("chat")}
+          ;
         }}
       >
         <div className="lowernavbar-location-symbol">

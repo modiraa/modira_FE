@@ -9,18 +9,12 @@ import MyIcon from "../../element/MyIcon";
 const WebViewLeft = () => {
   const refInputSearch = React.useRef();
   const navigate=useNavigate();
-  const searchAddressAX = async () => {
+  const searchAddressAX =  () => {
+    console.log("동작체크")
     const keyword = refInputSearch.current.value;
     navigate("/morepost",{state:{keyword:keyword}})
-    window.location.reload();
-    // await axios
-    //   .get(`http://3.34.129.164/api/search/post?keyword=${keyword}`)
-    //   .then((response) => {
-    //     console.log("성공", response);
-    //   })
-    //   .catch((error) => {
-    //     console.log("에러", error);
-    //   });
+    // window.location.reload();
+
   };
   return (
     <div className="wrap-webview">
@@ -37,8 +31,8 @@ const WebViewLeft = () => {
             placeholder="어떤 모임을 찾으시나요?"
             ref={refInputSearch}
           ></input>
-          <div className="webview-wrap-icon">
-            <MyIcon sizePx={28} iconName={"searchWhite"} onClick={searchAddressAX}   cursor={"pointer"}/>
+          <div className="webview-wrap-icon" onClick={searchAddressAX} style={{cursor:"pointer"}}>
+            <MyIcon sizePx={28} iconName={"searchWhite"}   />
           </div>
         </div>
       </div>

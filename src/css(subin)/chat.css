@@ -98,9 +98,9 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 26px;
-  text-align: right;
+  text-align: left;
   color: #ffffff;
-  max-width: 150px;
+  max-width: 282px;
   text-overflow: ellipsis;
   overflow:hidden; 
   word-break: break-all;
@@ -146,7 +146,7 @@
   text-overflow: ellipsis;
   overflow:hidden; 
   word-break: break-all;
-  max-width: 150px;
+  max-width: 282px;
 }
 .chat-message-wrap-serial-text {
   min-height: 34px;
@@ -154,7 +154,7 @@
   text-overflow: ellipsis;
   overflow:hidden; 
   word-break: break-all;
-  max-width: 150px;
+  max-width: 282px;
   padding-left: 39px;
   padding-right: 15px;
   background-color: #ffbb31;
@@ -176,11 +176,10 @@
   width: max-content;
   text-overflow: ellipsis;
   overflow:hidden; 
-  max-width: 150px;
+  max-width: 282px;
   min-height: 34px;
   width: max-content;
   word-break: break-all;
-  max-width: 150px;
   padding-left: 15px;
   padding-right: 39px;
 }
