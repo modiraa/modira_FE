@@ -43,12 +43,12 @@
     align-content: center;
     
     width: 100%;
-    margin-top: 17px;
+    margin-top: 1.0625rem;
     /* background-color: azure; */
 }
 
 .info_user_name>h3{
-    font-size: 25px;
+    font-size: 1.5625rem;
     font-weight: 600;
 }
 

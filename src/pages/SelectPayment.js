@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SelectPayment = () => {
 
-    const [controlledSwiperPayment,setControlledSwiperPayment] = useState('내가 쏜다! 골든벨!')
+    const [controlledSwiperPayment,setControlledSwiperPayment] = useState('방장이 쏜다! 골든벨')
 
     console.log("여기",controlledSwiperPayment)
 

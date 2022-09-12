@@ -25,7 +25,7 @@ const MyInfo = () => {
       })
       .then((response) => {
         setInfoUser(response.data);
-        console.log("api 호출 성공");
+        console.log("api 호출 성공",response.data);
       })
       .catch((error) => {
         console.log(error);
