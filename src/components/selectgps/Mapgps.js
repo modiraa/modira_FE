@@ -67,7 +67,7 @@ const Mapgps = ({setMenuSearch,menuSearch}) => {
     return (
         <div>
             
-            <div style={{ width: "100%", height: "1030px" }}>
+            <div style={{ width: "100%", height: "100vh" }}>
                 <div ref={refMap} style={{ width: "100%", height: "100%" }} />
             </div>
         </div>
