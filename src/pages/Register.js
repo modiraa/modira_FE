@@ -303,7 +303,7 @@ const ButtonImg = styled.div`
   display: flex;
   align-items: center;
   font-weight: 600;
-  font-size:1.125rem;
+  font-size: 1.125rem;
   margin: 1.125rem 0 1.25rem 0;
   border-radius: 2.3125rem;
   cursor: pointer;

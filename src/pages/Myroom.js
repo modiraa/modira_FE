@@ -62,7 +62,7 @@ const MyRoom = () => {
   };
   useEffect(() => {
     getPost();
-    removePost();
+    // removePost();
   }, []);
 
   //모임 삭제
@@ -112,7 +112,7 @@ const MyRoom = () => {
                 />
                 <span onClick={removePost}>
                   <MyIcon
-                    sizePx={25}
+                    sizePx={15}
                     iconName={"delete_white"}
                     color={"white"}
                   />
@@ -148,7 +148,7 @@ const MyRoom = () => {
             ) : (
               <ToMakeRoom
                 onClick={() => {
-                  navigate("/morepost");
+                  navigate("/");
                 }}
               >
                 <MyIcon sizePx={25} iconName={"add_circle"} color={"orange"} />
@@ -242,11 +242,12 @@ const MakedRoom = styled.div`
     width: 6.25rem;
     height: 1.5625rem;
     font-size: 13px;
-    margin-left: 18.75rem;
+    margin-left: 20.5rem;
+    margin-top: 0.5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
     background: rgba(255, 187, 49, 0.6);
     border-radius: 1.375rem;
   }

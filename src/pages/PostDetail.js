@@ -85,13 +85,15 @@ function PostDetail() {
           <Date>
             <div>
               <MyIcon sizePx={20} iconName={"calendar_today"} color={"gray"} />
-              <span style={{marginLeft:"0.5rem"}}>{data.date}</span>
+              <span style={{ marginLeft: "0.5rem" }}>{data.date}</span>
               <span>{data.time}</span>
             </div>
             <div>
               <div>
                 <MyIcon sizePx={20} iconName={"person"} color={"gray"} />
-                <span style={{marginLeft:"0.5rem"}}>{data.numberOfPeople}명 참여</span>
+                <span style={{ marginLeft: "0.5rem" }}>
+                {data.currentPeople}/{data.numberOfPeople}명 참여
+                </span>
               </div>
               <div>
                 <MyIcon sizePx={20} iconName={"ramen_dining"} color={"gray"} />
@@ -102,7 +104,7 @@ function PostDetail() {
         </InfoBox>
         <Address>
           <MyIcon sizePx={20} iconName={"place"} color={"gray"} />
-          <p style={{marginLeft:"0.5rem"}}>{data.restaurantAddress}</p>
+          <p style={{ marginLeft: "0.5rem" }}>{data.restaurantAddress}</p>
         </Address>
         <Gps>
           <MapgpsForDetail
@@ -306,7 +308,6 @@ const Limit = styled.div`
     font-size: 1.125rem;
     margin-left: 0.5rem;
   }
- 
 `;
 
 const Limitcheck = styled.div`
