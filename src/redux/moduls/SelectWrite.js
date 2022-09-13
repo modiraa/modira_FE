@@ -1,6 +1,7 @@
 
 // Actions
 const WRITE = 'select/WRITE';
+const INIT_WRITE = 'select/INIT_WRITE';
 
 const initialState = {
     writeTitle: '',
@@ -22,6 +23,8 @@ export function selectWrite(select) { // 액션 생성 함수는 액션 객체�
     console.log("여기는 action creators",select)
     return { type: WRITE, select:select }; // 딕셔너리 형(앞에는 액션타입 뒤에는 무엇을 추가해!라는 내용)
 }
+
+export const initUserData = () => ({type:INIT_WRITE});
 // { type: 'user/LOGIN', user: user };
 
 // reducer
@@ -35,7 +38,8 @@ export default function reducer(state = initialState, action = {}) { // 파라�
             }
             console.log(new_list)
             return new_list;
-
+        case INIT_WRITE:
+            return initialState;
         default:
             return state;
     }
