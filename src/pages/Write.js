@@ -8,6 +8,8 @@ import WriteHeader from '../components/write/WriteHeader';
 import WriteMainSelect from '../components/write/WriteMainSelect';
 import { selectWrite } from '../redux/moduls/SelectWrite';
 
+// import { initAction } from '../redux/moduls/constants';
+
 const Write = () => {
 
   const navigate = useNavigate();
@@ -17,6 +19,13 @@ const Write = () => {
   console.log(storeSelect.gender,storeSelect.age)
 
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   return () => {
+  //     console.log('destroyed');
+  //     dispatch(initAction());
+  //   };
+  // }, []);
 
   // 유저가 방생성 했었는지 유무 확인
   let [roomId,setRoomId] = useState('');

@@ -36,7 +36,7 @@ export default function AgePicker({controlledSwiperAgeMin,setControlledSwiperAge
 
     return (
 
-        <div style={{ display: "flex", position: "relative", height:"100%" }}>
+        <div style={{ display: "flex", position: "relative", height:"100%", paddingLeft:"10%",paddingRight:"10%"}}>
 
             <div style={{ height: "100%", width: "25rem", display: "flex"}}>
                 <Picker slideList={ageMinSlideList} controlledSwiper={controlledSwiperAgeMin} setControlledSwiper={setControlledSwiperAgeMin} />
