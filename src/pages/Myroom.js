@@ -173,7 +173,7 @@ const Container = styled.div`
   justify-content: center;
   font-size: 1.625rem;
   width: 100%;
-  height: 100vh;
+  height: 64.375rem;
   background-color: #fff;
 `;
 
