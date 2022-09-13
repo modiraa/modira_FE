@@ -33,7 +33,7 @@ export default function TimePicker({controlledSwiperAmPm,setControlledSwiperAmPm
 
     return (
 
-        <div style={{ display: "flex", position: "relative", height:"100%" }}>
+        <div style={{ display: "flex", position: "relative", height:"100%", paddingLeft:"10%",paddingRight:"10%"}}>
             
 
             <div style={{ height: "100%", width: "25rem", display: "flex"}}>

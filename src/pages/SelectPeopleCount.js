@@ -24,7 +24,7 @@ const SelectPeopleCount = () => {
     return (
         <div className='select_people_count'>
             <div className='select_people_count_top'>
-                <div className='select-close'>
+                <div className='select-close' onClick={() => { navigate("/write") }}>
                     <MyIcon iconName={"close"} sizePx={32} color={"gray"} cursor={"point"}/>
                 </div>
                 <div className='select_people_count_count'>

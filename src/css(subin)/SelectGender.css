@@ -23,10 +23,10 @@
 
 .select-close{
     position: absolute;
-    top: 28px;
-    right: 35px;
-    width: 44px;
-    height: 44px;
+    top: 1.75rem;
+    right: 0.8rem;
+    width: 2.75rem;
+    height: 2.75rem;
 }
 
 .select_gender_count>p{
