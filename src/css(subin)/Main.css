@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width:100%;
+  max-width: 32.8125rem;;
   height: 100vh;
   overflow: auto;
   position: relative;
@@ -33,7 +34,7 @@
 
 }
 .lowernavbar{
-  width: 525px;
+  width: 32.8125rem;
   position: fixed;
   top: calc(100vh - 7.8125rem)
 } 
