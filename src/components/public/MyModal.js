@@ -26,8 +26,8 @@ const MyModal = ({ isOpen, handleClickCancel }) => {
       borderRadius: " 12px 12px 0px 0px",
       outline: "none",
       padding: "0px",
-      width: "525px",
-      height: "376px",
+      width: "32.8125rem",
+      height: "23.5rem",
     },
   };
 
