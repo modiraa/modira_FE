@@ -12,7 +12,6 @@
   height: 4.6875rem;
   align-items: center;
   background-color: #ffffff;
-  
 }
 .userprofile-header-icon {
   width: 2.75rem;
@@ -32,7 +31,7 @@
 .user-wrap-countlike {
   width: 6.4375rem;
   height: 3.4375rem;
- top: 52px;
+  top: 3.25rem;
   position: absolute;
   z-index: 2;
 }
@@ -59,13 +58,13 @@
   display: flex;
   flex-direction: row;
   width: 11.380625rem;
-  height:2.450625rem;
+  height: 2.450625rem;
   justify-content: center;
   gap: 0.619375rem;
-  margin-top:1.25rem;
+  margin-top: 1.25rem;
 }
 .user-sexAndage {
-  width:5.1875rem;
+  width: 5.1875rem;
   height: 2.4375rem;
 
   border-radius: 4.25rem;
@@ -76,7 +75,6 @@
   align-items: center;
 }
 .user-sexAndage-text {
-  
   font-size: 1.25rem;
   line-height: 1.5rem;
 
@@ -158,7 +156,6 @@
   font-size: 1.5625rem;
   font-weight: 25rem;
   margin-left: 0.125rem;
- 
 }
 .userprofile-background-img {
   transform: translate(0px, -10px);
@@ -180,34 +177,31 @@
   line-height: 1.8125rem;
   color: #000000;
   margin-left: 2.5625rem;
- 
 }
-.user-wrap-userchange-userlist{
+.user-wrap-userchange-userlist {
   width: 100%;
   height: 12.375rem;
   margin-top: 0.8125rem;
   overflow: auto;
 }
-.user-wrap-userchange-userlist::-webkit-scrollbar{
+.user-wrap-userchange-userlist::-webkit-scrollbar {
   display: none;
 }
-.userprofile-header-btn{
-cursor: pointer;
-border-radius: 4.25rem;
-background: #ffe9be;
-display: flex;
-align-items: center;
-justify-content: center;
-width:12.5rem;
-height: 2.4375rem;
-margin-left: 5.6875rem;
-font-size: 1.25rem;
-line-height: 1.9375rem;
-
+.userprofile-header-btn {
+  cursor: pointer;
+  border-radius: 4.25rem;
+  background: #ffe9be;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12.5rem;
+  height: 2.4375rem;
+  margin-left: 5.6875rem;
+  font-size: 1.25rem;
+  line-height: 1.9375rem;
 }
-.wrap-userinformation{
+.wrap-userinformation {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
