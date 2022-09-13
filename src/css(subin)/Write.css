@@ -200,7 +200,7 @@
 }
 
 .write-people-count-text>span{
-    font-size: 19px;
+    font-size: 1.1875rem;
     font-weight: 300;
     text-align: right;
     /* background-color: aqua; */
@@ -481,7 +481,7 @@
     border-radius: 2.1875rem;
     background-color: #FFBB31;
 
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 600;
     color: white;
 }

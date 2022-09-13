@@ -67,7 +67,7 @@ const MyInfo = () => {
             </div>
           </div>
         </div>
-        <div className="myinfo-lowernavbar">
+        <div className="lowernavbar">
           <LowerNavbar locationIndicator={"myinfo"} />
         </div>
       </div>

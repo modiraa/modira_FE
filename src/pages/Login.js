@@ -7,6 +7,8 @@ import loginBg from '../image/loginBg.png';
 import loginLogo from '../image/logo.png';
 import { useNavigate } from 'react-router-dom';
 import MyIcon from '../element/MyIcon';
+import kakaoLogin from '../image/kakaologin.png';
+import naverLogin from '../image/naverlogin.png';
 
 // kakao 로그인 참고 : https://data-jj.tistory.com/53
 // naver 로그인 참고 : https://velog.io/@sssssssssy/%EB%84%A4%EC%9D%B4%EB%B2%84%EB%A1%9C%EA%B7%B8%EC%9D%B8
@@ -46,11 +48,13 @@ const Login = () => {
         </h3>
         <div className='login_btns'>
           <div className='kakao_btn'>
+            <img src={kakaoLogin}/>
             <a className="kakao" href={KAKAO_AUTH_URL}>
               카카오톡으로 시작하기
             </a>
           </div>
           <div className='naver_btn'>
+            <img src={naverLogin}/>
             <a className="naverIdLogin" href={NAVER_AUTH_URL}>
               네이버로 시작하기
             </a>
