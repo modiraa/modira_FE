@@ -36,7 +36,8 @@
 .lowernavbar{
   width: 32.8125rem;
   position: fixed;
-  top: calc(100vh - 7.8125rem)
+  top: calc(100vh - 7.8125rem);
+  z-index:5;
 } 
 
 @media screen and (min-height:1030px) {
