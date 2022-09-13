@@ -36,7 +36,7 @@ const Login = () => {
         </div>
         <div className="login_text">
           <h1>이제 혼밥하지 마세요!</h1>
-          <h1>밥친구 찾기 플랫폼</h1>
+          <h1>밥 친구 찾기 플랫폼</h1>
         </div>
         <div className='logo'>
           <img src={loginLogo} />
