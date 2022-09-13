@@ -1,10 +1,9 @@
-import Stomp, { connect } from "stompjs";
+import Stomp from "stompjs";
 import SockJS from "sockjs-client";
 import React from "react";
 import "../css(subin)/chat.css";
 import MessageList from "../components/chat/MessageList";
 import MessageInput from "../components/chat/MessageInput";
-import MyModal from "../components/public/MyModal";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import MyIcon from "../element/MyIcon";
