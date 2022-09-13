@@ -7,8 +7,7 @@ import axios from "axios";
 import WriteHeader from '../components/write/WriteHeader';
 import WriteMainSelect from '../components/write/WriteMainSelect';
 import { selectWrite } from '../redux/moduls/SelectWrite';
-
-// import { initAction } from '../redux/moduls/constants';
+import { initUserData } from '../redux/moduls/SelectWrite';
 
 const Write = () => {
 
@@ -20,12 +19,11 @@ const Write = () => {
 
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   return () => {
-  //     console.log('destroyed');
-  //     dispatch(initAction());
-  //   };
-  // }, []);
+  useEffect(() => {
+    return () => {
+      dispatch(initUserData());
+    };
+  }, []);
 
   // 유저가 방생성 했었는지 유무 확인
   let [roomId,setRoomId] = useState('');
