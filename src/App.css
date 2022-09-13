@@ -1,81 +1,70 @@
-
-.wrap-app{
-  width:100vw;
-  height:100vh;
+.wrap-app {
+  width: 100vw;
+  height: 100vh;
   background: url("./image/웹앱_배경.png") center no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: row;
   justify-content: center;
   position: relative;
-
- 
 }
-  
-.wrap-app-webview{
- 
-  
+
+.wrap-app-webview {
   margin-right: 12.938rem;
-  height: 100vh;
-    max-height: 1030px;
+  height: calc(100vh - 4.6875rem);
+  max-height: 1030px;
 }
 
 @media screen and (max-width: 1182px) {
-  .wrap-app{
-    width:100vw;
+  .wrap-app {
+    width: 100vw;
     background-image: none;
     display: flex;
     justify-content: center;
-    background-color: #FFF7E3;
+    background-color: #fff7e3;
   }
-  .wrap-app-webview{
+  .wrap-app-webview {
     display: none;
-  } 
-  .wrap-app-appview{
-    width:32.8125rem;
+  }
+  .wrap-app-appview {
+    width: 32.8125rem;
     max-width: none;
     margin-right: 0px;
   }
-
 }
 
 @media screen and (max-width: 512px) {
-  .wrap-app{
-    width:100vw;
+  .wrap-app {
+    width: 100vw;
     background-image: none;
     display: flex;
     justify-content: center;
-    background-color: #FFF7E3;
+    background-color: #fff7e3;
     min-width: 355px;
   }
-  .wrap-app-webview{
+  .wrap-app-webview {
     display: none;
-  } 
-  .wrap-app-appview{
-    width:32.8125rem;
+  }
+  .wrap-app-appview {
+    width: 32.8125rem;
     max-width: none;
     margin-right: 0px;
     min-width: 355px;
   }
-
 }
 
-.wrap-app-appview{
- 
+.wrap-app-appview {
   height: 100vh;
   max-height: 1030px;
   background: white;
   overflow: auto;
   width: 100vw;
   max-width: 32.8125rem;
-
 }
-.wrap-app-appview::-webkit-scrollbar{
+.wrap-app-appview::-webkit-scrollbar {
   display: none;
 }
 
-.font-corlor-orange{
-  color: #FFBB31 ;
+.font-corlor-orange {
+  color: #ffbb31;
 }
-
-
