@@ -13,9 +13,9 @@ const ProfileBg = ({ ProfileImg }) => {
   return (
     <Background>
       {PageCheck === "http://localhost:3000/register" ? (
-        <div style={{ height: "155px", backgroundColor: "#fffcf6" }} />
+        <div style={{ height: "9.6875rem", backgroundColor: "#fffcf6" }} />
       ) : (
-        <div style={{ height: "192px", backgroundColor: "#fffcf6" }} />
+        <div style={{ height: "12rem", backgroundColor: "#fffcf6" }} />
       )}
       <img className="line" src={ProfileLine} />
 
@@ -24,7 +24,6 @@ const ProfileBg = ({ ProfileImg }) => {
           <img src={ProfileImg} />
         ) : (
           <div>
-            {" "}
             <MyIcon sizePx={80} iconName={"profile"} color={"beige"} />
           </div>
         )}
@@ -32,18 +31,7 @@ const ProfileBg = ({ ProfileImg }) => {
         {PageCheck === "http://localhost:3000/register" ? (
           <img src={ProfileImg} />
         ) : (
-          <span
-            className="material-symbols-outlined"
-            style={{
-              fontSize: "70px",
-              fontVariationSettings: "'FILL' 1",
-              color: "#FFE9BE",
-              width: "115px",
-              height: "115px",
-            }}
-          >
-            person_filled
-          </span>
+          <MyIcon sizePx={80} iconName={"profile"} color={"beige"} />
         )}
       </Circle>
     </Background>
@@ -55,7 +43,7 @@ const Background = styled.div`
   img.line {
     width: 100%;
     height: 100%;
-    margin-top: -101px;
+    margin-top: -6.4rem;
     z-index: 2;
     position: relative;
   }
@@ -66,8 +54,8 @@ const Circle = styled.div`
   height: 7.1875rem;
   border-radius: 50%;
   background-color: white;
-  margin-top: -8.8625rem;
-  margin-left: 12.9375rem;
+  margin-top: -8.856rem;
+  margin-left: 12.8rem; 
   overflow: hidden;
   img {
     width: 100%;
@@ -76,8 +64,7 @@ const Circle = styled.div`
     position: relative;
   }
   div {
-    margin-top: 20px;
-    margin-left: 15px;
-    padding-bottom: 20px;
+    width: 100%;
+    height: 100%;
   }
 `;

@@ -53,6 +53,6 @@ export default InputAddress;
 
 const Arrow = styled.div`
   display: flex;
-  margin-left: 22px;
+  margin-left: 1.375rem;
   cursor: pointer;
 `;

@@ -47,7 +47,7 @@ infowindow.open(map, marker);
 
   return (
    
-        <div style={{width:"100%",height:"184px"}}><div ref={refMap} style={{width:"100%",height:"184px"}}></div></div>
+        <div style={{width:"100%",height:"11.5rem"}}><div ref={refMap} style={{width:"100%",height:"11.5rem"}}></div></div>
    
   )
 }

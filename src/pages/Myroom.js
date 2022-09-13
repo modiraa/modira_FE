@@ -62,7 +62,7 @@ const MyRoom = () => {
   };
   useEffect(() => {
     getPost();
-    removePost();
+    // removePost();
   }, []);
 
   //모임 삭제
@@ -101,10 +101,6 @@ const MyRoom = () => {
         </Minibanner>
         <CreateRoom>
           <p>생성한 모임</p>{" "}
-          {/* <span onClick={removePost}>
-            <MyIcon sizePx={25} iconName={"delete_white"} color={"white"} />
-            <p>게시물 삭제</p>
-          </span> */}
           <Post>
             {data ? (
               <MakedRoom>
@@ -114,6 +110,14 @@ const MyRoom = () => {
                     navigate(`/postdetail${data.postId}`);
                   }}
                 />
+                <span onClick={removePost}>
+                  <MyIcon
+                    sizePx={15}
+                    iconName={"delete_white"}
+                    color={"white"}
+                  />
+                  게시물 삭제
+                </span>
               </MakedRoom>
             ) : (
               <ToMakeRoom
@@ -144,7 +148,7 @@ const MyRoom = () => {
             ) : (
               <ToMakeRoom
                 onClick={() => {
-                  navigate("/morepost");
+                  navigate("/");
                 }}
               >
                 <MyIcon sizePx={25} iconName={"add_circle"} color={"orange"} />
@@ -155,7 +159,7 @@ const MyRoom = () => {
           <Title>{joinData?.title}</Title>
         </CreateRoom>
       </Container>
-      <div className="main-wrap-lowernavbar">
+      <div className="lowernavbar">
         <LowerNavbar locationIndicator={"myroom"} />
       </div>
     </>
@@ -167,37 +171,37 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 26px;
-  width: 525px;
+  font-size: 1.625rem;
+  width: 32.8125rem;
   background-color: #fff;
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
 `;
 
 const Title = styled.div`
-  margin: 9px 0 38px 0;
-  font-size: 23px;
+  margin: 0.5625rem 0 2.375rem 0;
+  font-size: 1.4375rem;
   font-weight: 500;
 `;
 
 const Minibanner = styled.div`
-  height: 153px;
+  height: 9.5625rem;
   background-image: url(${MiniBanner});
   background-size: contain;
-  font-size: 19px;
+  font-size: 1.1875rem;
   p {
-    margin-top: 15px;
+    margin-top: 0.9375rem;
   }
 `;
 
 const CreateRoom = styled.div`
-  margin: 29px 43px 20px 43px;
+  margin: 1.8125rem 2.6875rem 1.25em 2.6875rem;
   p {
-    margin-bottom: 19px;
-    font-size: 26px;
+    margin-bottom: 1.1875rem;
+    font-size: 1.625rem;
     font-weight: 700;
   }
   div {
-    font-size: 23px;
+    font-size: 1.4375rem;
   }
 `;
 
@@ -208,42 +212,44 @@ const BorderLine = styled.div`
 `;
 
 const Post = styled.div`
-  width: 439px;
-  height: 167px;
-  border-radius: 12px;
+  width: 27.4375rem;
+  height: 10.4375rem;
+  border-radius: 0.75rem;
   border: none;
   overflow: hidden;
   background-color: #fffcf6;
   cursor: pointer;
   img {
     object-fit: cover;
-    width: 439px;
-    height: 167px;
-    border-radius: 12px;
+    width: 27.4375rem;
+    height: 10.4375rem;
+    border-radius: 0.75rem;
     position: relative;
     z-index: 1;
   }
 `;
 
 const MakedRoom = styled.div`
-  width: 439px;
-  height: 167px;
+  width: 27.4375rem;
+  height: 10.4375rem;
   background-size: contain;
   display: flex;
   flex-direction: row;
-  p {
-    margin-left: 4px;
-    font-weight: 500;
-    font-size: 13px;
-    color: #ffffff;
-    align-items: center;
-  }
+  color: #ffffff;
   span {
-    position: relative;
+    position: absolute;
     z-index: 2;
-    width: 20px;
-    font-size: 20px;
-    margin: 0;
+    width: 6.25rem;
+    height: 1.5625rem;
+    font-size: 13px;
+    margin-left: 20.5rem;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 187, 49, 0.6);
+    border-radius: 1.375rem;
   }
 `;
 

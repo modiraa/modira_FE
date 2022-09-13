@@ -35,9 +35,9 @@ const AgeDropdown = ({ age, setAge }) => {
 export default AgeDropdown;
 
 const Dropdown = styled.div`
-  width: 439px;
+  width: 27.4375rem;
   font-family: "AppleSDGothicNeoM00";
-  font-size: 20px;
+  font-size: 1.25rem;
   display: block;
   height: 100%;
   
@@ -45,10 +45,10 @@ const Dropdown = styled.div`
 
 const Dropdownbtn = styled.div`
   display: block;
-  height: 54px;
+  height: 3.375rem;
   border: none;
-  border-radius: 12px;
-  padding: 19px 10px 19px 29px;
+  border-radius: 0.75rem;
+  padding: 1.1875rem 0.625rem 1.1875rem 1.8125rem;
 background-color: #fff;
   span,
   p {
@@ -62,8 +62,8 @@ background-color: #fff;
 
 const Dropdowncontent = styled.div`
   overflow: hidden;
-  border-radius: 12px;
-  margin-top: 10px;
+  border-radius: 0.75rem;
+  margin-top: 0.625rem;
   height: 100%;
   background-color: #fff;
 `;
@@ -72,7 +72,7 @@ const Dropdownitem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 0.625rem;
   text-align: center;
   color: #140D41;
   cursor: pointer;

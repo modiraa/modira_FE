@@ -29,39 +29,36 @@ body {
   align-items: center;
 }
 .swiper-pagination-bullet {
-
   background-color: #ffbb31;
- 
-  width: 12px;
-  height: 12px;
-
+  width: 0.75rem;
+  height: 0.75rem;
 }
 .swiper-button-prev {
   position: absolute;
-  width: 45px;
-  height: 48px;
-  left: 0px;
-  top: 430px;
+  width: 2.8125rem;
+  height: 3rem;
+  left: 0;
+  top: 30rem;
   background-color: #d9d9d9;
   color: #fff;
 }
 .swiper-button-next {
   position: absolute;
-  width: 45px;
-  height: 48px;
-  left: 480px;
-  top: 430px;
+  width: 2.8125rem;
+  height: 3rem;
+  left: 30rem;
+  top: 30rem;
   background-color: #d9d9d9;
   color: #fff;
 }
 
 .swiper-button-next::after {
-font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .swiper-button-prev::after {
-  font-size: 20px;
-  }
+  font-size: 1.25rem;
+}
 .swiper-slide img {
   display: block;
   width: 100%;

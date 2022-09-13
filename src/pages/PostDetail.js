@@ -56,13 +56,12 @@ function PostDetail() {
       })
       .then((response) => {
         console.log("참여완료", response);
+        alert("참여 되었습니다");
       })
 
       .catch((error) => {
         if (data.currentPeople < data.numberOfPeople) {
-          alert("참여 되었습니다");
-        } else {
-          alert("중복된 참여는 불가능 합니다.");
+          alert("1개의 모임만 참여가능합니다.");
         }
         console.log("실패", error);
       });
@@ -75,7 +74,7 @@ function PostDetail() {
             navigate(-1);
           }}
         >
-          <MyIcon sizePx={28} iconName={"arrow_back_ios"}/>
+          <MyIcon sizePx={28} iconName={"arrow_back_ios"} />
         </Arrow>
         <p>모임소개</p>
       </TitleBar>
@@ -86,24 +85,26 @@ function PostDetail() {
           <Date>
             <div>
               <MyIcon sizePx={20} iconName={"calendar_today"} color={"gray"} />
-              <span>{data.date}</span>
+              <span style={{ marginLeft: "0.5rem" }}>{data.date}</span>
               <span>{data.time}</span>
             </div>
             <div>
               <div>
                 <MyIcon sizePx={20} iconName={"person"} color={"gray"} />
-                <span>{data.numberOfPeople}명 참여</span>
+                <span style={{ marginLeft: "0.5rem" }}>
+                  {data.currentPeople}/{data.numberOfPeople}명 참여
+                </span>
               </div>
               <div>
                 <MyIcon sizePx={20} iconName={"ramen_dining"} color={"gray"} />
-                <span>{data.menu}</span>
+                <span style={{ marginLeft: "0.5rem" }}>{data.menu}</span>
               </div>
             </div>
           </Date>
         </InfoBox>
         <Address>
           <MyIcon sizePx={20} iconName={"place"} color={"gray"} />
-          <p>{data.restaurantAddress}</p>
+          <p style={{ marginLeft: "0.5rem" }}>{data.restaurantAddress}</p>
         </Address>
         <Gps>
           <MapgpsForDetail
@@ -121,21 +122,21 @@ function PostDetail() {
             </AgeGender>
           </UserInfo>
           <Heart>
-          <MyIcon sizePx={20} iconName={"favorite"} color={"beige"} />
+            <MyIcon sizePx={20} iconName={"favorite"} color={"beige"} />
             <b>{data.writerScore}</b>
           </Heart>
         </Writer>
         <Limit>
           <LimiitTitle>제한조건</LimiitTitle>
-          <div>
-          <MyIcon sizePx={20} iconName={"task"} color={"green"} />
+          <Limitcheck>
+            <MyIcon sizePx={20} iconName={"task"} color={"green"} />
             <span>
               <b>
                 {data.limitAge} {data.limitGender}
               </b>
               만 신청가능한 모임입니다.
             </span>
-          </div>
+          </Limitcheck>
           <p>{data.contents}</p>
         </Limit>
         <ButtonSubmit onClick={Submit}>
@@ -162,158 +163,166 @@ const Container = styled.div`
 `;
 
 const TitleBar = styled.div`
-  width: 525px;
-  height: 75px;
-  font-size: 26px;
+  width: 32.8125rem;
+  height: 4.6875rem;
+  font-size: 1.625rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   flex-direction: row;
   p {
-    margin-left: 166.5px;
+    margin-left: 10.40625rem;
   }
 `;
 
 const Arrow = styled.span`
   display: flex;
-  margin-left: 22px;
+  margin-left: 1.375rem;
   cursor: pointer;
 `;
 const Category = styled.b`
-  font-size: 20px;
+  font-size: 1.25rem;
   color: #ffbb31;
   font-weight: 500;
 `;
 const Title = styled.div`
   font-weight: 600;
-  font-size: 33px;
-  margin-top: 5px;
+  font-size: 2.0625rem;
+  margin-top: 0.3125rem;
 `;
 const Date = styled.span`
   display: flex;
   flex-direction: column;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: #acacac;
-  margin-top: 15px;
+  margin-top: 0.9375rem;
   div {
-    margin-bottom: 4px;
+    margin-bottom: 0.25rem;
     display: flex;
     align-items: center;
   }
   span {
-    margin-right: 18px;
+    margin-right: 1.125rem;
   }
 `;
 const InfoBox = styled.div`
   background-color: #fff;
-  margin-top: 12px;
-  padding: 44px 0 21px 44px;
+  margin-top: 0.75rem;
+  padding: 2.75rem 0 1.3125rem 2.75rem;
 `;
 
 const Address = styled.span`
   display: flex;
   flex-direction: row;
+  align-items: center;
   background-color: #fff;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #acacac;
-  padding: 0 0 19px 44px;
+  padding: 0 0 1.1875rem 2.75rem;
   span {
-    margin-right: 18px;
+    margin-right: 1.125rem;
   }
 `;
 const Gps = styled.div`
-  width: 100%;
-  height: 218px;
+  display: flex;
   background-color: #fff;
+  width: 100%;
+  height:auto;
+  padding-bottom: 2.125rem;
+ 
 `;
 const Writer = styled.div`
-  height: 118px;
+  height: 7.375rem;
   background-color: #fffcf6;
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  padding: 44px 0 44px 44px;
+  padding: 2.75rem 0 2.75rem 2.75rem;
 `;
 
 const Img = styled.img`
-  width: 77px;
-  height: 77px;
-  border-radius: 10px;
+  width: 4.8125rem;
+  height: 4.8125rem;
+  border-radius: 0.625rem;
 `;
 
 const UserInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 50px 0 27px;
+  margin: 0 3.125rem 0 1.6875rem;
   b {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 `;
 
 const AgeGender = styled.span`
-  font-size: 16px;
+  font-size: 1rem;
   display: flex;
   flex-direction: row;
-  margin-top: 5px;
+  margin-top: 0.3125rem;
   span {
-    width: 83px;
-    height: 39px;
+    width: 5.1875rem;
+    height: 2.4375rem;
     background: #fff;
-    border-radius: 68px;
+    border-radius: 4.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px 9px 0 0;
+    margin: 0.3125rem 0.5625rem 0 0;
+    font-size: 1rem;
   }
 `;
 const Heart = styled.div`
   display: flex;
   align-items: center;
-  width: 79px;
-  height: 32px;
+  width: 4.9375rem;
+  height: 2rem;
   background: #fff;
-  border-radius: 68px;
+  border-radius: 4.25rem;
   justify-content: center;
-  padding: 4px 14px;
+  padding: 0.25rem 0.875rem;
   b {
-    font-size: 25px;
-    margin-left: 2px;
-    margin-bottom: 3px;
+    font-size: 1.5625rem;
+    margin-left: 0.125rem;
+    margin-bottom: 0.1875rem;
   }
 
   span {
     font-weight: 400;
-    margin-right: 8px;
+    margin-right: 0.5rem;
     color: #ffe9be;
   }
 `;
 const Limit = styled.div`
   position: relative;
   background-color: #fff;
-  font-size: 18px;
-  padding: 44px 43px 0 44px;
+  font-size: 1.125rem;
+  padding: 2.75rem 2.6875rem 0 2.75rem;
+
   span {
-    margin: 0 8px 22px 0;
+    margin: 0 0.5rem 1.375rem 0;
   }
   p {
-    margin-bottom: 12px;
-    font-size: 20px;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
   }
   b {
     font-weight: 600;
-    font-size: 18px;
-  }
-  div {
-    display: flex;
-    align-items: center;
+    font-size: 1.125rem;
+    margin-left: 0.5rem;
   }
 `;
 
+const Limitcheck = styled.div`
+  display: flex;
+  justify-items: center;
+`;
+
 const LimiitTitle = styled.div`
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.25rem;
 `;
 
 const ButtonSubmit = styled.div`
@@ -322,27 +331,27 @@ const ButtonSubmit = styled.div`
 `;
 const Join = styled.button`
   background-color: #ffbb31;
-  width: 445px;
-  height: 70px;
+  width: 27.8125rem;
+  height: 4.375rem;
   border: none;
   color: white;
-  padding: 12px 25px;
+  padding: 0.75rem 1.5625rem;
   justify-content: center;
-  font-size: 20px;
-  margin: 56px 40px 85px 40px;
-  border-radius: 35px;
+  font-size: 1.25rem;
+  margin: 3.5rem 2.5rem 5.3125rem 2.5rem;
+  border-radius: 2.1875rem;
   cursor: pointer;
 `;
 
 const Finish = styled.button`
   background-color: #ffe4a8;
-  width: 445px;
-  height: 70px;
+  width: 27.8125rem;
+  height: 4.375rem;
   border: none;
   color: white;
-  padding: 12px 25px;
+  padding: 0.75rem 1.5625rem;
   justify-content: center;
-  font-size: 20px;
-  margin: 56px 40px 85px 40px;
-  border-radius: 35px;
+  font-size: 1.25rem;
+  margin: 3.5rem 2.5rem 5.3125rem 2.5rem;
+  border-radius: 2.1875rem;
 `;
