@@ -35,7 +35,7 @@
   flex-direction: column;
   overflow: auto;
   /* background-color: green; */
-  height: calc(100vh - 75px - 125px - 21px);
+  height: calc(100vh - 13.8125rem);
   margin-top: 0.75rem;
   min-height: 12.5rem;
   padding-top: 0.8125rem;

@@ -19,12 +19,6 @@ const Write = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    return () => {
-      dispatch(initUserData());
-    };
-  }, []);
-
   // 유저가 방생성 했었는지 유무 확인
   let [roomId,setRoomId] = useState('');
 
@@ -134,6 +128,7 @@ const Write = () => {
         console.log(response)
         alert('게시글작성이 업로드 되었습니다')
         navigate('/')
+        dispatch(initUserData());
       })
       .catch(function (error) {
         console.log(error)
