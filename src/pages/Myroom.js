@@ -84,10 +84,10 @@ const MyRoom = () => {
   };
 
   return (
-    <>
+    <Container>
       <Navbar />
       <BorderLine />
-      <Container>
+      <Rooms>
         <Minibanner>
           <div className="mainbanner-wrap-logoAndtext">
             <div className="mainbanner-logo"></div>
@@ -100,10 +100,16 @@ const MyRoom = () => {
           </div>
         </Minibanner>
         <CreateRoom>
-          <p>생성한 모임</p>
+          <p>생성한 모임</p>{" "}
           <Post>
             {data ? (
               <MakedRoom>
+                <MenuImg
+                  src={data?.menuForImage}
+                  onClick={() => {
+                    navigate(`/postdetail${data.postId}`);
+                  }}
+                />
                 <Delete onClick={removePost}>
                   <MyIcon
                     sizePx={15}
@@ -112,12 +118,6 @@ const MyRoom = () => {
                   />
                   게시물 삭제
                 </Delete>
-                <img
-                  src={data?.menuForImage}
-                  onClick={() => {
-                    navigate(`/postdetail${data.postId}`);
-                  }}
-                />
               </MakedRoom>
             ) : (
               <ToMakeRoom
@@ -158,22 +158,26 @@ const MyRoom = () => {
           </Post>
           <Title>{joinData?.title}</Title>
         </CreateRoom>
-      </Container>
+      </Rooms>
       <div className="lowernavbar">
         <LowerNavbar locationIndicator={"myroom"} />
       </div>
-    </>
+    </Container>
   );
 };
 export default MyRoom;
 
 const Container = styled.div`
+  width: 100%;
+  height: 65rem;
+`;
+
+const Rooms = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-size: 1.625rem;
   width: 100%;
-  height: 64.375rem;
   background-color: #fff;
 `;
 
@@ -207,42 +211,56 @@ const CreateRoom = styled.div`
 
 const BorderLine = styled.div`
   width: 100%;
-  height: 12px;
+  height: 0.75rem;
   background: #fffcf6;
 `;
 
 const Post = styled.div`
-  width: 27.4375rem;
+  width: 100%;
   height: 10.4375rem;
   border-radius: 0.75rem;
-  border: none;
   overflow: hidden;
   background-color: #fffcf6;
   cursor: pointer;
 `;
-const Delete = styled.span`
-  width: 6.25rem;
-  font-size: 0.8125rem;
-  margin-left: 20.5rem;
-  margin-top: 0.5rem;
+const MenuImg = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 10.4375rem;
+  border-radius: 0.75rem;
+  position: relative;
+  z-index: 1;
+`;
+const Delete = styled.button`
+  border: none;
+  width: 8rem;
+  height: 2rem;
+  font-size: 1rem;
+  margin-left: 21rem;
+  margin-top: -10rem;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   background: rgba(255, 187, 49, 0.6);
   border-radius: 1.375rem;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  cursor: pointer;
 `;
 const MakedRoom = styled.div`
-  width: 27.4375rem;
+  width: 100%;
   height: 10.4375rem;
   color: #ffffff;
   font-size: 0.8125rem;
   font-weight: 600;
   img {
     object-fit: cover;
-    width: 27.4375rem;
+    width: 100%;
     height: 10.4375rem;
     border-radius: 0.75rem;
+    position: relative;
+    z-index: 1;
   }
 `;
 
@@ -250,7 +268,8 @@ const ToMakeRoom = styled.span`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 27.4375rem;
+  width: 100%;
+  height: 10.4375rem;
   border-radius: 0.75rem;
   border: none;
   overflow: hidden;
@@ -259,13 +278,5 @@ const ToMakeRoom = styled.span`
     margin-top: 0.9375rem;
     color: #ffbb31;
     font-size: 1.25rem;
-  }
-  img {
-    object-fit: cover;
-    width: 27.4375rem;
-    height: 10.4375rem;
-    border-radius: 0.75rem;
-    position: relative;
-    z-index: 1;
   }
 `;

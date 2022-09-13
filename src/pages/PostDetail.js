@@ -325,8 +325,9 @@ const LimiitTitle = styled.div`
 `;
 
 const ButtonSubmit = styled.div`
-  position: relative;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
 `;
 const Join = styled.button`
   background-color: #ffbb31;
@@ -337,7 +338,7 @@ const Join = styled.button`
   padding: 0.75rem 1.5625rem;
   justify-content: center;
   font-size: 1.25rem;
-  margin: 2.5rem 2.5rem 2.5rem 2.5rem;
+  margin: 2.5rem;
   border-radius: 2.1875rem;
   cursor: pointer;
 `;
@@ -351,6 +352,6 @@ const Finish = styled.button`
   padding: 0.75rem 1.5625rem;
   justify-content: center;
   font-size: 1.25rem;
-  margin: 2.5rem 2.5rem 2.5rem 2.5rem;
+  margin: 2.5rem;
   border-radius: 2.1875rem;
 `;

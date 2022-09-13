@@ -28,15 +28,15 @@ const Login = () => {
   return (
     <div className="login">
       <div className='login-bg'>
-        <img src={loginBg} />
+        <img src={loginBg}/>
       </div>
       <div className='login_top'>
-        <div className='login-material-symbols-outlined'>
-        <MyIcon iconName={"arrow_back"} sizePx={40} color={"black"} cursor={"point"}/>
+        <div className='login-material-symbols-outlined' onClick={() => { navigate("/") }}>
+          <MyIcon iconName={"arrow_back"} sizePx={40} color={"black"} cursor={"point"}/>
         </div>
         <div className="login_text">
           <h1>이제 혼밥하지 마세요!</h1>
-          <h1>밥친구 찾기 플랫폼</h1>
+          <h1>밥 친구 찾기 플랫폼</h1>
         </div>
         <div className='logo'>
           <img src={loginLogo} />

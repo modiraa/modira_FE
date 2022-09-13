@@ -7,8 +7,7 @@ import axios from "axios";
 import WriteHeader from '../components/write/WriteHeader';
 import WriteMainSelect from '../components/write/WriteMainSelect';
 import { selectWrite } from '../redux/moduls/SelectWrite';
-
-// import { initAction } from '../redux/moduls/constants';
+import { initUserData } from '../redux/moduls/SelectWrite';
 
 const Write = () => {
 
@@ -19,13 +18,6 @@ const Write = () => {
   console.log(storeSelect.gender,storeSelect.age)
 
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   return () => {
-  //     console.log('destroyed');
-  //     dispatch(initAction());
-  //   };
-  // }, []);
 
   // 유저가 방생성 했었는지 유무 확인
   let [roomId,setRoomId] = useState('');
@@ -136,6 +128,7 @@ const Write = () => {
         console.log(response)
         alert('게시글작성이 업로드 되었습니다')
         navigate('/')
+        dispatch(initUserData());
       })
       .catch(function (error) {
         console.log(error)

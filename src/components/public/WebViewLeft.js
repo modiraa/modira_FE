@@ -22,7 +22,7 @@ const WebViewLeft = () => {
       <div className="webview-description" >
         이제 <span className="font-bold">혼밥</span>하지 마세요!
         <br />
-        <div className="font-bold">밥친구 찾기 플렛폼 <span className="font-corlor-orange font-black">modira</span></div>
+        <div className="font-bold">밥 친구 찾기 플랫폼 <span className="font-corlor-orange font-black">modira</span></div>
       </div>
       <div className="wrap-webview-search">
         <div className="wrap-webview-search-inputAndicon">
