@@ -60,9 +60,6 @@ const Login = () => {
             </a>
           </div>
         </div>
-        <button className='login_help'>
-          <h5>로그인에 어려움이 있나요?</h5>
-        </button>
       </div>
     </div>
   )

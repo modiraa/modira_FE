@@ -24,7 +24,7 @@ const SelectMenu = () => {
     return (
         <div className='select_menu'>
             <div className='select_menu_top'>
-                <div className='select-close'>
+                <div className='select-close' onClick={() => { navigate("/write") }}>
                     <MyIcon iconName={"close"} sizePx={32} color={"gray"} cursor={"point"}/>
                 </div>
                 <div className='select_menu_count'>
