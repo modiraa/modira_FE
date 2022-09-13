@@ -160,6 +160,7 @@ const Container = styled.div`
   width: 100%;
   height: auto;
   background-color: #fffcf6;
+  
 `;
 
 const TitleBar = styled.div`
@@ -208,7 +209,7 @@ const Date = styled.span`
 const InfoBox = styled.div`
   background-color: #fff;
   margin-top: 0.75rem;
-  padding: 2.75rem 0 1.3125rem 2.75rem;
+  padding: 2rem 0 1.3125rem 2.675rem;
 `;
 
 const Address = styled.span`
@@ -298,13 +299,12 @@ const Limit = styled.div`
   position: relative;
   background-color: #fff;
   font-size: 1.125rem;
-  padding: 2.75rem 2.6875rem 0 2.75rem;
+  padding: 2.3rem 2.75rem 0 2.75rem;
 
   span {
-    margin: 0 0.5rem 1.375rem 0;
+    margin: -0.1rem 0.5rem 1.375rem 0;
   }
   p {
-    margin-bottom: 0.75rem;
     font-size: 1.25rem;
   }
   b {
@@ -338,7 +338,7 @@ const Join = styled.button`
   padding: 0.75rem 1.5625rem;
   justify-content: center;
   font-size: 1.25rem;
-  margin: 3.5rem 2.5rem 5.3125rem 2.5rem;
+  margin: 2.5rem 2.5rem 2.5rem 2.5rem;
   border-radius: 2.1875rem;
   cursor: pointer;
 `;
@@ -352,6 +352,6 @@ const Finish = styled.button`
   padding: 0.75rem 1.5625rem;
   justify-content: center;
   font-size: 1.25rem;
-  margin: 3.5rem 2.5rem 5.3125rem 2.5rem;
+  margin: 2.5rem 2.5rem 2.5rem 2.5rem;
   border-radius: 2.1875rem;
 `;
