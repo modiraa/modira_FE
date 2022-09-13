@@ -9,7 +9,6 @@ import MyIcon from "../element/MyIcon";
 function PostDetail() {
   const navigate = useNavigate();
   const params = useParams();
-  // console.log(params.postId.split(":")[1],"파람스")
   const [data, setData] = useState({
     category: "다같이 내자! N빵 모임",
     title: "Lorem ipsum dolor",
@@ -57,13 +56,13 @@ function PostDetail() {
       .then((response) => {
         console.log("참여완료", response);
         alert("참여 되었습니다");
-        navigate("/")
+        navigate("/");
       })
 
       .catch((error) => {
         if (data.currentPeople < data.numberOfPeople) {
           alert("1개의 모임만 참여가능합니다.");
-          navigate("/")
+          navigate("/");
         }
         console.log("실패", error);
       });
@@ -162,7 +161,6 @@ const Container = styled.div`
   width: 100%;
   height: auto;
   background-color: #fffcf6;
-  
 `;
 
 const TitleBar = styled.div`
@@ -230,9 +228,8 @@ const Gps = styled.div`
   display: flex;
   background-color: #fff;
   width: 100%;
-  height:auto;
+  height: auto;
   padding-bottom: 2.125rem;
- 
 `;
 const Writer = styled.div`
   height: 7.375rem;
