@@ -57,11 +57,13 @@ function PostDetail() {
       .then((response) => {
         console.log("참여완료", response);
         alert("참여 되었습니다");
+        navigate("/")
       })
 
       .catch((error) => {
         if (data.currentPeople < data.numberOfPeople) {
           alert("1개의 모임만 참여가능합니다.");
+          navigate("/")
         }
         console.log("실패", error);
       });
