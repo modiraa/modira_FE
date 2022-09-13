@@ -100,14 +100,7 @@ const MyRoom = () => {
           </div>
         </Minibanner>
         <CreateRoom>
-          <p>생성한 모임</p>                <Delete onClick={removePost}>
-                  <MyIcon
-                    sizePx={15}
-                    iconName={"delete_white"}
-                    color={"white"}
-                  />
-                  게시물 삭제
-                </Delete>
+          <p>생성한 모임</p>{" "}
           <Post>
             {data ? (
               <MakedRoom>
@@ -117,7 +110,14 @@ const MyRoom = () => {
                     navigate(`/postdetail${data.postId}`);
                   }}
                 />
-
+                <Delete onClick={removePost}>
+                  <MyIcon
+                    sizePx={15}
+                    iconName={"delete_white"}
+                    color={"white"}
+                  />
+                  게시물 삭제
+                </Delete>
               </MakedRoom>
             ) : (
               <ToMakeRoom
@@ -168,8 +168,8 @@ const MyRoom = () => {
 export default MyRoom;
 
 const Container = styled.div`
-width:100%;
-height:65rem;
+  width: 100%;
+  height: 65rem;
 `;
 
 const Rooms = styled.div`
@@ -231,11 +231,13 @@ const MenuImg = styled.img`
   position: relative;
   z-index: 1;
 `;
-const Delete = styled.span`
-  width: 7rem;
+const Delete = styled.button`
+  border: none;
+  width: 8rem;
+  height: 2rem;
   font-size: 1rem;
-  margin-left: 20.5rem;
-  margin-top: -1.5rem;
+  margin-left: 21rem;
+  margin-top: -10rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -244,6 +246,7 @@ const Delete = styled.span`
   position: relative;
   z-index: 2;
   color: #fff;
+  cursor: pointer;
 `;
 const MakedRoom = styled.div`
   width: 100%;
