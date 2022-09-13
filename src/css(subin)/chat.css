@@ -20,6 +20,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 1.75rem;
+  cursor: pointer;
 }
 .chat-header-title {
   font-size: 1.375rem;

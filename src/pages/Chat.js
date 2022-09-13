@@ -18,24 +18,16 @@ const Chat = () => {
   const [showMessage, setShowMessage] = React.useState([]);
   const [sendMessage, setSendMessage] = React.useState("");
   const [sendNick, setSendNick] = React.useState("");
-  
 
   const RefViewControll = React.useRef();
   const navigate = useNavigate();
   const Auth = sessionStorage.getItem("token");
   const authNoBearer = sessionStorage.getItem("token")?.split(" ")[1];
-  const roomId=sessionStorage.getItem("roomId")
-  const postTitle=sessionStorage.getItem("postTitle")
-
-
-
-  
-
+  const roomId = sessionStorage.getItem("roomId");
+  const postTitle = sessionStorage.getItem("postTitle");
 
   //소켓연결
   React.useEffect(() => {
-    
-
     var socket = new SockJS("http://3.34.129.164/ws-stomp");
     stompClient = Stomp.over(socket);
 
@@ -69,12 +61,9 @@ const Chat = () => {
   //채팅관련 axios통신 함수
   const loadPrevMessage = async () => {
     await axios
-      .get(
-        `http://3.34.129.164/chat/messages/${roomId}`
-      )
+      .get(`http://3.34.129.164/chat/messages/${roomId}`)
       .then((response) => {
         prevMessage = response.data.content.reverse();
-        console.log(prevMessage);
       })
       .catch((error) => {
         console.log(error);
@@ -89,10 +78,7 @@ const Chat = () => {
         },
       })
       .then((response) => {
-        console.log(response.data.roomId)
-      
         setSendNick(response.data.nickname);
-        
       })
       .catch((error) => {
         console.log(error);
@@ -102,13 +88,9 @@ const Chat = () => {
   // 소켓 함수
   function connected() {
     setIsConnected(true);
-    stompClient.subscribe(
-      `/sub/chat/room/${roomId}`,
-      subscribed,
-      {
-        Authorization: authNoBearer,
-      }
-    );
+    stompClient.subscribe(`/sub/chat/room/${roomId}`, subscribed, {
+      Authorization: authNoBearer,
+    });
   }
 
   function subscribed(greeting) {
@@ -145,24 +127,18 @@ const Chat = () => {
 
   //modal창 함수
 
- 
-  const exitChatRoom=(event)=>{
-    // console.log(prevMessage)
+  const exitChatRoom = (event) => {
     event.stopPropagation();
-    // const senderId=prevMessage.filter((v)=>v.sender==sendNick)[0].senderId
-    // console.log(senderId)
-    navigate("/userprofile",)
-  }
+    navigate("/userprofile");
+  };
 
   return (
     <div className="chat-wrap">
       <div className="chat-header-wrap">
         <div
           className="chat-header-icon"
-          style={{ marginLeft: "28px", cursor: "pointer" }}
           onClick={(event) => {
             event.stopPropagation();
-            console.log("뒤로가기!")
             navigate(-1);
           }}
         >
@@ -188,7 +164,6 @@ const Chat = () => {
           sendMessage={sendMessage}
         />
       </div>
-      
     </div>
   );
 };
