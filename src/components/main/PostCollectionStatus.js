@@ -1,10 +1,13 @@
 import React from "react";
-import MainPostTItle from "./MainPostTItle";
-import PostComponentStatus from "./PostComponentStatus";
-import "./postcolloctionstatus.css";
 import ScrollContainer from "react-indiana-drag-scroll";
+//css
+import "./postcolloctionstatus.css";
+//conponent
 import PostSeeMorePostStatus from "./PostSeeMorePostStatus";
 import PostNoComponentStatus from "./PostNoComponentStatus";
+import MainPostTItle from "./MainPostTItle";
+import PostComponentStatus from "./PostComponentStatus";
+
 
 const PostCollectionStatus = ({
   titleCollection,

@@ -48,7 +48,6 @@ const RouteList = () => {
         <Route path="/inputaddress" element={<InputAddress />} />
         <Route path="/auth/kakao/callback" element={<Kakaoredirect />} />
         <Route path="/login/ouath2/code/naver" element={<NaverRedirect />} />
-        <Route path="/auth/google/callback" element={<GoogleRedirect />} />
         <Route path="/postdetail:postId" element={<PostDetail />} />
         <Route path="/userprofile" element={<UserProfile />} />
         <Route path="/myroom" element={<MyRoom />} />

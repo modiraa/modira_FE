@@ -8,7 +8,6 @@ import PostCollection from "./PostCollection";
 import PostCollectionStatus from "./PostCollectionStatus";
 import LowerNavbar from "../public/LowerNavbar";
 import MainBanner from "./MainBanner";
-import MiniBanner from "./MiniBanner";
 import AdBanner from "./AdBanner";
 
 const Main = () => {

@@ -1,8 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import"../main/MiniBanner.css"
 
 const AdBanner = () => {
-  const navigate = useNavigate();
+ 
   return (
     <div className="wrap-minibanner">
       <div className="mainbanner-wrap-logoAndtext">
