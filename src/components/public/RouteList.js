@@ -1,5 +1,5 @@
 import React from "react";
-import {  Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Chat from "../../pages/Chat";
 import Enter from "../../pages/Enter";
 import GoogleRedirect from "../../pages/GoogleRedirect";
@@ -23,7 +23,7 @@ import SelectPeopleCount from "../../pages/SelectPeopleCount";
 import SelectTime from "../../pages/SelectTime";
 import UserProfile from "../../pages/UserProfile";
 import Write from "../../pages/Write";
-import ProfileBg from "./ProfileBg";
+
 
 const RouteList = () => {
   return (
@@ -44,7 +44,6 @@ const RouteList = () => {
     <Route path="/selectage" element={<SelectAge />} />
     <Route path="/myinfo" element={<MyInfo />} />
     <Route path="/morepost" element={<MorePost />} />
-    <Route path="/profilebg" element={<ProfileBg />} />
     <Route path="/register" element={<Register />} />
     <Route path="/enter" element={<Enter />} />
     <Route path="/inputaddress" element={<InputAddress />} />
