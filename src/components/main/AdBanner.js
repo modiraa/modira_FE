@@ -1,25 +1,31 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const AdBanner = () => {
-    const navigate=useNavigate();
+  const navigate = useNavigate();
   return (
     <div className="wrap-mainbanner">
-    <div className="mainbanner-wrap-logoAndtext">
-      <div className="mainbanner-logo"></div>
-      <div className="mainbanner-text">
-        이제 <span className="font-bold">혼밥</span>하지 마세요!
-        <br /><span className="font-bold">밥 친구 찾기 플랫폼</span> <span  className="font-color font-black">modira</span>
-      </div>
-      <div
-        className="mainbanner-link-text"
-        onClick={() => navigate("/enter")}
-      >
-        모디라 소개 바로가기 {">"}
+      <div className="mainbanner-wrap-logoAndtext">
+        <div className="mainbanner-logo"></div>
+        <div className="mainbanner-text">
+          저희 서비스를 이용하고,
+          <br />
+          기프티콘 받아가세요!
+        </div>
+        <div
+          className="mainbanner-link-text"
+          onClick={() =>
+            window.open(
+              "https://docs.google.com/forms/d/1QGXGDovAKZ2HNsCTHNUUwLdcPZqqTvCR4sjQ5mIHciI/edit",
+              "_blank"
+            )
+          }
+        >
+          설문참여하기 {">"}
+        </div>
       </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default AdBanner
+export default AdBanner;
