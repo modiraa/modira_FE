@@ -54,7 +54,7 @@
 }
 
 .wrap-app-appview {
-  height: 100vh;
+  height: calc(100vh - 4.6875rem);
   max-height: 1030px;
   background: white;
   overflow: auto;
