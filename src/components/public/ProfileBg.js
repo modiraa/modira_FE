@@ -17,7 +17,7 @@ const ProfileBg = ({ ProfileImg }) => {
       ) : (
         <div style={{ height: "12rem", backgroundColor: "#fffcf6" }} />
       )}
-      <img className="line" src={ProfileLine} />
+      <Line className="line" src={ProfileLine} />
 
       <Circle>
         {ProfileImg ? (
@@ -48,14 +48,19 @@ const Background = styled.div`
     position: relative;
   }
 `;
-
+const Line = styled.img`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+`;
 const Circle = styled.div`
   width: 7.1875rem;
   height: 7.1875rem;
   border-radius: 50%;
   background-color: white;
-  margin-top: -8.85rem;
-  margin-left: 12.9rem; 
+  margin-top: -26.3%;
+  margin-left: 39.5%;
   overflow: hidden;
   img {
     width: 100%;
@@ -67,6 +72,6 @@ const Circle = styled.div`
     width: 100%;
     height: 100%;
     margin-top: 1rem;
-  margin-left: 1rem; 
+    margin-left: 1rem;
   }
 `;

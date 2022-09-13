@@ -100,24 +100,24 @@ const MyRoom = () => {
           </div>
         </Minibanner>
         <CreateRoom>
-          <p>생성한 모임</p>{" "}
+          <p>생성한 모임</p>
           <Post>
             {data ? (
               <MakedRoom>
-                <img
-                  src={data?.menuForImage}
-                  onClick={() => {
-                    navigate(`/postdetail${data.postId}`);
-                  }}
-                />
-                <span onClick={removePost}>
+                <Delete onClick={removePost}>
                   <MyIcon
                     sizePx={15}
                     iconName={"delete_white"}
                     color={"white"}
                   />
                   게시물 삭제
-                </span>
+                </Delete>
+                <img
+                  src={data?.menuForImage}
+                  onClick={() => {
+                    navigate(`/postdetail${data.postId}`);
+                  }}
+                />
               </MakedRoom>
             ) : (
               <ToMakeRoom
@@ -172,9 +172,9 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   font-size: 1.625rem;
-  width: 32.8125rem;
+  width: 100%;
+  height: 64.375rem;
   background-color: #fff;
-  margin-bottom: 0.75rem;
 `;
 
 const Title = styled.div`
@@ -219,39 +219,30 @@ const Post = styled.div`
   overflow: hidden;
   background-color: #fffcf6;
   cursor: pointer;
+`;
+const Delete = styled.span`
+  width: 6.25rem;
+  font-size: 0.8125rem;
+  margin-left: 20.5rem;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 187, 49, 0.6);
+  border-radius: 1.375rem;
+`;
+const MakedRoom = styled.div`
+  width: 27.4375rem;
+  height: 10.4375rem;
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 600;
   img {
     object-fit: cover;
     width: 27.4375rem;
     height: 10.4375rem;
     border-radius: 0.75rem;
-    position: relative;
-    z-index: 1;
-  }
-`;
-
-const MakedRoom = styled.div`
-  width: 27.4375rem;
-  height: 10.4375rem;
-  background-size: contain;
-  display: flex;
-  flex-direction: row;
-  color: #ffffff;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  span {
-    position: absolute;
-    z-index: 2;
-    width: 6.25rem;
-    height: 1.5625rem;
-    font-size: 0.8125rem;
-    margin-left: 20.5rem;
-    margin-top: 0.5rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 187, 49, 0.6);
-    border-radius: 1.375rem;
   }
 `;
 
@@ -260,7 +251,6 @@ const ToMakeRoom = styled.span`
   align-items: center;
   flex-direction: column;
   width: 27.4375rem;
-  height: 10.4375rem;
   border-radius: 0.75rem;
   border: none;
   overflow: hidden;
@@ -269,5 +259,13 @@ const ToMakeRoom = styled.span`
     margin-top: 0.9375rem;
     color: #ffbb31;
     font-size: 1.25rem;
+  }
+  img {
+    object-fit: cover;
+    width: 27.4375rem;
+    height: 10.4375rem;
+    border-radius: 0.75rem;
+    position: relative;
+    z-index: 1;
   }
 `;
