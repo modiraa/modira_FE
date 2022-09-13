@@ -129,7 +129,7 @@
 .card-title{
     width: 100%;
     /* background-color: aqua; */
-    margin-top: 0.625rem;
+    margin-top: 0.45rem;
 }
 
 .card-title>p{
@@ -142,7 +142,7 @@
     display: flex;
     justify-content: left;
     flex-direction: column;
-    margin-top: 0.3125rem;
+    margin-top: 0.5rem;
 }
 
 .card-date{
@@ -152,14 +152,14 @@
 }
 
 .card-date>p{
-    font-size: 0.9375rem;
+    font-size: 1rem;
     font-weight: 400;
     float: left;
     color: #9A9A9A;
 }
 
 .card-date-icon{
-    font-size: 0.9375rem;
+    font-size: 1rem;
     font-weight: 400;
     float: left;
     margin-right: 0.6875rem;
@@ -173,7 +173,7 @@
 }
 
 .card-people-count-menu>p{
-    font-size: 0.9375rem;;
+    font-size: 1rem;
     font-weight: 400;
     float: left;
     margin-right: 18px;

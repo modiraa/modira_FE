@@ -35,7 +35,7 @@ const Write = () => {
         setIsGenderAction(false)
         navigate('/selectgender')
     }
-    if(storeSelect.gender=='여성'||storeSelect.gender=='남성'){
+    if(storeSelect.gender=='여성'|| storeSelect.gender=='남성'){
        setIsGenderAction(true)
        dispatch(selectWrite({gender:selectGender}))
     }
