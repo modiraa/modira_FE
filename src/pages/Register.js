@@ -262,7 +262,6 @@ const LoginBox = styled.div`
   padding: 2.25rem 2.6875rem;
   background-color: #fcfaff;
   background-color: #fcfcfc;
-  font-family: "Noto Sans KR";
   p {
     font-weight: 600;
     font-size: 1.25rem;

@@ -236,7 +236,7 @@ const Delete = styled.button`
   width: 8rem;
   height: 2rem;
   font-size: 1rem;
-  margin-left: 21rem;
+  margin-left: 19.5rem;
   margin-top: -10rem;
   display: flex;
   align-items: center;

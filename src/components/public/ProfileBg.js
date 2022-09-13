@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import ProfileLine from "../../image/ProfileLine.png";
-import { relativeTimeRounding } from "moment";
-import { CenturyView } from "react-calendar";
 import MyIcon from "../../element/MyIcon";
 
 const ProfileBg = ({ ProfileImg }) => {
