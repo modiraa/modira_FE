@@ -64,6 +64,10 @@ function PostDetail() {
           alert("1개의 모임만 참여가능합니다.");
           navigate("/");
         }
+        // if (!data.writerGender===data.limitGender) {
+        //   alert("모임 성별 조건에 맞지 않습니다.");
+        //   navigate("/");
+        // }
         console.log("실패", error);
       });
   };
