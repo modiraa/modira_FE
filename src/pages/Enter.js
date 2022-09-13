@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import MyIcon from '../element/MyIcon';
+import styled from "styled-components";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -8,15 +9,18 @@ import Enter1 from "../image/Enter1.png";
 import Enter2 from "../image/Enter2.png";
 import Enter3 from "../image/Enter3.png";
 import Enter4 from "../image/Enter4.png";
-
+import { useNavigate } from 'react-router-dom';
 // import required modules
 
 import "../css(subin)/Swiper.css";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 
 const Enter = () => {
+  const navigate = useNavigate();
   return (
     <>
+    <div onClick={()=>{navigate(-1)}} style={{marginLeft:"30rem", marginTop:"0.5rem"}}>
+    <MyIcon iconName={"close"} sizePx={32} color={"gray"} cursor={"point"}/></div>
       <Swiper
         cssMode={true}
         navigation={true}
@@ -42,6 +46,5 @@ const Enter = () => {
     </>
   );
 };
-
 export default Enter;
 

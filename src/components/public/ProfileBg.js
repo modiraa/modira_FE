@@ -54,8 +54,8 @@ const Circle = styled.div`
   height: 7.1875rem;
   border-radius: 50%;
   background-color: white;
-  margin-top: -8.856rem;
-  margin-left: 12.8rem; 
+  margin-top: -8.85rem;
+  margin-left: 12.9rem; 
   overflow: hidden;
   img {
     width: 100%;
@@ -66,5 +66,7 @@ const Circle = styled.div`
   div {
     width: 100%;
     height: 100%;
+    margin-top: 1rem;
+  margin-left: 1rem; 
   }
 `;

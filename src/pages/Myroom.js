@@ -180,7 +180,7 @@ const Container = styled.div`
 const Title = styled.div`
   margin: 0.5625rem 0 2.375rem 0;
   font-size: 1.4375rem;
-  font-weight: 500;
+  font-weight: 600;
 `;
 
 const Minibanner = styled.div`
@@ -236,12 +236,14 @@ const MakedRoom = styled.div`
   display: flex;
   flex-direction: row;
   color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 600;
   span {
     position: absolute;
     z-index: 2;
     width: 6.25rem;
     height: 1.5625rem;
-    font-size: 13px;
+    font-size: 0.8125rem;
     margin-left: 20.5rem;
     margin-top: 0.5rem;
     display: flex;
@@ -257,15 +259,15 @@ const ToMakeRoom = styled.span`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 439px;
-  height: 167px;
-  border-radius: 12px;
+  width: 27.4375rem;
+  height: 10.4375rem;
+  border-radius: 0.75rem;
   border: none;
   overflow: hidden;
-  padding-top: 50px;
+  padding-top: 3.125rem;
   p {
-    margin-top: 15px;
+    margin-top: 0.9375rem;
     color: #ffbb31;
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 `;

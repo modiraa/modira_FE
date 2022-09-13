@@ -1,6 +1,4 @@
-#enter {
-  height: 100%;
-}
+
 html,
 body {
   position: relative;
@@ -19,6 +17,7 @@ body {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  height: 100%;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -67,7 +66,6 @@ body {
 }
 
 /* .swiper-pagination-horizontal{
-  position: absolute;
   left: 100px;
-  top: 31px
+  top: 1.9375rem;
 } */
