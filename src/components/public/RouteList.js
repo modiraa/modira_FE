@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
 import Chat from "../../pages/Chat";
 import Enter from "../../pages/Enter";
 import GoogleRedirect from "../../pages/GoogleRedirect";
