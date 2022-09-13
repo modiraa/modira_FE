@@ -68,7 +68,6 @@ const UserProfile = () => {
 
   return (
     <div className="useprofile-wrap">
-      
       <UserprofileHeader/>
       <div className="wrap-middle">
       <UserInformation dataProfile={dataProfile} modalIsopen={modalIsopen}/>
@@ -76,7 +75,7 @@ const UserProfile = () => {
        <UserValidationList userList={userList} setUserChoiceValidation={setUserChoiceValidation}/>
       </div>
       <MyModal isOpen={modalIsopen} handleClickCancel={handleClickCancel} />
-      <div style="subsitute-lowernavar"></div>
+      <div className="subsitute-lowernavar"></div>
       <div className="lowernavbar">
         {!modalIsopen&&<LowerNavbar />}
       </div>
