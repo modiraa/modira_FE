@@ -55,7 +55,6 @@ const Main = () => {
     <div className="wrap-main">
       <Navbar />
       <MainBanner />
-      <AdBanner/>
       <div className="main-postcollection">
         <PostCollection postAll={postAll} />
       </div>
@@ -68,7 +67,7 @@ const Main = () => {
       </div>
 
       <div className="main-minibanner">
-        <MiniBanner />
+      <AdBanner/>
       </div>
 
       <div className="main-postcollectionstsus-dutch">
