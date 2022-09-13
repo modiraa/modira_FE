@@ -36,7 +36,7 @@ code {
   font-family: "Noto Sans KR";
   font-weight: 400;
   src: local("Noto Sans KR"),
-    url("../src/assets/fonts/NotoSansKR-Light.otf") format("woff2"),
+    url("../src/assets/fonts/NotoSansKR-Light-subset.otf") format("woff2"),
 
 }
 
@@ -44,7 +44,7 @@ code {
   font-family: "Noto Sans KR";
   font-weight: 500;
   src: local("Noto Sans KR"),
-    url("../src/assets/fonts/NotoSansKR-Regular.otf") format("woff2"),
+    url("../src/assets/fonts/NotoSansKR-Regular-subset.otf") format("woff2"),
   
 }
 
@@ -52,7 +52,7 @@ code {
   font-family: "Noto Sans KR";
   font-weight: 700;
   src: local("Noto Sans KR"),
-    url("../src/assets/fonts/NotoSansKR-Medium.otf") format("woff2"),
+    url("../src/assets/fonts/NotoSansKR-Meduim-subset.otf") format("woff2"),
    
 }
 
@@ -60,7 +60,7 @@ code {
   font-family: "Noto Sans KR";
   font-weight: 900;
   src: local("Noto Sans KR"),
-    url("../src/assets/fonts/NotoSansKR-Bold.otf") format("woff2"),
+    url("../src/assets/fonts/NotoSansKR-Bold-subset.otf") format("woff2"),
 
 }
 
@@ -68,7 +68,7 @@ code {
   font-family: "Noto Sans KR";
   font-weight: 900;
   src: local("Noto Sans KR"),
-    url("../src/assets/fonts/NotoSansKR-Black.otf") format("woff2"),
+    url("../src/assets/fonts/NotoSansKR-Black-subset.otf") format("woff2"),
 }
  
 .font-regural{
