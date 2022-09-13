@@ -1,6 +1,6 @@
 import '../css(subin)/Write.css';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -17,6 +17,11 @@ const Write = () => {
   console.log(storeSelect.gender,storeSelect.age)
 
   const dispatch = useDispatch();
+
+  // 유저가 방생성 했었는지 유무 확인
+  let [roomId,setRoomId] = useState('');
+
+  console.log(roomId)
 
   // 성별 체크박스 상태관리
   let [isGenderAction, setIsGenderAction] = useState(false);
@@ -53,6 +58,24 @@ const Write = () => {
     }
   }
 
+  useEffect(() => {
+    const ACCESS_TOKEN = sessionStorage.getItem("token");
+    console.log(ACCESS_TOKEN);
+    axios
+      .get("http://3.34.129.164/api/user/info", {
+        headers: {
+          Authorization: ACCESS_TOKEN,
+        },
+      })
+      .then((response) => {
+        console.log("api 호출 성공",response.data.roomId);
+        setRoomId(response.data.roomId);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   // 등록완료 onClick때 보낼 값들
   const WriteSend = async () => {
 
@@ -67,6 +90,10 @@ const Write = () => {
     }
     else if (storeSelect.address == '') {
       alert('주소를 입력해주세요')
+      return;
+    }
+    else if (roomId !== null){
+      alert('이미 모임을 생성하셨습니다. 모임생성은 한번에 한 모임만 진행할 수 있습니다')
       return;
     }
 
