@@ -3,7 +3,6 @@
   flex-direction: column;
   width:100%;
   max-width: 32.8125rem;;
-  height: 100vh;
   overflow: auto;
   position: relative;
   -ms-overflow-style: none; /* IE and Edge */
