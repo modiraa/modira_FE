@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+//css
+import "../../css(subin)/Main.css";
+//compoonent
 import Navbar from "../public/Navbar";
 import PostCollection from "./PostCollection";
-import "../../css(subin)/Main.css";
 import PostCollectionStatus from "./PostCollectionStatus";
 import LowerNavbar from "../public/LowerNavbar";
 import MainBanner from "./MainBanner";
 import MiniBanner from "./MiniBanner";
+import AdBanner from "./AdBanner";
 
 const Main = () => {
   const [postAll, setPostAll] = React.useState(null);
@@ -52,6 +55,7 @@ const Main = () => {
     <div className="wrap-main">
       <Navbar />
       <MainBanner />
+      <AdBanner/>
       <div className="main-postcollection">
         <PostCollection postAll={postAll} />
       </div>
