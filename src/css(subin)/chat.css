@@ -75,7 +75,7 @@
   color: white;
 }
 .chat-message-nick {
-  margin-left:1.4375rem;
+  margin-left: 1.4375rem;
   margin-right: 1.4375rem;
   font-size: 1.1875rem;
   font-weight: 500;
@@ -94,7 +94,7 @@
   border-radius: 0.4375rem;
   text-overflow: ellipsis;
   word-break: break-all;
-  overflow:hidden; 
+  overflow: hidden;
 }
 
 .chat-message-text {
@@ -106,7 +106,7 @@
   color: #ffffff;
   max-width: 17.625rem;
   text-overflow: ellipsis;
-  overflow:hidden; 
+  overflow: hidden;
   word-break: break-all;
 }
 .chat-container-message-samemessage-mymessage {
@@ -120,7 +120,7 @@
   display: flex;
   flex-direction: row;
   margin-top: 2.75rem;
-  margin-left:2.6875rem;
+  margin-left: 2.6875rem;
 }
 .chat-sender-notsamemessge-notmymessage {
   margin-left: 1.4375rem;
@@ -148,7 +148,7 @@
   line-height: 1.625rem;
   width: max-content;
   text-overflow: ellipsis;
-  overflow:hidden; 
+  overflow: hidden;
   word-break: break-all;
   max-width: 17.625rem;
 }
@@ -156,11 +156,11 @@
   min-height: 2.125rem;
   width: max-content;
   text-overflow: ellipsis;
-  overflow:hidden; 
+  overflow: hidden;
   word-break: break-all;
   max-width: 17.625rem;
   padding-left: 2.4375rem;
-  padding-right:0.9375rem;
+  padding-right: 0.9375rem;
   background-color: #ffbb31;
   border-radius: 0.4375rem;
   display: flex;
@@ -169,7 +169,7 @@
 .chat-container-message-samemessage-notmymessage {
   margin-left: 7.125rem;
   display: flex;
-  margin-top:0.3125rem;
+  margin-top: 0.3125rem;
   flex-direction: row;
   align-items: center;
 }
@@ -179,7 +179,7 @@
   border-radius: 0.4375rem;
   width: max-content;
   text-overflow: ellipsis;
-  overflow:hidden; 
+  overflow: hidden;
   max-width: 17.625rem;
   min-height: 2.125rem;
   width: max-content;
