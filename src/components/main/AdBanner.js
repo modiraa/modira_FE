@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const AdBanner = () => {
   const navigate = useNavigate();
   return (
-    <div className="wrap-mainbanner">
+    <div className="wrap-minibanner">
       <div className="mainbanner-wrap-logoAndtext">
         <div className="mainbanner-logo"></div>
         <div className="mainbanner-text">
