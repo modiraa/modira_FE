@@ -159,7 +159,7 @@ const MyRoom = () => {
           <Title>{joinData?.title}</Title>
         </CreateRoom>
       </Container>
-      <div className="main-wrap-lowernavbar">
+      <div className="lowernavbar">
         <LowerNavbar locationIndicator={"myroom"} />
       </div>
     </>

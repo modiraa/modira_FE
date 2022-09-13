@@ -92,12 +92,12 @@ function PostDetail() {
               <div>
                 <MyIcon sizePx={20} iconName={"person"} color={"gray"} />
                 <span style={{ marginLeft: "0.5rem" }}>
-                {data.currentPeople}/{data.numberOfPeople}명 참여
+                  {data.currentPeople}/{data.numberOfPeople}명 참여
                 </span>
               </div>
               <div>
                 <MyIcon sizePx={20} iconName={"ramen_dining"} color={"gray"} />
-                <span>{data.menu}</span>
+                <span style={{ marginLeft: "0.5rem" }}>{data.menu}</span>
               </div>
             </div>
           </Date>
@@ -214,6 +214,7 @@ const InfoBox = styled.div`
 const Address = styled.span`
   display: flex;
   flex-direction: row;
+  align-items: center;
   background-color: #fff;
   font-size: 1.125rem;
   color: #acacac;
@@ -223,9 +224,12 @@ const Address = styled.span`
   }
 `;
 const Gps = styled.div`
-  width: 100%;
-  height: 13.625rem;
+  display: flex;
   background-color: #fff;
+  width: 100%;
+  height:auto;
+  padding-bottom: 2.125rem;
+ 
 `;
 const Writer = styled.div`
   height: 7.375rem;
