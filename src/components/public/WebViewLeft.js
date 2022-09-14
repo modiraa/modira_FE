@@ -1,16 +1,14 @@
 import React from "react";
-import styled from "styled-components";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 import "./webviewleft.css";
 import"../../App.css"
-import { useNavigate } from "react-router-dom";
 import MyIcon from "../../element/MyIcon";
 
 const WebViewLeft = () => {
   const refInputSearch = React.useRef();
   const navigate=useNavigate();
   const searchAddressAX =  () => {
-    console.log("동작체크")
     const keyword = refInputSearch.current.value;
     navigate("/morepost",{state:{keyword:keyword}})
     // window.location.reload();

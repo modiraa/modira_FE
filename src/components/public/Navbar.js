@@ -1,11 +1,10 @@
 // import styled from "styled-components";
 import React from "react";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "./Navbar.css";
 
-import { png } from "../../image";
 import MyIcon from "../../element/MyIcon";
 
 const Navbar = ({ address }) => {
@@ -33,13 +32,12 @@ const Navbar = ({ address }) => {
         },
       })
       .then((response) => {
-        console.log(response);
         setUserInfo(response.data);
         sessionStorage.setItem("roomId", response.data.roomId);
         sessionStorage.setItem("postTitle", response.data.isJoinPost);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error)
       });
   };
 

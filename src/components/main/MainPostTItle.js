@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./MainPostTItle.css";
 
-const MainPostTItle = ({titleCollection,morepostType}) => {
+const MainPostTItle = ({morepostType}) => {
   const navigate=useNavigate();
 
   console.log(morepostType)

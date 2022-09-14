@@ -2,25 +2,13 @@ import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-
-
-// Import Swiper styles
-// import "swiper/css";
-// import "swiper/css/free-mode";
-// import "swiper/css/pagination";
 import "./Picker.css";
 
-
-
 // import required modules
-import { FreeMode, Pagination, Mousewheel, Controller } from "swiper";
+import {  Pagination, Mousewheel, Controller } from "swiper";
 
 export default function Picker({ slideList, setControlledSwiper, controlledSwiper }) {
-    //   console.log(slideList)
-    // React.useEffect(()=>{
-    // //   if(controlledSwiper){ console.log(controlledSwiper)}
-    // }
-    //   ,[])
+
 
     return (
 

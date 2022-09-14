@@ -22,9 +22,6 @@ const UserProfile = () => {
   const [userList, setUserList] = React.useState([]);
   const [userChoiceValidation, setUserChoiceValidation] =
     React.useState(showUser);
-  
-  console.log(location);
-  console.log(showUser);
 
   useEffect(() => {
     showProfileAX();
@@ -43,23 +40,18 @@ const UserProfile = () => {
     await axios
       .get(`http://3.34.129.164/api/user/info/${userChoiceValidation}`)
       .then((response) => {
-        console.log(response);
         setDataProfile(response.data);
-        console.log(response.data.score);
       })
       .catch((error) => {
-        console.log(error.response);
       });
   };
   const showListParticipants = async () => {
     await axios
       .get(`http://3.34.129.164/api/userlist/${roomId}`)
       .then((response) => {
-        console.log(response);
         setUserList(response.data);
       })
       .catch((error) => {
-        console.log(error.response);
       });
   };
 

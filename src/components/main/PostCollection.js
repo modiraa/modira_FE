@@ -1,11 +1,11 @@
 import React from "react";
+import ScrollContainer from "react-indiana-drag-scroll";
+//css
+import "./PostCollection.css";
+//conponent
 import MainPostTItle from "./MainPostTItle";
 import PostComponent from "./PostComponent";
-import "./PostCollection.css";
-import ScrollContainer from "react-indiana-drag-scroll";
-import ReactDOM from "react-dom";
 import PostSeeMorePost from "./PostSeeMorePost";
-import PostNoComponentStatus from "./PostNoComponentStatus";
 import PostNoComponent from "./PostNoComponent";
 
 const PostCollection = ({ postAll }) => {
