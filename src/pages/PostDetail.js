@@ -59,17 +59,28 @@ function PostDetail() {
         navigate("/");
       })
 
-      .catch((error) => {
-        if (data.currentPeople < data.numberOfPeople) {
-          alert("1개의 모임만 참여가능합니다.");
-          navigate("/");
-        }
-        // if (!data.writerGender===data.limitGender) {
-        //   alert("모임 성별 조건에 맞지 않습니다.");
-        //   navigate("/");
-        // }
-        console.log("실패", error);
-      });
+      // .catch((error) => {
+      //   if (error.data.code === "C006") {
+      //     console.log(error.data.code,"코드메시지");
+      //     alert("중복된 참여는 불가능 합니다.");
+      //   }
+      //   if (error.data.code === "C007") {
+      //     alert("모집 인원이 마갑 되었습니다.");
+      //   }
+      //   if (error.data.code === "C008") {
+      //     alert("존재하는 모임이 없습니다.");
+      //   }
+      //   if (error.data.code === "C009") {
+      //     alert("참여중인 모임이 있습니다.");
+      //   }
+      //   if (error.data.code === "C0010") {
+      //     alert("나이 조건이 맞지 않습니다.");
+      //   }
+      //   if (error.data.code === "C0011") {
+      //     alert("성별 조건이 맞지 않습니다.");
+      //   }
+      //   console.log("실패", error);
+      // });
   };
   return (
     <>
