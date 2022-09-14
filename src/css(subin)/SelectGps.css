@@ -6,7 +6,6 @@
     position: relative;
     flex-wrap: wrap;
     align-content: center;
-    background-color: aquamarine;
 }
 
 .select_gps_top{
@@ -72,7 +71,7 @@
 .select_gps_bottom{
     z-index: 2;
     position: absolute;
-    top: 100vh;
+    top: 55.3rem;
     display: flex;
     flex-direction: column;
 
@@ -99,9 +98,10 @@
 }
 
 .mapgps{
-    position: absolute;
+    position: relative;
     z-index: 1;
     width: 100%;
+    top: 20.75rem;
     /* height: 100%; */
-    background-color: rgb(204, 233, 233);
+    background-color: rgb(156, 200, 200);
 }
