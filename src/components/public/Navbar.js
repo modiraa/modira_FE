@@ -37,6 +37,7 @@ const Navbar = ({ address }) => {
         sessionStorage.setItem("postTitle", response.data.isJoinPost);
       })
       .catch((error) => {
+        console.log(error)
       });
   };
 

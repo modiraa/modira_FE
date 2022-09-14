@@ -12,7 +12,9 @@ const InputAddress = () => {
       navigate("/morepost", {
         state: { address: data.sido + " " + data.sigungu },
       });
-    } else {
+    }
+    
+    else {
       navigate("/Register", {
         state: { homesi: data.sido, homegu: data.sigungu },
       });
@@ -23,7 +25,7 @@ const InputAddress = () => {
     <div>
       <Arrow
         onClick={() => {
-          navigate("/register");
+          navigate(-1);
         }}
       >
         <MyIcon sizePx={25} iconName={"arrow_back_ios"} />
