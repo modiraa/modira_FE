@@ -1,6 +1,7 @@
 import React from "react";
-import "./LowerNavbar.css";
 import { useNavigate } from "react-router-dom";
+
+import "./LowerNavbar.css";
 import MyIcon from "../../element/MyIcon";
 
 const LowerNavbar = ({ locationIndicator }) => {

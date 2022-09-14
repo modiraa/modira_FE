@@ -18,7 +18,6 @@ const Main = () => {
 
   // kakao/naver 인가 뽑아오기 (백엔드에 보낼 인가코드)
   let code = new URL(window.location.href).searchParams.get("code");
-  console.log(code);
   // google인가 뽑아오기
   const parsedHash = new URLSearchParams(window.location.hash.substring(1));
   const accessToken = parsedHash.get("access_token");
@@ -37,8 +36,7 @@ const Main = () => {
         },
       })
       .then((res) => {
-        console.log(res);
-        console.log(res.data.postAll.content,typeof(res.data.postAll.content))
+  
         if (res.data) {
           setPostAll(res.data.postAll.content);
           setPostDutchPay(res.data.postDutchPay.content);
@@ -46,7 +44,6 @@ const Main = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
       })
   };
 

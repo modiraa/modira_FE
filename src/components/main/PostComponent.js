@@ -37,12 +37,11 @@ const PostComponent = ({ postAll }) => {
       refClick.current?.removeEventListener("click", eventHandler);
     };
   }, []);
+
   useEffect(() => {
     const image = new Image();
     image.src = postAll?.menuForImage;
-    console.log(image);
     image.onload = () => {
-      // when it finishing loading, update the component state
       setImageIsReady(true);
     };
   }, []);
@@ -53,6 +52,7 @@ const PostComponent = ({ postAll }) => {
   var unloadSectionStyle={
     backgroundImage:"url(" + minQuality + ")"
   }
+  
   if (postAll) {
     return (
       <div className="wrap-postcomponent" ref={refClick}>

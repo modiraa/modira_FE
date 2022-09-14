@@ -4,7 +4,6 @@ import{useNavigate} from"react-router-dom"
 
 const PostSeeMorePostStatus = ({morepostType}) => {
 const navigate=useNavigate();
-console.log(morepostType)
   return (
     <div className="wrap-postseemorepoststatus" onClick={()=>{navigate("/morepost",{state:morepostType})}}>
     <div className="postseemorepoststatus-location-icon">

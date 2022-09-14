@@ -9,7 +9,6 @@ const WebViewLeft = () => {
   const refInputSearch = React.useRef();
   const navigate=useNavigate();
   const searchAddressAX =  () => {
-    console.log("동작체크")
     const keyword = refInputSearch.current.value;
     navigate("/morepost",{state:{keyword:keyword}})
     // window.location.reload();
