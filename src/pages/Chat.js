@@ -65,7 +65,6 @@ const Chat = () => {
         prevMessage = response.data.content.reverse();
       })
       .catch((error) => {
-        console.log(error);
       });
   };
 
@@ -80,7 +79,6 @@ const Chat = () => {
         setSendNick(response.data.nickname);
       })
       .catch((error) => {
-        console.log(error);
       });
   };
 
@@ -120,7 +118,6 @@ const Chat = () => {
       );
       setSendMessage("");
     } catch (error) {
-      console.log(error);
     }
   }
 

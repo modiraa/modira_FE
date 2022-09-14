@@ -32,13 +32,11 @@ const Navbar = ({ address }) => {
         },
       })
       .then((response) => {
-        console.log(response);
         setUserInfo(response.data);
         sessionStorage.setItem("roomId", response.data.roomId);
         sessionStorage.setItem("postTitle", response.data.isJoinPost);
       })
       .catch((error) => {
-        console.log(error);
       });
   };
 
