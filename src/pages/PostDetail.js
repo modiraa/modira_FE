@@ -59,28 +59,9 @@ function PostDetail() {
         navigate("/");
       })
 
-      // .catch((error) => {
-      //   if (error.data.code === "C006") {
-      //     console.log(error.data.code,"코드메시지");
-      //     alert("중복된 참여는 불가능 합니다.");
-      //   }
-      //   if (error.data.code === "C007") {
-      //     alert("모집 인원이 마갑 되었습니다.");
-      //   }
-      //   if (error.data.code === "C008") {
-      //     alert("존재하는 모임이 없습니다.");
-      //   }
-      //   if (error.data.code === "C009") {
-      //     alert("참여중인 모임이 있습니다.");
-      //   }
-      //   if (error.data.code === "C0010") {
-      //     alert("나이 조건이 맞지 않습니다.");
-      //   }
-      //   if (error.data.code === "C0011") {
-      //     alert("성별 조건이 맞지 않습니다.");
-      //   }
-      //   console.log("실패", error);
-      // });
+      .catch((error) => {
+        alert(error.response.data.message);
+      });
   };
   return (
     <>
@@ -155,13 +136,16 @@ function PostDetail() {
           </Limitcheck>
           <p>{data.contents}</p>
         </Limit>
-        <ButtonSubmit onClick={Submit}>
-          {data.currentPeople < data.numberOfPeople ? (
+
+        {data.currentPeople < data.numberOfPeople ? (
+          <ButtonSubmit onClick={Submit}>
             <Join>참여신청</Join>
-          ) : (
+          </ButtonSubmit>
+        ) : (
+          <ButtonSubmit>
             <Finish>마감완료</Finish>
-          )}
-        </ButtonSubmit>
+          </ButtonSubmit>
+        )}
       </Container>
       <LowerNavbar />
     </>

@@ -5,6 +5,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import MorePostCard from '../components/morepost/MorePostCard';
 import Navbar from '../components/public/Navbar';
+import LowerNavbar from '../components/public/LowerNavbar';
 
 let test=0;
 
@@ -38,47 +39,29 @@ console.log(test,"test확인")
   useEffect(()=>{
     if(category){
       loadMorePost();
-      console.log("카테고리?")
     }
     if(search){
       loadSearchPost();
-      console.log("검색?")
     }
     if(address){
       loadAddressPost();
-      console.log("주소?")
     }
   },[lastId])
 
-  // useEffect(()=>{
-  //   loadSearchPost();
-  //   console.log("두번찍히나?")
-  // },[lastId])
-
-  // useEffect(()=>{
-  //   loadAddressPost();
-  //   console.log("두번찍히나?")
-  // },[lastId])
-
-
   useEffect(()=>{
-    console.log(morePostData)
   },[morePostData])
 
   const obsHandler = (entries) => {
     const target = entries[0];
-    console.log(entries);
     if (target.isIntersecting && preventRef.current) {
       preventRef.current = false;
 
-      console.log("옵저버발견",test)
         setLastId(test)
    
     }
   };
 
   const loadMorePost = useCallback(async () => {
-    console.log('나와라')
     if (category == "최근생성모임") {
       setLoad(false)
       let firsturl=`http://3.34.129.164/api/post?category=${""}`
@@ -86,32 +69,22 @@ console.log(test,"test확인")
       let urlAX=""
       if(lastId){
         urlAX=commonurl
-        console.log(lastId)
       }else{
         urlAX= firsturl
-        console.log(lastId)
       }
-      console.log(urlAX)
       await axios.get(urlAX)
         .then((res) => {
-          console.log(res.data.content[res.data.content.length-1]?.postId);
           test = res.data.content[res.data.content.length-1]?.postId;
           if(res.data){
-            // console.log(res.data);
             setMorePostTitle("최근생성모임")
-            // console.log(setMorePostTitle)
             setMorePostData(prev=>{
-              // console.log(prev);
               return [...prev, ...res.data.content]
             })
             preventRef.current = true;
           }
           if(res.data.content<8) {
-            // console.log(res.data);
             setMorePostTitle("최근생성모임")
-            // console.log(setMorePostTitle)
             setMorePostData(prev => {
-              // console.log(prev);
               return [...prev, ...res.data.content]
             })
             preventRef.current = false;
@@ -123,160 +96,117 @@ console.log(test,"test확인")
     }
 
     else if(category == "골든벨"){
-      console.log(`category=${category}`)
       let firsturl=`http://3.34.129.164/api/post?&category=${category}`
       let commonurl=`http://3.34.129.164/api/post?&category=${category}&lastId=${lastId}`
       let urlAX=""
       if(lastId){
         urlAX=commonurl
-        console.log(lastId)
       }else{
         urlAX= firsturl
-        console.log(lastId)
       }
-      console.log(urlAX)
       await axios.get(urlAX)
         .then((res) => {
-          console.log(res.data.content[7]?.postId);
           test=res.data.content[7]?.postId;
           if(res.data){
-            // console.log(res.data);
             setMorePostTitle("방장이 쏜다! 골든벨")
-            // console.log(setMorePostTitle)
             setMorePostData(prev=>{
-              // console.log(prev);
               return [...prev, ...res.data.content]
             })
             preventRef.current = true;
           }else{
-            // console.log(res);
           }
         })
         .catch((err) => {
-          console.log(err);
         })
     }
 
     else if(category == "n빵"){
-      console.log(`category=${category}`)
       setLoad(true)
       let firsturl=`http://3.34.129.164/api/post?&category=${category}`
       let commonurl=`http://3.34.129.164/api/post?&category=${category}&lastId=${lastId}`
       let urlAX=""
       if(lastId){
         urlAX=commonurl
-        console.log(lastId)
       }else{
         urlAX= firsturl
-        console.log(lastId)
       }
-      console.log(urlAX)
       await axios.get(urlAX)
         .then((res) => {
-          console.log(res.data.content[7]?.postId);
           test=res.data.content[7]?.postId;
           if(res.data){
-            // console.log(res.data);
             setMorePostTitle("다같이 내자! N빵")
-            // console.log(setMorePostTitle)
             setMorePostData(prev=>{
-              // console.log(prev);
               return [...prev, ...res.data.content]
             })
             preventRef.current = true;
           }else{
-            // console.log(res);
           }
         })
         .catch((err) => {
-          console.log(err);
         })
     }
   },[lastId])
 
   const loadSearchPost = useCallback(async () => {
-    console.log('나와라 검색')
     let firsturl = `http://3.34.129.164/api/search/post?keyword=${search}`
     let commonurl = `http://3.34.129.164/api/search/post?keyword=${search}&lastId=${lastId}`
     let urlAX = ""
     if (lastId) {
       urlAX = commonurl
-      console.log(lastId)
     } else {
       urlAX = firsturl
-      console.log(lastId)
     }
     console.log(urlAX)
     await axios.get(urlAX)
       .then((res) => {
-        console.log(res.data.content[res.data.content.length-1]?.postId);
         test = res.data.content[res.data.content.length-1]?.postId;
         if (res.data) {
-          // console.log(res.data);
           setMorePostTitle('검색어' + ' : ' + search)
-          // console.log(setMorePostTitle)
           setMorePostData(prev => {
-            // console.log(prev);
             return [...prev, ...res.data.content]
           })
           preventRef.current = true;
         }
         if(res.data.content<8) {
-          // console.log(res.data);
           setMorePostTitle('검색어' + ' : ' + search)
-          // console.log(setMorePostTitle)
           setMorePostData(prev => {
-            // console.log(prev);
             return [...prev, ...res.data.content]
           })
           preventRef.current = false;
         }
       })
       .catch((err) => {
-        console.log(err);
       })
   }, [lastId])
 
   const loadAddressPost = useCallback(async () => {
-    console.log('나와라 주소')
     let firsturl = `http://3.34.129.164/api/search/post?address=${address}`
     let commonurl = `http://3.34.129.164/api/search/post?address=${address}&lastId=${lastId}`
     let urlAX = ""
     if (lastId) {
       urlAX = commonurl
-      console.log(lastId)
     } else {
       urlAX = firsturl
-      console.log(lastId)
     }
-    console.log(urlAX)
     await axios.get(urlAX)
       .then((res) => {
-        console.log(res.data.content[res.data.content.length-1]?.postId);
         test = res.data.content[res.data.content.length-1]?.postId;
         if (res.data) {
-          // console.log(res.data);
           setMorePostTitle('검색어' + ' : ' + address)
-          // console.log(setMorePostTitle)
           setMorePostData(prev => {
-            // console.log(prev);
             return [...prev, ...res.data.content]
           })
           preventRef.current = true;
         }
         if(res.data.content<8) {
-          // console.log(res.data);
           setMorePostTitle('검색어' + ' : ' + search)
-          // console.log(setMorePostTitle)
           setMorePostData(prev => {
-            // console.log(prev);
             return [...prev, ...res.data.content]
           })
           preventRef.current = false;
         }
       })
       .catch((err) => {
-        console.log(err);
       })
   }, [lastId])
 
@@ -299,6 +229,10 @@ console.log(test,"test확인")
         {/* <div className='hide-obs'></div> */}
         <div ref={obsRef} />
 
+      </div>
+      <div className="subsitute-lowernavar"></div>
+      <div className="lowernavbar">
+       <LowerNavbar/>
       </div>
 
     </div>

@@ -58,7 +58,7 @@ const MorePostCard = (props) => {
           <div className='card-people-count-icon'>
             <MyIcon iconName={"person"} sizePx={14} color={"gray"}/>
           </div>
-          <p>{props.item?.numberOfPeople}명 참여</p>
+          <p>{props.item?.numberOfParticipant}/{props.item?.numberOfPeople}명 참여</p>
           <div className='card-menu-icon'>
             <MyIcon iconName={"ramen_dining"} sizePx={14} color={"gray"}/>
           </div>

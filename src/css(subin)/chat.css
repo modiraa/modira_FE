@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  height: 100%;
   max-height: 64.375rem;
 }
 .chat-header-wrap {
@@ -36,7 +36,7 @@
   overflow: auto;
   /* background-color: green; */
 
-  height: calc(100vh - 13.8125rem - 4.6875rem);
+  height: calc(100vh - 13.8125rem );
 
   margin-top: 0.75rem;
   min-height: 12.5rem;

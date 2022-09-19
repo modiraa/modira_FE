@@ -12,7 +12,7 @@ const GoogleRedirect = () => {
     // const { data } = Api.post("oauth/google", { accessToken });
 
     const test = async() =>{
-    await axios.get(`http://52.79.223.9/auth/google/callback?code=${accessToken}`)
+    await axios.get(`http://3.34.129.164/auth/google/callback?code=${accessToken}`)
         .then((res) => {
             console.log(res); // 토큰이 넘어올 것임
             
