@@ -107,7 +107,7 @@ const PostComponent = ({ postAll }) => {
               <MyIcon sizePx={14} iconName={"person"} color={"gray"} />
             </div>
             <div className="postcomponent-person">
-              {postAll.numberOfParticipant}명 참여
+              {postAll.numberOfParticipant}/{postAll.numberOfPeople}명 참여
             </div>
             <div className="postcomponent-location-icon">
               <MyIcon sizePx={14} iconName={"ramen_dining"} color={"gray"} />

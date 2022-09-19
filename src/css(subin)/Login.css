@@ -136,6 +136,7 @@
     background-color: rgba(4, 207, 92, 1);
     border-radius: 0.5rem;
     margin-top: 1.0625rem;
+    cursor: pointer;
 }
 
 .naver_btn>img{

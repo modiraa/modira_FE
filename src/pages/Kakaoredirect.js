@@ -24,7 +24,9 @@ const Kakaoredirect = ({userName}) => {
             console.log("token", ACCESS_TOKEN); 
 
             if(res.data.id===null){
-                navigate("/register",{ state: { username: res.data.username} });
+                navigate("/register",{ state: { username: res.data.username,profileImage:res.data.profileImage} });
+                sessionStorage.setItem("image",res.data.profileImage)
+                sessionStorage.setItem("username",res.data.username)
                 // dispatch(loginUserinfo({username:res.data.username}))
             }
             else{

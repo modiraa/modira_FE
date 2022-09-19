@@ -4,6 +4,7 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { loginUserinfo } from "../redux/moduls/UserInfo";
+import imageDefault from"../image/profile_default-Vector.png"
 //component
 import AgeDropdown from "../components/register/AgeDropdown";
 import ProfileBg from "../components/public/ProfileBg";
@@ -13,15 +14,16 @@ const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const storeUserInfo = useSelector((state) => state.UserInfo);
+  let location = useLocation();
 
   console.log(storeUserInfo);
-
+console.log(location.state.profileImage)
   //카카오 토큰 서버에 받아서 넘기기
-  let location = useLocation();
-  const username = location.state?.username;
+
+  let username=sessionStorage.getItem("username")
   //지도 api 주소 값 가져오기
   const home = `${location.state?.homesi} ${location.state?.homegu}`;
-  console.log(username, "유저확인");
+  // console.log(username, "유저확인");
 
   //이미지 업로드
   const [ProfileImg, SetProfileImg] = React.useState("");
@@ -32,16 +34,17 @@ const Register = () => {
   const [age, setAge] = React.useState("선택하기");
   const [gender, setGender] = React.useState("");
   const [address, setAddress] = React.useState("");
-
+console.log(location.state)
   const PreviewProfileImg = (e) => {
     const correctForm = /(.*?)\.(jpg|jpeg|png|gif|bmp)$/;
     if (e.target.files[0]?.size > 3 * 1024 * 1024) {
+      alert("3MB이하의 파일만 가능합니다.")
       return;
     } else if (!e.target?.files[0]?.name.match(correctForm)) {
       alert("이미지 파일만 가능합니다.");
       return;
     }
-
+console.log(e.target.files[0])
     SetProfileImg(URL.createObjectURL(e.target.files[0]));
     setUserProfileImage(e.target.files[0]);
     console.log(" 이미지확인", URL.createObjectURL(e.target.files[0]));
@@ -103,19 +106,30 @@ const Register = () => {
 
   const Submit = async (e) => {
     e.preventDefault(e);
-    if ([userProfileImage, nickName, age, gender, address].includes("")) {
+    // if(userProfileImage=""&&!location.state.profileImage){
+    //   alert("이미지를 기입하여주세요");
+    // }
+    if ([ nickName, age, gender, address].includes("")) {
       alert("모든 사항을 기입해주세요");
       return;
     }
-    console.log(username, "카카오 아이디");
-
+    // console.log(username, "카카오 아이디");
+    console.log(location.state.profileImage)
     const formData = new FormData();
-    formData.append("userProfileImage", userProfileImage);
+    if(userProfileImage){
+      formData.append("userProfileImage", userProfileImage);
+    }
+    let kakaoImage=sessionStorage.getItem("image")
+     if(kakaoImage){
+      formData.append("kakaoImage", kakaoImage);
+    }
+   
     formData.append("nickname", nickName);
     formData.append("age", age);
     formData.append("gender", gender);
     formData.append("address", home);
-    formData.append("username", storeUserInfo.username);
+    formData.append("username", username);
+    console.log(formData.get("kakaoImage"))
     await axios
       .post("http://3.34.129.164/api/user/register", formData, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -124,6 +138,7 @@ const Register = () => {
         console.log("회원가입 완료", response);
         alert("가입성공");
         navigate("/login");
+        sessionStorage.clear();
       })
       .catch((error) => {
         console.log("에러!", error);

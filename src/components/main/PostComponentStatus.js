@@ -68,7 +68,7 @@ const PostComponentStatus = ({ poststatus }) => {
         <MyIcon sizePx={14} iconName={"person"} color={"gray"} />
 
           <div className="postcomponentstatus-person">
-            {poststatus?.numberOfParticipant}명 참여
+            {poststatus?.numberOfParticipant}/{poststatus?.numberOfPeople}명 참여
           </div>
           <MyIcon sizePx={14} iconName={"ramen_dining"} color={"gray"} />
 

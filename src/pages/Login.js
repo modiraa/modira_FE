@@ -53,9 +53,9 @@ const Login = () => {
               카카오톡으로 시작하기
             </a>
           </div>
-          <div className='naver_btn'>
+          <div className='naver_btn'  onClick={()=>{alert("준비중인 서비스입니다!")}}>
             <img src={naverLogin}/>
-            <a className="naverIdLogin" href={NAVER_AUTH_URL}>
+            <a className="naverIdLogin">
               네이버로 시작하기
             </a>
           </div>
