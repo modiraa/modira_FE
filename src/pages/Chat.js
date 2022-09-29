@@ -2,11 +2,12 @@ import Stomp from "stompjs";
 import SockJS from "sockjs-client";
 import React from "react";
 import "../css(subin)/chat.css";
-import MessageList from "../components/chat/MessageList";
+import MessageList, { MemozizedMessageList } from "../components/chat/MessageList";
 import MessageInput from "../components/chat/MessageInput";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import MyIcon from "../element/MyIcon";
+import Header, { MemorizedHeader, MemozizedHeader } from "../components/chat/Header";
 
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
@@ -19,11 +20,9 @@ const Chat = () => {
   const [sendNick, setSendNick] = React.useState("");
 
   const RefViewControll = React.useRef();
-  const navigate = useNavigate();
   const Auth = sessionStorage.getItem("token");
   const authNoBearer = sessionStorage.getItem("token")?.split(" ")[1];
   const roomId = sessionStorage.getItem("roomId");
-  const postTitle = sessionStorage.getItem("postTitle");
 
   //소켓연결
   React.useEffect(() => {
@@ -48,7 +47,7 @@ const Chat = () => {
       RefViewControll.current.scrollTop = RefViewControll.current.scrollHeight;
     }
   }, [showMessage, sendMessage, isConnected]);
-  // 유저의 방 정보 가기오기
+  //유저의 방 정보 가기오기
   React.useEffect(() => {
     loadUserInfo();
   }, []);
@@ -64,8 +63,7 @@ const Chat = () => {
       .then((response) => {
         prevMessage = response.data.content.reverse();
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
   };
 
   const loadUserInfo = async () => {
@@ -78,8 +76,7 @@ const Chat = () => {
       .then((response) => {
         setSendNick(response.data.nickname);
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
   };
 
   // 소켓 함수
@@ -117,40 +114,14 @@ const Chat = () => {
         })
       );
       setSendMessage("");
-    } catch (error) {
-    }
+    } catch (error) {}
   }
-
-  //modal창 함수
-
-  const exitChatRoom = (event) => {
-    event.stopPropagation();
-    navigate("/userprofile");
-  };
 
   return (
     <div className="chat-wrap">
-      <div className="chat-header-wrap">
-        <div
-          className="chat-header-icon"
-          onClick={(event) => {
-            event.stopPropagation();
-            navigate(-1);
-          }}
-        >
-          <MyIcon sizePx={28} iconName={"arrow_back_ios"} />
-        </div>
-        <div className="chat-header-title font-bold">{postTitle}</div>{" "}
-        <div
-          className="chat-header-icon"
-          style={{ marginRight: "35px", cursor: "pointer" }}
-          onClick={exitChatRoom}
-        >
-          <MyIcon sizePx={28} iconName={"logout"} />
-        </div>
-      </div>
+      <MemorizedHeader/>
       <div ref={RefViewControll} className="chat-message-container">
-        <MessageList showMessage={prevMessage} sendNick={sendNick} />
+        <MemozizedMessageList showMessage={prevMessage} sendNick={sendNick} />
         <MessageList showMessage={showMessage} sendNick={sendNick} />
       </div>
       <div className="chat-input-wrap">

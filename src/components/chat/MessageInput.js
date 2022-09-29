@@ -44,9 +44,6 @@ const MessageInput = ({ setSendMessage, sendMessageFN, sendMessage }) => {
       <input
         className="chat-input"
         placeholder="채팅입력"
-        onChange={(e) => {
-          setSendMessage(e.target.value);
-        }}
         ref={refInput}
       />
       <div className="chat-input-location-icon">
@@ -54,6 +51,7 @@ const MessageInput = ({ setSendMessage, sendMessageFN, sendMessage }) => {
           className="chat-input-incon-circle"
           onClick={() => {
             sendMessageFN();
+            setSendMessage(refInput.current.value)
             refInput.current.value = "";
           }}
         >

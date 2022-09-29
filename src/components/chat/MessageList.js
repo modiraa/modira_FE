@@ -10,4 +10,5 @@ const MessageList = ({showMessage,sendNick}) => {
   )
 }
 
-export default MessageList
+export const MemozizedMessageList= React.memo(MessageList);
+export default MessageList;
