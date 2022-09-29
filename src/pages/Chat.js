@@ -2,12 +2,16 @@ import Stomp from "stompjs";
 import SockJS from "sockjs-client";
 import React from "react";
 import "../css(subin)/chat.css";
-import MessageList, { MemozizedMessageList } from "../components/chat/MessageList";
+import MessageList, {
+  MemozizedMessageList,
+} from "../components/chat/MessageList";
 import MessageInput from "../components/chat/MessageInput";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import MyIcon from "../element/MyIcon";
-import Header, { MemorizedHeader, MemozizedHeader } from "../components/chat/Header";
+import Header, {
+  MemorizedHeader,
+} from "../components/chat/Header";
 
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
@@ -16,7 +20,6 @@ let prevMessage = [];
 const Chat = () => {
   const [isConnected, setIsConnected] = React.useState(false);
   const [showMessage, setShowMessage] = React.useState([]);
-  const [sendMessage, setSendMessage] = React.useState("");
   const [sendNick, setSendNick] = React.useState("");
 
   const RefViewControll = React.useRef();
@@ -46,7 +49,7 @@ const Chat = () => {
     if (RefViewControll.current && prevMessage.length > 0) {
       RefViewControll.current.scrollTop = RefViewControll.current.scrollHeight;
     }
-  }, [showMessage, sendMessage, isConnected]);
+  }, [showMessage, isConnected]);
   //유저의 방 정보 가기오기
   React.useEffect(() => {
     loadUserInfo();
@@ -100,36 +103,15 @@ const Chat = () => {
     setIsConnected(false);
   }
 
-  function sendMessageFN() {
-    try {
-      stompClient.send(
-        "/pub/chat/message",
-        {
-          Authorization: authNoBearer,
-        },
-        JSON.stringify({
-          message: sendMessage,
-          type: "TALK",
-          roomId: roomId,
-        })
-      );
-      setSendMessage("");
-    } catch (error) {}
-  }
-
   return (
     <div className="chat-wrap">
-      <MemorizedHeader/>
+      <MemorizedHeader />
       <div ref={RefViewControll} className="chat-message-container">
         <MemozizedMessageList showMessage={prevMessage} sendNick={sendNick} />
         <MessageList showMessage={showMessage} sendNick={sendNick} />
       </div>
       <div className="chat-input-wrap">
-        <MessageInput
-          sendMessageFN={sendMessageFN}
-          setSendMessage={setSendMessage}
-          sendMessage={sendMessage}
-        />
+        <MessageInput stompClient={stompClient} />
       </div>
     </div>
   );
