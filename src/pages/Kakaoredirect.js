@@ -15,7 +15,8 @@ const Kakaoredirect = ({userName}) => {
     console.log(`http://52.79.223.9/auth/kakao/callback?code=${code}`)
 
     const test = async() =>{
-        await axios.get(`http://3.34.129.164/auth/kakao/callback?code=${code}`)
+        //redirectUri=modira||redirectUri=3000
+        await axios.get(`http://3.34.129.164/auth/kakao/callback?code=${code}&&redirectUri=3000`)
         .then((res) => {
             console.log(res); // 토큰이 넘어올 것임
             

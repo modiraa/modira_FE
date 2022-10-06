@@ -20,6 +20,16 @@ const Message = ({ messageData, sendNick, prevData }) => {
       </div>
     );
   }
+  if (messageData.type === "QUIT") {
+    return (
+      <div className="chat-message-enter">
+        <span className="chat-message-enter-nick font-bold">
+          {messageData.sender}
+        </span>
+        님이 퇴장하였습니다.
+      </div>
+    );
+  }
 
   // 메시지 연속x
   if (messageData.type === "TALK" && !isSmaeSender && isMyMessage) {

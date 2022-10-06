@@ -7,11 +7,7 @@ import MessageList, {
 } from "../components/chat/MessageList";
 import MessageInput from "../components/chat/MessageInput";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import MyIcon from "../element/MyIcon";
-import Header, {
-  MemorizedHeader,
-} from "../components/chat/Header";
+import { MemorizedHeader } from "../components/chat/Header";
 
 //https://github.com/spring-guides/gs-messaging-stomp-websocket/blob/main/complete/src/main/resources/static/app.js 참고
 
@@ -98,6 +94,15 @@ const Chat = () => {
 
   function disconnect() {
     if (stompClient !== null) {
+      stompClient.send(
+        "/pub/chat/message",
+        {
+          Authorization: authNoBearer,
+        },
+        JSON.stringify({
+          type: "QUIT",
+        })
+      );
       stompClient.disconnect();
     }
     setIsConnected(false);
