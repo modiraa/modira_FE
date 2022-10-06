@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { png } from "../image";
 
 const MyIcon = ({ iconName, sizePx, color, cursor }) => {
@@ -38,4 +37,4 @@ const MyIcon = ({ iconName, sizePx, color, cursor }) => {
   return <img src={mySrc} style={myStyle}></img>;
 };
 
-export default MyIcon;
+export default React.memo(MyIcon);

@@ -1,17 +1,37 @@
 import React, { useRef } from "react";
 import MyIcon from "../../element/MyIcon";
-
-const MessageInput = ({ setSendMessage, sendMessageFN, sendMessage }) => {
+let sendMessage = "";
+const MessageInput = ({ stompClient }) => {
   const refInput = useRef();
+  const authNoBearer = sessionStorage.getItem("token")?.split(" ")[1];
+  const roomId = sessionStorage.getItem("roomId");
+  
+
   const lineBreackInput = () => {
     console.log(refInput.current.value);
     // refInput.current.value=refInput.current.value+"&#10;"
   };
   const sendmMessegeByEnter = () => {
-    console.log("실행됨!");
     sendMessageFN();
     refInput.current.value = "";
   };
+  function sendMessageFN() {
+    sendMessage = refInput.current?.value;
+
+    try {
+      stompClient.send(
+        "/pub/chat/message",
+        {
+          Authorization: authNoBearer,
+        },
+        JSON.stringify({
+          message: sendMessage,
+          type: "TALK",
+          roomId: roomId,
+        })
+      );
+    } catch (error) {}
+  }
 
   React.useEffect(() => {
     const keyDownHandler = (event) => {
@@ -21,6 +41,7 @@ const MessageInput = ({ setSendMessage, sendMessageFN, sendMessage }) => {
         event.preventDefault();
 
         // 👇️ your logic here
+
         sendmMessegeByEnter();
       }
       if (event.key === "Enter" && event.shiftKey) {
@@ -37,18 +58,11 @@ const MessageInput = ({ setSendMessage, sendMessageFN, sendMessage }) => {
     return () => {
       document.removeEventListener("keydown", keyDownHandler);
     };
-  }, [sendMessage]);
+  }, [sendmMessegeByEnter]);
 
   return (
     <div className="chat-input-wrap-inpuAndicon">
-      <input
-        className="chat-input"
-        placeholder="채팅입력"
-        onChange={(e) => {
-          setSendMessage(e.target.value);
-        }}
-        ref={refInput}
-      />
+      <input className="chat-input" placeholder="채팅입력" ref={refInput} />
       <div className="chat-input-location-icon">
         <div
           className="chat-input-incon-circle"
@@ -60,7 +74,6 @@ const MessageInput = ({ setSendMessage, sendMessageFN, sendMessage }) => {
           <MyIcon sizePx={23} iconName={"arrow_upward"} />
         </div>
       </div>
-      {/* <button onClick={sendMessageFN}>메시지보내기</button> */}
     </div>
   );
 };
